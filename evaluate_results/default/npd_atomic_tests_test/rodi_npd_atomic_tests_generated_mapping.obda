@@ -1,0 +1,1091 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+npdatomictests:	http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-165126421
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTransferValidFrom> {seaplanfromdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourceNumber> {seasourcenumber}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {seaplantodate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourceSize> {seasourcesize}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOwnerTo> {seadatefinalized}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourcePressure> {seasourcepressure}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthPlannedCdpKm> {seaplancdpkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#sensorNumbers> {seasensornumbers}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthPlannedBoatKm> {seacdptotalkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#sensorLength> {seasensorlength}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#companyShare> {seaplanboatkm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {seastatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthBoatTotalKm> {seaboattotalkm}^^xsd:integer . 
+source		SELECT "seasurveyname" , "seafactmapurl" , "seafactpageurl" , "seastatus" , "seamarketavailable" , "seasurveytypemain" , "seasurveytypepart" , "seacompanyreported" , "seasourcetype" , "seasourcenumber" , "seasourcesize" , "seasourcepressure" , "seasensortype" , "seasensornumbers" , "seasensorlength" , "seaplanfromdate" , "seadatestarting" , "seaplantodate" , "seadatefinalized" , "seaplancdpkm" , "seacdptotalkm" , "seaplanboatkm" , "seaboattotalkm" FROM "seamultiline"
+
+mappingId	mapping-1655481104
+target		<http://sws.ifi.uio.no/data/npd-v2/field_description/{fldnpdidfield}__{flddescriptionheading}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted> {flddescriptiondateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#includedInField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {fldname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {flddescriptiontext}^^xsd:string . 
+source		SELECT "fldname" , "flddescriptionheading" , "flddescriptiontext" , "fldnpdidfield" , "flddescriptiondateupdated" FROM "field_description"
+
+mappingId	mapping-647046388
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'MONOTOWER'
+
+mappingId	mapping--1406968778
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellborePoint> . 
+source		SELECT "wlbnpdidwellbore" FROM "wlbpoint" WHERE "wlbdiscoverywellbore" = 'NO'
+
+mappingId	mapping-471288825
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#MultiWellTemplateFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'MULTI WELL TEMPLATE'
+
+mappingId	mapping-1819293539
+target		<http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> a <http://sws.ifi.uio.no/vocab/npd-v2#Field> . 
+source		SELECT "fldnpdidfield" FROM "field" WHERE "fldownerkind" = 'BUSINESS ARRANGEMENT AREA'
+
+mappingId	mapping--576348630
+target		<http://sws.ifi.uio.no/data/npd-v2/fldarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "fldarea" WHERE "fldhctype" = 'GAS/CONDENSATE'
+
+mappingId	mapping--1155388113
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore/{wlbnpdidwellbore}__{lsunpdidlithostrat}__{lsutopdepth}__{lsubottomdepth}> a <http://sws.ifi.uio.no/vocab/npd-v2#Wellbore> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" , "lsutopdepth" , "lsubottomdepth" FROM "strat_litho_wellbore" WHERE "lsulevel" = 'FORMATION'
+
+mappingId	mapping-201666488
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Jacket12LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'JACKET 12 LEGS'
+
+mappingId	mapping-597827092
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'JACKET TRIPOD'
+
+mappingId	mapping--821716565
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'MUD'
+
+mappingId	mapping-238031987
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'MDT'
+
+mappingId	mapping--1971268217
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 81
+
+mappingId	mapping-2066036311
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_licensee_hst/{prlnpdidlicence}__{cmpnpdidcompany}__{prllicenseedatevalidfrom}__{prllicenseedatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidTo> {prllicenseedateupdated}^^xsd:dateTime , {prloperdatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest> {prllicenseeinterest}^^xsd:decimal , {prllicenseesdfi}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom> {prllicenseedatevalidfrom}^^xsd:dateTime , {prloperdatevalidfrom}^^xsd:dateTime , {prllicenseedatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> . 
+source		SELECT "prlname" , "prllicenseedatevalidfrom" , "prllicenseedatevalidto" , "cmplongname" , "prllicenseeinterest" , "prllicenseesdfi" , "prloperdatevalidfrom" , "prloperdatevalidto" , "prlnpdidlicence" , "cmpnpdidcompany" , "prllicenseedateupdated" , "datesyncnpd" FROM "licence_licensee_hst"
+
+mappingId	mapping--60582888
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'RFT'
+
+mappingId	mapping-56519089
+target		<http://sws.ifi.uio.no/data/npd-v2/dscarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "dscarea" WHERE "fldhctype" = 'OIL'
+
+mappingId	mapping-1805599298
+target		<http://sws.ifi.uio.no/data/npd-v2/field_production_yearly/{prfnpdidinformationcarrier}__{prfyear}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldYearlyProduction> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreDrillingDays> {prfprdgasnetbillsm3}^^xsd:integer , {prfprdnglnetmillsm3}^^xsd:integer , {prfprdoilnetmillsm3}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreReentryExplorationActivity> {prfprdproducedwaterinfieldmillsm3}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prfyear}^^xsd:int . 
+source		SELECT "prfinformationcarrier" , "prfyear" , "prfprdoilnetmillsm3" , "prfprdgasnetbillsm3" , "prfprdnglnetmillsm3" , "prfprdcondensatenetmillsm3" , "prfprdoenetmillsm3" , "prfprdproducedwaterinfieldmillsm3" , "prfnpdidinformationcarrier" FROM "field_production_yearly"
+
+mappingId	mapping-1904981130
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclbelongstokind" = 'FIELD'
+
+mappingId	mapping--1778383235
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'FSU'
+
+mappingId	mapping--1597225475
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'OPEN HOLE'
+
+mappingId	mapping-633189121
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 90
+
+mappingId	mapping--1893543350
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 170
+
+mappingId	mapping--737364440
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seapolygonkind" = 'Område inkludert snuområde'
+
+mappingId	mapping-1855461632
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wlbpoint" WHERE "wlbwelltype" = 'EXPLORATION'
+
+mappingId	mapping--1914398178
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbwelltype" = 'EXPLORATION'
+
+mappingId	mapping--1681888122
+target		<http://sws.ifi.uio.no/data/npd-v2/field_owner_hst/{fldnpdidfield}__{fldnpdidowner}__{fldownershipfromdate}__{fldownershiptodate}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldOwner> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOwnerTo> {fldownerdateupdated}^^xsd:dateTime , {fldownershiptodate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOwnerFrom> {fldownershipfromdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#ownerForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string . 
+source		SELECT "fldname" , "fldownerkind" , "fldownername" , "fldownershipfromdate" , "fldownershiptodate" , "fldnpdidfield" , "fldnpdidowner" , "fldownerdateupdated" , "datesyncnpd" FROM "field_owner_hst"
+
+mappingId	mapping-174009455
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FixedFacility> ; <http://sws.ifi.uio.no/vocab/npd-v2#designLifetime> {fclnssec}^^xsd:integer , {fclbelongstos}^^xsd:integer , {fclewdeg}^^xsd:integer , {fclewmin}^^xsd:integer , {fcldesignlifetime}^^xsd:integer , {fclnsdeg}^^xsd:integer , {fclnsmin}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#codeEW> {fclewcode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#codeNS> {fclnscode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#waterDepth> {fclwaterdepth}^^xsd:decimal , {fclewsec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#facilityFunction> {fclfunctions}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateProductionStart> {fclstartupdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#geodeticDatum> {fclgeodeticdatum}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {fcldateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fclname}^^xsd:string . 
+source		SELECT "fclname" , "fclphase" , "fclsurface" , "fclcurrentoperatorname" , "fclkind" , "fclbelongstoname" , "fclbelongstokind" , "fclbelongstos" , "fclstartupdate" , "fclgeodeticdatum" , "fclnsdeg" , "fclnsmin" , "fclnssec" , "fclnscode" , "fclewdeg" , "fclewmin" , "fclewsec" , "fclewcode" , "fclwaterdepth" , "fclfunctions" , "fcldesignlifetime" , "fclfactpageurl" , "fclfactmapurl" , "fclnpdidfacility" , "fcldateupdated" , "datesyncnpd" FROM "facility_fixed"
+
+mappingId	mapping--657313291
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> <http://sws.ifi.uio.no/vocab/npd-v2#facilityFunction> {fclfunctions}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#coresTotalLength> {fclbelongstos}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#designLifetime> {fcldesignlifetime}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fclname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#waterDepth> {fclwaterdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusFrom> {fclstartupdate}^^xsd:dateTime . 
+source		SELECT "fclnpdidfacility" , "fclsurface" , "fclcurrentoperatorname" , "fclname" , "fclkind" , "fclbelongstoname" , "fclbelongstokind" , "fclbelongstos" , "fclstartupdate" , "fclwaterdepth" , "fclfunctions" , "fcldesignlifetime" , "fclfactpageurl" , "fclfactmapurl" FROM "fclpoint"
+
+mappingId	mapping--661558903
+target		<http://sws.ifi.uio.no/data/npd-v2/fldarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "fldarea" WHERE "fldhctype" = 'GAS'
+
+mappingId	mapping-1819320494
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#SDFITransfer> . 
+source		SELECT "prlnpdidlicence" , "prltransferdirection" , "cmpnpdidcompany" , "prltransferdatevalidfrom" FROM "licence_transfer_hst" WHERE "prltransferkind" = 'SDFI'
+
+mappingId	mapping--237601636
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_transfer_hst/{baanpdidbsnsarrarea}__{baatransferdirection}__{cmpnpdidcompany}__{baatransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#ChangeOfCompanyNameTransfer> . 
+source		SELECT "baanpdidbsnsarrarea" , "baatransferdirection" , "cmpnpdidcompany" , "baatransferdatevalidfrom" FROM "bsns_arr_area_transfer_hst" WHERE "baatransferkind" = 'CHANGE OF COMPANY NAME'
+
+mappingId	mapping-2083397676
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> ; <http://sws.ifi.uio.no/vocab/npd-v2#secondsEW> {wlbewsec}^^xsd:decimal , {wlbnssec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#utmEW> {wlbewutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreContent> {wlbcontent}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#codeEW> {wlbewcode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#degreesNS> {wlbnsdeg}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#utmZone> {wlbutmzone}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreEntry> {wlbentrydate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesEW> {wlbnsdecdeg}^^xsd:decimal , {wlbewdesdeg}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlannedPurpose> {wlbpurposeplanned}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#minutesNS> {wlbnsmin}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOilSampleTest> {wlbcompletiondate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreParent> {wlbwellborename}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {wlbfield}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#utmNS> {wlbnsutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#degreesEW> {wlbewdeg}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#geodeticDatum> {wlbgeodeticdatum}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#minutesEW> {wlbewmin}^^xsd:integer . 
+source		SELECT "wlbwellborename" , "wlbdrillingoperator" , "wlbproductionlicence" , "wlbwelltype" , "wlbpurposeplanned" , "wlbcontent" , "wlbentrydate" , "wlbcompletiondate" , "wlbfield" , "wlbmainarea" , "wlbgeodeticdatum" , "wlbnsdeg" , "wlbnsmin" , "wlbnssec" , "wlbnscode" , "wlbewdeg" , "wlbewmin" , "wlbewsec" , "wlbewcode" , "wlbnsdecdeg" , "wlbewdesdeg" , "wlbnsutm" , "wlbewutm" , "wlbutmzone" , "wlbnpdidwellbore" , "datesyncnpd" FROM "wellbore_coordinates"
+
+mappingId	mapping-1024295062
+target		<http://sws.ifi.uio.no/data/npd-v2/baaarea/{baanpdidbsnsarrarea}__{baanpdidbsnsarrareapoly}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAAArea> ; <http://www.w3.org/2004/02/skos/core#broaderTransitive> <http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateBaaAreaValidFrom> {baaareapolydatevalidfrom}^^xsd:dateTime , {baadatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateBaaAreaValidTo> {baaareapolydatevalidto}^^xsd:dateTime , {baadatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateApproved> {baadateapproved}^^xsd:dateTime . 
+source		SELECT "baanpdidbsnsarrarea" , "baanpdidbsnsarrareapoly" , "baaname" , "baakind" , "baaareapolydatevalidfrom" , "baaareapolydatevalidto" , "baaareapolyactive" , "baadateapproved" , "baadatevalidfrom" , "baadatevalidto" , "baaactive" , "baafactpageurl" , "baafactmapurl" FROM "baaarea"
+
+mappingId	mapping-1569471579
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ObservationWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 99
+
+mappingId	mapping-411883925
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#SemisubConcreteFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'SEMISUB CONCRETE'
+
+mappingId	mapping-2006242843
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'FMT'
+
+mappingId	mapping-1088959645
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasourcetype" = 'UNKNOWN'
+
+mappingId	mapping--240781152
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_npdid_overview" WHERE "wlbwelltype" = 'EXPLORATION'
+
+mappingId	mapping-1905251640
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#MultiFieldWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiskoswellboretype" = 'multi-field'
+
+mappingId	mapping-715157993
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'JACKET 8 LEGS'
+
+mappingId	mapping-1891268901
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_phase_hst/{prlnpdidlicence}__{prlphase}__{prldatephasevalidfrom}__{prldatephasevalidto}> a <http://www.ifomis.org/bfo/1.1/span#ProcessualEntity> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted> {prldategranted}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidTo> {prldatevalidto}^^xsd:dateTime , {prlphasedateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceAreaValidFrom> {prldateinitialperiodexpires}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom> {prldatephasevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidFrom> {prldatephasevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {prlname}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prlphase}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> . 
+source		SELECT "prlname" , "prldatephasevalidfrom" , "prldatephasevalidto" , "prlphase" , "prldategranted" , "prldatevalidto" , "prldateinitialperiodexpires" , "prlactivestatusindicator" , "prlnpdidlicence" , "prlphasedateupdated" , "datesyncnpd" FROM "licence_phase_hst"
+
+mappingId	mapping--1617994650
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 171
+
+mappingId	mapping-1517204851
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FSUFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'FSU'
+
+mappingId	mapping--1551515447
+target		<http://sws.ifi.uio.no/data/npd-v2/seis_acquisition_progress/{seis_acquisition_progress_id}__{seaprogresstext2}> a <http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurveyProgress> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSurveyProgress> {seaprogressdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#surveySubType> {seanpdidsurvey}^^xsd:string . 
+source		SELECT "seaprogressdate" , "seaprogresstext2" , "seaprogresstext" , "seaprogressdescription" , "seanpdidsurvey" , "seis_acquisition_progress_id" FROM "seis_acquisition_progress"
+
+mappingId	mapping-1401289954
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 13
+
+mappingId	mapping--387366938
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#BlowOut> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreContent> {wlbcontent}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreParent> {wlbfactpageurl}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {wlbstatus}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {wlbfield}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlotSymbol> {wlbsymbol}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreLicensingActivity> {wlbdrillingfacility}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreType> {wlbpurpose}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#facilityFunction> {wlbproductionfacility}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreWaterDepth> {wlbwaterdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreEntry> {wlbentrydate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreCompletion> {wlbcompletiondate}^^xsd:dateTime . 
+source		SELECT "wlbnpdidwellbore" , "wlbwellname" , "wlbwellborename" , "wlbfield" , "wlbproductionlicence" , "wlbwelltype" , "wlbdrillingoperator" , "wlbmultilateral" , "wlbdrillingfacility" , "wlbproductionfacility" , "wlbentrydate" , "wlbcompletiondate" , "wlbcontent" , "wlbstatus" , "wlbsymbol" , "wlbpurpose" , "wlbwaterdepth" , "wlbfactpageurl" , "wlbfactmapurl" , "wlbdiscoverywellbore" FROM "wlbpoint"
+
+mappingId	mapping--210463646
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = '23/10/2009 20:00 Glydril DW'
+
+mappingId	mapping--2085141771
+target		<http://sws.ifi.uio.no/data/npd-v2/field_production_totalt_ncs_month/{prfyear}__{prfmonth}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction> ; <http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents> {prfprdproducedwaterinfieldmillsm3}^^xsd:decimal ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prfyear}^^xsd:int ; <http://sws.ifi.uio.no/vocab/npd-v2#shortName> {prfmonth}^^xsd:string . 
+source		SELECT "prfyear" , "prfmonth" , "prfprdoilnetmillsm3" , "prfprdgasnetbillsm3" , "prfprdnglnetmillsm3" , "prfprdcondensatenetmillsm3" , "prfprdoenetmillsm3" , "prfprdproducedwaterinfieldmillsm3" FROM "field_production_totalt_ncs_month"
+
+mappingId	mapping--1520591184
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypepart" = '4D'
+
+mappingId	mapping--1264789435
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_operator_hst/{tufnpdidtuf}__{cmpnpdidcompany}__{tufoperdatevalidfrom}__{tufoperdatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#TUFOperator> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTUFOperatorValidFrom> {tufoperdatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTUFOperatorValidTo> {tufoperdatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {tufname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "tufname" , "cmplongname" , "tufoperdatevalidfrom" , "tufoperdatevalidto" , "tufnpdidtuf" , "cmpnpdidcompany" , "datesyncnpd" FROM "tuf_operator_hst"
+
+mappingId	mapping-297555058
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#JacketTripodFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'JACKET TRIPOD'
+
+mappingId	mapping--676676583
+target		<http://sws.ifi.uio.no/data/npd-v2/field_licensee_hst/{fldnpdidfield}__{cmpnpdidcompany}__{fldlicenseefrom}__{fldlicenseeto}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldLicenseeTo> {fldlicenseeto}^^xsd:dateTime , {fldownerto}^^xsd:dateTime , {fldlicenseedateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#companyShare> {fldcompanyshare}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldLicenseeFrom> {fldownerfrom}^^xsd:dateTime , {fldlicenseefrom}^^xsd:dateTime . 
+source		SELECT "fldname" , "fldownername" , "fldownerkind" , "fldownerfrom" , "fldownerto" , "fldlicenseefrom" , "fldlicenseeto" , "cmplongname" , "fldcompanyshare" , "fldsdfishare" , "fldnpdidfield" , "cmpnpdidcompany" , "fldlicenseedateupdated" , "datesyncnpd" FROM "field_licensee_hst"
+
+mappingId	mapping--811255187
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'AQUADRILL'
+
+mappingId	mapping--1288135955
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#OnshoreFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'ONSHORE FACILITY'
+
+mappingId	mapping--64956900
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_core/{wellbore_core_id}__{wlbnpdidwellbore}__{wlbcorenumber}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCore> ; <http://sws.ifi.uio.no/vocab/npd-v2#coreIntervalBottom> {wlbcorenumber}^^xsd:decimal , {wlbcoreintervalbottom}^^xsd:decimal , {wlbnumberofcores}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#coreIntervalTop> {wlbcoreintervaltop}^^xsd:decimal , {wellbore_core_id}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#coresTotalLength> {wlbtotalcorelength}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string . 
+source		SELECT "wlbname" , "wlbcorenumber" , "wlbcoreintervaltop" , "wlbcoreintervalbottom" , "wlbcoreintervaluom" , "wlbtotalcorelength" , "wlbnumberofcores" , "wlbcoresampleavailable" , "wlbnpdidwellbore" , "wlbcoredateupdated" , "datesyncnpd" , "wellbore_core_id" FROM "wellbore_core"
+
+mappingId	mapping--1560129076
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_dst/{wlbnpdidwellbore}__{wlbdsttestnumber}> a <http://sws.ifi.uio.no/vocab/npd-v2#Wellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTDepthTo> {wlbdsttodepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#producedGas> {wlbdstgasprod}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTChokeSize> {wlbdstchokesize}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreWellType> {wlbdsttestnumber}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTOilDensity> {wlbdstoildensity}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTFinalShutInPressure> {wlbdstfinshutinpress}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreForField> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTGasDensity> {wlbdstgasdensity}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTFinalFlowPressure> {wlbdstfinflowpress}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTGasOilRelation> {wlbdstgasoilrelation}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTBottomHolePressure> {wlbdstbottomholepress}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTDepthFrom> {wlbdstfromdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {wlbdstdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#producedOil> {wlbdstoilprod}^^xsd:decimal . 
+source		SELECT "wlbname" , "wlbdsttestnumber" , "wlbdstfromdepth" , "wlbdsttodepth" , "wlbdstchokesize" , "wlbdstfinshutinpress" , "wlbdstfinflowpress" , "wlbdstbottomholepress" , "wlbdstoilprod" , "wlbdstgasprod" , "wlbdstoildensity" , "wlbdstgasdensity" , "wlbdstgasoilrelation" , "wlbnpdidwellbore" , "wlbdstdateupdated" , "datesyncnpd" FROM "wellbore_dst"
+
+mappingId	mapping--605988573
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> . 
+source		SELECT "wellbore_document_id" , "wlbnpdidwellbore" , "wlbdocumentname" FROM "wellbore_document" WHERE "wlbdocumenttype" = 'REPORTED BY LICENSEE'
+
+mappingId	mapping-2097000367
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> ; <http://www.w3.org/2004/02/skos/core#altLabel> {wlbwell}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreDrillingDays> {wlbnpdidwellbore}^^xsd:integer . 
+source		SELECT "wlbwellborename" , "wlbnpdidwellbore" , "wlbwell" , "wlbwelltype" , "datesyncnpd" FROM "wellbore_npdid_overview"
+
+mappingId	mapping-799629686
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#JackUp4LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_moveable" WHERE "fclkind" = 'JACK-UP 4 LEGS'
+
+mappingId	mapping-329510790
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_oper_hst/{prlnpdidlicence}__{cmpnpdidcompany}__{prloperdatevalidfrom}__{prloperdatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {prloperdatevalidto}^^xsd:dateTime , {prloperdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom> {prloperdatevalidfrom}^^xsd:dateTime . 
+source		SELECT "prlname" , "prloperdatevalidfrom" , "prloperdatevalidto" , "cmplongname" , "prlnpdidlicence" , "cmpnpdidcompany" , "prloperdateupdated" , "datesyncnpd" FROM "licence_oper_hst"
+
+mappingId	mapping-1342124721
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FPSOFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'FPSO'
+
+mappingId	mapping-1376580705
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_task/{prlnpdidlicence}__{prltaskid}> a <http://sws.ifi.uio.no/vocab/npd-v2#Licensee> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {prldatevalidto}^^xsd:dateTime , {prltaskdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string , {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {prllicensingactivityname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {prltaskid}^^xsd:string , {prltaskrefid}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#currentStatus> {prltaskstatusno}^^xsd:string , {prltaskstatusen}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#baaLicensee> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTaskExpiry> {prltaskexpirydate}^^xsd:dateTime . 
+source		SELECT "prlname" , "prltaskname" , "prltasktypeno" , "prltasktypeen" , "prltaskstatusno" , "prltaskstatusen" , "prltaskexpirydate" , "wlbname" , "prldatevalidto" , "prllicensingactivityname" , "cmplongname" , "cmpnpdidcompany" , "prlnpdidlicence" , "prltaskid" , "prltaskrefid" , "prltaskdateupdated" , "datesyncnpd" FROM "licence_task"
+
+mappingId	mapping-206664174
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Jacket4LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'JACKET 4 LEGS'
+
+mappingId	mapping--1897720229
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore/{wlbnpdidwellbore}__{lsunpdidlithostrat}__{lsutopdepth}__{lsubottomdepth}> a <http://sws.ifi.uio.no/vocab/npd-v2#ReClassToTestWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTDepthTo> {lsutopdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string , {lsuname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTBottomHolePressure> {lsubottomdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTGasOilRelation> {lsunpdidlithostrat}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreCompletion> {wlbcompletiondate}^^xsd:dateTime , {lsuwellboreupdateddate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "wlbname" , "lsutopdepth" , "lsubottomdepth" , "lsuname" , "lsulevel" , "lsunpdidlithostrat" , "wlbcompletiondate" , "wlbnpdidwellbore" , "lsuwellboreupdateddate" , "datesyncnpd" FROM "strat_litho_wellbore"
+
+mappingId	mapping-1209866858
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellborePoint> . 
+source		SELECT "wlbnpdidwellbore" FROM "wlbpoint" WHERE "wlbdiscoverywellbore" = 'YES'
+
+mappingId	mapping-1573615542
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'SEMISUB CONCRETE'
+
+mappingId	mapping-1658465216
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InitialWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbdiskoswellboretype" = 'initial'
+
+mappingId	mapping--1758862975
+target		<http://sws.ifi.uio.no/data/npd-v2/prlareasplitbyblock/{prlnpdidlicence}__{blcname}__{prlareapolypolyno}__{prlareapolydatevalidfrom}__{prlareapolydatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#AppraisalWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://resource.geosciml.org/ontology/timescale/gts-30#additionalCorrelationProperty> {prlareapolystratigraphical}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleFluidType> {prlareapolypolyarea}^^xsd:string , {prlareapolytozvalue}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom> {prlareapolydatevalidfrom}^^xsd:dateTime , {prlareapolydatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string , {blcname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{prllastoperatornpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTopDepth> {prlareapolypolyno}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#currentAreaSize> {prlcurrentarea}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {prllicensingactivityname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {prldategranted}^^xsd:dateTime ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prlfacturl}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {prldatevalidto}^^xsd:dateTime . 
+source		SELECT "prlname" , "prlactive" , "prlcurrentarea" , "prldategranted" , "prldatevalidto" , "prlareapolydatevalidfrom" , "prlareapolydatevalidto" , "prlareapolypolyno" , "prlareapolypolyarea" , "blcname" , "prlareapolyfromzvalue" , "prlareapolytozvalue" , "prlareapolyvertlimen" , "prlareapolyvertlimno" , "prlstratigraphical" , "prllastoperatornpdidcompany" , "prllastoperatornameshort" , "prllastoperatornamelong" , "prllicensingactivityname" , "prlfacturl" , "prlareapolystratigraphical" , "prlnpdidlicence" FROM "prlareasplitbyblock"
+
+mappingId	mapping--75352554
+target		<http://sws.ifi.uio.no/data/npd-v2/dscarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "dscarea" WHERE "fldhctype" = 'GAS/CONDENSATE'
+
+mappingId	mapping-2141896991
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'AQUACOL KCL/POLYMER/GLYCOL'
+
+mappingId	mapping--1937272914
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'CONDUCTOR'
+
+mappingId	mapping--604296086
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasensortype" = 'Kabler'
+
+mappingId	mapping--1866172054
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ReEntryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbdiskoswellboretype" = 're-entry'
+
+mappingId	mapping-27854900
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'PROD.'
+
+mappingId	mapping--312294394
+target		<http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator> ; <http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {ptlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {ptloperdateupdated}^^xsd:dateTime . 
+source		SELECT "ptlname" , "cmplongname" , "prlnpdidlicence" , "cmpnpdidcompany" , "ptloperdateupdated" , "datesyncnpd" FROM "licence_petreg_licence_oper"
+
+mappingId	mapping-1325864348
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 0
+
+mappingId	mapping--2016793341
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_npdid_overview" WHERE "wlbwelltype" = 'DEVELOPMENT'
+
+mappingId	mapping--929255488
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'CONDEEP 3 SHAFTS'
+
+mappingId	mapping-1007295581
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 5
+
+mappingId	mapping--618264548
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#JackUp3LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_moveable" WHERE "fclkind" = 'JACK-UP 3 LEGS'
+
+mappingId	mapping-1230448375
+target		<http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> a <http://sws.ifi.uio.no/vocab/npd-v2#Company> ; <http://sws.ifi.uio.no/vocab/npd-v2#companyGroup> {cmpgroup}^^xsd:string , {cmpnpdidcompany}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#shortName> {cmpshortname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "cmplongname" , "cmporgnumberbrreg" , "cmpgroup" , "cmpshortname" , "cmpnpdidcompany" , "cmplicenceopercurrent" , "cmplicenceoperformer" , "cmplicencelicenseecurrent" , "cmplicencelicenseeformer" , "datesyncnpd" FROM "company"
+
+mappingId	mapping--1388652115
+target		<http://sws.ifi.uio.no/data/npd-v2/fldarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> ; <http://www.w3.org/2004/02/skos/core#prefLabel> {flddsclabel}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery> <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> , <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdidresinclindiscovery}> ; <http://sws.ifi.uio.no/vocab/npd-v2#ownerForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string , {dscname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#currentStatus> {dsccurrentactivitystatus}^^xsd:string . 
+source		SELECT "fldnpdidfield" , "fldname" , "dscnpdiddiscovery" , "dscname" , "dscresinclindiscoveryname" , "dscnpdidresinclindiscovery" , "dscincludedinfld" , "dschctype" , "fldhctype" , "dsccurrentactivitystatus" , "fldcurrentactivitystatus" , "flddsclabel" , "dscfacturl" , "fldfacturl" FROM "fldarea"
+
+mappingId	mapping--2076806149
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbwelltype" = 'DEVELOPMENT'
+
+mappingId	mapping--1721774762
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'LOADING SYSTEM'
+
+mappingId	mapping--1469757815
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsamplefluidtype" = 'WATER'
+
+mappingId	mapping-1427173176
+target		<http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> a <http://sws.ifi.uio.no/vocab/npd-v2#Field> . 
+source		SELECT "fldnpdidfield" FROM "field" WHERE "fldownerkind" = 'PRODUCTION LICENSE'
+
+mappingId	mapping--87436919
+target		<http://sws.ifi.uio.no/data/npd-v2/baaarea/{baanpdidbsnsarrarea}__{baanpdidbsnsarrareapoly}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAAArea> . 
+source		SELECT "baanpdidbsnsarrarea" , "baanpdidbsnsarrareapoly" FROM "baaarea" WHERE "baakind" = 'SLIDING SCALE'
+
+mappingId	mapping--521575853
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_licence/{tufnpdidtuf}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceArea> ; <http://sws.ifi.uio.no/vocab/npd-v2#taskType> {textbox2}^^xsd:string , {textbox42}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {tufname}^^xsd:string , {ptlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidFrom> {ptloperdateupdated}^^xsd:dateTime . 
+source		SELECT "textbox42" , "textbox2" , "ptlname" , "cmplongname" , "tufname" , "tufnpdidtuf" , "cmpnpdidcompany" , "ptloperdateupdated" , "datesyncnpd" FROM "tuf_petreg_licence_oper"
+
+mappingId	mapping--25600886
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#Discovery> . 
+source		SELECT "dscnpdiddiscovery" FROM "discovery" WHERE "dscownerkind" = 'PRODUCTION LICENSE'
+
+mappingId	mapping--951088469
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Jacket6LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'JACKET 6 LEGS'
+
+mappingId	mapping--1705878084
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'FPSO'
+
+mappingId	mapping--347485098
+target		<http://sws.ifi.uio.no/data/npd-v2/field_production_monthly/{prfnpdidinformationcarrier}__{prfyear}__{prfmonth}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction> ; <http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents> {prfprdproducedwaterinfieldmillsm3}^^xsd:decimal ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prfyear}^^xsd:int ; <http://sws.ifi.uio.no/vocab/npd-v2#shortName> {prfmonth}^^xsd:string ; <http://resource.geosciml.org/ontology/timescale/gts-30#additionalCorrelationProperty> {prfnpdidinformationcarrier}^^xsd:string . 
+source		SELECT "prfinformationcarrier" , "prfyear" , "prfmonth" , "prfprdoilnetmillsm3" , "prfprdgasnetbillsm3" , "prfprdnglnetmillsm3" , "prfprdcondensatenetmillsm3" , "prfprdoenetmillsm3" , "prfprdproducedwaterinfieldmillsm3" , "prfnpdidinformationcarrier" FROM "field_production_monthly"
+
+mappingId	mapping-1744190855
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsamplefluidtype" = 'CONDENSATE'
+
+mappingId	mapping--1008058243
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#ChangeOfCompanyNameTransfer> . 
+source		SELECT "prlnpdidlicence" , "prltransferdirection" , "cmpnpdidcompany" , "prltransferdatevalidfrom" FROM "licence_transfer_hst" WHERE "prltransferkind" = 'CHANGE OF COMPANY NAME'
+
+mappingId	mapping-458155974
+target		<http://sws.ifi.uio.no/data/npd-v2/fldarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "fldarea" WHERE "fldhctype" = 'OIL/GAS'
+
+mappingId	mapping-411372771
+target		<http://sws.ifi.uio.no/data/npd-v2/dscarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "dscarea" WHERE "fldhctype" = 'OIL/GAS'
+
+mappingId	mapping--751947789
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore_core/{wlbnpdidwellbore}__{lsunpdidlithostrat}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreStratigraphicCoreSet> ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTGasOilRelation> {lsunpdidlithostrat}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string , {lsuname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#coresTotalLength> {lsucorelenght}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreCompletion> {wlbcompletiondate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "wlbname" , "lsucorelenght" , "lsuname" , "lsulevel" , "wlbcompletiondate" , "lsunpdidlithostrat" , "wlbnpdidwellbore" , "datesyncnpd" FROM "strat_litho_wellbore_core"
+
+mappingId	mapping-1783426409
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_petreg_licence_licencee/{prlnpdidlicence}__{cmpnpdidcompany}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee> ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest> {ptllicenseeinterest}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidTo> {ptllicenseedateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {ptlname}^^xsd:string . 
+source		SELECT "ptlname" , "cmplongname" , "ptllicenseeinterest" , "prlnpdidlicence" , "cmpnpdidcompany" , "ptllicenseedateupdated" , "datesyncnpd" FROM "licence_petreg_licence_licencee"
+
+mappingId	mapping-1413533035
+target		<http://sws.ifi.uio.no/data/npd-v2/baaarea/{baanpdidbsnsarrarea}__{baanpdidbsnsarrareapoly}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAAArea> . 
+source		SELECT "baanpdidbsnsarrarea" , "baanpdidbsnsarrareapoly" FROM "baaarea" WHERE "baakind" = 'PARCELL'
+
+mappingId	mapping--999194621
+target		<http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> a <http://sws.ifi.uio.no/vocab/npd-v2#Field> ; <http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOperator> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {flddateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {flddateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string , {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {fldnpdidfield}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreCompletion> {wlbcompletiondate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreTotalDepth> {wlbnpdidwellbore}^^xsd:decimal . 
+source		SELECT "fldname" , "cmplongname" , "fldcurrentactivitysatus" , "wlbname" , "wlbcompletiondate" , "fldownerkind" , "fldownername" , "fldnpdidowner" , "fldnpdidfield" , "wlbnpdidwellbore" , "cmpnpdidcompany" , "fldfactpageurl" , "fldfactmapurl" , "flddateupdated" , "flddateupdatedmax" , "datesyncnpd" FROM "field"
+
+mappingId	mapping-924447902
+target		<http://sws.ifi.uio.no/data/npd-v2/field_licensee_hst/{fldnpdidfield}__{cmpnpdidcompany}__{fldlicenseefrom}__{fldlicenseeto}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee> . 
+source		SELECT "fldnpdidfield" , "cmpnpdidcompany" , "fldlicenseefrom" , "fldlicenseeto" FROM "field_licensee_hst" WHERE "fldownerkind" = 'PRODUCTION LICENSE'
+
+mappingId	mapping--216265044
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 180
+
+mappingId	mapping--1266535341
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'Aqua Drill DW'
+
+mappingId	mapping-1582049832
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#MoveableFacility> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fclname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#facilityFunction> {fclfunctions}^^xsd:string , {fclnationname}^^xsd:string , {fclnpdidfacility}^^xsd:int ; <http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{fclnpdidcurrentrespcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {fcldateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "fclname" , "fclcurrentrespcompanyname" , "fclkind" , "fclfunctions" , "fclnationname" , "fclfactpageurl" , "fclnpdidfacility" , "fclnpdidcurrentrespcompany" , "fcldateupdated" , "datesyncnpd" FROM "facility_moveable"
+
+mappingId	mapping--682779005
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#SidetrackWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbdiskoswellboretype" = 'sidetrack'
+
+mappingId	mapping--1936224710
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wlbpoint" WHERE "wlbwelltype" = 'DEVELOPMENT'
+
+mappingId	mapping-2147224869
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 0
+
+mappingId	mapping-1238355900
+target		<http://sws.ifi.uio.no/data/npd-v2/baaarea/{baanpdidbsnsarrarea}__{baanpdidbsnsarrareapoly}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "baanpdidbsnsarrarea" , "baanpdidbsnsarrareapoly" FROM "baaarea" WHERE "baakind" = 'SEISMIC AREA'
+
+mappingId	mapping-430914686
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> . 
+source		SELECT "wellbore_document_id" , "wlbnpdidwellbore" , "wlbdocumentname" FROM "wellbore_document" WHERE "wlbdocumenttype" = 'COMPOSITE LOG'
+
+mappingId	mapping--635791273
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 17
+
+mappingId	mapping-512455996
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#minutesEW> {wlbewmin}^^xsd:integer , {wlbnsmin}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {wlbdrillpermit}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#degreesEW> {wlbewsec}^^xsd:integer , {wlbewdeg}^^xsd:integer , {wlbnsdeg}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreTotalDepth> {wlbtotaldepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#codeEW> {wlbewcode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreWaterDepth> {wlbwaterdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreEntryYear> {wlbentryyear}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart1> {wlbnamepart1}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#secondsEW> {wlbnssec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreCompletion> {wlbcompletiondate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {wlbdateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreEntry> {wlbentrydate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#utmNS> {wlbnsutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreSeismicLocation> {wlbseismiclocation}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#utmEW> {wlbewutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreParent> {wlbwellborename}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#geodeticDatum> {wlbgeodeticdatum}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart6> {wlbnamepart6}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#utmZone> {wlbutmzone}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreType> {wlbwell}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {wlbdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreLicensingActivity> {wlbdrillingfacility}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesNS> {wlbnsdecdeg}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesEW> {wlbewdesdeg}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreCompletionYear> {wlbcompletionyear}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart2> {wlbnamepart2}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart3> {wlbnamepart3}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart4> {wlbnamepart4}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart5> {wlbnamepart5}^^xsd:string . 
+source		SELECT "wlbwellborename" , "wlbnpdidwellbore" , "wlbwell" , "wlbdrillingoperator" , "wlbproductionlicence" , "wlbdrillingfacility" , "wlbentrydate" , "wlbcompletiondate" , "wlbdrillpermit" , "wlbtotaldepth" , "wlbwaterdepth" , "wlbmainarea" , "wlbentryyear" , "wlbcompletionyear" , "wlbseismiclocation" , "wlbgeodeticdatum" , "wlbnsdeg" , "wlbnsmin" , "wlbnssec" , "wlbnscode" , "wlbewdeg" , "wlbewmin" , "wlbewsec" , "wlbewcode" , "wlbnsdecdeg" , "wlbewdesdeg" , "wlbnsutm" , "wlbewutm" , "wlbutmzone" , "wlbnamepart1" , "wlbnamepart2" , "wlbnamepart3" , "wlbnamepart4" , "wlbnamepart5" , "wlbnamepart6" , "wlbdateupdated" , "wlbdateupdatedmax" , "datesyncnpd" FROM "wellbore_shallow_all"
+
+mappingId	mapping-1443234378
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#TUFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclbelongstokind" = 'TUF'
+
+mappingId	mapping-457655933
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#Discovery> . 
+source		SELECT "dscnpdiddiscovery" FROM "discovery" WHERE "dscownerkind" = 'BUSINESS ARRANGEMENT AREA'
+
+mappingId	mapping-1585444037
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsamplefluidtype" = 'BASE OIL'
+
+mappingId	mapping-156034271
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Havbunnseismisk undersøkelse'
+
+mappingId	mapping--828845033
+target		<http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence> ; <http://sws.ifi.uio.no/vocab/npd-v2#currentAreaSize> {prlcurrentarea}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {prldateupdated}^^xsd:dateTime , {prldategranted}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {prlmainarea}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {prldateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {prlstatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted> {prldatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {prllicensingactivityname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#originalAreaSize> {prloriginalarea}^^xsd:decimal . 
+source		SELECT "prlname" , "prllicensingactivityname" , "prlmainarea" , "prlstatus" , "prldategranted" , "prldatevalidto" , "prloriginalarea" , "prlcurrentarea" , "prlphasecurrent" , "prlnpdidlicence" , "prlfactpageurl" , "prlfactmapurl" , "prldateupdated" , "prldateupdatedmax" , "datesyncnpd" FROM "licence"
+
+mappingId	mapping-733522561
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'PROD'
+
+mappingId	mapping--527667486
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WildcatWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 1
+
+mappingId	mapping-526338187
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#SidetrackWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiskoswellboretype" = 'sidetrack'
+
+mappingId	mapping-1764469170
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#TUFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclbelongstokind" = 'TUF PART'
+
+mappingId	mapping-1869707209
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbdiscoverywellbore" = 'YES'
+
+mappingId	mapping-1246194858
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'ONSHORE FACILITY'
+
+mappingId	mapping--189120235
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'JACKET 4 LEGS'
+
+mappingId	mapping--1558149132
+target		<http://sws.ifi.uio.no/data/npd-v2/field_licensee_hst/{fldnpdidfield}__{cmpnpdidcompany}__{fldlicenseefrom}__{fldlicenseeto}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAALicensee> . 
+source		SELECT "fldnpdidfield" , "cmpnpdidcompany" , "fldlicenseefrom" , "fldlicenseeto" FROM "field_licensee_hst" WHERE "fldownerkind" = 'BUSINESS ARRANGEMENT AREA'
+
+mappingId	mapping--387724017
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'Backloaded 117m3 OBM, 78m3 WBM'
+
+mappingId	mapping-1557551614
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiscoverywellbore" = 'NO'
+
+mappingId	mapping--280506235
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_message/{tufnpdidtuf}__{ptlmessagedocumentno}> a <http://www.ifomis.org/bfo/1.1/span#ProcessAggregate> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#dateMessageRegistered> {ptlmessagedateupdated}^^xsd:dateTime , {ptlmessageregistereddate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {ptlname}^^xsd:string , {tufname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate> {ptlmessagedocumentno}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#messageType> {ptlmessage}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#productionForField> <http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_licence/{tufnpdidtuf}> . 
+source		SELECT "ptlname" , "ptlmessagedocumentno" , "ptlmessage" , "ptlmessageregistereddate" , "ptlmessagekinddesc" , "tufname" , "ptlmessagedateupdated" , "tufnpdidtuf" , "datesyncnpd" FROM "tuf_petreg_message"
+
+mappingId	mapping--167423046
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Elektromagnetisk undersøkelse'
+
+mappingId	mapping--1175426536
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'JACKET 12 LEGS'
+
+mappingId	mapping-776253637
+target		<http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted> {ptldatevalidto}^^xsd:dateTime , {ptldatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {ptldateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {ptlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {ptldateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#dateAwarded> {ptldateawarded}^^xsd:dateTime . 
+source		SELECT "ptlname" , "ptldateawarded" , "ptldatevalidfrom" , "ptldatevalidto" , "prlnpdidlicence" , "ptldateupdated" , "ptldateupdatedmax" , "datesyncnpd" FROM "licence_petreg_licence"
+
+mappingId	mapping--2039098535
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#VesselFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_moveable" WHERE "fclkind" = 'VESSEL'
+
+mappingId	mapping--872771352
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'BARASIL-S'
+
+mappingId	mapping--654089316
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_core_photo/{wellbore_core_photo_id}__{wlbnpdidwellbore}__{wlbcorenumber}__{wlbcorephototitle}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCorePhoto> ; <http://sws.ifi.uio.no/vocab/npd-v2#corePhotoTitle> {wlbcorephototitle}^^xsd:string , {wellbore_core_photo_id}^^xsd:string , {wlbcorephotoimgurl}^^xsd:string , {wlbcorephotodateupdated}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#sourceNumber> {wlbcorenumber}^^xsd:int . 
+source		SELECT "wlbname" , "wlbcorenumber" , "wlbcorephototitle" , "wlbcorephotoimgurl" , "wlbnpdidwellbore" , "wlbcorephotodateupdated" , "wellbore_core_photo_id" FROM "wellbore_core_photo"
+
+mappingId	mapping--1203125433
+target		<http://sws.ifi.uio.no/data/npd-v2/field_investment_yearly/{prfnpdidinformationcarrier}__{prfyear}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldInvestment> ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prfyear}^^xsd:int ; <http://sws.ifi.uio.no/vocab/npd-v2#investmentForField> <http://sws.ifi.uio.no/data/npd-v2/field/{prfnpdidinformationcarrier}> ; <http://sws.ifi.uio.no/vocab/npd-v2#investmentNOK> {prfinvestmentsmillnok}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "prfinformationcarrier" , "prfyear" , "prfinvestmentsmillnok" , "prfnpdidinformationcarrier" , "datesyncnpd" FROM "field_investment_yearly"
+
+mappingId	mapping--793370709
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'ANCO 2000'
+
+mappingId	mapping--1476143818
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'CONDEEP 4 SHAFTS'
+
+mappingId	mapping-1143511461
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore_core/{wlbnpdidwellbore}__{lsunpdidlithostrat}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreStratigraphicCoreSet> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" FROM "strat_litho_wellbore_core" WHERE "lsulevel" = 'MEMBER'
+
+mappingId	mapping-1348925123
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'SURF.COND.'
+
+mappingId	mapping--774931458
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Jacket4LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_moveable" WHERE "fclkind" = 'JACKET 4 LEGS'
+
+mappingId	mapping--1106322435
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAATransfer> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateBaaAreaValidTo> {baadatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {baadateupdated}^^xsd:dateTime , {baadateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateApproved> {baadateapproved}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#transferredInterest> {baanpdidbsnsarrarea}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateBaaAreaValidFrom> {baadatevalidfrom}^^xsd:dateTime . 
+source		SELECT "baaname" , "baakind" , "baadateapproved" , "baadatevalidfrom" , "baadatevalidto" , "baafactpageurl" , "baafactmapurl" , "baanpdidbsnsarrarea" , "baadateupdated" , "baadateupdatedmax" , "datesyncnpd" FROM "bsns_arr_area"
+
+mappingId	mapping--1488835964
+target		<http://sws.ifi.uio.no/data/npd-v2/apaareanet/{apaareanet_id}__{qdrname}__{blkname}__{prvname}__{blkid}> a <http://sws.ifi.uio.no/vocab/npd-v2#Area> . 
+source		SELECT "apaareanet_id" , "qdrname" , "blkname" , "prvname" , "blkid" FROM "apaareanet" WHERE "apaareatype" = 'Stratigraphic'
+
+mappingId	mapping-1875573211
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wlbpoint" WHERE "wlbwelltype" = 'SHALLOW'
+
+mappingId	mapping--2084426736
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Annen undersøkelse'
+
+mappingId	mapping-13993401
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Jacket8LegsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'JACKET 8 LEGS'
+
+mappingId	mapping-500522090
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'Aqua-drill'
+
+mappingId	mapping-170614789
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'ANCOVERT OBM'
+
+mappingId	mapping-117896310
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_coordinates" WHERE "wlbwelltype" = 'EXPLORATION'
+
+mappingId	mapping-1803206528
+target		<http://sws.ifi.uio.no/data/npd-v2/company_reserves/{cmpnpdidcompany}__{fldnpdidfield}> a <http://sws.ifi.uio.no/vocab/npd-v2#CompanyReserve> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateResourceEstimate> {cmpdateoffresestdisplay}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableOil> {cmprecoverableoe}^^xsd:decimal , {cmprecoverableoil}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#companyShare> {cmpshare}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingOil> {cmpremainingoil}^^xsd:decimal , {cmpremainingoe}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableGas> {cmprecoverablegas}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingGas> {cmpremaininggas}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableNGL> {cmprecoverablengl}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#includedInField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL> {cmpremainingngl}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#reservesForCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableCondensate> {cmprecoverablecondensate}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate> {cmpremainingcondensate}^^xsd:decimal . 
+source		SELECT "cmplongname" , "fldname" , "cmprecoverableoil" , "cmprecoverablegas" , "cmprecoverablengl" , "cmprecoverablecondensate" , "cmprecoverableoe" , "cmpremainingoil" , "cmpremaininggas" , "cmpremainingngl" , "cmpremainingcondensate" , "cmpremainingoe" , "cmpdateoffresestdisplay" , "cmpshare" , "fldnpdidfield" , "cmpnpdidcompany" , "datesyncnpd" FROM "company_reserves"
+
+mappingId	mapping--1299370469
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbdiscoverywellbore" = 'NO'
+
+mappingId	mapping--536897071
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> ; <http://sws.ifi.uio.no/vocab/npd-v2#mudYieldPoint> {wellbore_mud_id}^^xsd:decimal , {wlbyieldpointatmd}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#mudWeight> {wlbmudweightatmd}^^xsd:decimal , {wlbmd}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#mudViscosity> {wlbmudviscosityatmd}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateMudMeasured> {wlbmuddatemeasured}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {wlbmuddateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#mudTestForWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> . 
+source		SELECT "wlbname" , "wlbmd" , "wlbmudweightatmd" , "wlbmudviscosityatmd" , "wlbyieldpointatmd" , "wlbmudtype" , "wlbmuddatemeasured" , "wlbnpdidwellbore" , "wlbmuddateupdated" , "datesyncnpd" , "wellbore_mud_id" FROM "wellbore_mud"
+
+mappingId	mapping-27379354
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 91
+
+mappingId	mapping--976999055
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasurveytypemain" = 'Havbunnseismisk undersøkelse'
+
+mappingId	mapping--1184270406
+target		<http://sws.ifi.uio.no/data/npd-v2/pipline/{pipnpdidpipe}> a <http://sws.ifi.uio.no/vocab/npd-v2#Pipeline> ; <http://sws.ifi.uio.no/vocab/npd-v2#pipelineMainGrouping> {pipnamecurrentoperator}^^xsd:string , {pipcurrentphase}^^xsd:string , {pipmaingrouping}^^xsd:string , {pipnamefromfacility}^^xsd:string , {pipnametofacility}^^xsd:string , {pipnpdidfromfacility}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#pipelineDimension> {pipnpdidtofacility}^^xsd:decimal , {pipdimension}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#pipelineOperator> <http://sws.ifi.uio.no/data/npd-v2/company/{pipnpdidoperator}> ; <http://sws.ifi.uio.no/vocab/npd-v2#pipelineMedium> {pipmedium}^^xsd:string , {pipname}^^xsd:string , {pipnpdidpipe}^^xsd:string . 
+source		SELECT "pipnpdidpipe" , "pipnpdidfromfacility" , "pipnpdidtofacility" , "pipnpdidoperator" , "pipname" , "pipnamefromfacility" , "pipnametofacility" , "pipnamecurrentoperator" , "pipcurrentphase" , "pipmedium" , "pipmaingrouping" , "pipdimension" FROM "pipline"
+
+mappingId	mapping--1463897754
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'FIT'
+
+mappingId	mapping-1038279250
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypepart" = '3D'
+
+mappingId	mapping--1806340599
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 9
+
+mappingId	mapping-1696358847
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_transfer_hst/{baanpdidbsnsarrarea}__{baatransferdirection}__{cmpnpdidcompany}__{baatransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#MergerTakeoverTransfer> . 
+source		SELECT "baanpdidbsnsarrarea" , "baatransferdirection" , "cmpnpdidcompany" , "baatransferdatevalidfrom" FROM "bsns_arr_area_transfer_hst" WHERE "baatransferkind" = 'MERGER/TAKEOVER'
+
+mappingId	mapping--70076265
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#TerminationPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclbelongstokind" = 'TUF PART'
+
+mappingId	mapping--378743902
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#MopustorFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'MOPUStor'
+
+mappingId	mapping--1588186734
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'SEMISUB STEEL'
+
+mappingId	mapping--965608995
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#Transfer> . 
+source		SELECT "prlnpdidlicence" , "prltransferdirection" , "cmpnpdidcompany" , "prltransferdatevalidfrom" FROM "licence_transfer_hst" WHERE "prltransferkind" = 'TRANSFER'
+
+mappingId	mapping-1464074634
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasurveytypemain" = 'Ordinær seismisk undersøkelse'
+
+mappingId	mapping--1565951182
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasensortype" = 'Kabler'
+
+mappingId	mapping--312534612
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsamplefluidtype" = 'OIL'
+
+mappingId	mapping-956671256
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'MULTI WELL TEMPLATE'
+
+mappingId	mapping--2127420326
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#CommercialDiscovery> . 
+source		SELECT "dscnpdiddiscovery" FROM "discovery" WHERE "dschctype" = 'GAS/CONDENSATE'
+
+mappingId	mapping--1537966785
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> a <http://sws.ifi.uio.no/vocab/npd-v2#CompressedNaturalGas> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {baaoperatordateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "baaname" , "cmplongname" , "baanpdidbsnsarrarea" , "cmpnpdidcompany" , "baaoperatordateupdated" , "datesyncnpd" FROM "bsns_arr_area_operator"
+
+mappingId	mapping--2010994442
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'Added lime and paravis to active'
+
+mappingId	mapping-145562249
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#LoadingSystemFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'LOADING SYSTEM'
+
+mappingId	mapping--1991508917
+target		<http://sws.ifi.uio.no/data/npd-v2/fldarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "fldarea" WHERE "fldhctype" = 'OIL'
+
+mappingId	mapping--1591434337
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceTransfer> . 
+source		SELECT "prlnpdidlicence" , "prltransferdirection" , "cmpnpdidcompany" , "prltransferdatevalidfrom" FROM "licence_transfer_hst" WHERE "prltransferkind" = 'UNKNOWN'
+
+mappingId	mapping-922942456
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 172
+
+mappingId	mapping--1912563833
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOilSampleReceived> {wlboilsampledatereceiveddate}^^xsd:dateTime , {wlboilsampledateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestNumber> {wlbname}^^xsd:string , {wlboilsampletestnumber}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTopDepth> {wlboilsampletopdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestForWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleBottomDepth> {wlboilsamplebottomdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#oilSampleFluidType> {wellbore_oil_sample_id}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOilSampleTest> {wlboilsampletestdate}^^xsd:dateTime . 
+source		SELECT "wlbname" , "wlboilsampletesttype" , "wlboilsampletestnumber" , "wlboilsampletopdepth" , "wlboilsamplebottomdepth" , "wlboilsamplefluidtype" , "wlboilsampletestdate" , "wlboilsampledatereceiveddate" , "wlbnpdidwellbore" , "wlboilsampledateupdated" , "datesyncnpd" , "wellbore_oil_sample_id" FROM "wellbore_oil_sample"
+
+mappingId	mapping--1884057797
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WildcatWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_exploration_all" WHERE "wlbplotsymbol" = 12
+
+mappingId	mapping-1997839343
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreDrillingDays> {wlbnpdidwellborereclass}^^xsd:integer , {fclnpdidfacilitydrilling}^^xsd:integer , {wlbnsdecdeg}^^xsd:integer , {wlbdrillingdays}^^xsd:integer , {dscnpdiddiscovery}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {wlbdrillpermit}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidproductionlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreBottomHoleTemperature> {wlbbottomholetemperature}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {wlbdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#degreesEW> {wlbewdeg}^^xsd:integer , {wlbnsdeg}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreSeismicLocation> {wlbseismiclocation}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {wlbdateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#minutesEW> {wlbewmin}^^xsd:integer , {wlbnsmin}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreMaxInclation> {wlbmaxinclation}^^xsd:decimal ; <http://www.w3.org/2004/02/skos/core#prefLabel> {wlbfield}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreTotalDepth> {wlbtotaldepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreWaterDepth> {wlbwaterdepth}^^xsd:decimal ; <http://www.w3.org/2004/02/skos/core#altLabel> {wlbageattd}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesEW> {wlbewdesdeg}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#utmNS> {wlbnsutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreKellyBushElevation> {wlbkellybushelevation}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreFinalVerticalDepth> {wlbfinalverticaldepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#secondsEW> {wlbewsec}^^xsd:decimal , {wlbnssec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#codeEW> {wlbewcode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreCompletionYear> {wlbcompletionyear}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart2> {wlbnamepart2}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreReentryExplorationActivity> {wlbreentryexplorationactivity}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart3> {wlbnamepart3}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart4> {wlbnamepart4}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreLicensingActivity> {wlblicensingactivity}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlannedPurpose> {wlbpurposeplanned}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#utmEW> {wlbewutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#utmZone> {wlbutmzone}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart1> {wlbnamepart1}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePurpose> {wlbpurpose}^^xsd:string , {wlbfactpageurl}^^xsd:string , {wlbwell}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#codeNS> {wlbnscode}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {wlbstatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreContent> {wlbcontent}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWDSSQC> {wlbwdssqcdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreEntry> {wlbentrydate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#geodeticDatum> {wlbgeodeticdatum}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart5> {wlbnamepart5}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart6> {wlbnamepart6}^^xsd:string . 
+source		SELECT "wlbwellborename" , "wlbwell" , "wlbdrillingoperator" , "wlbdrillingoperatorgroup" , "wlbproductionlicence" , "wlbpurpose" , "wlbstatus" , "wlbcontent" , "wlbwelltype" , "wlbentrydate" , "wlbcompletiondate" , "wlbfield" , "wlbdrillpermit" , "wlbdiscovery" , "wlbdiscoverywellbore" , "wlbbottomholetemperature" , "wlbseismiclocation" , "wlbmaxinclation" , "wlbkellybushelevation" , "wlbfinalverticaldepth" , "wlbtotaldepth" , "wlbwaterdepth" , "wlbageattd" , "wlbformationattd" , "wlbmainarea" , "wlbdrillingfacility" , "wlbfacilitytypedrilling" , "wlblicensingactivity" , "wlbmultilateral" , "wlbpurposeplanned" , "wlbentryyear" , "wlbcompletionyear" , "wlbreclassfromwellbore" , "wlbreentryexplorationactivity" , "wlbplotsymbol" , "wlbformationwithhc1" , "wlbagewithhc1" , "wlbformationwithhc2" , "wlbagewithhc2" , "wlbformationwithhc3" , "wlbagewithhc3" , "wlbdrillingdays" , "wlbreentry" , "wlbgeodeticdatum" , "wlbnsdeg" , "wlbnsmin" , "wlbnssec" , "wlbnscode" , "wlbewdeg" , "wlbewmin" , "wlbewsec" , "wlbewcode" , "wlbnsdecdeg" , "wlbewdesdeg" , "wlbnsutm" , "wlbewutm" , "wlbutmzone" , "wlbnamepart1" , "wlbnamepart2" , "wlbnamepart3" , "wlbnamepart4" , "wlbnamepart5" , "wlbnamepart6" , "wlbpressreleaseurl" , "wlbfactpageurl" , "wlbfactmapurl" , "wlbdiskoswellboretype" , "wlbdiskoswellboreparent" , "wlbwdssqcdate" , "wlbnpdidwellbore" , "dscnpdiddiscovery" , "fldnpdidfield" , "fclnpdidfacilitydrilling" , "wlbnpdidwellborereclass" , "prlnpdidproductionlicence" , "wlbdiskoswelloperator" , "wlbdateupdated" , "wlbdateupdatedmax" , "datesyncnpd" FROM "wellbore_exploration_all"
+
+mappingId	mapping--1704882886
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> . 
+source		SELECT "wellbore_document_id" , "wlbnpdidwellbore" , "wlbdocumentname" FROM "wellbore_document" WHERE "wlbdocumenttype" = 'NPD PAPER'
+
+mappingId	mapping-270466569
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_transfer_hst/{baanpdidbsnsarrarea}__{baatransferdirection}__{cmpnpdidcompany}__{baatransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#SDFITransfer> . 
+source		SELECT "baanpdidbsnsarrarea" , "baatransferdirection" , "cmpnpdidcompany" , "baatransferdatevalidfrom" FROM "bsns_arr_area_transfer_hst" WHERE "baatransferkind" = 'SDFI'
+
+mappingId	mapping-250799979
+target		<http://sws.ifi.uio.no/data/npd-v2/dscarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldArea> . 
+source		SELECT "dscnpdiddiscovery" , "dschctype" FROM "dscarea" WHERE "fldhctype" = 'GAS'
+
+mappingId	mapping-2039354901
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'ANCO VERT'
+
+mappingId	mapping--141959260
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_coordinates" WHERE "wlbwelltype" = 'DEVELOPMENT'
+
+mappingId	mapping-1967244770
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_owner_hst/{tufnpdidtuf}__{cmpnpdidcompany}__{tufownerdatevalidfrom}__{tufownerdatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#TUFOwner> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTUFOwnerValidTo> {tufownerdatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOwnerCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {tufname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#TUFOwnerShare> {tufownershare}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTUFOwnerValidFrom> {tufownerdatevalidfrom}^^xsd:dateTime . 
+source		SELECT "tufname" , "cmplongname" , "tufownerdatevalidfrom" , "tufownerdatevalidto" , "tufownershare" , "tufnpdidtuf" , "cmpnpdidcompany" , "datesyncnpd" FROM "tuf_owner_hst"
+
+mappingId	mapping--1505750821
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasensortype" = 'Noder'
+
+mappingId	mapping-974499272
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_npdid_overview" WHERE "wlbwelltype" = 'SHALLOW'
+
+mappingId	mapping-292423168
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Traseundersøkelser'
+
+mappingId	mapping-461235169
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#MultilateralWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiskoswellboretype" = 'multilateral'
+
+mappingId	mapping-2063110179
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#TerminationPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclbelongstokind" = 'TUF'
+
+mappingId	mapping-1260671831
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 50
+
+mappingId	mapping-437706710
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_area_poly_hst/{baanpdidbsnsarrarea}__{baaareapolyblockname}__{baaareapolyno}__{baaareapolydatevalidfrom}__{baaareapolydatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#CompressedNaturalGas> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableGas> {baaareapolyarea}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateBaaAreaValidTo> {baaareapolydateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceAreaValidFrom> {baaareapolydatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceAreaValidTo> {baaareapolydatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#companyShare> {baaareapolyno}^^xsd:decimal ; <http://www.w3.org/2004/02/skos/core#broaderTransitive> <http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> . 
+source		SELECT "baaname" , "baaareapolydatevalidfrom" , "baaareapolydatevalidto" , "baaareapolynationcode2" , "baaareapolyblockname" , "baaareapolyno" , "baaareapolyarea" , "baanpdidbsnsarrarea" , "baaareapolydateupdated" , "datesyncnpd" FROM "bsns_arr_area_area_poly_hst"
+
+mappingId	mapping--1571195161
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#degreesEW> {wlbnsdeg}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlannedContent> {wlbdrillingoperator}^^xsd:string , {wlbdrillingoperatorgroup}^^xsd:string , {wlbproductionlicence}^^xsd:string , {wlbdiskoswellboreparent}^^xsd:string , {wlbwell}^^xsd:string , {wlbcompletiondate}^^xsd:string , {wlbdiskoswelloperator}^^xsd:string , {wlbnsdecdeg}^^xsd:string , {wlbnpdidwellborereclass}^^xsd:string , {wlbcontentplanned}^^xsd:string , {wlbproductionfacility}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#minutesEW> {wlbnsmin}^^xsd:integer , {wlbewmin}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart6> {wlbnamepart6}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreParent> {wlbfactpageurl}^^xsd:string , {wlbwellborename}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlannedPurpose> {wlbpurposeplanned}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreCompletionYear> {wlbcompletionyear}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreSeismicLocation> {wlbreclassfromwellbore}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#geodeticDatum> {wlbgeodeticdatum}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart4> {wlbnamepart4}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart5> {wlbnamepart5}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWDSSQC> {wlbwdssqcdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#secondsEW> {wlbewsec}^^xsd:decimal , {wlbnssec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateWellboreEntry> {wlbentrydate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidproductionlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#codeEW> {wlbewcode}^^xsd:string , {wlbewdeg}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreLicensingActivity> {fclnpdidfacilitydrilling}^^xsd:string , {fclnpdidfacilityproducing}^^xsd:string , {wlbdrillingfacility}^^xsd:string , {wlblicensingactivity}^^xsd:string , {wlbfacilitytypedrilling}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {wlbfield}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {wlbdrillpermit}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreContent> {wlbcontent}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery> <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> ; <http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreTotalDepth> {wlbtotaldepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreWaterDepth> {wlbwaterdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {wlbdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {wlbdateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesEW> {wlbewdesdeg}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreKellyBushElevation> {wlbkellybushelevation}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreFinalVerticalDepth> {wlbfinalverticaldepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart1> {wlbnamepart1}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart2> {wlbnamepart2}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreEntryYear> {wlbentryyear}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreNamePart3> {wlbnamepart3}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#utmNS> {wlbnsutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#utmEW> {wlbewutm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#utmZone> {wlbutmzone}^^xsd:integer . 
+source		SELECT "wlbwellborename" , "wlbwell" , "wlbdrillingoperator" , "wlbdrillingoperatorgroup" , "wlbproductionlicence" , "wlbpurposeplanned" , "wlbcontent" , "wlbwelltype" , "wlbentrydate" , "wlbcompletiondate" , "wlbfield" , "wlbdrillpermit" , "wlbdiscovery" , "wlbdiscoverywellbore" , "wlbkellybushelevation" , "wlbfinalverticaldepth" , "wlbtotaldepth" , "wlbwaterdepth" , "wlbmainarea" , "wlbdrillingfacility" , "wlbfacilitytypedrilling" , "wlbproductionfacility" , "wlblicensingactivity" , "wlbmultilateral" , "wlbcontentplanned" , "wlbentryyear" , "wlbcompletionyear" , "wlbreclassfromwellbore" , "wlbplotsymbol" , "wlbgeodeticdatum" , "wlbnsdeg" , "wlbnsmin" , "wlbnssec" , "wlbnscode" , "wlbewdeg" , "wlbewmin" , "wlbewsec" , "wlbewcode" , "wlbnsdecdeg" , "wlbewdesdeg" , "wlbnsutm" , "wlbewutm" , "wlbutmzone" , "wlbnamepart1" , "wlbnamepart2" , "wlbnamepart3" , "wlbnamepart4" , "wlbnamepart5" , "wlbnamepart6" , "wlbfactpageurl" , "wlbfactmapurl" , "wlbdiskoswellboretype" , "wlbdiskoswellboreparent" , "wlbnpdidwellbore" , "dscnpdiddiscovery" , "fldnpdidfield" , "wlbwdssqcdate" , "prlnpdidproductionlicence" , "fclnpdidfacilitydrilling" , "fclnpdidfacilityproducing" , "wlbnpdidwellborereclass" , "wlbdiskoswelloperator" , "wlbdateupdated" , "wlbdateupdatedmax" , "datesyncnpd" FROM "wellbore_development_all"
+
+mappingId	mapping-1836082631
+target		<http://sws.ifi.uio.no/data/npd-v2/apaareagross/{apaareagross_id}> a <http://sws.ifi.uio.no/vocab/npd-v2#AwardArea> ; <http://sws.ifi.uio.no/vocab/npd-v2#mapNo> {apamap_no}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#blockId> {apaareagross_id}^^xsd:integer . 
+source		SELECT "apamap_no" , "apaareageometry_kml_wgs84" , "apaareagross_id" FROM "apaareagross"
+
+mappingId	mapping-949767377
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#SemisubSteelFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'SEMISUB STEEL'
+
+mappingId	mapping--819997488
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> ; <http://sws.ifi.uio.no/vocab/npd-v2#documentFormat> {wlbdocumenturl}^^xsd:string , {wlbdocumentformat}^^xsd:string , {wellbore_document_id}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#documentForWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#documentSize> {wlbdocumentsize}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#documentType> {wlbdocumentdateupdated}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#documentName> {wlbname}^^xsd:string , {wlbdocumentname}^^xsd:string . 
+source		SELECT "wlbname" , "wlbdocumenttype" , "wlbdocumentname" , "wlbdocumenturl" , "wlbdocumentformat" , "wlbdocumentsize" , "wlbnpdidwellbore" , "wlbdocumentdateupdated" , "datesyncnpd" , "wellbore_document_id" FROM "wellbore_document"
+
+mappingId	mapping--55531754
+target		<http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL> {fldremainingngl}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableNGL> {fldrecoverablengl}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingGas> {fldremaininggas}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableGas> {fldrecoverablegas}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingOil> {fldremainingoe}^^xsd:decimal , {fldremainingoil}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableOil> {fldrecoverableoe}^^xsd:decimal , {fldrecoverableoil}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate> {fldremainingcondensate}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableCondensate> {fldrecoverablecondensate}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOperatorFrom> {flddateoffresestdisplay}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string . 
+source		SELECT "fldname" , "fldrecoverableoil" , "fldrecoverablegas" , "fldrecoverablengl" , "fldrecoverablecondensate" , "fldrecoverableoe" , "fldremainingoil" , "fldremaininggas" , "fldremainingngl" , "fldremainingcondensate" , "fldremainingoe" , "flddateoffresestdisplay" , "fldnpdidfield" , "datesyncnpd" FROM "field_reserves"
+
+mappingId	mapping-1412516182
+target		<http://sws.ifi.uio.no/data/npd-v2/seis_acquisition_coordinates_inc_turnarea/{seasurveyname}__{seapolygonpointnumber}> a <http://sws.ifi.uio.no/vocab/npd-v2-ptl#ProductionLicenceNotification> ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {seapolygonpointnumber}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#decimalDegreesNS> {seapolygonnssec}^^xsd:decimal , {seapolygonnsdeg}^^xsd:decimal , {seapolygonnsmin}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#originalAreaSize> {seapolygonewdeg}^^xsd:decimal , {seapolygonewmin}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#coresTotalLength> {seapolygonewsec}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "seasurveyname" , "seanpdidsurvey" , "seapolygonpointnumber" , "seapolygonnsdeg" , "seapolygonnsmin" , "seapolygonnssec" , "seapolygonewdeg" , "seapolygonewmin" , "seapolygonewsec" , "datesyncnpd" FROM "seis_acquisition_coordinates_inc_turnarea"
+
+mappingId	mapping--338965165
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 0
+
+mappingId	mapping--1864950209
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery_reserves/{dscnpdiddiscovery}__{dscreservesrc}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryReserve> ; <http://sws.ifi.uio.no/vocab/npd-v2#reservesResourceClass> {dscdateoffresestdisplay}^^xsd:string , {dscreservesrc}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateResourceEstimate> {dscreservesdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {dscname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableOil> {dscrecoverableoil}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableGas> {dscrecoverablegas}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery> <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableNGL> {dscrecoverablengl}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#recoverableCondensate> {dscrecoverablecondensate}^^xsd:decimal . 
+source		SELECT "dscname" , "dscreservesrc" , "dscrecoverableoil" , "dscrecoverablegas" , "dscrecoverablengl" , "dscrecoverablecondensate" , "dscdateoffresestdisplay" , "dscnpdiddiscovery" , "dscreservesdateupdated" , "datesyncnpd" FROM "discovery_reserves"
+
+mappingId	mapping--1109729150
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'barasilc'
+
+mappingId	mapping--1713021802
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'PILOT HOLE'
+
+mappingId	mapping-368966633
+target		<http://sws.ifi.uio.no/data/npd-v2/baaarea/{baanpdidbsnsarrarea}__{baanpdidbsnsarrareapoly}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAAArea> . 
+source		SELECT "baanpdidbsnsarrarea" , "baanpdidbsnsarrareapoly" FROM "baaarea" WHERE "baakind" = 'UNITIZED'
+
+mappingId	mapping--1649996787
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'INTERM.'
+
+mappingId	mapping--780063403
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'A'
+
+mappingId	mapping--79083406
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore/{wlbnpdidwellbore}__{lsunpdidlithostrat}__{lsutopdepth}__{lsubottomdepth}> a <http://sws.ifi.uio.no/vocab/npd-v2#Wellbore> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" , "lsutopdepth" , "lsubottomdepth" FROM "strat_litho_wellbore" WHERE "lsulevel" = 'GROUP'
+
+mappingId	mapping-849488642
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasensortype" = 'UNKNOWN'
+
+mappingId	mapping-1497525883
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'MOPUStor'
+
+mappingId	mapping-1928846801
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#DorisFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'DORIS'
+
+mappingId	mapping-1644691088
+target		<http://sws.ifi.uio.no/data/npd-v2/seis_acquisition/{seanpdidsurvey}__{seaname}> a <http://sws.ifi.uio.no/vocab/npd-v2#OilEquivalents> ; <http://sws.ifi.uio.no/vocab/npd-v2#areaSize3DKm2> {sea3dkm2}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {seastatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {seaplantodate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#productionYear> {seanpdidsurvey}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOwnerTo> {seadatefinalized}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthPlannedBoatKm> {seacdptotalkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthBoatTotalKm> {seaboattotalkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTransferValidFrom> {seaplanfromdate}^^xsd:dateTime . 
+source		SELECT "seaname" , "seaplanfromdate" , "seanpdidsurvey" , "seastatus" , "seageographicalarea" , "seasurveytypemain" , "seasurveytypepart" , "seacompanyreported" , "seaplantodate" , "seadatestarting" , "seadatefinalized" , "seacdptotalkm" , "seaboattotalkm" , "sea3dkm2" , "seasampling" , "seashallowdrilling" , "seageotechnical" , "datesyncnpd" FROM "seis_acquisition"
+
+mappingId	mapping-1365150468
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthBoatTotalKm> {seaboattotalkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {seaplantodate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourceSize> {seasourcesize}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#areaSize3DKm2> {sea3dkm2}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOwnerTo> {seadatefinalized}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourcePressure> {seasourcepressure}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#areaSize> {seaarea_id}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthPlannedCdpKm> {seaplancdpkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#sensorNumbers> {seasensornumbers}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#productionYear> {seanpdidsurvey}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#lengthPlannedBoatKm> {seacdptotalkm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#sensorLength> {seasensorlength}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {seastatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#companyShare> {seaplanboatkm}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTransferValidFrom> {seaplanfromdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#sourceNumber> {seasourcenumber}^^xsd:string . 
+source		SELECT "seasurveyname" , "seanpdidsurvey" , "seafactmapurl" , "seafactpageurl" , "seastatus" , "seageographicalarea" , "seamarketavailable" , "seasurveytypemain" , "seasurveytypepart" , "seacompanyreported" , "seasourcetype" , "seasourcenumber" , "seasourcesize" , "seasourcepressure" , "seasensortype" , "seasensornumbers" , "seasensorlength" , "seaplanfromdate" , "seadatestarting" , "seaplantodate" , "seadatefinalized" , "seaplancdpkm" , "seacdptotalkm" , "seaplanboatkm" , "seaboattotalkm" , "sea3dkm2" , "seapolygonkind" , "seaarea_id" FROM "seaarea"
+
+mappingId	mapping-1607757320
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'AQUACOL'
+
+mappingId	mapping-1568906412
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 71
+
+mappingId	mapping-674772792
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Condeep4ShaftsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'CONDEEP 4 SHAFTS'
+
+mappingId	mapping--213584627
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_transfer_hst/{baanpdidbsnsarrarea}__{baatransferdirection}__{cmpnpdidcompany}__{baatransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#MergerTakeoverTransfer> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTransferValidFrom> {baatransferdatevalidfrom}^^xsd:dateTime , {baatransferdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#transferDirection> {baatransferdirection}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#broaderTransitive> <http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#transferredInterest> {baatransferredinterest}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime . 
+source		SELECT "baaname" , "baatransferdatevalidfrom" , "baatransferdirection" , "baatransferkind" , "cmplongname" , "baatransferredinterest" , "baatransfersdfi" , "baanpdidbsnsarrarea" , "cmpnpdidcompany" , "baatransferdateupdated" , "datesyncnpd" FROM "bsns_arr_area_transfer_hst"
+
+mappingId	mapping-787413407
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#Discovery> ; <http://sws.ifi.uio.no/vocab/npd-v2#hydrocarbonType> {dscfactmapurl}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {dscname}^^xsd:string , {wlbname}^^xsd:string , {nmaname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {dscdateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {dscdateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#dateLicenceValidFrom> {dscdatefrominclinfield}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#discoveryYear> {dscdiscoveryyear}^^xsd:integer , {dscnpdiddiscovery}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#includedInField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreParent> {wlbnpdidwellbore}^^xsd:int . 
+source		SELECT "dscname" , "cmplongname" , "dsccurrentactivitystatus" , "dschctype" , "wlbname" , "nmaname" , "fldname" , "dscdatefrominclinfield" , "dscdiscoveryyear" , "dscresinclindiscoveryname" , "dscownerkind" , "dscownername" , "dscnpdiddiscovery" , "fldnpdidfield" , "wlbnpdidwellbore" , "dscfactpageurl" , "dscfactmapurl" , "dscdateupdated" , "dscdateupdatedmax" , "datesyncnpd" FROM "discovery"
+
+mappingId	mapping--970737960
+target		<http://sws.ifi.uio.no/data/npd-v2/dscarea/{dscnpdiddiscovery}__{dschctype}> a <http://sws.ifi.uio.no/vocab/npd-v2#Area> ; <http://sws.ifi.uio.no/vocab/npd-v2#currentStatus> {dsccurrentactivitystatus}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#altLabel> {flddsclabel}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery> <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> , <http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdidresinclindiscovery}> ; <http://sws.ifi.uio.no/vocab/npd-v2#includedInField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string , {dscname}^^xsd:string . 
+source		SELECT "fldnpdidfield" , "fldname" , "dscnpdiddiscovery" , "dscname" , "dscresinclindiscoveryname" , "dscnpdidresinclindiscovery" , "dscincludedinfld" , "dschctype" , "fldhctype" , "dsccurrentactivitystatus" , "fldcurrentactivitystatus" , "flddsclabel" , "dscfacturl" , "fldfacturl" FROM "dscarea"
+
+mappingId	mapping--2138229425
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore_core/{wlbnpdidwellbore}__{lsunpdidlithostrat}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreStratigraphicCoreSet> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" FROM "strat_litho_wellbore_core" WHERE "lsulevel" = 'FORMATION'
+
+mappingId	mapping-292564194
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_coordinates" WHERE "wlbwelltype" = 'SHALLOW'
+
+mappingId	mapping-384422872
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'ANCOTEMP/BENT.'
+
+mappingId	mapping--868721173
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasurveytypepart" = '2D'
+
+mappingId	mapping--1788991516
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiscoverywellbore" = 'YES'
+
+mappingId	mapping-1671631644
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'SINGLE WELL TEMPLATE'
+
+mappingId	mapping-106391966
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'CONDEEP MONOSHAFT'
+
+mappingId	mapping--932507435
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Ordinær seismisk undersøkelse'
+
+mappingId	mapping--1760960130
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> . 
+source		SELECT "wellbore_document_id" , "wlbnpdidwellbore" , "wlbdocumentname" FROM "wellbore_document" WHERE "wlbdocumenttype" = 'GEOCHEMICAL INFORMATION'
+
+mappingId	mapping-543065420
+target		<http://sws.ifi.uio.no/data/npd-v2/field_owner_hst/{fldnpdidfield}__{fldnpdidowner}__{fldownershipfromdate}__{fldownershiptodate}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee> . 
+source		SELECT "fldnpdidfield" , "fldnpdidowner" , "fldownershipfromdate" , "fldownershiptodate" FROM "field_owner_hst" WHERE "fldownerkind" = 'PRODUCTION LICENSE'
+
+mappingId	mapping--679060145
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InitialWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbdiskoswellboretype" = 'initial'
+
+mappingId	mapping--1186150142
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Borestedundersøkelse / sitesurvey'
+
+mappingId	mapping-1928958043
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_area_poly_hst/{prlnpdidlicence}__{prlareapolyblockname}__{prlareapolypolyno}__{prlareapolydatevalidfrom}__{prlareapolydatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceAreaPerBlock> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom> {prlareapolydatevalidfrom}^^xsd:dateTime , {prlareapolydatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePlannedPurpose> {prlareapolypolyarea}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreCompletionYear> {prlareapolypolyno}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {prlareadateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> . 
+source		SELECT "prlname" , "prlareapolydatevalidfrom" , "prlareapolydatevalidto" , "prlareapolynationcode" , "prlareapolyblockname" , "prlareapolystratigraphical" , "prlareapolypolyno" , "prlareapolypolyarea" , "prlnpdidlicence" , "prlareadateupdated" , "datesyncnpd" FROM "licence_area_poly_hst"
+
+mappingId	mapping-210808830
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 173
+
+mappingId	mapping-1884579982
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_moveable/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#SemisubSteelFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_moveable" WHERE "fclkind" = 'SEMISUB STEEL'
+
+mappingId	mapping-1917895293
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_oil_sample/{wellbore_oil_sample_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreOilSample> . 
+source		SELECT "wellbore_oil_sample_id" , "wlbnpdidwellbore" FROM "wellbore_oil_sample" WHERE "wlboilsampletesttype" = 'DST'
+
+mappingId	mapping-935677063
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasourcetype" = 'Seismisk kilde'
+
+mappingId	mapping--1445955074
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#casingDiameter> {wlbcasingdiameter}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#LOTForWellbore> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#casingDepth> {wlbcasingdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreHoleDiameter> {wellbore_casing_and_lot_id}^^xsd:int , {wlbholediameter}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreHoleDepth> {wlbholedepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#LOTMudDensity> {wlblotmuddencity}^^xsd:decimal . 
+source		SELECT "wlbname" , "wlbcasingtype" , "wlbcasingdiameter" , "wlbcasingdepth" , "wlbholediameter" , "wlbholedepth" , "wlblotmuddencity" , "wlbnpdidwellbore" , "wlbcasingdateupdated" , "datesyncnpd" , "wellbore_casing_and_lot_id" FROM "wellbore_casing_and_lot"
+
+mappingId	mapping-884439659
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore_core/{wlbnpdidwellbore}__{lsunpdidlithostrat}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreStratigraphicCoreSet> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" FROM "strat_litho_wellbore_core" WHERE "lsulevel" = 'GROUP'
+
+mappingId	mapping--1211093237
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'CONCRETE STRUCTURE'
+
+mappingId	mapping-2068277495
+target		<http://sws.ifi.uio.no/data/npd-v2/field_operator_hst/{fldnpdidfield}__{cmpnpdidcompany}__{fldoperatorfrom}__{fldoperatorto}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldOperator> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOperatorTo> {fldoperatordateupdated}^^xsd:dateTime , {fldoperatorto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateFieldOperatorFrom> {fldoperatorfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#operatorForField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> . 
+source		SELECT "fldname" , "cmplongname" , "fldoperatorfrom" , "fldoperatorto" , "fldnpdidfield" , "cmpnpdidcompany" , "fldoperatordateupdated" , "datesyncnpd" FROM "field_operator_hst"
+
+mappingId	mapping-751476246
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#InjectionWellbore> . 
+source		SELECT "wlbnpdidwellbore" FROM "wellbore_development_all" WHERE "wlbplotsymbol" = 72
+
+mappingId	mapping--2032704515
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypemain" = 'Grunnundersøkelser'
+
+mappingId	mapping-1067739384
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_casing_and_lot/{wellbore_casing_and_lot_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreCasingAndLeakoffTest> . 
+source		SELECT "wellbore_casing_and_lot_id" , "wlbnpdidwellbore" FROM "wellbore_casing_and_lot" WHERE "wlbcasingtype" = 'LINER'
+
+mappingId	mapping-439498502
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_transfer_hst/{baanpdidbsnsarrarea}__{baatransferdirection}__{cmpnpdidcompany}__{baatransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#Transfer> . 
+source		SELECT "baanpdidbsnsarrarea" , "baatransferdirection" , "cmpnpdidcompany" , "baatransferdatevalidfrom" FROM "bsns_arr_area_transfer_hst" WHERE "baatransferkind" = 'TRANSFER'
+
+mappingId	mapping--43658889
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#Condeep3ShaftsFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'CONDEEP 3 SHAFTS'
+
+mappingId	mapping-822919868
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#CondeepMonoshaftFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'CONDEEP MONOSHAFT'
+
+mappingId	mapping--537574274
+target		<http://sws.ifi.uio.no/data/npd-v2/field_owner_hst/{fldnpdidfield}__{fldnpdidowner}__{fldownershipfromdate}__{fldownershiptodate}> a <http://sws.ifi.uio.no/vocab/npd-v2#BAALicensee> . 
+source		SELECT "fldnpdidfield" , "fldnpdidowner" , "fldownershipfromdate" , "fldownershiptodate" FROM "field_owner_hst" WHERE "fldownerkind" = 'BUSINESS ARRANGEMENT AREA'
+
+mappingId	mapping--499947152
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#LandfallFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'LANDFALL'
+
+mappingId	mapping-1323633461
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'DORIS'
+
+mappingId	mapping-374652282
+target		<http://sws.ifi.uio.no/data/npd-v2/prlarea/{prlarea_id}__{prlnpdidlicence}__{prlareapolydatevalidfrom}__{prlareapolydatevalidto}> a <http://sws.ifi.uio.no/vocab/npd-v2#Area> ; <http://sws.ifi.uio.no/vocab/npd-v2#drillPermit> {prlarea_id}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidTo> {prldatevalidto}^^xsd:dateTime ; <http://resource.geosciml.org/ontology/timescale/gts-30#additionalCorrelationProperty> {prlareapolystratigraphical}^^xsd:string , {prllastoperatornameshort}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licensingActivityName> {prllicensingactivityname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#currentAreaSize> {prlcurrentarea}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{prllastoperatornpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {prldategranted}^^xsd:dateTime ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prlfacturl}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom> {prlareapolydatevalidfrom}^^xsd:dateTime , {prlareapolydatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> . 
+source		SELECT "prlname" , "prlactive" , "prlcurrentarea" , "prldategranted" , "prldatevalidto" , "prlareapolydatevalidfrom" , "prlareapolydatevalidto" , "prlareapolyfromzvalue" , "prlareapolytozvalue" , "prlareapolyvertlimen" , "prlareapolyvertlimno" , "prlstratigraphical" , "prlareapolystratigraphical" , "prlnpdidlicence" , "prllastoperatornameshort" , "prllastoperatornamelong" , "prllicensingactivityname" , "prllastoperatornpdidcompany" , "prlfacturl" , "prlarea_id" FROM "prlarea"
+
+mappingId	mapping--958159218
+target		<http://sws.ifi.uio.no/data/npd-v2/seamultiline/{seasurveyname}> a <http://www.opengis.net/ont/gml#MultiSolid> . 
+source		SELECT "seasurveyname" FROM "seamultiline" WHERE "seasurveytypemain" = 'Borestedundersøkelse / sitesurvey'
+
+mappingId	mapping-40024866
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = '03WATER BASED'
+
+mappingId	mapping-1137775084
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = '21/10/2009 20:00 Glydril DW'
+
+mappingId	mapping-91499714
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceTransfer> ; <http://sws.ifi.uio.no/vocab/npd-v2#transferDirection> {prltransferdirection}^^xsd:string , {prltransfersdfi}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#transferredInterest> {prltransferredinterest}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#licenceTransferCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateTransferValidFrom> {prltransferdateupdated}^^xsd:dateTime , {prltransferdatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {prlname}^^xsd:string . 
+source		SELECT "prlname" , "prltransferdatevalidfrom" , "prltransferdirection" , "prltransferkind" , "cmplongname" , "prltransferredinterest" , "prltransfersdfi" , "prlnpdidlicence" , "cmpnpdidcompany" , "prltransferdateupdated" , "datesyncnpd" FROM "licence_transfer_hst"
+
+mappingId	mapping--2071867597
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_licence/{tufnpdidtuf}> a <http://sws.ifi.uio.no/vocab/npd-v2#LicencedAcreage> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo> {ptldatevalidto}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdated> {ptldateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateUpdatedMax> {ptldateupdatedmax}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {ptlname}^^xsd:string , {tufname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#dateLicenceValidFrom> {ptldatevalidfrom}^^xsd:dateTime . 
+source		SELECT "ptlname" , "tufname" , "ptldatevalidfrom" , "ptldatevalidto" , "tufnpdidtuf" , "ptldateupdated" , "ptldateupdatedmax" , "datesyncnpd" FROM "tuf_petreg_licence"
+
+mappingId	mapping--1249930651
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'ANCOVERY OBM'
+
+mappingId	mapping--735301698
+target		<http://sws.ifi.uio.no/data/npd-v2/field_activity_status_hst/{fldnpdidfield}__{fldstatus}__{fldstatusfromdate}__{fldstatustodate}> a <http://sws.ifi.uio.no/vocab/npd-v2#SubseaStructureFacility> ; <http://sws.ifi.uio.no/vocab/npd-v2#status> {fldstatus}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#includedInField> <http://sws.ifi.uio.no/data/npd-v2/field/{fldnpdidfield}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {fldname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidFrom> {fldstatusdateupdated}^^xsd:dateTime , {fldstatusfromdate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidTo> {fldstatustodate}^^xsd:dateTime . 
+source		SELECT "fldname" , "fldstatusfromdate" , "fldstatustodate" , "fldstatus" , "fldnpdidfield" , "fldstatusdateupdated" , "datesyncnpd" FROM "field_activity_status_hst"
+
+mappingId	mapping--290683711
+target		<http://sws.ifi.uio.no/data/npd-v2/strat_litho_wellbore/{wlbnpdidwellbore}__{lsunpdidlithostrat}__{lsutopdepth}__{lsubottomdepth}> a <http://sws.ifi.uio.no/vocab/npd-v2#Wellbore> . 
+source		SELECT "wlbnpdidwellbore" , "lsunpdidlithostrat" , "lsutopdepth" , "lsubottomdepth" FROM "strat_litho_wellbore" WHERE "lsulevel" = 'MEMBER'
+
+mappingId	mapping--1578923895
+target		<http://sws.ifi.uio.no/data/npd-v2/field_production_totalt_ncs_year/{prfyear}> a <http://sws.ifi.uio.no/vocab/npd-v2#FieldYearlyProduction> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreDrillingDays> {prfprdnglnetmillsm3}^^xsd:integer , {prfprdoilnetmillsm}^^xsd:integer , {prfprdgasnetbillsm}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreReentryExplorationActivity> {prfprdproducedwaterinfieldmillsm3}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#prefLabel> {prfyear}^^xsd:int . 
+source		SELECT "prfyear" , "prfprdoilnetmillsm" , "prfprdgasnetbillsm" , "prfprdcondensatenetmillsm3" , "prfprdnglnetmillsm3" , "prfprdoenetmillsm3" , "prfprdproducedwaterinfieldmillsm3" FROM "field_production_totalt_ncs_year"
+
+mappingId	mapping--1510076487
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#TechnicalDiscovery> . 
+source		SELECT "dscnpdiddiscovery" FROM "discovery" WHERE "dschctype" = 'GAS'
+
+mappingId	mapping--515523889
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypepart" = '2D'
+
+mappingId	mapping--645448946
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#ConcreteStructureFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'CONCRETE STRUCTURE'
+
+mappingId	mapping--499682170
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_mud/{wellbore_mud_id}__{wlbnpdidwellbore}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillingMudSample> . 
+source		SELECT "wellbore_mud_id" , "wlbnpdidwellbore" FROM "wellbore_mud" WHERE "wlbmudtype" = 'Aquadrill'
+
+mappingId	mapping-10075314
+target		<http://sws.ifi.uio.no/data/npd-v2/discovery/{dscnpdiddiscovery}> a <http://sws.ifi.uio.no/vocab/npd-v2#CommercialDiscovery> . 
+source		SELECT "dscnpdiddiscovery" FROM "discovery" WHERE "dschctype" = 'OIL'
+
+mappingId	mapping-265225631
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_document/{wellbore_document_id}__{wlbnpdidwellbore}__{wlbdocumentname}> a <http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument> . 
+source		SELECT "wellbore_document_id" , "wlbnpdidwellbore" , "wlbdocumentname" FROM "wellbore_document" WHERE "wlbdocumenttype" = 'OLD NPD WDSS'
+
+mappingId	mapping--1882497552
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_petreg_message/{prlnpdidlicence}__{ptlmessagedocumentno}> a <http://sws.ifi.uio.no/vocab/npd-v2#ElectromagneticSurvey> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTBottomHolePressure> {ptlmessagedocumentno}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence> <http://sws.ifi.uio.no/data/npd-v2/licence/{prlnpdidlicence}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {prlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#messageType> {ptlmessage}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#dateMessageRegistered> {ptlmessageregistereddate}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateStatusValidTo> {ptlmessagedateupdated}^^xsd:dateTime . 
+source		SELECT "prlname" , "ptlmessagedocumentno" , "ptlmessage" , "ptlmessageregistereddate" , "ptlmessagekinddesc" , "ptlmessagedateupdated" , "prlnpdidlicence" , "datesyncnpd" FROM "licence_petreg_message"
+
+mappingId	mapping-1141957882
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FacilityPoint> . 
+source		SELECT "fclnpdidfacility" FROM "fclpoint" WHERE "fclkind" = 'JACKET 6 LEGS'
+
+mappingId	mapping--817296178
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#MonotowerFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclkind" = 'MONOTOWER'
+
+mappingId	mapping-1051252321
+target		<http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area_licensee_hst/{baanpdidbsnsarrarea}__{cmpnpdidcompany}__{baalicenseedatevalidfrom}__{baalicenseedatevalidto}> a <http://www.ifomis.org/bfo/1.1/span#ScatteredTemporalRegion> ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceAreaValidFrom> {baalicenseedatevalidfrom}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceAreaValidTo> {baalicenseedatevalidto}^^xsd:dateTime , {baalicenseedateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {baaname}^^xsd:string ; <http://www.w3.org/2004/02/skos/core#broaderTransitive> <http://sws.ifi.uio.no/data/npd-v2/bsns_arr_area/{baanpdidbsnsarrarea}> ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest> {baalicenseeinterest}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> ; <http://sws.ifi.uio.no/vocab/npd-v2#casingDiameter> {baalicenseesdfi}^^xsd:string . 
+source		SELECT "baaname" , "baalicenseedatevalidfrom" , "baalicenseedatevalidto" , "cmplongname" , "baalicenseeinterest" , "baalicenseesdfi" , "baanpdidbsnsarrarea" , "cmpnpdidcompany" , "baalicenseedateupdated" , "datesyncnpd" FROM "bsns_arr_area_licensee_hst"
+
+mappingId	mapping-1298651018
+target		<http://sws.ifi.uio.no/data/npd-v2/licence_transfer_hst/{prlnpdidlicence}__{prltransferdirection}__{cmpnpdidcompany}__{prltransferdatevalidfrom}> a <http://sws.ifi.uio.no/vocab/npd-v2#MergerTakeoverTransfer> . 
+source		SELECT "prlnpdidlicence" , "prltransferdirection" , "cmpnpdidcompany" , "prltransferdatevalidfrom" FROM "licence_transfer_hst" WHERE "prltransferkind" = 'MERGER/TAKEOVER'
+
+mappingId	mapping-571433930
+target		<http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_licence_licencee/{tufnpdidtuf}__{cmpnpdidcompany}> a <http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#name> {ptlname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest> {ptllicenseeinterest}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidTo> {ptllicenseedateupdated}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence> <http://sws.ifi.uio.no/data/npd-v2/tuf_petreg_licence/{tufnpdidtuf}> ; <http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany> <http://sws.ifi.uio.no/data/npd-v2/company/{cmpnpdidcompany}> . 
+source		SELECT "ptlname" , "cmplongname" , "ptllicenseeinterest" , "tufname" , "tufnpdidtuf" , "cmpnpdidcompany" , "ptllicenseedateupdated" , "datesyncnpd" FROM "tuf_petreg_licence_licencee"
+
+mappingId	mapping--1352757391
+target		<http://sws.ifi.uio.no/data/npd-v2/apaareanet/{apaareanet_id}__{qdrname}__{blkname}__{prvname}__{blkid}> a <http://sws.ifi.uio.no/vocab/npd-v2#AwardArea> ; <http://www.w3.org/2004/02/skos/core#altLabel> {blklabel}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#blockId> {blkid}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {qdrname}^^xsd:string , {prvname}^^xsd:string . 
+source		SELECT "blkid" , "blklabel" , "qdrname" , "blkname" , "prvname" , "apaareatype" , "urlnpd" , "apaareanet_id" FROM "apaareanet"
+
+mappingId	mapping-1877816435
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seasurveytypepart" = 'Ikke seismikk'
+
+mappingId	mapping-561729891
+target		<http://sws.ifi.uio.no/data/npd-v2/facility_fixed/{fclnpdidfacility}> a <http://sws.ifi.uio.no/vocab/npd-v2#FixedFacility> . 
+source		SELECT "fclnpdidfacility" FROM "facility_fixed" WHERE "fclbelongstokind" = 'FIELD'
+
+mappingId	mapping-1683409139
+target		<http://sws.ifi.uio.no/data/npd-v2/wellbore_formation_top/{wlbnpdidwellbore}__{lsunpdidlithostrat}__{lsutopdepth}__{lsubottomdepth}> a <http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore> ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD> <http://sws.ifi.uio.no/data/npd-v2/wellbore_npdid_overview/{wlbnpdidwellbore}> ; <http://sws.ifi.uio.no/vocab/npd-v2#name> {lsuname}^^xsd:string , {wlbname}^^xsd:string ; <http://sws.ifi.uio.no/vocab/npd-v2#wellboreDrillingDays> {lsunpdidlithostrat}^^xsd:integer , {lsunpdidlithostratparent}^^xsd:integer ; <http://sws.ifi.uio.no/vocab/npd-v2#dateSyncNPD> {datesyncnpd}^^xsd:dateTime ; <http://sws.ifi.uio.no/vocab/npd-v2#DSTDepthTo> {lsutopdepth}^^xsd:decimal ; <http://sws.ifi.uio.no/vocab/npd-v2#wellborePurpose> {lsubottomdepth}^^xsd:string . 
+source		SELECT "wlbname" , "lsutopdepth" , "lsubottomdepth" , "lsuname" , "lsulevel" , "lsunameparent" , "wlbnpdidwellbore" , "lsunpdidlithostrat" , "lsunpdidlithostratparent" , "lsuwellboreupdateddate" , "datesyncnpd" FROM "wellbore_formation_top"
+
+mappingId	mapping-2096676043
+target		<http://sws.ifi.uio.no/data/npd-v2/seaarea/{seaarea_id}__{seasurveyname}> a <http://sws.ifi.uio.no/vocab/npd-v2#SurveyArea> . 
+source		SELECT "seaarea_id" , "seasurveyname" FROM "seaarea" WHERE "seapolygonkind" = 'Område unntatt snuområde'
+]]
+

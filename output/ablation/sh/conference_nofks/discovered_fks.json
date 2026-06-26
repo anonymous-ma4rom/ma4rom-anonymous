@@ -1,0 +1,96 @@
+{
+  "Abstract": [
+    {
+      "column": "is_the_1th_part_of",
+      "ref_table": "Paper",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Committee": [
+    {
+      "column": "was_a_program_committee_of",
+      "ref_table": "Conference_volume",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    },
+    {
+      "column": "TYPE",
+      "ref_table": "Review",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Conference_document": [
+    {
+      "column": "TYPE",
+      "ref_table": "Conference_document",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Paper": [
+    {
+      "column": "has_an_abstract",
+      "ref_table": "Abstract",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    },
+    {
+      "column": "is_submitted_at",
+      "ref_table": "Conference_volume",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    },
+    {
+      "column": "TYPE",
+      "ref_table": "Paper",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Review": [
+    {
+      "column": "reviews",
+      "ref_table": "Paper",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "contributes": [
+    {
+      "column": "Person",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    },
+    {
+      "column": "Conference_document",
+      "ref_table": "Conference_document",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "has_an_email": [
+    {
+      "column": "Person",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "has_members": [
+    {
+      "column": "Committee",
+      "ref_table": "Committee",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    },
+    {
+      "column": "Committee_member",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ]
+}

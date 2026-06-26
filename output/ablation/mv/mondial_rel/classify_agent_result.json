@@ -1,0 +1,561 @@
+{
+  "airport": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键iatacode不是FK列集，且包含非FK属性列如name、latitude等。"
+  },
+  "borders": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "country1",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "column": "country2",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "所有列均为FK，无额外属性列，二元关系表。"
+  },
+  "city": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键(name,country,province)不是FK列集，且包含非FK属性列如population等。"
+  },
+  "cityothername": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键包含country,province,city，其中country是FK指向country，但整体PK不完全等于FK列集，且othername非FK，故为SH。"
+  },
+  "continent": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，主实体表。"
+  },
+  "country": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键code不是FK列集，且包含非FK属性列如name、area等。"
+  },
+  "countryothername": {
+    "type": "SH",
+    "inferred_fks": [],
+    "reason": "主键(country,othername)中country是FK指向country，但整体PK不完全等于FK列集，且othername非FK，故为SH。"
+  },
+  "desert": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，主实体表。"
+  },
+  "economy": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键country是FK指向country，PK等于单个FK列，无其他非FK列。"
+  },
+  "encompasses": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "column": "continent",
+        "references_table": "continent",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为FK，无额外属性列，二元关系表。"
+  },
+  "ethnicgroup": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键由name和country组成，包含非外键属性percentage，不符合SH或SR结构硬条件。"
+  },
+  "geo_desert": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "desert",
+        "references_table": "desert",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（desert、province），不是二元关系，且主键不等于任一单一外键列集，故非SR也非SH。"
+  },
+  "geo_estuary": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（river、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_island": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（island、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_lake": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（lake、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_mountain": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "mountain",
+        "references_table": "mountain",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（mountain、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_river": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（river、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_sea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（sea、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "geo_source": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键但涉及三个表（river、province），不是二元关系，且主键不等于任一单一外键列集。"
+  },
+  "island": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，包含多个非键属性，属于主实体表。"
+  },
+  "islandin": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      },
+      {
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      },
+      {
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      }
+    ],
+    "reason": "无主键且所有列均为外键，但列数超过两个实体，不满足SH和SR条件，归类为带属性关系表（尽管无显式属性）。"
+  },
+  "ismember": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "column": "organization",
+        "references_table": "organization",
+        "references_column": "abbreviation"
+      }
+    ],
+    "reason": "主键由两个外键组成，但整体不等于单一外键列集，且有额外属性type，不满足SH和SR，为带属性关系表。"
+  },
+  "lake": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      }
+    ],
+    "reason": "主键name不是外键，且有非外键属性，不满足SH和SR，为主实体。"
+  },
+  "language": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键包含非外键列name，且有额外属性percentage，不满足SH和SR，为带属性关系表。"
+  },
+  "located": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "city",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ],
+    "reason": "无主键且所有列均为外键，但涉及多个实体（超过二元），不满足SR，也不是SH，归类为SE。"
+  },
+  "locatedon": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "city",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键，无额外属性，主键等于全部列，且关系为二元（city与island），符合SR定义。"
+  },
+  "mergeswith": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "sea1",
+        "references_table": "sea",
+        "references_column": "name"
+      },
+      {
+        "column": "sea2",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键，无额外属性，二元关系（sea与sea），符合SR定义。"
+  },
+  "mountain": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键非外键，有多个非外键属性，无外键，为主实体。"
+  },
+  "mountainonisland": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "mountain",
+        "references_table": "mountain",
+        "references_column": "name"
+      },
+      {
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为外键，无额外属性，二元关系（mountain与island），符合SR定义。"
+  },
+  "organization": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键abbreviation不是外键，且有多个非外键属性，为主实体。"
+  },
+  "politics": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "dependent",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键country是外键指向父表country，且包含额外属性列。"
+  },
+  "population": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键country是外键指向父表country，且包含额外属性列。"
+  },
+  "province": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "capital",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "column": "capprov",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键包含非外键列name，不符合SH；且非全FK，不符合SR；为主实体表。"
+  },
+  "provinceothername": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键包含非外键列othername和province，不符合SH；且非全FK，不符合SR；为带属性关系表。"
+  },
+  "religion": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ],
+    "reason": "主键包含非外键列name，不符合SH；且非全FK，不符合SR；为主实体表。"
+  },
+  "river": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ],
+    "reason": "主键name非外键，且包含非FK属性列，不符合SH/SR；为主实体表。"
+  },
+  "riverthrough": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系（两列），主键由两FK组成，无额外属性。"
+  },
+  "sea": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，主键name非外键，为主实体表。"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "orphan_matches": {
+    "bsns_arr_area.baakind": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "dscarea.fldfacturl": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "fldarea.fldfacturl": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "strat_litho_wellbore.lsulevel": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "strat_litho_wellbore_core.lsulevel": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    }
+  },
+  "multivalue_matches": {}
+}

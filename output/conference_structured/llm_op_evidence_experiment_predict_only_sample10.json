@@ -1,0 +1,280 @@
+{
+  "database": "conference_structured",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "include_no_gold": true,
+  "evaluated_at": "2026-06-04 22:57:55",
+  "summary": {
+    "prediction_total": 10,
+    "prediction_no_answer": 0,
+    "changed_from_current": 2,
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "Abstract.ID",
+      "source": "Abstract.ID",
+      "target": "Conference_document.ID",
+      "current_uri": "http://conference#is_the_1th_part_of",
+      "current_local_name": "is_the_1th_part_of",
+      "llm_selected_uri": "http://conference#is_the_1th_part_of",
+      "llm_selected_local_name": "is_the_1th_part_of",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2488135593220339,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2488135593220339,
+        "valentine_coma_score": 0.5321872713972202,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#is_the_1th_part_of",
+        "selected_local_name": "is_the_1th_part_of",
+        "confidence": "medium",
+        "reason": "域（Abstract）完全匹配，名称暗示部分关系，逆属性（has_an_abstract）符合文档包含摘要的语义，但范围未直接对应Conference_document，因此置信度中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Abstract.is_submitted_at",
+      "source": "Abstract.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "current_uri": "http://conference#is_submitted_at",
+      "current_local_name": "is_submitted_at",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "medium",
+        "reason": "名称完全匹配（is_submitted_at），范围匹配Conference_volume，但领域是Conference_contribution而非Abstract，可能存在继承关系；其他候选领域或范围不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Committee.has_a_committee_chair",
+      "source": "Committee.has_a_committee_chair",
+      "target": "Person.ID",
+      "current_uri": "http://conference#has_a_committee_chair",
+      "current_local_name": "has_a_committee_chair",
+      "llm_selected_uri": "http://conference#has_a_committee_chair",
+      "llm_selected_local_name": "has_a_committee_chair",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_committee_chair",
+        "selected_local_name": "has_a_committee_chair",
+        "confidence": "medium",
+        "reason": "名称完全匹配，域匹配，但范围Ontology为Chair，而数据库目标为Person，缺乏直接的IND匹配；语义上Chair通常是Person的子集，因此选择此属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Committee.was_a_program_committee_of",
+      "source": "Committee.was_a_program_committee_of",
+      "target": "Conference_volume.ID",
+      "current_uri": "http://conference#was_a_committee_of",
+      "current_local_name": "was_a_committee_of",
+      "llm_selected_uri": "http://conference#was_a_program_committee_of",
+      "llm_selected_local_name": "was_a_program_committee_of",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#was_a_program_committee_of",
+        "selected_local_name": "was_a_program_committee_of",
+        "confidence": "medium",
+        "reason": "关系名称完全匹配，且为子属性，但域冲突（Committee vs Program_committee），故中等置信度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_proceedings.has_a_publisher",
+      "source": "Conference_proceedings.has_a_publisher",
+      "target": "Publisher.ID",
+      "current_uri": "http://conference#has_a_publisher",
+      "current_local_name": "has_a_publisher",
+      "llm_selected_uri": "http://conference#has_a_publisher",
+      "llm_selected_local_name": "has_a_publisher",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_publisher",
+        "selected_local_name": "has_a_publisher",
+        "confidence": "high",
+        "reason": "属性名称、域和范围均与数据库外键完全匹配，且其他候选属性不匹配"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_a_program_committee",
+      "source": "Conference_volume.has_a_program_committee",
+      "target": "Committee.ID",
+      "current_uri": "http://conference#has_a_commtitee",
+      "current_local_name": "has_a_commtitee",
+      "llm_selected_uri": "http://conference#has_a_commtitee",
+      "llm_selected_local_name": "has_a_commtitee",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_commtitee",
+        "selected_local_name": "has_a_commtitee",
+        "confidence": "high",
+        "reason": "数据库关系连接Conference_volume到Committee，has_a_commtitee的域和范围精确匹配此关系，名称近似拼写（commtitee对应committee）。has_a_program_committee虽然名称完整匹配但范围是Program_committee而非Committee，不满足目标表。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_a_steering_committee",
+      "source": "Conference_volume.has_a_steering_committee",
+      "target": "Steering_committee.ID",
+      "current_uri": "http://conference#has_a_steering_committee",
+      "current_local_name": "has_a_steering_committee",
+      "llm_selected_uri": "http://conference#has_a_steering_committee",
+      "llm_selected_local_name": "has_a_steering_committee",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_steering_committee",
+        "selected_local_name": "has_a_steering_committee",
+        "confidence": "high",
+        "reason": "候选属性名称、域(Conference_volume)和范围(Steering_committee)与外键关系完全匹配，且无任何冲突证据，因此选择该属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_an_organizing_committ",
+      "source": "Conference_volume.has_an_organizing_committ",
+      "target": "Organizing_committee.ID",
+      "current_uri": "http://conference#has_an_organizing_committee",
+      "current_local_name": "has_an_organizing_committee",
+      "llm_selected_uri": "http://conference#has_an_organizing_committee",
+      "llm_selected_local_name": "has_an_organizing_committee",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_an_organizing_committee",
+        "selected_local_name": "has_an_organizing_committee",
+        "confidence": "medium",
+        "reason": "数据库外键指向Organizing_committee表，本体属性has_an_organizing_committee的域为Conference_volume，范围为Organizing_committee，完全匹配，且名称相似度高（cpa_name_score=0.917）。其他候选属性的范围不匹配。尽管模式匹配证据较弱，但本体证据强烈支持该选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_important_dates",
+      "source": "Conference_volume.has_important_dates",
+      "target": "Important_dates.ID",
+      "current_uri": "http://conference#has_important_dates",
+      "current_local_name": "has_important_dates",
+      "llm_selected_uri": "http://conference#has_important_dates",
+      "llm_selected_local_name": "has_important_dates",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#has_important_dates",
+        "selected_local_name": "has_important_dates",
+        "confidence": "high",
+        "reason": "属性名称完全匹配外键语义'has_important_dates'，且domain和range分别对应Conference_volume和Important_dates，与数据库关系一致。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Invited_talk.ID",
+      "source": "Invited_talk.ID",
+      "target": "Conference_document.ID",
+      "current_uri": "http://conference#contributes",
+      "current_local_name": "contributes",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "low",
+        "reason": "Invited_talk可能是Conference_contribution的子类，领域匹配，但范围不匹配（目标为Conference_document而非Conference_volume），且无数据重叠IND证据，故选择is_submitted_at，信心低。"
+      },
+      "error": null
+    }
+  ]
+}

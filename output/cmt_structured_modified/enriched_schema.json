@@ -1,0 +1,752 @@
+{
+  "Acceptance": {
+    "columns": {
+      "ID": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Administrator": {
+    "columns": {
+      "ID": "integer",
+      "acceptPaper": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "Administrator_ID_fkey",
+        "fk_arity": 1,
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKAdministratoracceptPaper",
+        "fk_arity": 1,
+        "column": "acceptPaper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "Bid": {
+    "columns": {
+      "ID": "integer",
+      "adjustedBy": "integer",
+      "hasBid_Inv": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "Bid_adjustedBy_fkey",
+        "fk_arity": 1,
+        "column": "adjustedBy",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKBidhasBid_Inv",
+        "fk_arity": 1,
+        "column": "hasBid_Inv",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "Conference": {
+    "columns": {
+      "ID": "integer",
+      "siteURL": "character varying(22)",
+      "acceptsHardcopySubmissions": "character varying(199)",
+      "logoURL": "character varying(199)",
+      "date": "date",
+      "name": "character varying(6)",
+      "reviewsPerPaper": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Document": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Paper": {
+    "columns": {
+      "ID": "integer",
+      "paperID": "integer",
+      "rejectedBy": "integer",
+      "readByMeta-Reviewer": "integer",
+      "R2": "integer",
+      "VALUE": "character varying(101)",
+      "hasDecision": "integer",
+      "acceptedBy": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaperURI",
+        "fk_arity": 1,
+        "column": "ID",
+        "references_table": "Document",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKPaperacceptedBy",
+        "fk_arity": 1,
+        "column": "acceptedBy",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKPaperrejectedBy",
+        "fk_arity": 1,
+        "column": "rejectedBy",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "Paper_hasAuthor_fkey",
+        "fk_arity": 1,
+        "column": "R2",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "Paper_hasDecision_fkey",
+        "fk_arity": 1,
+        "column": "hasDecision",
+        "references_table": "Acceptance",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "Paper_readByMeta-Reviewer_fkey",
+        "fk_arity": 1,
+        "column": "readByMeta-Reviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "Person": {
+    "columns": {
+      "ID": "integer",
+      "name": "character varying(24)",
+      "email": "character varying(43)",
+      "is_user": "boolean",
+      "assignedByReviewer": "integer",
+      "is_Reviewer": "boolean",
+      "is_Author": "boolean",
+      "is_Co-author": "boolean",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "Person_CHILD_DATA_assignedByReviewer_fkey",
+        "fk_arity": 1,
+        "column": "assignedByReviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "Preference": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "ProgramCommittee": {
+    "columns": {
+      "ID": "integer",
+      "label": "character varying(29)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "ProgramCommitteeChair": {
+    "columns": {
+      "ID": "integer",
+      "maxPapers": "integer",
+      "addedBy": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "ProgramCommitteeChair_ID_fkey",
+        "fk_arity": 1,
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "ProgramCommitteeChair_addedBy_fkey",
+        "fk_arity": 1,
+        "column": "addedBy",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "ProgramCommitteeMember": {
+    "columns": {
+      "ID": "integer",
+      "maxPapers": "integer",
+      "addedBy": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "ProgramCommitteeMember_ID_fkey",
+        "fk_arity": 1,
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "ProgramCommitteeMember_addedBy_fkey",
+        "fk_arity": 1,
+        "column": "addedBy",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "R1": {
+    "columns": {
+      "Paper": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "Paper",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKassignedToPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "assignedTo_Reviewer_fkey",
+        "fk_arity": 1,
+        "column": "Reviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "Review": {
+    "columns": {
+      "ID": "integer",
+      "writtenBy": "integer",
+      "comment": "character varying(191)",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewURI",
+        "fk_arity": 1,
+        "column": "ID",
+        "references_table": "Document",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "Review_writtenBy_fkey",
+        "fk_arity": 1,
+        "column": "writtenBy",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "SubjectArea": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "assignReviewer": {
+    "columns": {
+      "Administrator": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKassignReviewerAdministrator",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "assignReviewer_Reviewer_fkey",
+        "fk_arity": 1,
+        "column": "Reviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "co-writePaper": {
+    "columns": {
+      "Co-author": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "Co-author",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKco-writePaperPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "co-writePaper_Co-author_fkey",
+        "fk_arity": 1,
+        "column": "Co-author",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "detailsEnteredBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKdetailsEnteredByAdminis",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKdetailsEnteredByConference",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "enableVirtualMeeting": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKenableVirtualMeetingAdm",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKenableVirtualMeetingCon",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "endReview": {
+    "columns": {
+      "ProgramCommitteeChair": "integer",
+      "Review": "integer"
+    },
+    "primary_key": [
+      "ProgramCommitteeChair",
+      "Review"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKendReviewProgramCommitt",
+        "fk_arity": 1,
+        "column": "ProgramCommitteeChair",
+        "references_table": "ProgramCommitteeChair",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKendReviewReview",
+        "fk_arity": 1,
+        "column": "Review",
+        "references_table": "Review",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "enterReviewCriteria": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKenterReviewCriteriaAdmi",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKenterReviewCriteriaConf",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "finalizePaperAssignment": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKfinalizePaperAssignment",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "finalizePaperAssignmen2FK",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "hardcopyMailingManifestsP": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhardcopyMailingManifest",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "hardcopyMailingManifes2FK",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "hasConferenceMember": {
+    "columns": {
+      "Conference": "integer",
+      "ConferenceMember": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "ConferenceMember"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasConferenceMemberConf",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKhasConferenceMemberPers",
+        "fk_arity": 1,
+        "column": "ConferenceMember",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "hasConflictOfInterest": {
+    "columns": {
+      "Person": "integer",
+      "Document": "integer"
+    },
+    "primary_key": [
+      "Person",
+      "Document"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasConflictOfInterestDo",
+        "fk_arity": 1,
+        "column": "Document",
+        "references_table": "Document",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKhasConflictOfInterestPerson",
+        "fk_arity": 1,
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "hasProgramCommitteeMember": {
+    "columns": {
+      "ProgramCommittee": "integer",
+      "ProgramCommitteeMember": "integer"
+    },
+    "primary_key": [
+      "ProgramCommittee",
+      "ProgramCommitteeMember"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasProgramCommitteeMemb",
+        "fk_arity": 1,
+        "column": "ProgramCommittee",
+        "references_table": "ProgramCommittee",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "hasSubjectArea": {
+    "columns": {
+      "Paper": "integer",
+      "SubjectArea": "integer"
+    },
+    "primary_key": [
+      "Paper",
+      "SubjectArea"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasSubjectAreaPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "FKhasSubjectAreaSubjectArea",
+        "fk_arity": 1,
+        "column": "SubjectArea",
+        "references_table": "SubjectArea",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "markConflictOfInterest": {
+    "columns": {
+      "ConferenceMember": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "ConferenceMember",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKmarkConflictOfInterestPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "paperAssignmentToolsRunBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKpaperAssignmentToolsRun",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "paperAssignmentToolsRu2FK",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "readByReviewer": {
+    "columns": {
+      "Paper": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "Paper",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKreadByReviewerPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "readByReviewer_Reviewer_fkey",
+        "fk_arity": 1,
+        "column": "Reviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "reviewerBiddingStartedBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKreviewerBiddingStartedB",
+        "fk_arity": 1,
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "reviewerBiddingStarted2FK",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "setMaxPapers": {
+    "columns": {
+      "Administrator": "integer",
+      "ProgramCommitteeMember": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "ProgramCommitteeMember"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKsetMaxPapersAdministrator",
+        "fk_arity": 1,
+        "column": "Administrator",
+        "references_table": "Administrator",
+        "references_column": "ID"
+      }
+    ]
+  },
+  "submitPaper": {
+    "columns": {
+      "Author": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "Author",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKsubmitPaperPaper",
+        "fk_arity": 1,
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "constraint_name": "submitPaper_Author_fkey",
+        "fk_arity": 1,
+        "column": "Author",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ]
+  }
+}

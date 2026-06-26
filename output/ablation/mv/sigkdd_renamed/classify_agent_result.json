@@ -1,0 +1,664 @@
+{
+  "abstracts": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键且包含额外属性列title，符合SE定义"
+  },
+  "acm_sigkdds": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有主键id，无外键，属于主实体表"
+  },
+  "author_deadline_author_notificat": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "column": "did",
+        "references_table": "deadline_author_notificats",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，复合主键为外键组合，无额外属性列，符合SR定义"
+  },
+  "author_paper_students": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id即为唯一外键，且无其他属性列，符合SH定义"
+  },
+  "author_papers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id即为唯一外键，且无其他属性列，符合SH定义"
+  },
+  "authors": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "speakers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id即为唯一外键，且无其他属性列，符合SH定义"
+  },
+  "award_author": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "author",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "column": "award",
+        "references_table": "awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，复合主键为外键组合，无额外属性列，符合SR定义"
+  },
+  "awards": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有主键id，无外键，属于主实体表"
+  },
+  "best_applications_paper_as": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id即为唯一外键，且无其他属性列，符合SH定义"
+  },
+  "best_paper_awards_committs": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "column": "award",
+        "references_table": "awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，无额外属性列，符合SR定义"
+  },
+  "best_research_paper_awards": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 awards"
+  },
+  "best_student_paper_awards": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 awards"
+  },
+  "best_student_paper_suppors": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 sponzors"
+  },
+  "bronze_supporters": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 sponzors"
+  },
+  "committees": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ref",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "committee",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 不是外键，包含非 FK 列，且非全 FK 表"
+  },
+  "conference_halls": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "places",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 places"
+  },
+  "conferences": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "holded",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 不是外键，包含属性列"
+  },
+  "deadline_abstract_submiss": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "deadlines",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 deadlines"
+  },
+  "deadline_author_notificats": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "deadlines",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 等于唯一外键 id，指向 deadlines"
+  },
+  "deadline_document": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "document",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "deadline",
+        "references_table": "deadlines",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为 FK，主键为两 FK 列，无额外列"
+  },
+  "deadline_paper_submissions": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "deadlines",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用deadlines，且无其他非FK列，符合子表特征。"
+  },
+  "deadlines": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "designed",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      }
+    ],
+    "reason": "包含非外键列（id、date），是主实体表。"
+  },
+  "documents": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，独立主实体表。"
+  },
+  "e_mails": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "person",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键包含非外键列value，且存在属性列，属于带属性的关系表。"
+  },
+  "exhibitors": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用sponzors，且无其他列。"
+  },
+  "fees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，有属性列currency和price，为主实体表。"
+  },
+  "general_chairs": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "organizators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用organizators，子表。"
+  },
+  "gold_supporters": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用sponzors，子表。"
+  },
+  "hotels": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "places",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用places，子表。"
+  },
+  "invited_speakers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "speakers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，引用speakers，子表。"
+  },
+  "listeners": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向persons，符合SH结构条件"
+  },
+  "main_offices": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "places",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向places，符合SH结构条件"
+  },
+  "organizators": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向persons，符合SH结构条件"
+  },
+  "organizing_committee_membs": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "organizators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向organizators，符合SH结构条件"
+  },
+  "organizing_committees": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向committees，符合SH结构条件"
+  },
+  "paper_author": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键且无额外属性，是二元关系表"
+  },
+  "papers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id就是外键，指向documents，尽管有额外属性仍符合SH结构条件"
+  },
+  "persons": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "拥有非外键属性且主键独立，是主实体表"
+  },
+  "place_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "person",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "place",
+        "references_table": "places",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键且无额外属性，是二元关系表"
+  },
+  "places": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "拥有非外键属性且主键独立，是主实体表"
+  },
+  "platinum_supporters": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自sponzors"
+  },
+  "program_chairs": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "organizators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自organizators"
+  },
+  "program_committee_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "organizators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自organizators"
+  },
+  "program_committees": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，但还有额外非外键属性列label，不符合SH条件"
+  },
+  "registration_fee_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "只有两列均为外键，复合主键，无其他属性，二元关系"
+  },
+  "registration_fees": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自fees"
+  },
+  "registration_non_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自registration_fees"
+  },
+  "registration_sigkdd_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自registration_fees"
+  },
+  "registration_sigmod_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自registration_fees"
+  },
+  "registration_students": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键单列id且等于唯一外键列，继承自registration_fees"
+  },
+  "reviews": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "ref",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "review",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id，包含非FK列（internal_id, text），是带属性的实体或关系表"
+  },
+  "silver_supporters": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id等于唯一外键id，是sponzors的子类型表"
+  },
+  "speaker_document": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "did",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "sid",
+        "references_table": "speakers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，二元关系，无额外属性列"
+  },
+  "speakers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id等于唯一外键id，是persons的子类型表"
+  },
+  "sponzor_acm_sigkdd": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      },
+      {
+        "column": "sid",
+        "references_table": "sponzors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，二元关系，无额外属性列"
+  },
+  "sponzor_fees": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id等于唯一外键id，是fees的子类型表"
+  },
+  "sponzors": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "包含非FK列name_sponsor，不是纯FK表"
+  },
+  "webmasters": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "organizators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id等于唯一外键id，是organizators的子类型表"
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "Author": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "ID",
+        "references_table": "User",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID同时是引用Person和User的外键，符合SH条件"
+  },
+  "Bid": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID无外键，且包含非外键列adjustedBy和hasBid_Inv，属于主实体"
+  },
+  "Conference": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID无外键，包含多个属性列，属于主实体"
+  },
+  "Document": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "writtenBy",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID，包含非外键列TYPE，writtenBy为外键但非主键，属于主实体"
+  },
+  "Paper": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ID",
+        "references_table": "Document",
+        "references_column": "ID"
+      },
+      {
+        "column": "acceptedBy",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "hasAuthor",
+        "references_table": "Author",
+        "references_column": "ID"
+      },
+      {
+        "column": "hasDecision",
+        "references_table": "Rejection",
+        "references_column": "ID"
+      },
+      {
+        "column": "rejectedBy",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "Reviewer",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Reviewer",
+        "references_table": "User",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键(ID,Reviewer)不等于任何单一外键列集，且包含多个属性列，属于主实体"
+  },
+  "Person": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID无外键，包含多个属性列，属于主实体"
+  },
+  "Preference": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID无外键，无其他列，但无外键引用，属于主实体"
+  },
+  "ProgramCommittee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID无外键，属于主实体"
+  },
+  "ProgramCommitteeChair": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "ID",
+        "references_table": "ProgramCommitteeMember",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID同时是引用Person和ProgramCommitteeMember的外键，符合SH条件"
+  },
+  "ProgramCommitteeMember": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "addedBy",
+        "references_table": "User",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID，包含非外键列maxPapers，属于主实体"
+  },
+  "Rejection": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有一个主键列ID，无外键，是独立的主实体表"
+  },
+  "SubjectArea": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有一个主键列ID，无外键，是独立的主实体表"
+  },
+  "User": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ID",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID，有外键引用Person，且包含属性列acceptPaper和TYPE，属于主实体"
+  },
+  "assignReviewer": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Administrator",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "Reviewer",
+        "references_table": "User",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "co-writePaper": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Co-author",
+        "references_table": "Author",
+        "references_column": "ID"
+      },
+      {
+        "column": "Paper",
+        "references_table": "Document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "detailsEnteredBy": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "column": "Administrator",
+        "references_table": "User",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "enableVirtualMeeting": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Administrator",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "endReview": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "ProgramCommitteeChair",
+        "references_table": "ProgramCommitteeChair",
+        "references_column": "ID"
+      },
+      {
+        "column": "Review",
+        "references_table": "Document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "enterReviewCriteria": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Administrator",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "finalizePaperAssignment": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Administrator",
+        "references_table": "User",
+        "references_column": "ID"
+      },
+      {
+        "column": "Conference",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "复合主键由两个外键列组成，无额外属性列，纯二元关系表"
+  },
+  "hardcopyMailingManifestsP": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "hasConferenceMember": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "hasConflictOfInterest": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "hasProgramCommitteeMember": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "hasSubjectArea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键由两列组成，但仅有SubjectArea列显式外键，Paper列缺少外键声明，不满足SR或SH结构条件，故归为主实体或带属性关系表。"
+  },
+  "markConflictOfInterest": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ConferenceMember",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "无显式外键，不满足SR（非全FK）或SH（无FK列集匹配PK），只能归为主实体或带属性关系表。"
+  },
+  "paperAssignmentToolsRunBy": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "reviewerBiddingStartedBy": {
+    "type": "SR",
+    "inferred_fks": [],
+    "reason": "所有列均为外键，主键由两个外键列组成，无额外属性，满足二元关系表定义。"
+  },
+  "setMaxPapers": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "ProgramCommitteeMember",
+        "references_table": "ProgramCommitteeMember",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "仅Administrator列有显式外键，ProgramCommitteeMember列缺失，不满足SR或SH条件，归为主实体或带属性关系表。"
+  },
+  "submitPaper": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Paper",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "仅Author列有显式外键，Paper列缺失，不满足SR或SH条件，归为主实体或带属性关系表。"
+  }
+}

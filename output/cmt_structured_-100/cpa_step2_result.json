@@ -1,0 +1,68 @@
+{
+  "orphan_matches": {
+    "Bid.hasBid_Inv": {
+      "object_prop_uri": "http://cmt#hasBid",
+      "direction": "inverse",
+      "confidence": "high",
+      "method": "llm_select",
+      "reason": "列名含'_Inv'后缀，且hasBid的range为Bid，domain为Paper，反向引用表示从Bid指向Paper，名称和范围完全匹配。",
+      "candidates_used": [
+        {
+          "uri": "http://cmt#hasBid",
+          "local_name": "hasBid",
+          "score": 0.7,
+          "domain": [
+            "http://cmt#Paper"
+          ],
+          "range": [
+            "http://cmt#Bid"
+          ],
+          "name_score": 1.0,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 1.0
+        },
+        {
+          "uri": "http://cmt#adjustBid",
+          "local_name": "adjustBid",
+          "score": 0.5222,
+          "domain": [
+            "http://cmt#Reviewer"
+          ],
+          "range": [
+            "http://cmt#Bid"
+          ],
+          "name_score": 0.556,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 1.0
+        },
+        {
+          "uri": "http://cmt#startReviewerBidding",
+          "local_name": "startReviewerBidding",
+          "score": 0.41,
+          "domain": [
+            "http://cmt#Administrator"
+          ],
+          "range": [
+            "http://cmt#Conference"
+          ],
+          "name_score": 0.4,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.5
+        }
+      ],
+      "is_inv": true,
+      "is_fk_col": false
+    },
+    "Review.comment": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "orphan_matches": {
+    "best_paper_awards_committs.committee": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "best_paper_awards_committs.cid": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "deadline_abstract_submiss.designed": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "organizing_committees.cid": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "organizing_committees.committee": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    }
+  }
+}

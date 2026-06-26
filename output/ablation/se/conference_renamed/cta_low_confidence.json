@@ -1,0 +1,87 @@
+{
+  "abstracts": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "active_conference_particis": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "belongs_to_reviewers": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "chairs": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "committee_committee_member": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "conference_contributors": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "conference_participants": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "paid_applicants": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "papers": {
+    "table_low": true,
+    "columns_low": [
+      "abstract"
+    ]
+  },
+  "passive_conference_partics": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "person_conference_document": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "posters": {
+    "table_low": false,
+    "columns_low": [
+      "abstract"
+    ]
+  },
+  "presentations": {
+    "table_low": false,
+    "columns_low": [
+      "given",
+      "abstract"
+    ]
+  },
+  "reviewers": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "reviews": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "topic_tutorial": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "tracks": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "websites": {
+    "table_low": true,
+    "columns_low": [
+      "url"
+    ]
+  },
+  "workshops": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

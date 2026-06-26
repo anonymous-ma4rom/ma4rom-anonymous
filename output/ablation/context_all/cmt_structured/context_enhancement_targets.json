@@ -1,0 +1,165 @@
+{
+  "Acceptance": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Administrator": {
+    "table_low": true,
+    "columns_low": [
+      "acceptPaper"
+    ]
+  },
+  "Bid": {
+    "table_low": true,
+    "columns_low": [
+      "adjustedBy",
+      "hasBid_Inv"
+    ]
+  },
+  "Conference": {
+    "table_low": true,
+    "columns_low": [
+      "siteURL",
+      "acceptsHardcopySubmissions",
+      "logoURL",
+      "date",
+      "name",
+      "reviewsPerPaper"
+    ]
+  },
+  "Document": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Paper": {
+    "table_low": true,
+    "columns_low": [
+      "paperID",
+      "rejectedBy",
+      "readByMeta-Reviewer",
+      "hasAuthor",
+      "title",
+      "hasDecision",
+      "acceptedBy"
+    ]
+  },
+  "Person": {
+    "table_low": true,
+    "columns_low": [
+      "name",
+      "email",
+      "assignedByReviewer"
+    ]
+  },
+  "Preference": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "ProgramCommittee": {
+    "table_low": true,
+    "columns_low": [
+      "label"
+    ]
+  },
+  "ProgramCommitteeChair": {
+    "table_low": true,
+    "columns_low": [
+      "maxPapers",
+      "addedBy"
+    ]
+  },
+  "ProgramCommitteeMember": {
+    "table_low": true,
+    "columns_low": [
+      "maxPapers",
+      "addedBy"
+    ]
+  },
+  "Review": {
+    "table_low": true,
+    "columns_low": [
+      "writtenBy",
+      "comment"
+    ]
+  },
+  "SubjectArea": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "assignReviewer": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "assignedTo": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "co-writePaper": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "detailsEnteredBy": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "enableVirtualMeeting": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "endReview": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "enterReviewCriteria": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "finalizePaperAssignment": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hardcopyMailingManifestsP": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hasConferenceMember": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hasConflictOfInterest": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hasProgramCommitteeMember": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hasSubjectArea": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "markConflictOfInterest": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "paperAssignmentToolsRunBy": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "readByReviewer": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "reviewerBiddingStartedBy": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "setMaxPapers": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "submitPaper": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

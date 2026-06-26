@@ -1,0 +1,1753 @@
+{
+  "step1": {
+    "Abstract.ID": {
+      "object_prop_uri": "http://conference#is_the_1th_part_of",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域完全匹配Abstract，且名称暗示部分关系，虽范围不匹配但其他候选域均不匹配。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.2955,
+          "name_score": 0.091,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#is_the_1th_part_of",
+          "local_name": "is_the_1th_part_of",
+          "score": 0.2857,
+          "name_score": 0.071,
+          "domain": [
+            "http://conference#Abstract"
+          ],
+          "range": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b17"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#issues",
+          "local_name": "issues",
+          "score": 0.2083,
+          "name_score": 0.167,
+          "domain": [
+            "http://conference#Publisher"
+          ],
+          "range": [
+            "http://conference#Conference_proceedings"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "Abstract.is_submitted_at": {
+      "object_prop_uri": "http://conference#is_submitted_at",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且范围类一致，尽管域类不匹配但名称匹配度最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#is_the_1th_part_of",
+          "local_name": "is_the_1th_part_of",
+          "score": 0.5,
+          "name_score": 0.5,
+          "domain": [
+            "http://conference#Abstract"
+          ],
+          "range": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b17"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.4833,
+          "name_score": 0.467,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Abstract.is_the_1th_part_of": {
+      "object_prop_uri": "http://conference#is_the_1th_part_of",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且 domain 匹配 Abstract，range 虽未显式匹配但语义上 Abstract 是 Paper 的一部分。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_the_1th_part_of",
+          "local_name": "is_the_1th_part_of",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Abstract"
+          ],
+          "range": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b17"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_important_dates",
+          "local_name": "has_important_dates",
+          "score": 0.3235,
+          "name_score": 0.647,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Important_dates"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_a_commtitee",
+          "local_name": "has_a_commtitee",
+          "score": 0.2857,
+          "name_score": 0.571,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Committee.has_a_committee_chair": {
+      "object_prop_uri": "http://conference#has_a_committee_chair",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且 domain 匹配 Committee，range 虽为 Chair 但 Chair 是 Person 的子类，语义兼容。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_a_committee_chair",
+          "local_name": "has_a_committee_chair",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Chair"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_a_committee_co-chair",
+          "local_name": "has_a_committee_co-chair",
+          "score": 0.7,
+          "name_score": 0.9,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Co-chair"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.5833,
+          "name_score": 0.667,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Committee.was_a_program_committee_of": {
+      "object_prop_uri": "http://conference#was_a_committee_of",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.9,
+          "name_score": 0.8,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_steering_committee_of",
+          "local_name": "was_a_steering_committee_of",
+          "score": 0.6196,
+          "name_score": 0.739,
+          "domain": [
+            "http://conference#Steering_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Conference_proceedings.has_a_publisher": {
+      "object_prop_uri": "http://conference#has_a_publisher",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_a_publisher",
+          "local_name": "has_a_publisher",
+          "score": 1.0,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_proceedings"
+          ],
+          "range": [
+            "http://conference#Publisher"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_authors",
+          "local_name": "has_authors",
+          "score": 0.4327,
+          "name_score": 0.615,
+          "domain": [
+            "http://conference#Conference_document"
+          ],
+          "range": [
+            "http://conference#Person"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.3942,
+          "name_score": 0.538,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Conference_volume.has_a_steering_committee": {
+      "object_prop_uri": "http://conference#has_a_steering_committee",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_a_steering_committee",
+          "local_name": "has_a_steering_committee",
+          "score": 1.0,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Steering_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_program_committee",
+          "local_name": "has_a_program_committee",
+          "score": 0.7321,
+          "name_score": 0.714,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Program_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.5
+        },
+        {
+          "uri": "http://conference#has_an_organizing_committee",
+          "local_name": "has_an_organizing_committee",
+          "score": 0.7292,
+          "name_score": 0.708,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Organizing_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "Conference_volume.has_an_organizing_committ": {
+      "object_prop_uri": "http://conference#has_an_organizing_committee",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_an_organizing_committee",
+          "local_name": "has_an_organizing_committee",
+          "score": 0.9583,
+          "name_score": 0.917,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Organizing_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_program_committee",
+          "local_name": "has_a_program_committee",
+          "score": 0.7159,
+          "name_score": 0.682,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Program_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.5
+        },
+        {
+          "uri": "http://conference#has_a_steering_committee",
+          "local_name": "has_a_steering_committee",
+          "score": 0.7159,
+          "name_score": 0.682,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Steering_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "Conference_volume.has_important_dates": {
+      "object_prop_uri": "http://conference#has_important_dates",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_important_dates",
+          "local_name": "has_important_dates",
+          "score": 1.0,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Important_dates"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_steering_committee",
+          "local_name": "has_a_steering_committee",
+          "score": 0.5833,
+          "name_score": 0.667,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Steering_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_a_program_committee",
+          "local_name": "has_a_program_committee",
+          "score": 0.575,
+          "name_score": 0.65,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Program_committee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Invited_talk.has_an_abstract": {
+      "object_prop_uri": "http://conference#has_an_abstract",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且范围类一致，但域类不匹配，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_an_abstract",
+          "local_name": "has_an_abstract",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b10"
+          ],
+          "range": [
+            "http://conference#Abstract"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_contributions",
+          "local_name": "has_contributions",
+          "score": 0.3125,
+          "name_score": 0.625,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Conference_contribution"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_tracks",
+          "local_name": "has_tracks",
+          "score": 0.3077,
+          "name_score": 0.615,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Track"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Invited_talk.is_given_by": {
+      "object_prop_uri": "http://conference#is_given_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且 domain 和 range 虽不完全一致但语义相近（Invited_talk 是 Presentation 的子类，Person 与 Active_conference_participant 相关）。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_given_by",
+          "local_name": "is_given_by",
+          "score": 0.5,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Presentation"
+          ],
+          "range": [
+            "http://conference#Active_conference_participant"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#invited_by",
+          "local_name": "invited_by",
+          "score": 0.3889,
+          "name_score": 0.778,
+          "domain": [
+            "http://conference#Reviewer"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_authors",
+          "local_name": "has_authors",
+          "score": 0.3,
+          "name_score": 0.1,
+          "domain": [
+            "http://conference#Conference_document"
+          ],
+          "range": [
+            "http://conference#Person"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Invited_talk.is_submitted_at": {
+      "object_prop_uri": "http://conference#is_submitted_at",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称与列名完全匹配，且范围类一致，尽管域类不完全匹配，但综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.4833,
+          "name_score": 0.467,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_steering_committee_of",
+          "local_name": "was_a_steering_committee_of",
+          "score": 0.4674,
+          "name_score": 0.435,
+          "domain": [
+            "http://conference#Steering_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Organizing_committee.ID": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的domain均不匹配Organizing_committee，且列名ID无语义关联。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_a_commtitee",
+          "local_name": "has_a_commtitee",
+          "score": 0.2885,
+          "name_score": 0.077,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_chair_of",
+          "local_name": "was_a_committee_chair_of",
+          "score": 0.275,
+          "name_score": 0.05,
+          "domain": [
+            "http://conference#Chair"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_committe_co-chair_of",
+          "local_name": "was_a_committe_co-chair_of",
+          "score": 0.2738,
+          "name_score": 0.048,
+          "domain": [
+            "http://conference#Co-chair"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Organizing_committee.was_an_organizing_committ": {
+      "object_prop_uri": "http://conference#was_an_organizing_committee_of",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#was_an_organizing_committee_of",
+          "local_name": "was_an_organizing_committee_of",
+          "score": 0.9231,
+          "name_score": 0.846,
+          "domain": [
+            "http://conference#Organizing_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_steering_committee_of",
+          "local_name": "was_a_steering_committee_of",
+          "score": 0.7228,
+          "name_score": 0.696,
+          "domain": [
+            "http://conference#Steering_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.7159,
+          "name_score": 0.682,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Paper.ID": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的domain均不匹配Paper，且name_score较低，无法建立合理的外键关系。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.2955,
+          "name_score": 0.091,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#issues",
+          "local_name": "issues",
+          "score": 0.2083,
+          "name_score": 0.167,
+          "domain": [
+            "http://conference#Publisher"
+          ],
+          "range": [
+            "http://conference#Conference_proceedings"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        },
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.2019,
+          "name_score": 0.154,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "Paper.has_an_abstract": {
+      "object_prop_uri": "http://conference#has_an_abstract",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_an_abstract",
+          "local_name": "has_an_abstract",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b10"
+          ],
+          "range": [
+            "http://conference#Abstract"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_contributions",
+          "local_name": "has_contributions",
+          "score": 0.3125,
+          "name_score": 0.625,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Conference_contribution"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_tracks",
+          "local_name": "has_tracks",
+          "score": 0.3077,
+          "name_score": 0.615,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Track"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Paper.is_submitted_at": {
+      "object_prop_uri": "http://conference#is_submitted_at",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且范围类一致，尽管域类不完全匹配，但综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.4833,
+          "name_score": 0.467,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_steering_committee_of",
+          "local_name": "was_a_steering_committee_of",
+          "score": 0.4674,
+          "name_score": 0.435,
+          "domain": [
+            "http://conference#Steering_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Poster.has_an_abstract": {
+      "object_prop_uri": "http://conference#has_an_abstract",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，领域类虽未显式匹配但候选列表中该属性最符合外键语义。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_an_abstract",
+          "local_name": "has_an_abstract",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b10"
+          ],
+          "range": [
+            "http://conference#Abstract"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.3942,
+          "name_score": 0.538,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_contributions",
+          "local_name": "has_contributions",
+          "score": 0.3125,
+          "name_score": 0.625,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Conference_contribution"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Poster.is_submitted_at": {
+      "object_prop_uri": "http://conference#is_submitted_at",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，尽管域类不完全匹配但名称和范围得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.5192,
+          "name_score": 0.538,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.5
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.4833,
+          "name_score": 0.467,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Review.ID": {
+      "object_prop_uri": "http://conference#reviews",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的domain或range均与给定的Review和Conference_document不完全匹配，且名称不相关。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://conference#reviews",
+          "local_name": "reviews",
+          "score": 0.3214,
+          "name_score": 0.143,
+          "domain": [
+            "http://conference#Review"
+          ],
+          "range": [
+            "http://conference#Reviewed_contribution"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.2955,
+          "name_score": 0.091,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#invited_by",
+          "local_name": "invited_by",
+          "score": 0.2361,
+          "name_score": 0.222,
+          "domain": [
+            "http://conference#Reviewer"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Review.reviews": {
+      "object_prop_uri": "http://conference#reviews",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "候选属性中无同时匹配 domain (Review) 和 range (Conference_document) 的 ObjectProperty。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://conference#reviews",
+          "local_name": "reviews",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Review"
+          ],
+          "range": [
+            "http://conference#Reviewed_contribution"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.4318,
+          "name_score": 0.364,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_review",
+          "local_name": "has_a_review",
+          "score": 0.35,
+          "name_score": 0.7,
+          "domain": [
+            "http://conference#Reviewed_contribution"
+          ],
+          "range": [
+            "http://conference#Review"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Review_preference.belongs_to_a_review_refer": {
+      "object_prop_uri": "http://conference#has_a_topic_or_a_submission_contribution",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性的domain与关系domain完全匹配，且名称包含'has_a_topic'，与'belongs_to_a_review_refer'语义部分相关，但range不匹配，综合得分中等。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#belongs_to_a_review_reference",
+          "local_name": "belongs_to_a_review_reference",
+          "score": 0.42,
+          "name_score": 0.84,
+          "domain": [
+            "http://conference#Topic"
+          ],
+          "range": [
+            "http://conference#Review_preference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#belongs_to_reviewers",
+          "local_name": "belongs_to_reviewers",
+          "score": 0.4048,
+          "name_score": 0.81,
+          "domain": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b1"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_a_topic_or_a_submission_contribution",
+          "local_name": "has_a_topic_or_a_submission_contribution",
+          "score": 0.3971,
+          "name_score": 0.294,
+          "domain": [
+            "http://conference#Review_preference"
+          ],
+          "range": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b7"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "Steering_committee.ID": {
+      "object_prop_uri": "http://conference#was_a_member_of",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域为Committee_member，与Steering_committee语义相近，且范围完全匹配Committee。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#was_a_member_of",
+          "local_name": "was_a_member_of",
+          "score": 0.375,
+          "name_score": 0.0,
+          "domain": [
+            "http://conference#Committee_member"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_commtitee",
+          "local_name": "has_a_commtitee",
+          "score": 0.2885,
+          "name_score": 0.077,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_chair_of",
+          "local_name": "was_a_committee_chair_of",
+          "score": 0.275,
+          "name_score": 0.05,
+          "domain": [
+            "http://conference#Chair"
+          ],
+          "range": [
+            "http://conference#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Steering_committee.was_a_steering_committee_": {
+      "object_prop_uri": "http://conference#was_a_steering_committee_of",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#was_a_steering_committee_of",
+          "local_name": "was_a_steering_committee_of",
+          "score": 0.9565,
+          "name_score": 0.913,
+          "domain": [
+            "http://conference#Steering_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.7159,
+          "name_score": 0.682,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_an_organizing_committee_of",
+          "local_name": "was_an_organizing_committee_of",
+          "score": 0.7019,
+          "name_score": 0.654,
+          "domain": [
+            "http://conference#Organizing_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Track.is_part_of_conference_vol": {
+      "object_prop_uri": "http://conference#is_part_of_conference_volumes",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名与属性名高度匹配，且范围类完全一致，尽管域类不完全匹配，但语义上Track是Conference_part的子类，因此最合适。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_part_of_conference_volumes",
+          "local_name": "is_part_of_conference_volumes",
+          "score": 0.67,
+          "name_score": 0.84,
+          "domain": [
+            "http://conference#Conference_part"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#belong_to_a_conference_volume",
+          "local_name": "belong_to_a_conference_volume",
+          "score": 0.57,
+          "name_score": 0.64,
+          "domain": [
+            "http://conference#Important_dates"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.5682,
+          "name_score": 0.636,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Tutorial.is_part_of_conference_vol": {
+      "object_prop_uri": "http://conference#is_part_of_conference_volumes",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称与列名高度匹配，且范围类完全一致，尽管域类不完全匹配，但Tutorial是Conference_part的子类，语义上合理。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_part_of_conference_volumes",
+          "local_name": "is_part_of_conference_volumes",
+          "score": 0.67,
+          "name_score": 0.84,
+          "domain": [
+            "http://conference#Conference_part"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#belong_to_a_conference_volume",
+          "local_name": "belong_to_a_conference_volume",
+          "score": 0.57,
+          "name_score": 0.64,
+          "domain": [
+            "http://conference#Important_dates"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.5682,
+          "name_score": 0.636,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "Workshop.is_part_of_conference_vol": {
+      "object_prop_uri": "http://conference#is_part_of_conference_volumes",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称与列名高度匹配，且范围类完全一致，尽管域类不完全匹配，但语义上Workshop是Conference_part的子类，因此最合适。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_part_of_conference_volumes",
+          "local_name": "is_part_of_conference_volumes",
+          "score": 0.67,
+          "name_score": 0.84,
+          "domain": [
+            "http://conference#Conference_part"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#belong_to_a_conference_volume",
+          "local_name": "belong_to_a_conference_volume",
+          "score": 0.57,
+          "name_score": 0.64,
+          "domain": [
+            "http://conference#Important_dates"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.5682,
+          "name_score": 0.636,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        }
+      ]
+    },
+    "belongs_to_reviewers": {
+      "object_prop_uri": "http://conference#belongs_to_reviewers",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名完全匹配，且范围与关系信息一致，域虽未显式匹配但Person是Reviewer的父类，语义合理。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#belongs_to_reviewers",
+          "local_name": "belongs_to_reviewers",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "n63a66caba1cd4a9abe64fdbdd5882387b1"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#invites_co-reviewers",
+          "local_name": "invites_co-reviewers",
+          "score": 0.6389,
+          "name_score": 0.778,
+          "domain": [
+            "http://conference#Reviewer"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.4722,
+          "name_score": 0.444,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "contributes": {
+      "object_prop_uri": "http://conference#contributes",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 1.0,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_contributions",
+          "local_name": "has_contributions",
+          "score": 0.4375,
+          "name_score": 0.625,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Conference_contribution"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        },
+        {
+          "uri": "http://conference#is_submitted_at",
+          "local_name": "is_submitted_at",
+          "score": 0.3942,
+          "name_score": 0.538,
+          "domain": [
+            "http://conference#Conference_contribution"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "has_a_committee_co-chair": {
+      "object_prop_uri": "http://conference#has_a_committee_co-chair",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名称完全匹配，且domain一致，range虽为Co-chair但属于Person的子类，语义上最接近。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_a_committee_co-chair",
+          "local_name": "has_a_committee_co-chair",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Co-chair"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_a_committee_chair",
+          "local_name": "has_a_committee_chair",
+          "score": 0.7,
+          "name_score": 0.9,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Chair"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#was_a_committee_of",
+          "local_name": "was_a_committee_of",
+          "score": 0.575,
+          "name_score": 0.65,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "has_a_track-workshop-tuto": {
+      "object_prop_uri": "http://conference#is_a_topis_of_conference_parts",
+      "confidence": "high",
+      "scenario": "SMD",
+      "method": "llm_select",
+      "reason": "该属性名称与列名'has_a_track-workshop-tuto'语义相近，且其domain和range与给定的Topic和Conference_part完全匹配。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#is_a_topis_of_conference_parts",
+          "local_name": "is_a_topis_of_conference_parts",
+          "score": 0.76,
+          "name_score": 0.52,
+          "domain": [
+            "http://conference#Topic"
+          ],
+          "range": [
+            "http://conference#Conference_part"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_track-workshop_chair_of",
+          "local_name": "was_a_track-workshop_chair_of",
+          "score": 0.625,
+          "name_score": 0.75,
+          "domain": [
+            "http://conference#Track-workshop_chair"
+          ],
+          "range": [
+            "http://conference#Conference_part"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#was_a_program_committee_of",
+          "local_name": "was_a_program_committee_of",
+          "score": 0.4432,
+          "name_score": 0.636,
+          "domain": [
+            "http://conference#Program_committee"
+          ],
+          "range": [
+            "http://conference#Conference_volume"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5
+        }
+      ]
+    },
+    "has_members": {
+      "object_prop_uri": "http://conference#has_members",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且 domain 完全匹配 Committee，range 虽为 Committee_member 但语义上属于 Person 的子类，因此是最佳选择。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_members",
+          "local_name": "has_members",
+          "score": 0.75,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Committee_member"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#has_authors",
+          "local_name": "has_authors",
+          "score": 0.5,
+          "name_score": 0.5,
+          "domain": [
+            "http://conference#Conference_document"
+          ],
+          "range": [
+            "http://conference#Person"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0
+        },
+        {
+          "uri": "http://conference#has_a_committee_chair",
+          "local_name": "has_a_committee_chair",
+          "score": 0.4722,
+          "name_score": 0.444,
+          "domain": [
+            "http://conference#Committee"
+          ],
+          "range": [
+            "http://conference#Chair"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        }
+      ]
+    },
+    "invited_by": {
+      "object_prop_uri": "http://conference#invited_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名与属性名完全匹配，且 domain 和 range 均为 Person 的子类 Reviewer，语义一致。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#invited_by",
+          "local_name": "invited_by",
+          "score": 0.5,
+          "name_score": 1.0,
+          "domain": [
+            "http://conference#Reviewer"
+          ],
+          "range": [
+            "http://conference#Reviewer"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#contributes",
+          "local_name": "contributes",
+          "score": 0.4773,
+          "name_score": 0.455,
+          "domain": [
+            "http://conference#Person"
+          ],
+          "range": [
+            "http://conference#Conference_document"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0
+        },
+        {
+          "uri": "http://conference#is_given_by",
+          "local_name": "is_given_by",
+          "score": 0.3889,
+          "name_score": 0.778,
+          "domain": [
+            "http://conference#Presentation"
+          ],
+          "range": [
+            "http://conference#Active_conference_participant"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0
+        }
+      ]
+    }
+  },
+  "step2_orphans": {
+    "Track.has_a_track-workshop-tuto": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "Workshop.has_a_track-workshop-tuto": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "Workshop.has_workshops_Inv": {
+      "object_prop_uri": "http://conference#has_workshops",
+      "direction": "inverse",
+      "confidence": "high",
+      "method": "llm_select",
+      "reason": "列名含'_Inv'后缀，且has_workshops的range为Workshop，与表Workshop匹配，反向引用合理。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_workshops",
+          "local_name": "has_workshops",
+          "score": 0.7,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Workshop"
+          ],
+          "name_score": 1.0,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 1.0
+        },
+        {
+          "uri": "http://conference#has_authors",
+          "local_name": "has_authors",
+          "score": 0.4833,
+          "domain": [
+            "http://conference#Conference_document"
+          ],
+          "range": [
+            "http://conference#Person"
+          ],
+          "name_score": 0.583,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.5
+        },
+        {
+          "uri": "http://conference#has_tracks",
+          "local_name": "has_tracks",
+          "score": 0.45,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Track"
+          ],
+          "name_score": 0.5,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.5
+        }
+      ],
+      "is_inv": true,
+      "is_fk_col": false
+    }
+  }
+}

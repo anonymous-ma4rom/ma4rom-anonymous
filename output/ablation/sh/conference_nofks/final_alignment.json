@@ -1,0 +1,2438 @@
+{
+  "Abstract": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "is_the_1th_part_of": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://conference#Abstract",
+        "range_class_uri": "http://conference#Paper",
+        "ref_table": "Paper",
+        "op_candidates": [
+          {
+            "uri": "http://conference#is_the_1th_part_of",
+            "local_name": "is_the_1th_part_of",
+            "score": 0.75,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://conference#Abstract"
+            ],
+            "range": [
+              "n2ee8be6aa7a94a26bcf9cf4f4bf9c85db17"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_important_dates",
+            "local_name": "has_important_dates",
+            "score": 0.324,
+            "name_score": 0.647,
+            "syntax_score": 0.647,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Important_dates"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 5,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_authors",
+            "local_name": "has_authors",
+            "score": 0.463,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Conference_document"
+            ],
+            "range": [
+              "http://conference#Person"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.0,
+            "syntax_rank": 9,
+            "semantic_rank": 2,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://conference#has_a_commtitee",
+            "local_name": "has_a_commtitee",
+            "score": 0.286,
+            "name_score": 0.571,
+            "syntax_score": 0.571,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Committee"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 6,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#is_submitted_at",
+            "local_name": "is_submitted_at",
+            "score": 0.463,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Conference_contribution"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.0,
+            "syntax_rank": 10,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "has_text": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_text",
+        "confidence": "high"
+      },
+      "is_submitted_at": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_an_abstract_submission_date",
+        "confidence": "medium"
+      }
+    },
+    "class_uri": "http://conference#Abstract",
+    "class_confidence": "high"
+  },
+  "Committee": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      },
+      "has_a_committee_chair": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_detailed_comments",
+        "confidence": "medium"
+      },
+      "was_a_program_committee_of": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://conference#Committee",
+        "range_class_uri": "http://conference#Conference_volume",
+        "ref_table": "Conference_volume",
+        "op_candidates": [
+          {
+            "uri": "http://conference#was_a_program_committee_of",
+            "local_name": "was_a_program_committee_of",
+            "score": 0.963,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://conference#Program_committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.85,
+            "range_score": 1.0,
+            "syntax_rank": 1,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#was_a_committee_of",
+            "local_name": "was_a_committee_of",
+            "score": 0.9,
+            "name_score": 0.8,
+            "syntax_score": 0.8,
+            "semantic_score": 1.0,
+            "domain": [
+              "http://conference#Committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 1.0,
+            "range_score": 1.0,
+            "syntax_rank": 3,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_a_program_committee",
+            "local_name": "has_a_program_committee",
+            "score": 0.432,
+            "name_score": 0.864,
+            "syntax_score": 0.864,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Program_committee"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 15,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#was_a_steering_committee_of",
+            "local_name": "was_a_steering_committee_of",
+            "score": 0.832,
+            "name_score": 0.739,
+            "syntax_score": 0.739,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://conference#Steering_committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.85,
+            "range_score": 1.0,
+            "syntax_rank": 6,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://conference#was_an_organizing_committee_of",
+            "local_name": "was_an_organizing_committee_of",
+            "score": 0.828,
+            "name_score": 0.731,
+            "syntax_score": 0.731,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://conference#Organizing_committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.85,
+            "range_score": 1.0,
+            "syntax_rank": 7,
+            "semantic_rank": 4,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://conference#Committee",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "1": "http://conference#Program_committee"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://conference#Committee",
+            "local_name": "Committee",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Organizing_committee",
+            "local_name": "Organizing_committee",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Program_committee",
+            "local_name": "Program_committee",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Steering_committee",
+            "local_name": "Steering_committee",
+            "score": 1.0
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "该列未触发规则轨道，采用 LLM 主判；其余取值由 LLM 兜底判断；所有样本的has_a_name均包含'Program Committee'，且FK上下文指向Committee类，但Program_committee更具体且匹配名称模式。"
+      }
+    ]
+  },
+  "Conference_document": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_date_of_issue": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_date_of_issue",
+        "confidence": "high"
+      },
+      "has_a_URL": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_URL",
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://conference#Conference_document",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://conference#Presentation",
+          "2": "http://conference#Conference_announcement"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://conference#Conference_document",
+            "local_name": "Conference_document",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Conference_announcement",
+            "local_name": "Conference_announcement",
+            "score": 0.773
+          },
+          {
+            "uri": "http://conference#Call_for_paper",
+            "local_name": "Call_for_paper",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Call_for_participation",
+            "local_name": "Call_for_participation",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Conference_contribution",
+            "local_name": "Conference_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Conference_www",
+            "local_name": "Conference_www",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Information_for_participants",
+            "local_name": "Information_for_participants",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Review",
+            "local_name": "Review",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Written_contribution",
+            "local_name": "Written_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Invited_talk",
+            "local_name": "Invited_talk",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Regular_contribution",
+            "local_name": "Regular_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Submitted_contribution",
+            "local_name": "Submitted_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Extended_abstract",
+            "local_name": "Extended_abstract",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Abstract",
+            "local_name": "Abstract",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Accepted_contribution",
+            "local_name": "Accepted_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Camera_ready_contribution",
+            "local_name": "Camera_ready_contribution",
+            "score": 0.55
+          }
+        ],
+        "confidence": "high",
+        "unmapped_values": [],
+        "reason": "规则映射 1 个取值；其余取值由 LLM 兜底判断；规则先验中TYPE=2最高分是Conference_announcement（0.246），且样本URL模式（如SIGXYZ-2014）与会议公告常见命名一致，无FK链接支持其他类，故选择该候选。"
+      }
+    ]
+  },
+  "Conference_fees": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "amount": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#amount",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Conference_fees",
+    "class_confidence": "high"
+  },
+  "Conference_proceedings": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_publisher": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_volume",
+        "confidence": "medium"
+      },
+      "has_a_volume": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_volume",
+        "confidence": "high"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      },
+      "has_an_ISBN": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_an_ISBN",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Conference_proceedings",
+    "class_confidence": "high"
+  },
+  "Conference_volume": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_program_committee": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "medium"
+      },
+      "has_an_organizing_committ": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "medium"
+      },
+      "has_a_location": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "high"
+      },
+      "has_a_steering_committee": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "medium"
+      },
+      "has_important_dates": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_date_of_issue",
+        "confidence": "low"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Conference_volume",
+    "class_confidence": "high"
+  },
+  "Important_dates": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "is_a_date_of_acceptance_a": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_a_date_of_acceptance_announcement",
+        "confidence": "high"
+      },
+      "is_a_full_paper_submissio": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_a_full_paper_submission_date",
+        "confidence": "medium"
+      },
+      "is_a_date_of_camera_ready": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_a_date_of_camera_ready_paper_submission",
+        "confidence": "medium"
+      },
+      "is_an_ending_date": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_an_ending_date",
+        "confidence": "high"
+      },
+      "is_a_starting_date": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_a_starting_date",
+        "confidence": "high"
+      },
+      "is_an_abstract_submission": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_an_abstract_submission_date",
+        "confidence": "medium"
+      }
+    },
+    "class_uri": "http://conference#Important_dates",
+    "class_confidence": "high"
+  },
+  "Invited_talk": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "is_given_by": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "has_an_abstract": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_the_last_name",
+        "confidence": "medium"
+      },
+      "is_submitted_at": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_an_abstract_submission_date",
+        "confidence": "low"
+      }
+    },
+    "class_uri": "http://conference#Invited_talk",
+    "class_confidence": "high"
+  },
+  "Organization": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Organization",
+    "class_confidence": "high"
+  },
+  "Organizer": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://conference#Organizer",
+    "class_confidence": "high"
+  },
+  "Organizing_committee": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "was_an_organizing_committ": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      }
+    },
+    "class_uri": "http://conference#Organizing_committee",
+    "class_confidence": "high"
+  },
+  "Paper": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_an_abstract": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://conference#Paper",
+        "range_class_uri": "http://conference#Abstract",
+        "ref_table": "Abstract",
+        "op_candidates": [
+          {
+            "uri": "http://conference#has_an_abstract",
+            "local_name": "has_an_abstract",
+            "score": 0.75,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.5,
+            "domain": [
+              "n2ee8be6aa7a94a26bcf9cf4f4bf9c85db10"
+            ],
+            "range": [
+              "http://conference#Abstract"
+            ],
+            "domain_score": 0.0,
+            "range_score": 1.0,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_contributions",
+            "local_name": "has_contributions",
+            "score": 0.525,
+            "name_score": 0.625,
+            "syntax_score": 0.625,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Conference_contribution"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 2,
+            "semantic_rank": 3,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_tracks",
+            "local_name": "has_tracks",
+            "score": 0.308,
+            "name_score": 0.615,
+            "syntax_score": 0.615,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Track"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 5,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_authors",
+            "local_name": "has_authors",
+            "score": 0.482,
+            "name_score": 0.538,
+            "syntax_score": 0.538,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Conference_document"
+            ],
+            "range": [
+              "http://conference#Person"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.0,
+            "syntax_rank": 7,
+            "semantic_rank": 2,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://conference#contributes",
+            "local_name": "contributes",
+            "score": 0.482,
+            "name_score": 0.538,
+            "syntax_score": 0.538,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Person"
+            ],
+            "range": [
+              "http://conference#Conference_document"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 6,
+            "semantic_rank": 4,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "has_a_paper_title": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_paper_title",
+        "confidence": "high"
+      },
+      "is_submitted_at": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://conference#Paper",
+        "range_class_uri": "http://conference#Conference_volume",
+        "ref_table": "Conference_volume",
+        "op_candidates": [
+          {
+            "uri": "http://conference#is_submitted_at",
+            "local_name": "is_submitted_at",
+            "score": 0.75,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://conference#Conference_contribution"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.0,
+            "range_score": 1.0,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#was_a_committee_of",
+            "local_name": "was_a_committee_of",
+            "score": 0.483,
+            "name_score": 0.467,
+            "syntax_score": 0.467,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://conference#Committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.0,
+            "range_score": 1.0,
+            "syntax_rank": 11,
+            "semantic_rank": 2,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://conference#has_important_dates",
+            "local_name": "has_important_dates",
+            "score": 0.294,
+            "name_score": 0.588,
+            "syntax_score": 0.588,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Important_dates"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 13,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#has_contributions",
+            "local_name": "has_contributions",
+            "score": 0.281,
+            "name_score": 0.562,
+            "syntax_score": 0.562,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Conference_volume"
+            ],
+            "range": [
+              "http://conference#Conference_contribution"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 14,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#was_a_steering_committee_of",
+            "local_name": "was_a_steering_committee_of",
+            "score": 0.467,
+            "name_score": 0.435,
+            "syntax_score": 0.435,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://conference#Steering_committee"
+            ],
+            "range": [
+              "http://conference#Conference_volume"
+            ],
+            "domain_score": 0.0,
+            "range_score": 1.0,
+            "syntax_rank": 17,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://conference#Paper",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://conference#Paper"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://conference#Call_for_paper",
+            "local_name": "Call_for_paper",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Chair",
+            "local_name": "Chair",
+            "score": 0.4
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "该列未触发规则轨道，采用 LLM 主判；其余取值由 LLM 兜底判断；表名Paper，候选中有Paper类，且所有样本TYPE=0，外键has_an_abstract指向Abstract，is_submitted_at指向Conference_volume，符合Paper的典型结构。"
+      }
+    ]
+  },
+  "Person": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_the_first_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_the_first_name",
+        "confidence": "high"
+      },
+      "has_the_last_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_the_last_name",
+        "confidence": "high"
+      },
+      "has_gender": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_gender",
+        "confidence": "high"
+      },
+      "is_Conference_contributor": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "is_Contribution_co-author": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "is_Committee_member": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "is_Chair": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "is_Contribution_1th-author": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "is_Reviewer": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://conference#Person",
+    "class_confidence": "medium",
+    "type_assertions": [
+      {
+        "column": "is_Conference_contributor",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Conference_contributor",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Conference_contributor",
+            "local_name": "Conference_contributor",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Conference_contribution",
+            "local_name": "Conference_contribution",
+            "score": 0.548
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Conference_proceedings",
+            "local_name": "Conference_proceedings",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Conference_announcement",
+            "local_name": "Conference_announcement",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Conference_document",
+            "local_name": "Conference_document",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Passive_conference_participant",
+            "local_name": "Passive_conference_participant",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Active_conference_participant",
+            "local_name": "Active_conference_participant",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Conference_applicant",
+            "local_name": "Conference_applicant",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Camera_ready_contribution",
+            "local_name": "Camera_ready_contribution",
+            "score": 0.443
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.443
+          },
+          {
+            "uri": "http://conference#Accepted_contribution",
+            "local_name": "Accepted_contribution",
+            "score": 0.418
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.418
+          },
+          {
+            "uri": "http://conference#Contribution_co-author",
+            "local_name": "Contribution_co-author",
+            "score": 0.391
+          },
+          {
+            "uri": "http://conference#Regular_contribution",
+            "local_name": "Regular_contribution",
+            "score": 0.391
+          },
+          {
+            "uri": "http://conference#Written_contribution",
+            "local_name": "Written_contribution",
+            "score": 0.391
+          },
+          {
+            "uri": "http://conference#Information_for_participants",
+            "local_name": "Information_for_participants",
+            "score": 0.369
+          },
+          {
+            "uri": "http://conference#Contribution_1th-author",
+            "local_name": "Contribution_1th-author",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Submitted_contribution",
+            "local_name": "Submitted_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Call_for_participation",
+            "local_name": "Call_for_participation",
+            "score": 0.313
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Conference_contributor 直接对应 OWL Class Conference_contributor，且该 Class 在候选列表中得分最高（1.0），语义完全匹配。"
+      },
+      {
+        "column": "is_Contribution_co-author",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Contribution_co-author",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Contribution_co-author",
+            "local_name": "Contribution_co-author",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Contribution_1th-author",
+            "local_name": "Contribution_1th-author",
+            "score": 0.667
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Submitted_contribution",
+            "local_name": "Submitted_contribution",
+            "score": 0.436
+          },
+          {
+            "uri": "http://conference#Accepted_contribution",
+            "local_name": "Accepted_contribution",
+            "score": 0.409
+          },
+          {
+            "uri": "http://conference#Conference_contribution",
+            "local_name": "Conference_contribution",
+            "score": 0.409
+          },
+          {
+            "uri": "http://conference#Regular_contribution",
+            "local_name": "Regular_contribution",
+            "score": 0.409
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.409
+          },
+          {
+            "uri": "http://conference#Written_contribution",
+            "local_name": "Written_contribution",
+            "score": 0.409
+          },
+          {
+            "uri": "http://conference#Camera_ready_contribution",
+            "local_name": "Camera_ready_contribution",
+            "score": 0.391
+          },
+          {
+            "uri": "http://conference#Conference_contributor",
+            "local_name": "Conference_contributor",
+            "score": 0.382
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.382
+          },
+          {
+            "uri": "http://conference#Information_for_participants",
+            "local_name": "Information_for_participants",
+            "score": 0.369
+          },
+          {
+            "uri": "http://conference#Call_for_participation",
+            "local_name": "Call_for_participation",
+            "score": 0.355
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.327
+          },
+          {
+            "uri": "http://conference#Organizing_committee",
+            "local_name": "Organizing_committee",
+            "score": 0.327
+          },
+          {
+            "uri": "http://conference#Active_conference_participant",
+            "local_name": "Active_conference_participant",
+            "score": 0.311
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Passive_conference_participant",
+            "local_name": "Passive_conference_participant",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Track-workshop_chair",
+            "local_name": "Track-workshop_chair",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Conference_announcement",
+            "local_name": "Conference_announcement",
+            "score": 0.273
+          },
+          {
+            "uri": "http://conference#Conference_proceedings",
+            "local_name": "Conference_proceedings",
+            "score": 0.273
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Contribution_co-author 直接对应候选类 Contribution_co-author，且样本中 true 值均与 Conference_contributor 相关，但最直接匹配的是 Contribution_co-author。"
+      },
+      {
+        "column": "is_Committee_member",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Committee_member",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Committee_member",
+            "local_name": "Committee_member",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Steering_committee",
+            "local_name": "Steering_committee",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Program_committee",
+            "local_name": "Program_committee",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Organizing_committee",
+            "local_name": "Organizing_committee",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Committee",
+            "local_name": "Committee",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Registeered_applicant",
+            "local_name": "Registeered_applicant",
+            "score": 0.33
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.33
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.33
+          },
+          {
+            "uri": "http://conference#Extended_abstract",
+            "local_name": "Extended_abstract",
+            "score": 0.317
+          },
+          {
+            "uri": "http://conference#Review_expertise",
+            "local_name": "Review_expertise",
+            "score": 0.317
+          },
+          {
+            "uri": "http://conference#Submitted_contribution",
+            "local_name": "Submitted_contribution",
+            "score": 0.314
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Accepted_contribution",
+            "local_name": "Accepted_contribution",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Conference_contribution",
+            "local_name": "Conference_contribution",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Conference_document",
+            "local_name": "Conference_document",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Camera_ready_contribution",
+            "local_name": "Camera_ready_contribution",
+            "score": 0.287
+          },
+          {
+            "uri": "http://conference#Conference_contributor",
+            "local_name": "Conference_contributor",
+            "score": 0.286
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.286
+          },
+          {
+            "uri": "http://conference#Regular_contribution",
+            "local_name": "Regular_contribution",
+            "score": 0.284
+          },
+          {
+            "uri": "http://conference#Written_contribution",
+            "local_name": "Written_contribution",
+            "score": 0.284
+          },
+          {
+            "uri": "http://conference#Conference_fees",
+            "local_name": "Conference_fees",
+            "score": 0.283
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Committee_member 直接对应 Committee_member 类，且 FK 上下文中的 has_members 关系也指向该类，样本中 true 值均具有 Reviewer 属性，进一步支持该映射。"
+      },
+      {
+        "column": "is_Chair",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Chair",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Chair",
+            "local_name": "Chair",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Co-chair",
+            "local_name": "Co-chair",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Track-workshop_chair",
+            "local_name": "Track-workshop_chair",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Abstract",
+            "local_name": "Abstract",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Publisher",
+            "local_name": "Publisher",
+            "score": 0.266
+          },
+          {
+            "uri": "http://conference#Track",
+            "local_name": "Track",
+            "score": 0.257
+          },
+          {
+            "uri": "http://www.w3.org/2001/XMLSchema#string",
+            "local_name": "string",
+            "score": 0.257
+          },
+          {
+            "uri": "http://conference#Tutorial",
+            "local_name": "Tutorial",
+            "score": 0.225
+          },
+          {
+            "uri": "http://conference#Invited_speaker",
+            "local_name": "Invited_speaker",
+            "score": 0.214
+          },
+          {
+            "uri": "http://conference#Organization",
+            "local_name": "Organization",
+            "score": 0.2
+          },
+          {
+            "uri": "http://conference#Organizer",
+            "local_name": "Organizer",
+            "score": 0.2
+          },
+          {
+            "uri": "http://conference#Paid_applicant",
+            "local_name": "Paid_applicant",
+            "score": 0.185
+          },
+          {
+            "uri": "http://conference#Contribution_co-author",
+            "local_name": "Contribution_co-author",
+            "score": 0.18
+          },
+          {
+            "uri": "http://conference#Registeered_applicant",
+            "local_name": "Registeered_applicant",
+            "score": 0.18
+          },
+          {
+            "uri": "http://conference#Steering_committee",
+            "local_name": "Steering_committee",
+            "score": 0.176
+          },
+          {
+            "uri": "http://conference#Contribution_1th-author",
+            "local_name": "Contribution_1th-author",
+            "score": 0.172
+          },
+          {
+            "uri": "http://conference#Important_dates",
+            "local_name": "Important_dates",
+            "score": 0.172
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Chair 直接对应 Chair 类，且样本中 is_Chair=true 的行均具有 is_Committee_member=true，与 Chair 作为委员会成员的角色一致。"
+      },
+      {
+        "column": "is_Contribution_1th-author",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Contribution_1th-author",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Contribution_1th-author",
+            "local_name": "Contribution_1th-author",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Contribution_co-author",
+            "local_name": "Contribution_co-author",
+            "score": 0.667
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Submitted_contribution",
+            "local_name": "Submitted_contribution",
+            "score": 0.443
+          },
+          {
+            "uri": "http://conference#Written_contribution",
+            "local_name": "Written_contribution",
+            "score": 0.418
+          },
+          {
+            "uri": "http://conference#Regular_contribution",
+            "local_name": "Regular_contribution",
+            "score": 0.391
+          },
+          {
+            "uri": "http://conference#Information_for_participants",
+            "local_name": "Information_for_participants",
+            "score": 0.369
+          },
+          {
+            "uri": "http://conference#Accepted_contribution",
+            "local_name": "Accepted_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Camera_ready_contribution",
+            "local_name": "Camera_ready_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Conference_contribution",
+            "local_name": "Conference_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.365
+          },
+          {
+            "uri": "http://conference#Conference_contributor",
+            "local_name": "Conference_contributor",
+            "score": 0.339
+          },
+          {
+            "uri": "http://conference#Call_for_participation",
+            "local_name": "Call_for_participation",
+            "score": 0.313
+          },
+          {
+            "uri": "http://conference#Organizing_committee",
+            "local_name": "Organizing_committee",
+            "score": 0.313
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Active_conference_participant",
+            "local_name": "Active_conference_participant",
+            "score": 0.289
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.287
+          },
+          {
+            "uri": "http://conference#Track-workshop_chair",
+            "local_name": "Track-workshop_chair",
+            "score": 0.287
+          },
+          {
+            "uri": "http://conference#Passive_conference_participant",
+            "local_name": "Passive_conference_participant",
+            "score": 0.278
+          },
+          {
+            "uri": "http://conference#Registeered_applicant",
+            "local_name": "Registeered_applicant",
+            "score": 0.261
+          },
+          {
+            "uri": "http://conference#Steering_committee",
+            "local_name": "Steering_committee",
+            "score": 0.261
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Contribution_1th-author 直接对应候选类 Contribution_1th-author，且 true 样本的 TYPE 均为 5，与 false 样本的 TYPE 0 不同，表明该列是区分第一作者的布尔判别器。"
+      },
+      {
+        "column": "is_Reviewer",
+        "kind": "boolean",
+        "true_class_uri": "http://conference#Reviewer",
+        "class_candidates": [
+          {
+            "uri": "http://conference#Reviewer",
+            "local_name": "Reviewer",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 0.6
+          },
+          {
+            "uri": "http://conference#Poster",
+            "local_name": "Poster",
+            "score": 0.5
+          },
+          {
+            "uri": "http://conference#Review_expertise",
+            "local_name": "Review_expertise",
+            "score": 0.4
+          },
+          {
+            "uri": "http://conference#Review",
+            "local_name": "Review",
+            "score": 0.36
+          },
+          {
+            "uri": "http://conference#Invited_speaker",
+            "local_name": "Invited_speaker",
+            "score": 0.343
+          },
+          {
+            "uri": "http://conference#Paper",
+            "local_name": "Paper",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Presentation",
+            "local_name": "Presentation",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Workshop",
+            "local_name": "Workshop",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Review_preference",
+            "local_name": "Review_preference",
+            "score": 0.3
+          },
+          {
+            "uri": "http://conference#Reviewed_contribution",
+            "local_name": "Reviewed_contribution",
+            "score": 0.27
+          },
+          {
+            "uri": "http://conference#Steering_committee",
+            "local_name": "Steering_committee",
+            "score": 0.247
+          },
+          {
+            "uri": "http://conference#Conference",
+            "local_name": "Conference",
+            "score": 0.24
+          },
+          {
+            "uri": "http://conference#Organizer",
+            "local_name": "Organizer",
+            "score": 0.24
+          },
+          {
+            "uri": "http://conference#Publisher",
+            "local_name": "Publisher",
+            "score": 0.24
+          },
+          {
+            "uri": "http://conference#Registeered_applicant",
+            "local_name": "Registeered_applicant",
+            "score": 0.24
+          },
+          {
+            "uri": "http://conference#Conference_www",
+            "local_name": "Conference_www",
+            "score": 0.231
+          },
+          {
+            "uri": "http://conference#Invited_talk",
+            "local_name": "Invited_talk",
+            "score": 0.218
+          },
+          {
+            "uri": "http://conference#Conference_fees",
+            "local_name": "Conference_fees",
+            "score": 0.214
+          },
+          {
+            "uri": "http://conference#Conference_part",
+            "local_name": "Conference_part",
+            "score": 0.214
+          },
+          {
+            "uri": "http://conference#Rejected_contribution",
+            "local_name": "Rejected_contribution",
+            "score": 0.21
+          },
+          {
+            "uri": "http://conference#Committee_member",
+            "local_name": "Committee_member",
+            "score": 0.2
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.2
+          },
+          {
+            "uri": "http://conference#Conference_proceedings",
+            "local_name": "Conference_proceedings",
+            "score": 0.2
+          }
+        ],
+        "confidence": "high",
+        "reason": "列名 is_Reviewer 直接对应 Reviewer 类，且候选列表中 Reviewer 得分最高（1.0），语义匹配明确。"
+      },
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://conference#Committee_member",
+          "1": "http://conference#Conference_applicant",
+          "5": "http://conference#Conference_contributor"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://conference#Person",
+            "local_name": "Person",
+            "score": 1.0
+          },
+          {
+            "uri": "http://conference#Committee_member",
+            "local_name": "Committee_member",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Conference_applicant",
+            "local_name": "Conference_applicant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Conference_contributor",
+            "local_name": "Conference_contributor",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Conference_participant",
+            "local_name": "Conference_participant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Reviewer",
+            "local_name": "Reviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Track-workshop_chair",
+            "local_name": "Track-workshop_chair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Chair",
+            "local_name": "Chair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Co-chair",
+            "local_name": "Co-chair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Registeered_applicant",
+            "local_name": "Registeered_applicant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Active_conference_participant",
+            "local_name": "Active_conference_participant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Invited_speaker",
+            "local_name": "Invited_speaker",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Regular_author",
+            "local_name": "Regular_author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Passive_conference_participant",
+            "local_name": "Passive_conference_participant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Paid_applicant",
+            "local_name": "Paid_applicant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Contribution_1th-author",
+            "local_name": "Contribution_1th-author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Contribution_co-author",
+            "local_name": "Contribution_co-author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Early_paid_applicant",
+            "local_name": "Early_paid_applicant",
+            "score": 0.55
+          },
+          {
+            "uri": "http://conference#Late_paid_applicant",
+            "local_name": "Late_paid_applicant",
+            "score": 0.55
+          }
+        ],
+        "confidence": "high",
+        "unmapped_values": [],
+        "reason": "规则映射 3 个取值"
+      }
+    ]
+  },
+  "Poster": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_an_abstract": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_the_last_name",
+        "confidence": "medium"
+      },
+      "is_submitted_at": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#is_a_starting_date",
+        "confidence": "low"
+      }
+    },
+    "class_uri": "http://conference#Poster",
+    "class_confidence": "medium"
+  },
+  "Publisher": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Publisher",
+    "class_confidence": "high"
+  },
+  "Review": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "reviews": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://conference#Review",
+        "range_class_uri": "http://conference#Paper",
+        "ref_table": "Paper",
+        "op_candidates": [
+          {
+            "uri": "http://conference#reviews",
+            "local_name": "reviews",
+            "score": 0.75,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://conference#Review"
+            ],
+            "range": [
+              "http://conference#Reviewed_contribution"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://conference#has_a_review",
+            "local_name": "has_a_review",
+            "score": 0.35,
+            "name_score": 0.7,
+            "syntax_score": 0.7,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Reviewed_contribution"
+            ],
+            "range": [
+              "http://conference#Review"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 7,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#has_authors",
+            "local_name": "has_authors",
+            "score": 0.312,
+            "name_score": 0.2,
+            "syntax_score": 0.2,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Conference_document"
+            ],
+            "range": [
+              "http://conference#Person"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.0,
+            "syntax_rank": 37,
+            "semantic_rank": 2,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://conference#is_given_by",
+            "local_name": "is_given_by",
+            "score": 0.222,
+            "name_score": 0.444,
+            "syntax_score": 0.444,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://conference#Presentation"
+            ],
+            "range": [
+              "http://conference#Active_conference_participant"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 8,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://conference#contributes",
+            "local_name": "contributes",
+            "score": 0.394,
+            "name_score": 0.364,
+            "syntax_score": 0.364,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://conference#Person"
+            ],
+            "range": [
+              "http://conference#Conference_document"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 10,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "has_detailed_comments": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_detailed_comments",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Review",
+    "class_confidence": "high"
+  },
+  "Review_expertise": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_an_expertise": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_an_expertise",
+        "confidence": "high"
+      },
+      "has_a_submitted_contribut": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_an_expertise",
+        "confidence": "medium"
+      }
+    },
+    "class_uri": "http://conference#Review_expertise",
+    "class_confidence": "high"
+  },
+  "Review_preference": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "belongs_to_a_review_refer": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_degree",
+        "confidence": "low"
+      },
+      "has_a_degree": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_degree",
+        "confidence": "high"
+      },
+      "has_a_topic_or_a_submissi": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_degree",
+        "confidence": "low"
+      }
+    },
+    "class_uri": "http://conference#Review_preference",
+    "class_confidence": "high"
+  },
+  "Steering_committee": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "was_a_steering_committee_": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_detailed_comments",
+        "confidence": "medium"
+      }
+    },
+    "class_uri": "http://conference#Steering_committee",
+    "class_confidence": "high"
+  },
+  "Topic": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Topic",
+    "class_confidence": "high"
+  },
+  "Track": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_tracks_Inv": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "medium"
+      },
+      "has_a_track-workshop-tuto": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "is_part_of_conference_vol": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Track",
+    "class_confidence": "low"
+  },
+  "Tutorial": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_tutorials_Inv": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_the_first_name",
+        "confidence": "medium"
+      },
+      "is_part_of_conference_vol": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "low"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Tutorial",
+    "class_confidence": "high"
+  },
+  "Workshop": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "has_a_track-workshop-tuto": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "has_workshops_Inv": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "is_part_of_conference_vol": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_location",
+        "confidence": "low"
+      },
+      "has_a_name": {
+        "role": "data_attr",
+        "prop_uri": "http://conference#has_a_name",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://conference#Workshop",
+    "class_confidence": "low"
+  },
+  "belongs_to_reviewers": {
+    "pattern": "SE",
+    "columns": {
+      "Entity": {
+        "role": "pk"
+      },
+      "Reviewer": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://conference#Reviewed_contribution",
+    "class_confidence": "low"
+  },
+  "contributes": {
+    "pattern": "SR",
+    "domain_class_uri": "http://conference#Person",
+    "range_class_uri": "http://conference#Conference_document",
+    "fk1": {
+      "column": "Person",
+      "ref_table": "Person",
+      "domain_class_hint": "http://conference#Person"
+    },
+    "fk2": {
+      "column": "Conference_document",
+      "ref_table": "Conference_document",
+      "range_class_hint": "http://conference#Conference_document"
+    },
+    "op_candidates": [
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_an_abstract",
+        "local_name": "has_an_abstract",
+        "score": 0.607,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.675,
+        "domain": [
+          "n2ee8be6aa7a94a26bcf9cf4f4bf9c85db10"
+        ],
+        "range": [
+          "http://conference#Abstract"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.85,
+        "syntax_rank": 4,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.525,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#gives_presentations",
+        "local_name": "gives_presentations",
+        "score": 0.647,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.85,
+        "domain": [
+          "http://conference#Active_conference_participant"
+        ],
+        "range": [
+          "http://conference#Presentation"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.85,
+        "syntax_rank": 14,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_tutorials",
+        "local_name": "has_tutorials",
+        "score": 0.292,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Tutorial"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 27,
+        "track_source": "syntax"
+      }
+    ],
+    "confidence": "high"
+  },
+  "has_a_committee_co-chair": {
+    "pattern": "SE",
+    "columns": {
+      "Committee": {
+        "role": "pk"
+      },
+      "Co-chair": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://conference#Organizing_committee",
+    "class_confidence": "low"
+  },
+  "has_a_track-workshop-tuto": {
+    "pattern": "SE",
+    "columns": {
+      "Conference_part": {
+        "role": "pk"
+      },
+      "Topic": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://conference#Track-workshop_chair",
+    "class_confidence": "low"
+  },
+  "has_an_email": {
+    "pattern": "MV",
+    "owner_table": "Person",
+    "owner_class_uri": "http://conference#Person",
+    "prop_uri": "http://conference#has_an_email",
+    "prop_type": "DatatypeProperty",
+    "fk_col": "Person",
+    "value_col": "VALUE",
+    "confidence": "medium"
+  },
+  "has_members": {
+    "pattern": "SR",
+    "domain_class_uri": "http://conference#Committee",
+    "range_class_uri": "http://conference#Person",
+    "fk1": {
+      "column": "Committee",
+      "ref_table": "Committee",
+      "domain_class_hint": "http://conference#Committee"
+    },
+    "fk2": {
+      "column": "Committee_member",
+      "ref_table": "Person",
+      "range_class_hint": "http://conference#Person"
+    },
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_members",
+        "local_name": "has_members",
+        "score": 0.963,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Committee_member"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_committee_chair",
+        "local_name": "has_a_committee_chair",
+        "score": 0.685,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 11,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_member_of",
+        "local_name": "was_a_member_of",
+        "score": 0.333,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Committee_member"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 15,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_committee_co-chair",
+        "local_name": "has_a_committee_co-chair",
+        "score": 0.663,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Co-chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 16,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_a_review",
+        "local_name": "has_a_review",
+        "score": 0.3,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "range": [
+          "http://conference#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 16,
+        "track_source": "syntax"
+      }
+    ],
+    "confidence": "high"
+  },
+  "invited_by": {
+    "pattern": "SE",
+    "columns": {
+      "Reviewer1": {
+        "role": "pk"
+      },
+      "Reviewer2": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://conference#Invited_speaker",
+    "class_confidence": "medium"
+  }
+}

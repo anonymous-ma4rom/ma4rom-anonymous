@@ -1,0 +1,122 @@
+{
+  "isAblation": true,
+  "ABLATION_PRESET": "context_confidence",
+  "ABLATION_NAME": "context_confidence",
+  "CURRENT_DATABASE": "cmt_structured",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_REAL_VALUE_ENHANCEMENT": false,
+  "WO_OP_MAPPING_REASONING": false,
+  "WO_DP_MAPPING_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": false,
+  "WO_COLUMN_OP": false,
+  "REAL_VALUE_CONTEXT_MODE": "confidence",
+  "CONTEXT_EXPERIMENT_VERSION": 3,
+  "CONTEXT_PREPARE_ONLY": false,
+  "CONTEXT_CHECKPOINT_DIR": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_base/cmt_structured",
+  "ablation_root_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_confidence",
+  "output_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_confidence/cmt_structured",
+  "output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_confidence/cmt_structured/rodi_cmt_structured_generated_mapping.ttl",
+  "root_output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_confidence/rodi_cmt_structured_generated_mapping.ttl",
+  "num_tables": 32,
+  "num_patterns": 32,
+  "pattern_counts": {
+    "SE": 8,
+    "SH": 5,
+    "SR": 19,
+    "OTHER": 0
+  },
+  "disabled_pattern_components": [],
+  "num_disabled_pattern_tables": 0,
+  "num_discovered_fks": 2,
+  "num_low_conf_tables": 16,
+  "context_efficiency": {
+    "api_attempts": 9,
+    "llm_calls": 9,
+    "failed_attempts": 0,
+    "input_tokens": 38724,
+    "output_tokens": 699,
+    "total_tokens": 39423,
+    "estimated_input_token_calls": 0,
+    "runtime_seconds": 17.98,
+    "selected_tables": 16,
+    "selected_columns": 3
+  },
+  "common_prefix_llm_metrics": {
+    "api_attempts": 20,
+    "llm_calls": 20,
+    "failed_attempts": 0,
+    "input_tokens": 14835,
+    "output_tokens": 11645,
+    "total_tokens": 26480,
+    "estimated_input_token_calls": 0,
+    "models": {
+      "deepseek-v4-flash": {
+        "llm_calls": 10,
+        "input_tokens": 10093,
+        "output_tokens": 11129,
+        "total_tokens": 21222
+      },
+      "deepseek-chat": {
+        "llm_calls": 10,
+        "input_tokens": 4742,
+        "output_tokens": 516,
+        "total_tokens": 5258
+      }
+    }
+  },
+  "branch_llm_metrics": {
+    "api_attempts": 101,
+    "llm_calls": 94,
+    "failed_attempts": 8,
+    "input_tokens": 541100,
+    "output_tokens": 119350,
+    "total_tokens": 660450,
+    "estimated_input_token_calls": 0,
+    "models": {
+      "deepseek-chat": {
+        "llm_calls": 17,
+        "input_tokens": 102771,
+        "output_tokens": 2075,
+        "total_tokens": 104846
+      },
+      "deepseek-v4-flash": {
+        "llm_calls": 77,
+        "input_tokens": 438329,
+        "output_tokens": 117275,
+        "total_tokens": 555604
+      }
+    }
+  },
+  "pipeline_llm_metrics": {
+    "api_attempts": 121,
+    "llm_calls": 114,
+    "failed_attempts": 8,
+    "input_tokens": 555935,
+    "output_tokens": 130995,
+    "total_tokens": 686930,
+    "estimated_input_token_calls": 0,
+    "models": {
+      "deepseek-v4-flash": {
+        "llm_calls": 87,
+        "input_tokens": 448422,
+        "output_tokens": 128404,
+        "total_tokens": 576826
+      },
+      "deepseek-chat": {
+        "llm_calls": 27,
+        "input_tokens": 107513,
+        "output_tokens": 2591,
+        "total_tokens": 110104
+      }
+    }
+  },
+  "common_prefix_elapsed_seconds": 125.9,
+  "branch_elapsed_seconds": 1723.05,
+  "context_checkpoint_id": "a16b1859244c5479494d69565a8ded20aeaff88bb24d2116fbf18adb03f5edd4",
+  "num_op_mapping_step1_relations": 84,
+  "elapsed_seconds": 1848.95,
+  "status": "completed"
+}

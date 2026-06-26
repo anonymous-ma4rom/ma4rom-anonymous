@@ -1,0 +1,532 @@
+{
+  "features": [
+    "name_score",
+    "domain_score",
+    "range_score",
+    "has_domain",
+    "has_range",
+    "manual_jaccard",
+    "source_in_target",
+    "target_in_source",
+    "valentine_coma_score",
+    "source_distinct",
+    "target_distinct",
+    "intersection",
+    "table_op_token_jaccard",
+    "column_op_token_jaccard",
+    "target_op_token_jaccard"
+  ],
+  "train_top1_accuracy": 1.0,
+  "test_top1_accuracy": 1.0,
+  "current_top1_accuracy_all": 0.4927536231884058,
+  "current_top1_accuracy_train": 0.5,
+  "current_top1_accuracy_test": 0.4864864864864865,
+  "feature_importance": [
+    {
+      "feature": "name_score",
+      "importance": 0.25945260545665055
+    },
+    {
+      "feature": "range_score",
+      "importance": 0.20790500133394207
+    },
+    {
+      "feature": "domain_score",
+      "importance": 0.14654550849616538
+    },
+    {
+      "feature": "table_op_token_jaccard",
+      "importance": 0.10635358844023228
+    },
+    {
+      "feature": "target_op_token_jaccard",
+      "importance": 0.0629367585003768
+    },
+    {
+      "feature": "has_range",
+      "importance": 0.048565072250956305
+    },
+    {
+      "feature": "has_domain",
+      "importance": 0.041809464832676196
+    },
+    {
+      "feature": "intersection",
+      "importance": 0.025537324045698768
+    },
+    {
+      "feature": "source_distinct",
+      "importance": 0.02257150728455479
+    },
+    {
+      "feature": "column_op_token_jaccard",
+      "importance": 0.020215734709841827
+    },
+    {
+      "feature": "manual_jaccard",
+      "importance": 0.017101138376603483
+    },
+    {
+      "feature": "valentine_coma_score",
+      "importance": 0.01709949801492747
+    },
+    {
+      "feature": "target_in_source",
+      "importance": 0.015611610736515201
+    },
+    {
+      "feature": "target_distinct",
+      "importance": 0.008295187520858945
+    },
+    {
+      "feature": "source_in_target",
+      "importance": 0.0
+    }
+  ],
+  "test_details": [
+    {
+      "relation_key": "baaarea.baanpdidbsnsarrarea",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 0.9833333333333333,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb973"
+      ],
+      "correct": true,
+      "source": "baaarea.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea"
+    },
+    {
+      "relation_key": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 0.9866666666666667,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1029"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea"
+    },
+    {
+      "relation_key": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1025",
+      "predicted_score": 0.99,
+      "gold": [
+        "licenseeForBAA",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1025"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea"
+    },
+    {
+      "relation_key": "bsns_arr_area_licensee_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb875",
+      "predicted_score": 1.0,
+      "gold": [
+        "baaLicensee",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb875"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "bsns_arr_area_operator.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb841",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "baaOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb841"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_operator.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb830",
+      "predicted_score": 0.9833333333333333,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb830",
+        "transferredBAA"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea"
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb874",
+      "predicted_score": 1.0,
+      "gold": [
+        "baaTransferCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb874"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "company_reserves.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb796",
+      "predicted_score": 0.99,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb796",
+        "reservesForCompany"
+      ],
+      "correct": true,
+      "source": "company_reserves.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "facility_moveable.fclnpdidcurrentrespcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb930",
+      "predicted_score": 0.9933333333333333,
+      "gold": [
+        "currentResponsibleCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb930"
+      ],
+      "correct": true,
+      "source": "facility_moveable.fclnpdidcurrentrespcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "field.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1042",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "currentFieldOperator",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1042"
+      ],
+      "correct": true,
+      "source": "field.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "field_licensee_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb776",
+      "predicted_score": 1.0,
+      "gold": [
+        "fieldLicensee",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb776"
+      ],
+      "correct": true,
+      "source": "field_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "field_operator_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb956",
+      "predicted_score": 0.9933333333333333,
+      "gold": [
+        "fieldOperator",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb956"
+      ],
+      "correct": true,
+      "source": "field_operator_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_area_poly_hst.prlnpdidlicence",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1012"
+      ],
+      "correct": true,
+      "source": "licence_area_poly_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_licensee_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb647",
+      "predicted_score": 1.0,
+      "gold": [
+        "licenceLicensee",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb647"
+      ],
+      "correct": true,
+      "source": "licence_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_licensee_hst.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb709",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "licenseeForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb709"
+      ],
+      "correct": true,
+      "source": "licence_licensee_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_oper_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb740",
+      "predicted_score": 1.0,
+      "gold": [
+        "licenceOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb740"
+      ],
+      "correct": true,
+      "source": "licence_oper_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_oper_hst.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1127",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1127",
+        "operatorForLicence"
+      ],
+      "correct": true,
+      "source": "licence_oper_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_petreg_licence_licencee.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb732",
+      "predicted_score": 0.99,
+      "gold": [
+        "licenceLicenceeCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb732"
+      ],
+      "correct": true,
+      "source": "licence_petreg_licence_licencee.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_petreg_licence_licencee.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb731",
+      "predicted_score": 1.0,
+      "gold": [
+        "licenceeForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb731"
+      ],
+      "correct": true,
+      "source": "licence_petreg_licence_licencee.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_petreg_licence_oper.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb867",
+      "predicted_score": 0.99,
+      "gold": [
+        "licenceOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb867"
+      ],
+      "correct": true,
+      "source": "licence_petreg_licence_oper.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_petreg_message.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb689",
+      "predicted_score": 1.0,
+      "gold": [
+        "messageForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb689"
+      ],
+      "correct": true,
+      "source": "licence_petreg_message.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_phase_hst.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb783",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb783",
+        "statusForLicence"
+      ],
+      "correct": true,
+      "source": "licence_phase_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_task.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb906",
+      "predicted_score": 0.99,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb906",
+        "taskForCompany"
+      ],
+      "correct": true,
+      "source": "licence_task.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_task.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1133",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1133",
+        "taskForLicence"
+      ],
+      "correct": true,
+      "source": "licence_task.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_transfer_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb886",
+      "predicted_score": 1.0,
+      "gold": [
+        "licenceTransferCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb886"
+      ],
+      "correct": true,
+      "source": "licence_transfer_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_transfer_hst.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb656",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb656",
+        "transferredLicence"
+      ],
+      "correct": true,
+      "source": "licence_transfer_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "pipline.pipnpdidoperator",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1144",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1144",
+        "pipelineOperator"
+      ],
+      "correct": true,
+      "source": "pipline.pipnpdidoperator",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "prlarea.prllastoperatornpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb625",
+      "predicted_score": 1.0,
+      "gold": [
+        "lastOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb625"
+      ],
+      "correct": true,
+      "source": "prlarea.prllastoperatornpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "prlarea.prlnpdidlicence",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1073"
+      ],
+      "correct": true,
+      "source": "prlarea.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1071",
+      "predicted_score": 1.0,
+      "gold": [
+        "lastOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1071"
+      ],
+      "correct": true,
+      "source": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prlnpdidlicence",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb705"
+      ],
+      "correct": true,
+      "source": "prlareasplitbyblock.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "tuf_operator_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb895",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "TUFOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb895"
+      ],
+      "correct": true,
+      "source": "tuf_operator_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "tuf_owner_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1040",
+      "predicted_score": 0.99,
+      "gold": [
+        "TUFOwnerCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1040"
+      ],
+      "correct": true,
+      "source": "tuf_owner_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "tuf_petreg_licence_licencee.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb629",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "TUFLicenceeCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb629"
+      ],
+      "correct": true,
+      "source": "tuf_petreg_licence_licencee.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "tuf_petreg_licence_oper.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb832",
+      "predicted_score": 0.9633333333333334,
+      "gold": [
+        "TUFOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb832"
+      ],
+      "correct": true,
+      "source": "tuf_petreg_licence_oper.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "wellbore_development_all.prlnpdidproductionlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb993",
+      "predicted_score": 1.0,
+      "gold": [
+        "developmentWellboreForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb993"
+      ],
+      "correct": true,
+      "source": "wellbore_development_all.prlnpdidproductionlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1155",
+      "predicted_score": 1.0,
+      "gold": [
+        "explorationWellboreForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1155"
+      ],
+      "correct": true,
+      "source": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "target": "licence.prlnpdidlicence"
+    }
+  ]
+}

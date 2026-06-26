@@ -1,0 +1,20 @@
+{
+  "orphan_matches": {
+    "bids.bid": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "reviews.comment": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    }
+  }
+}

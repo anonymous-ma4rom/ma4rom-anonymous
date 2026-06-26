@@ -1,0 +1,243 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+sigkddrenamed-100:	http://sigkdd#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--837090525
+target		<http://example.com/main_offices/{id}> a sigkddrenamed-100:Main_office . 
+source		SELECT "id" FROM "main_offices"
+
+mappingId	mapping--248836903
+target		<http://example.com/author_papers/{id}> a sigkddrenamed-100:Author_of_paper . 
+source		SELECT "id" FROM "author_papers"
+
+mappingId	mapping-1320362692
+target		<http://example.com/fees/{rid}> sigkddrenamed-100:payed_by <http://example.com/persons/{pid}> . 
+source		SELECT "rid" , "pid" FROM "registration_fee_person"
+
+mappingId	mapping-1915863677
+target		<http://example.com/awards/{id}> a sigkddrenamed-100:Award . 
+source		SELECT "id" FROM "awards"
+
+mappingId	mapping-1701052112
+target		<http://example.com/best_applications_paper_as/{id}> a sigkddrenamed-100:Best_Applications_Paper_Award . 
+source		SELECT "id" FROM "best_applications_paper_as"
+
+mappingId	mapping--1134096168
+target		<http://example.com/sponzor_acm_sigkdd/{aid}__{sid}> a sigkddrenamed-100:ACM_SIGKDD . 
+source		SELECT "aid" , "sid" FROM "sponzor_acm_sigkdd"
+
+mappingId	mapping--472962768
+target		<http://example.com/deadline_abstract_submiss/{id}> a sigkddrenamed-100:Deadline_Abstract_Submission . 
+source		SELECT "id" FROM "deadline_abstract_submiss"
+
+mappingId	mapping-1393887050
+target		<http://example.com/gold_supporters/{id}> a sigkddrenamed-100:Gold_Supporter . 
+source		SELECT "id" FROM "gold_supporters"
+
+mappingId	mapping-91592248
+target		<http://example.com/speaker_document/{sid}__{did}> a sigkddrenamed-100:Invited_Speaker . 
+source		SELECT "sid" , "did" FROM "speaker_document"
+
+mappingId	mapping-1061584988
+target		<http://example.com/registration_sigmod_members/{id}> a sigkddrenamed-100:Registration_SIGMOD_Member . 
+source		SELECT "id" FROM "registration_sigmod_members"
+
+mappingId	mapping-1156592633
+target		<http://example.com/deadlines/{id}> a sigkddrenamed-100:Deadline ; sigkddrenamed-100:designed_by <http://example.com/acm_sigkdds/{designed}> ; sigkddrenamed-100:Date {date}^^xsd:dateTime . 
+source		SELECT "id" , "designed" , "date" FROM "deadlines"
+
+mappingId	mapping--2040451253
+target		<http://example.com/best_student_paper_awards/{id}> a sigkddrenamed-100:Best_Student_Paper_Supporter . 
+source		SELECT "id" FROM "best_student_paper_suppors"
+
+mappingId	mapping--881826605
+target		<http://example.com/documents/{document}> sigkddrenamed-100:submit_until <http://example.com/deadlines/{deadline}> . 
+source		SELECT "document" , "deadline" FROM "deadline_document"
+
+mappingId	mapping-823846631
+target		<http://example.com/silver_supporters/{id}> a sigkddrenamed-100:Silver_Supporter . 
+source		SELECT "id" FROM "silver_supporters"
+
+mappingId	mapping-1867594377
+target		<http://example.com/persons/{aid}> sigkddrenamed-100:submit <http://example.com/documents/{pid}> . 
+source		SELECT "aid" , "pid" FROM "paper_author"
+
+mappingId	mapping--1376559055
+target		<http://example.com/organizing_committees/{id}> a sigkddrenamed-100:Organizing_Committee . 
+source		SELECT "id" FROM "organizing_committees"
+
+mappingId	mapping--613740659
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Organizator . 
+source		SELECT "id" FROM "organizators"
+
+mappingId	mapping--870693935
+target		<http://example.com/exhibitors/{id}> a sigkddrenamed-100:Exhibitor . 
+source		SELECT "id" FROM "exhibitors"
+
+mappingId	mapping-690230617
+target		<http://example.com/author_paper_students/{id}> a sigkddrenamed-100:Author_of_paper_student . 
+source		SELECT "id" FROM "author_paper_students"
+
+mappingId	mapping-307311007
+target		<http://example.com/webmasters/{id}> a sigkddrenamed-100:Webmaster . 
+source		SELECT "id" FROM "webmasters"
+
+mappingId	mapping--1792522805
+target		<http://example.com/sponzors/{id}> a sigkddrenamed-100:Sponzor ; sigkddrenamed-100:Name_of_sponsor {name_sponsor}^^xsd:string . 
+source		SELECT "id" , "name_sponsor" FROM "sponzors"
+
+mappingId	mapping--459239370
+target		<http://example.com/committees/{id}> a sigkddrenamed-100:Committee ; sigkddrenamed-100:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{ref}> . 
+source		SELECT "id" , "ref" , "committee" FROM "committees"
+
+mappingId	mapping--1366735295
+target		<http://example.com/registration_non_members/{id}> a sigkddrenamed-100:Registration_Non-Member . 
+source		SELECT "id" FROM "registration_non_members"
+
+mappingId	mapping--1829762419
+target		<http://example.com/committees/{id}> a sigkddrenamed-100:Program_Committee ; sigkddrenamed-100:E-mail {label}^^xsd:string ; rdfs:label {label}^^xsd:string . 
+source		SELECT "id" , "label" FROM "program_committees"
+
+mappingId	mapping--710853626
+target		<http://example.com/documents/{id}> a sigkddrenamed-100:Paper ; sigkddrenamed-100:hasTitle {title}^^xsd:string . 
+source		SELECT "id" , "title" FROM "papers"
+
+mappingId	mapping-1238684293
+target		<http://example.com/deadline_author_notificats/{id}> a sigkddrenamed-100:Deadline_Author_notification . 
+source		SELECT "id" FROM "deadline_author_notificats"
+
+mappingId	mapping-744937964
+target		<http://example.com/organizing_committees/{id}> a sigkddrenamed-100:Organizing_Committee_member . 
+source		SELECT "id" FROM "organizing_committee_membs"
+
+mappingId	mapping--506067022
+target		<http://example.com/documents/{id}> a sigkddrenamed-100:Document . 
+source		SELECT "id" FROM "documents"
+
+mappingId	mapping-1711534148
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Program_Committee_member . 
+source		SELECT "id" FROM "program_committee_members"
+
+mappingId	mapping-1193536492
+target		<http://example.com/registration_sigkdd_members/{id}> a sigkddrenamed-100:Registration_SIGKDD_Member . 
+source		SELECT "id" FROM "registration_sigkdd_members"
+
+mappingId	mapping-1223234916
+target		<http://example.com/platinum_supporters/{id}> a sigkddrenamed-100:Platinum_Supporter . 
+source		SELECT "id" FROM "platinum_supporters"
+
+mappingId	mapping--1592702893
+target		<http://example.com/fees/{id}> a sigkddrenamed-100:Registration_fee . 
+source		SELECT "id" FROM "registration_fees"
+
+mappingId	mapping-1684018742
+target		<http://example.com/registration_students/{id}> a sigkddrenamed-100:Registration_Student . 
+source		SELECT "id" FROM "registration_students"
+
+mappingId	mapping--887126563
+target		<http://example.com/best_paper_awards_committs/{id}> a sigkddrenamed-100:Best_Paper_Awards_Committee ; sigkddrenamed-100:award <http://example.com/awards/{award}> . 
+source		SELECT "id" , "award" FROM "best_paper_awards_committs"
+
+mappingId	mapping-548253444
+target		<http://example.com/conferences/{id}> a sigkddrenamed-100:Conference ; sigkddrenamed-100:Name_of_conference {name_conference}^^xsd:string ; sigkddrenamed-100:End_of_conference {end_conference}^^xsd:dateTime ; sigkddrenamed-100:Start_of_conference {start_conference}^^xsd:dateTime ; sigkddrenamed-100:City_of_conference {city_conference}^^xsd:string . 
+source		SELECT "id" , "holded" , "start_conference" , "city_conference" , "name_conference" , "end_conference" FROM "conferences"
+
+mappingId	mapping-1099673931
+target		<http://example.com/persons/{author}> sigkddrenamed-100:obtain <http://example.com/awards/{award}> . 
+source		SELECT "author" , "award" FROM "award_author"
+
+mappingId	mapping-825797541
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Program_Chair . 
+source		SELECT "id" FROM "program_chairs"
+
+mappingId	mapping--74739614
+target		<http://example.com/conferences/{id}> a sigkddrenamed-100:Conference_hall . 
+source		SELECT "id" FROM "conference_halls"
+
+mappingId	mapping--1242714491
+target		<http://example.com/places/{id}> a sigkddrenamed-100:Place ; <http://www.w3.org/2003/01/geo/wgs84_pos#long> {long}^^xsd:float ; sigkddrenamed-100:hasStreet {street}^^xsd:string ; <http://www.w3.org/2003/01/geo/wgs84_pos#lat> {lat}^^xsd:float ; sigkddrenamed-100:hasPostalCode {postal_code}^^xsd:int . 
+source		SELECT "id" , "lat" , "long" , "street" , "postal_code" FROM "places"
+
+mappingId	mapping--570832202
+target		<http://example.com/bronze_supporters/{id}> a sigkddrenamed-100:Bronze_Supporter . 
+source		SELECT "id" FROM "bronze_supporters"
+
+mappingId	mapping-1727611580
+target		<http://example.com/best_research_paper_awards/{id}> a sigkddrenamed-100:Best_Research_Paper_Award . 
+source		SELECT "id" FROM "best_research_paper_awards"
+
+mappingId	mapping-848352931
+target		<http://example.com/best_student_paper_awards/{id}> a sigkddrenamed-100:Best_Student_Paper_Award . 
+source		SELECT "id" FROM "best_student_paper_awards"
+
+mappingId	mapping-2071886119
+target		<http://example.com/persons/{person}> sigkddrenamed-100:can_stay_in <http://example.com/places/{place}> . 
+source		SELECT "person" , "place" FROM "place_person"
+
+mappingId	mapping--570444602
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Person ; sigkddrenamed-100:Nation {nation}^^xsd:string ; sigkddrenamed-100:Name {name}^^xsd:string . 
+source		SELECT "id" , "nation" , "name" FROM "persons"
+
+mappingId	mapping-871752385
+target		<http://example.com/deadline_paper_submissions/{id}> a sigkddrenamed-100:Deadline_Paper_Submission . 
+source		SELECT "id" FROM "deadline_paper_submissions"
+
+mappingId	mapping-2092854793
+target		<http://example.com/documents/{id}> a sigkddrenamed-100:Review ; sigkddrenamed-100:hasText {text}^^xsd:string ; sigkddrenamed-100:isReviewOf <http://example.com/documents/{ref}> , <http://example.com/documents/{review}> ; sigkddrenamed-100:hasID {internal_id}^^xsd:int ; sigkddrenamed-100:hasid {internal_id}^^xsd:int . 
+source		SELECT "id" , "ref" , "review" , "internal_id" , "text" FROM "reviews"
+
+mappingId	mapping-262240150
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Speaker . 
+source		SELECT "id" FROM "speakers"
+
+mappingId	mapping-1883947547
+target		<http://example.com/fees/{id}> a sigkddrenamed-100:Sponzor_fee . 
+source		SELECT "id" FROM "sponzor_fees"
+
+mappingId	mapping-554586840
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Author . 
+source		SELECT "id" FROM "authors"
+
+mappingId	mapping--1622716987
+target		<http://example.com/acm_sigkdds/{id}> a sigkddrenamed-100:ACM_SIGKDD . 
+source		SELECT "id" FROM "acm_sigkdds"
+
+mappingId	mapping--77160919
+target		<http://example.com/general_chairs/{id}> a sigkddrenamed-100:General_Chair . 
+source		SELECT "id" FROM "general_chairs"
+
+mappingId	mapping-674524641
+target		<http://example.com/persons/{person}> sigkddrenamed-100:E-mail {value}^^xsd:string . 
+source		SELECT "person" , "value" FROM "e_mails"
+
+mappingId	mapping-548438560
+target		<http://example.com/invited_speakers/{id}> a sigkddrenamed-100:Invited_Speaker . 
+source		SELECT "id" FROM "invited_speakers"
+
+mappingId	mapping-1120545808
+target		<http://example.com/deadline_author_notificats/{did}> sigkddrenamed-100:notification_until <http://example.com/deadline_author_notificats/{aid}> . 
+source		SELECT "did" , "aid" FROM "author_deadline_author_notificat"
+
+mappingId	mapping--1043633296
+target		<http://example.com/documents/{id}> a sigkddrenamed-100:Abstract ; sigkddrenamed-100:hasTitle {title}^^xsd:string . 
+source		SELECT "id" , "title" FROM "abstracts"
+
+mappingId	mapping-1519557485
+target		<http://example.com/fees/{id}> a sigkddrenamed-100:Fee ; sigkddrenamed-100:Currency {currency}^^xsd:string ; sigkddrenamed-100:Price {price}^^xsd:int . 
+source		SELECT "id" , "currency" , "price" FROM "fees"
+
+mappingId	mapping--780412334
+target		<http://example.com/hotels/{id}> a sigkddrenamed-100:Hotel . 
+source		SELECT "id" FROM "hotels"
+
+mappingId	mapping-1281681155
+target		<http://example.com/persons/{id}> a sigkddrenamed-100:Listener . 
+source		SELECT "id" FROM "listeners"
+]]
+

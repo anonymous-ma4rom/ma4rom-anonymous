@@ -1,0 +1,132 @@
+{
+  "orphan_matches": {
+    "Best_Paper_Awards_Committ.hasCommittee_Inv": {
+      "object_prop_uri": "http://sigkdd#hasCommittee",
+      "direction": "inverse",
+      "confidence": "high",
+      "method": "llm_select",
+      "reason": "列名含'_Inv'后缀，且'hasCommittee'的域为Conference、范围为Committee，与表Best_Paper_Awards_Committee语义匹配，反向引用合理。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.4667,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "name_score": 0.667,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.45,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "name_score": 1.0,
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "inv_bonus": 0.5
+        },
+        {
+          "uri": "http://sigkdd#hasReview",
+          "local_name": "hasReview",
+          "score": 0.4,
+          "domain": [
+            "http://sigkdd#Paper"
+          ],
+          "range": [
+            "http://sigkdd#Review"
+          ],
+          "name_score": 0.5,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.0
+        }
+      ],
+      "is_inv": true,
+      "is_fk_col": false
+    },
+    "Best_Paper_Awards_Committ.isCommitteeOf": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "Deadline_Abstract_Submiss.designed_by": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "Organizing_Committee.hasCommittee_Inv": {
+      "object_prop_uri": "http://sigkdd#hasCommittee",
+      "direction": "inverse",
+      "confidence": "high",
+      "method": "llm_select",
+      "reason": "列名含'_Inv'后缀，且hasCommittee的name_score最高，反向匹配后与Organizing_Committee（Committee子类）语义一致。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.4667,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "name_score": 0.667,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.45,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "name_score": 1.0,
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "inv_bonus": 0.5
+        },
+        {
+          "uri": "http://sigkdd#hasReview",
+          "local_name": "hasReview",
+          "score": 0.4,
+          "domain": [
+            "http://sigkdd#Paper"
+          ],
+          "range": [
+            "http://sigkdd#Review"
+          ],
+          "name_score": 0.5,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.0
+        }
+      ],
+      "is_inv": true,
+      "is_fk_col": false
+    }
+  }
+}

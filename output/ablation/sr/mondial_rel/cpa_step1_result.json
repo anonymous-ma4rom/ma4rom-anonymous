@@ -1,0 +1,2487 @@
+{
+  "airport.city": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "hasCity的range完全匹配City类，且名称与列名city高度相关，尽管domain不完全匹配，但综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.31,
+        "name_score": 0.571,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.2767,
+        "name_score": 0.667,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.27,
+        "name_score": 0.429,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "airport.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain均不匹配Location，且name_score较低，无合适映射。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "airport.island": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "名称匹配且range明确为Island，与关系信息一致。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+        "local_name": "locatedOnIsland",
+        "score": 0.262,
+        "name_score": 0.4,
+        "domain": [
+          "nd2d67da84a81493e9dd56d5083025fcdb144"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isCapitalOf",
+        "local_name": "isCapitalOf",
+        "score": 0.1918,
+        "name_score": 0.364,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "airport.province": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名 'province' 与属性名 'isProvinceOf' 语义高度匹配，且综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.2767,
+        "name_score": 0.667,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.22,
+        "name_score": 0.25,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "borders.country1": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "该属性 domain 和 range 完全匹配 Border 和 Country，且名称 'bordering' 与列名 'country1' 语义一致。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.3933,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.23,
+        "name_score": 0.5,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "borders.country2": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "bordering 的 domain 和 range 完全匹配 Border 和 Country，且名称与列名 country2 语义相关。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.3933,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.23,
+        "name_score": 0.5,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "city.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性中，hasProvince的domain是Country而非City，cityIn和locatedAt的range均非Province，且无属性同时匹配domain City和range Province。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "local_name": "hasProvince",
+        "score": 0.2518,
+        "name_score": 0.364,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Province"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedAt",
+        "local_name": "locatedAt",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "city.province": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "hasProvince 的 range 完全匹配 Province，且名称语义与 City 到 Province 的关系一致。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "local_name": "hasProvince",
+        "score": 0.3536,
+        "name_score": 0.727,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Province"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.2767,
+        "name_score": 0.667,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedAt",
+        "local_name": "locatedAt",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "cityothername.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "cityIn 的语义与城市到国家的外键关系最匹配，且名称得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.675,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.67,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.6633,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "country.capital": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名与属性名完全匹配，且范围类一致，尽管域类不匹配但综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.31,
+        "name_score": 0.571,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isCapitalOf",
+        "local_name": "isCapitalOf",
+        "score": 0.2682,
+        "name_score": 0.636,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "country.code": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的range均不匹配City，且列名code与候选属性名称无直接语义关联。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#ethnicInfo",
+        "local_name": "ethnicInfo",
+        "score": 0.234,
+        "name_score": 0.3,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#EthnicProportion"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "local_name": "hasProvince",
+        "score": 0.2264,
+        "name_score": 0.273,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Province"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+        "local_name": "dependentOf",
+        "score": 0.2264,
+        "name_score": 0.273,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "country.province": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名'province'与hasProvince名称匹配度高，但range应为City而非Province，导致range_score为0，故置信度低。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "local_name": "hasProvince",
+        "score": 0.3536,
+        "name_score": 0.727,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Province"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.325,
+        "name_score": 0.625,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#ethnicInfo",
+        "local_name": "ethnicInfo",
+        "score": 0.29,
+        "name_score": 0.5,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#EthnicProportion"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "economy.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名country暗示国家间关系，neighbor语义匹配且domain/range均为Country，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.405,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+        "local_name": "dependentOf",
+        "score": 0.3764,
+        "name_score": 0.273,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#ethnicInfo",
+        "local_name": "ethnicInfo",
+        "score": 0.262,
+        "name_score": 0.4,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#EthnicProportion"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "encompasses.continent": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#encompassedBy",
+    "confidence": "high",
+    "scenario": "SSD",
+    "method": "llm_select",
+    "reason": "该属性域和范围完全匹配，且名称与列名'continent'语义一致（被包含于大陆），综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#encompassedBy",
+        "local_name": "encompassedBy",
+        "score": 0.7508,
+        "name_score": 0.308,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Encompassed"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Continent"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#encompassed",
+        "local_name": "encompassed",
+        "score": 0.6709,
+        "name_score": 0.364,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#EncompassedArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Continent"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#encompassedArea",
+        "local_name": "encompassedArea",
+        "score": 0.536,
+        "name_score": 0.267,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Encompassed"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#EncompassedArea"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "encompasses.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名'country'与候选属性名称均不匹配，且结构证据强度为0%，无法确定合适映射。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ethnicgroup.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain均不匹配EthnicGroup，且name_score较低，无合适映射。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "islandin.island": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#belongsToIslands",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "Domain和Range均匹配Island，且名称暗示岛屿间的所属关系，结构证据强度100%。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#belongsToIslands",
+        "local_name": "belongsToIslands",
+        "score": 0.75,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Islands"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+        "local_name": "locatedOnIsland",
+        "score": 0.682,
+        "name_score": 0.4,
+        "domain": [
+          "nd2d67da84a81493e9dd56d5083025fcdb144"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "local_name": "locatedInWater",
+        "score": 0.67,
+        "name_score": 0.357,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "islandin.lake": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "locatedInWater 的 domain 完全匹配 Island，且语义上岛屿位于水中，与 Lake 关系最合理。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "local_name": "locatedInWater",
+        "score": 0.21,
+        "name_score": 0.214,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#belongsToIslands",
+        "local_name": "belongsToIslands",
+        "score": 0.2025,
+        "name_score": 0.188,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Islands"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "local_name": "flowsThrough",
+        "score": 0.1733,
+        "name_score": 0.083,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Lake"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "islandin.river": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "locatedInWater 的 domain 完全匹配 Island，且名称暗示岛屿与河流（River 是 Water 的子类）之间的位置关系，尽管 range 不完全匹配 River，但语义最接近。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "local_name": "locatedInWater",
+        "score": 0.21,
+        "name_score": 0.214,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#belongsToIslands",
+        "local_name": "belongsToIslands",
+        "score": 0.185,
+        "name_score": 0.125,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Islands"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "islandin.sea": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "Domain 为 Island，Range 为 Sea，locatedInWater 语义上表示岛屿位于水域中，且 Sea 是 Water 的子类，因此最匹配。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+        "local_name": "mergesWith",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#belongsToIslands",
+        "local_name": "belongsToIslands",
+        "score": 0.2025,
+        "name_score": 0.188,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Islands"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "local_name": "locatedInWater",
+        "score": 0.19,
+        "name_score": 0.143,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Island"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Water"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ismember.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#ofMember",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "该属性域和范围完全匹配Membership和Country，且名称ofMember暗示成员关系，与列名country语义一致。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#ofMember",
+        "local_name": "ofMember",
+        "score": 0.37,
+        "name_score": 0.25,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Membership"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ismember.organization": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#inOrganization",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "fast_track",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#inOrganization",
+        "local_name": "inOrganization",
+        "score": 0.54,
+        "name_score": 0.857,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Membership"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Organization"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.23,
+        "name_score": 0.5,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isCapitalOf",
+        "local_name": "isCapitalOf",
+        "score": 0.23,
+        "name_score": 0.5,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "lake.river": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的名称和语义均与Lake到River的外键关系不匹配，且无结构证据支持。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+        "local_name": "haMember",
+        "score": 0.16,
+        "name_score": 0.25,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "language.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain或range均与Language和Country不匹配，且名称相似度低。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.city": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名'city'与属性'hasCity'语义匹配，且range完全匹配City类，domain虽为AdministrativeArea但Location可视为其子类，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.31,
+        "name_score": 0.571,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.2767,
+        "name_score": 0.667,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.27,
+        "name_score": 0.429,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "hasCity的range与City完全匹配，且名称暗示城市关系，尽管domain不完全匹配但最接近。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.27,
+        "name_score": 0.429,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.23,
+        "name_score": 0.286,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.lake": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "flowsThrough 的 range 完全匹配 Lake，且 domain 虽为 River 但 Location 可能包含河流位置，得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "local_name": "flowsThrough",
+        "score": 0.1733,
+        "name_score": 0.083,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Lake"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+        "local_name": "haMember",
+        "score": 0.16,
+        "name_score": 0.25,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1522,
+        "name_score": 0.222,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.province": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名'province'与属性'isProvinceOf'语义高度匹配，且综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.2767,
+        "name_score": 0.667,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.22,
+        "name_score": 0.25,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.river": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的名称和语义均与'river'列不匹配，且缺乏结构证据支持。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "local_name": "isProvinceOf",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+        "local_name": "haMember",
+        "score": 0.16,
+        "name_score": 0.25,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "located.sea": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "唯一候选属性 mergesWith 的 range 匹配 Sea，但 domain 为 Sea 而非 Location，且结构证据为0，名称不匹配，故置信度低。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+        "local_name": "mergesWith",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasSource-",
+        "local_name": "hasSource-",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "organization.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain均不匹配Organization，且name_score较低，无法建立合理的外键映射。；LLM 未给出结果，依据结构/语义分数回退 top1",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.675,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.67,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.6633,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "politics.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "neighbor 的 range 完全匹配 Country，且 domain 虽为 Country 但实际外键列 country 指向 Country，语义上表示政治实体所属国家，neighbor 是候选中最接近的。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "politics.dependent": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名 dependent 与属性 dependentOf 语义高度匹配，且 domain 和 range 均正确，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+        "local_name": "dependentOf",
+        "score": 0.3791,
+        "name_score": 0.818,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.2122,
+        "name_score": 0.222,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "population.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "neighbor 的 range 匹配 Country，且名称与列名 country 语义相关，但 domain 不匹配 PopulationCount，故综合评分最高但置信度中等。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "province.capital": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名与属性名完全匹配，且范围类一致，领域类Province是AdministrativeArea的子类，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.31,
+        "name_score": 0.571,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#isCapitalOf",
+        "local_name": "isCapitalOf",
+        "score": 0.2682,
+        "name_score": 0.636,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "province.capprov": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名capprov暗示省份包含城市，hasCity语义匹配且range为City，domain虽为AdministrativeArea但Province是其子类，故选择hasCity。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "local_name": "capital",
+        "score": 0.27,
+        "name_score": 0.429,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "local_name": "hasCity",
+        "score": 0.23,
+        "name_score": 0.286,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#City"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasSource-",
+        "local_name": "hasSource-",
+        "score": 0.2144,
+        "name_score": 0.444,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "province.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性中无一个同时匹配domain（Province）和range（Country），且名称相似度低。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "provinceothername.country": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain均不匹配Province，且name_score较低，无合适映射。；LLM 未给出结果，依据结构/语义分数回退 top1",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.675,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.67,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.6633,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "religion.country": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain均不匹配Religion，且name_score较低，无合适映射。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "local_name": "neighbor",
+        "score": 0.255,
+        "name_score": 0.375,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "local_name": "cityIn",
+        "score": 0.25,
+        "name_score": 0.571,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "local_name": "bordering",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Border"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Country"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "river.lake": {
+    "object_prop_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "flowsThrough 的 domain 和 range 完全匹配 River 和 Lake，且综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "local_name": "flowsThrough",
+        "score": 0.3233,
+        "name_score": 0.083,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Lake"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+        "local_name": "hasSource",
+        "score": 0.2122,
+        "name_score": 0.222,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Source"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasEstuary",
+        "local_name": "hasEstuary",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Estuary"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "river.river": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的domain或range均与River-River不匹配，且无自反属性候选。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+        "local_name": "hasSource",
+        "score": 0.2122,
+        "name_score": 0.222,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Source"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasEstuary",
+        "local_name": "hasEstuary",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Estuary"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "local_name": "hasBorder",
+        "score": 0.1833,
+        "name_score": 0.333,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "river.sea": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性中无一个同时匹配 domain River 和 range Sea，且名称与语义均不相关。",
+    "candidates_used": [
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+        "local_name": "hasSource",
+        "score": 0.2433,
+        "name_score": 0.333,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Source"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#hasEstuary",
+        "local_name": "hasEstuary",
+        "score": 0.234,
+        "name_score": 0.3,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#River"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Estuary"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+        "local_name": "mergesWith",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "range": [
+          "http://www.semwebtech.org/mondial/10/meta#Sea"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  }
+}

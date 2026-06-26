@@ -1,0 +1,328 @@
+{
+  "features": [
+    "name_score",
+    "domain_score",
+    "range_score",
+    "has_domain",
+    "has_range",
+    "manual_jaccard",
+    "source_in_target",
+    "target_in_source",
+    "valentine_coma_score",
+    "source_distinct",
+    "target_distinct",
+    "intersection",
+    "table_op_token_jaccard",
+    "column_op_token_jaccard",
+    "target_op_token_jaccard"
+  ],
+  "train_top1_accuracy": 1.0,
+  "test_top1_accuracy": 1.0,
+  "current_top1_accuracy_all": 0.4927536231884058,
+  "current_top1_accuracy_train": 0.5306122448979592,
+  "current_top1_accuracy_test": 0.4,
+  "feature_importance": [
+    {
+      "feature": "name_score",
+      "importance": 0.2750543751179507
+    },
+    {
+      "feature": "domain_score",
+      "importance": 0.15492637107870838
+    },
+    {
+      "feature": "range_score",
+      "importance": 0.14717544787930328
+    },
+    {
+      "feature": "table_op_token_jaccard",
+      "importance": 0.11694511489799231
+    },
+    {
+      "feature": "target_op_token_jaccard",
+      "importance": 0.059945992964808854
+    },
+    {
+      "feature": "has_range",
+      "importance": 0.046876026539525134
+    },
+    {
+      "feature": "column_op_token_jaccard",
+      "importance": 0.03074373290446447
+    },
+    {
+      "feature": "has_domain",
+      "importance": 0.030094205075094218
+    },
+    {
+      "feature": "valentine_coma_score",
+      "importance": 0.02681592141886395
+    },
+    {
+      "feature": "intersection",
+      "importance": 0.026304389624961448
+    },
+    {
+      "feature": "target_in_source",
+      "importance": 0.02534434865887176
+    },
+    {
+      "feature": "manual_jaccard",
+      "importance": 0.024597850555529013
+    },
+    {
+      "feature": "source_distinct",
+      "importance": 0.023820823809810855
+    },
+    {
+      "feature": "target_distinct",
+      "importance": 0.011355399474115648
+    },
+    {
+      "feature": "source_in_target",
+      "importance": 0.0
+    }
+  ],
+  "test_details": [
+    {
+      "relation_key": "bsns_arr_area_operator.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb841",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "baaOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb841"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_operator.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb830",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb830",
+        "transferredBAA"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea"
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb874",
+      "predicted_score": 0.9933333333333333,
+      "gold": [
+        "baaTransferCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb874"
+      ],
+      "correct": true,
+      "source": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "dscarea.dscnpdiddiscovery",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb888"
+      ],
+      "correct": true,
+      "source": "dscarea.dscnpdiddiscovery",
+      "target": "discovery.dscnpdiddiscovery"
+    },
+    {
+      "relation_key": "dscarea.dscnpdidresinclindiscovery",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb884",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb884",
+        "resourcesIncludedInDiscovery"
+      ],
+      "correct": true,
+      "source": "dscarea.dscnpdidresinclindiscovery",
+      "target": "discovery.dscnpdiddiscovery"
+    },
+    {
+      "relation_key": "field_activity_status_hst.fldnpdidfield",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb759",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb759",
+        "statusForField"
+      ],
+      "correct": true,
+      "source": "field_activity_status_hst.fldnpdidfield",
+      "target": "field.fldnpdidfield"
+    },
+    {
+      "relation_key": "field_investment_yearly.prfnpdidinformationcarrier",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1069",
+      "predicted_score": 1.0,
+      "gold": [
+        "investmentForField",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1069"
+      ],
+      "correct": true,
+      "source": "field_investment_yearly.prfnpdidinformationcarrier",
+      "target": "field.fldnpdidfield"
+    },
+    {
+      "relation_key": "field_reserves.fldnpdidfield",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1061",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1061",
+        "reservesForField"
+      ],
+      "correct": true,
+      "source": "field_reserves.fldnpdidfield",
+      "target": "field.fldnpdidfield"
+    },
+    {
+      "relation_key": "licence_area_poly_hst.prlnpdidlicence",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1012"
+      ],
+      "correct": true,
+      "source": "licence_area_poly_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_phase_hst.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb783",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb783",
+        "statusForLicence"
+      ],
+      "correct": true,
+      "source": "licence_phase_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "licence_task.cmpnpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb906",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb906",
+        "taskForCompany"
+      ],
+      "correct": true,
+      "source": "licence_task.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "licence_task.prlnpdidlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1133",
+      "predicted_score": 1.0,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1133",
+        "taskForLicence"
+      ],
+      "correct": true,
+      "source": "licence_task.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1071",
+      "predicted_score": 1.0,
+      "gold": [
+        "lastOperatorCompany",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1071"
+      ],
+      "correct": true,
+      "source": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "target": "company.cmpnpdidcompany"
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prlnpdidlicence",
+      "predicted": "isGeometryOfFeature",
+      "predicted_score": 1.0,
+      "gold": [
+        "isGeometryOfFeature",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb705"
+      ],
+      "correct": true,
+      "source": "prlareasplitbyblock.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "strat_litho_wellbore_core.wlbnpdidwellbore",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb690",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "coreForWellbore",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb690"
+      ],
+      "correct": true,
+      "source": "strat_litho_wellbore_core.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore"
+    },
+    {
+      "relation_key": "tuf_petreg_message.tufnpdidtuf",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb723",
+      "predicted_score": 0.98,
+      "gold": [
+        "messageForTUF",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb723"
+      ],
+      "correct": true,
+      "source": "tuf_petreg_message.tufnpdidtuf",
+      "target": "tuf_petreg_licence.tufnpdidtuf"
+    },
+    {
+      "relation_key": "wellbore_coordinates.wlbnpdidwellbore",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1017",
+      "predicted_score": 0.9933333333333333,
+      "gold": [
+        "coordinateForWellbore",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1017"
+      ],
+      "correct": true,
+      "source": "wellbore_coordinates.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore"
+    },
+    {
+      "relation_key": "wellbore_exploration_all.fldnpdidfield",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1154",
+      "predicted_score": 1.0,
+      "gold": [
+        "explorationWellboreForField",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1154"
+      ],
+      "correct": true,
+      "source": "wellbore_exploration_all.fldnpdidfield",
+      "target": "field.fldnpdidfield"
+    },
+    {
+      "relation_key": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb1155",
+      "predicted_score": 1.0,
+      "gold": [
+        "explorationWellboreForLicence",
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb1155"
+      ],
+      "correct": true,
+      "source": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "target": "licence.prlnpdidlicence"
+    },
+    {
+      "relation_key": "wellbore_oil_sample.wlbnpdidwellbore",
+      "predicted": "nb80a8be4f85f4e25a91fdfbbedd07d7bb791",
+      "predicted_score": 0.9966666666666667,
+      "gold": [
+        "nb80a8be4f85f4e25a91fdfbbedd07d7bb791",
+        "oilSampleTestForWellbore"
+      ],
+      "correct": true,
+      "source": "wellbore_oil_sample.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore"
+    }
+  ]
+}

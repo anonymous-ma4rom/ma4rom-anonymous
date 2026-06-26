@@ -1,0 +1,23 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+conferencenofks:	http://conference#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-1631391458
+target		<http://example.com/person/{Person}> conferencenofks:has_an_email {VALUE}^^xsd:string . 
+source		SELECT "Person" , "VALUE" FROM "has_an_email"
+
+mappingId	mapping-1759457070
+target		<http://example.com/person/{Person}> conferencenofks:contributes <http://example.com/conference_document/{Conference_document}> . 
+source		SELECT "Person" , "Conference_document" FROM "contributes"
+
+mappingId	mapping--462915387
+target		<http://example.com/committee/{Committee}> conferencenofks:has_members <http://example.com/person/{Committee_member}> . 
+source		SELECT "Committee" , "Committee_member" FROM "has_members"
+]]
+

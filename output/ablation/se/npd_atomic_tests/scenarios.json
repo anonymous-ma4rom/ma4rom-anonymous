@@ -1,0 +1,2615 @@
+{
+  "bsns_arr_area_operator.baanpdidbsnsarrarea": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.914286,
+    "peer_implicit_score": null,
+    "domain_table": "bsns_arr_area_operator",
+    "domain_rows": 37,
+    "range_table": "bsns_arr_area",
+    "range_rows": 49,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#CompressedNaturalGas",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "bsns_arr_area_operator",
+      "source_column": "baanpdidbsnsarrarea",
+      "target_table": "bsns_arr_area",
+      "target_column": "baanpdidbsnsarrarea",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 37,
+      "target_distinct": 49,
+      "intersection": 37,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.755102,
+      "jaccard": 0.755102,
+      "evidence_score": 0.914286,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "bsns_arr_area_operator.cmpnpdidcompany": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.656579,
+    "peer_implicit_score": null,
+    "domain_table": "bsns_arr_area_operator",
+    "domain_rows": 37,
+    "range_table": "company",
+    "range_rows": 532,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#CompressedNaturalGas",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Company",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reportingCompany",
+        "local_name": "reportingCompany",
+        "score": 0.312,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.417,
+        "name_score": 0.533,
+        "syntax_score": 0.533,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#dependsOnTask",
+        "local_name": "dependsOnTask",
+        "score": 0.383,
+        "name_score": 0.467,
+        "syntax_score": 0.467,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 10,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany",
+        "local_name": "TUFLicenceeCompany",
+        "score": 0.278,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 62,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#mainAreaLocation",
+        "local_name": "mainAreaLocation",
+        "score": 0.369,
+        "name_score": 0.438,
+        "syntax_score": 0.438,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 21,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "bsns_arr_area_operator",
+      "source_column": "cmpnpdidcompany",
+      "target_table": "company",
+      "target_column": "cmpnpdidcompany",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 10,
+      "target_distinct": 532,
+      "intersection": 10,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.018797,
+      "jaccard": 0.018797,
+      "evidence_score": 0.656579,
+      "cardinality_pattern": "n-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "fclpoint.fclnpdidfacility": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.987558,
+    "peer_implicit_score": null,
+    "domain_table": "fclpoint",
+    "domain_rows": 624,
+    "range_table": "facility_fixed",
+    "range_rows": 647,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Point",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "fclpoint",
+      "source_column": "fclnpdidfacility",
+      "target_table": "facility_fixed",
+      "target_column": "fclnpdidfacility",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 624,
+      "target_distinct": 647,
+      "intersection": 624,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.964451,
+      "jaccard": 0.964451,
+      "evidence_score": 0.987558,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "field_reserves.fldnpdidfield": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "field_reserves",
+    "domain_rows": 101,
+    "range_table": "field",
+    "range_rows": 101,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "licence_petreg_licence.prlnpdidlicence": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "licence_petreg_licence",
+    "domain_rows": 543,
+    "range_table": "licence",
+    "range_rows": 910,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "licence_petreg_licence_oper.cmpnpdidcompany": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "licence_petreg_licence_oper",
+    "domain_rows": 505,
+    "range_table": "company",
+    "range_rows": 532,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Company",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reportingCompany",
+        "local_name": "reportingCompany",
+        "score": 0.312,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 72,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+        "local_name": "licenceOperatorCompany",
+        "score": 0.5,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 5,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.417,
+        "name_score": 0.533,
+        "syntax_score": 0.533,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence",
+        "local_name": "operatorForLicence",
+        "score": 0.444,
+        "name_score": 0.389,
+        "syntax_score": 0.389,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 35,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany",
+        "local_name": "TUFLicenceeCompany",
+        "score": 0.278,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 73,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "licence_petreg_licence_oper.prlnpdidlicence": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "licence_petreg_licence_oper",
+    "domain_rows": 505,
+    "range_table": "licence",
+    "range_rows": 910,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "tuf_petreg_licence_oper.cmpnpdidcompany": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "tuf_petreg_licence_oper",
+    "domain_rows": 24,
+    "range_table": "company",
+    "range_rows": 532,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceArea",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Company",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reportingCompany",
+        "local_name": "reportingCompany",
+        "score": 0.312,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 65,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.417,
+        "name_score": 0.533,
+        "syntax_score": 0.533,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#dependsOnTask",
+        "local_name": "dependsOnTask",
+        "score": 0.383,
+        "name_score": 0.467,
+        "syntax_score": 0.467,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 10,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany",
+        "local_name": "TUFLicenceeCompany",
+        "score": 0.278,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 66,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#mainAreaLocation",
+        "local_name": "mainAreaLocation",
+        "score": 0.369,
+        "name_score": 0.438,
+        "syntax_score": 0.438,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 21,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "tuf_petreg_licence_oper.tufnpdidtuf": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "tuf_petreg_licence_oper",
+    "domain_rows": 24,
+    "range_table": "tuf_petreg_licence",
+    "range_rows": 24,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceArea",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_coordinates.wlbewmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.95,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_coordinates",
+    "domain_rows": 6303,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+        "local_name": "memberList",
+        "score": 0.375,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+        ],
+        "range": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 65,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+        "local_name": "coordinateForWellbore",
+        "score": 0.393,
+        "name_score": 0.286,
+        "syntax_score": 0.286,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 33,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehInside",
+        "local_name": "ehInside",
+        "score": 0.4,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 6,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 79,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#sfWithin",
+        "local_name": "sfWithin",
+        "score": 0.4,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_coordinates.wlbnpdidwellbore": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_coordinates",
+    "domain_rows": 6303,
+    "range_table": "wellbore_npdid_overview",
+    "range_rows": 6303,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_coordinates.wlbnsdeg": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9615,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_coordinates",
+    "domain_rows": 6303,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.419,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 34,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+        "local_name": "coordinateForWellbore",
+        "score": 0.393,
+        "name_score": 0.286,
+        "syntax_score": 0.286,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 40,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehInside",
+        "local_name": "ehInside",
+        "score": 0.463,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehDisjoint",
+        "local_name": "ehDisjoint",
+        "score": 0.412,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#npdPageURL",
+        "local_name": "npdPageURL",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#AwardArea"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 92,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_coordinates.wlbnsmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.95,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_coordinates",
+    "domain_rows": 6303,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#sfWithin",
+        "local_name": "sfWithin",
+        "score": 0.463,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+        "local_name": "coordinateForWellbore",
+        "score": 0.369,
+        "name_score": 0.238,
+        "syntax_score": 0.238,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 66,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+        "local_name": "memberList",
+        "score": 0.375,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+        ],
+        "range": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 65,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehContains",
+        "local_name": "ehContains",
+        "score": 0.412,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 6,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 79,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.dscnpdiddiscovery": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "discovery",
+    "range_rows": 429,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Discovery",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionForDiscovery",
+        "local_name": "productionForDiscovery",
+        "score": 0.468,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "local_name": "resourcesIncludedInDiscovery",
+        "score": 0.555,
+        "name_score": 0.536,
+        "syntax_score": 0.536,
+        "semantic_score": 0.575,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.85,
+        "syntax_rank": 6,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.478,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+        "local_name": "wellboreForDiscovery",
+        "score": 0.512,
+        "name_score": 0.45,
+        "syntax_score": 0.45,
+        "semantic_score": 0.575,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.85,
+        "syntax_rank": 25,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#provinceLocation",
+        "local_name": "provinceLocation",
+        "score": 0.369,
+        "name_score": 0.588,
+        "syntax_score": 0.588,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#AwardArea"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.fclnpdidfacilityproducing": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9965,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "fclpoint",
+    "range_rows": 624,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#Point",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#pipelineFromFacility",
+        "local_name": "pipelineFromFacility",
+        "score": 0.415,
+        "name_score": 0.68,
+        "syntax_score": 0.68,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Pipeline"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 50,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.52,
+        "name_score": 0.64,
+        "syntax_score": 0.64,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingFacility",
+        "local_name": "drillingFacility",
+        "score": 0.45,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 4,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#inLithostratigraphicUnit",
+        "local_name": "inLithostratigraphicUnit",
+        "score": 0.45,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 5,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.36,
+        "name_score": 0.32,
+        "syntax_score": 0.32,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 74,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.fldnpdidfield": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "field",
+    "range_rows": 101,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Field",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+        "local_name": "includedInField",
+        "score": 0.583,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+        "local_name": "developmentWellboreForField",
+        "score": 0.56,
+        "name_score": 0.37,
+        "syntax_score": 0.37,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 28,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+        "local_name": "licenseeForField",
+        "score": 0.531,
+        "name_score": 0.562,
+        "syntax_score": 0.562,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 3,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField",
+        "local_name": "ownerForField",
+        "score": 0.519,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#FieldOwner"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 5,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField",
+        "local_name": "reservesForField",
+        "score": 0.512,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.65,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.3,
+        "range_score": 1.0,
+        "syntax_rank": 25,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.prlnpdidproductionlicence": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "licence",
+    "range_rows": 910,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany",
+        "local_name": "currentResponsibleCompany",
+        "score": 0.34,
+        "name_score": 0.68,
+        "syntax_score": 0.68,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#MoveableFacility"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 85,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#rcc8ntppi",
+        "local_name": "rcc8ntppi",
+        "score": 0.372,
+        "name_score": 0.32,
+        "syntax_score": 0.32,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 91,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "local_name": "resourcesIncludedInDiscovery",
+        "score": 0.414,
+        "name_score": 0.679,
+        "syntax_score": 0.679,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehContains",
+        "local_name": "ehContains",
+        "score": 0.353,
+        "name_score": 0.28,
+        "syntax_score": 0.28,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 100,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+        "local_name": "drillingOperatorCompany",
+        "score": 0.395,
+        "name_score": 0.64,
+        "syntax_score": 0.64,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 62,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbewmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9661,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wlbpoint",
+    "range_rows": 6276,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#Point",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 37,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.382,
+        "name_score": 0.364,
+        "syntax_score": 0.364,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 14,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.342,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 4,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+        "local_name": "memberList",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+        ],
+        "range": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.283,
+        "name_score": 0.167,
+        "syntax_score": 0.167,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 119,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbnamepart4": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9672,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.45,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.45,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 9,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factMapURL",
+        "local_name": "factMapURL",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factPageURL",
+        "local_name": "factPageURL",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.367,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 77,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbnpdidwellbore": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wellbore_npdid_overview",
+    "range_rows": 6303,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbnsdeg": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.419,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.382,
+        "name_score": 0.364,
+        "syntax_score": 0.364,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 20,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#npdPageURL",
+        "local_name": "npdPageURL",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#AwardArea"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 50,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.283,
+        "name_score": 0.167,
+        "syntax_score": 0.167,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 117,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehInside",
+        "local_name": "ehInside",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbnsmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9655,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wlbpoint",
+    "range_rows": 6276,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#Point",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 37,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.336,
+        "name_score": 0.273,
+        "syntax_score": 0.273,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 39,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#sfWithin",
+        "local_name": "sfWithin",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.283,
+        "name_score": 0.167,
+        "syntax_score": 0.167,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 102,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.342,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 8,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_development_all.wlbutmzone": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_development_all",
+    "domain_rows": 3894,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+        "local_name": "documentURL",
+        "score": 0.518,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.419,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "local_name": "closeMatch",
+        "score": 0.4,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.339,
+        "name_score": 0.278,
+        "syntax_score": 0.278,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 95,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+        "local_name": "memberList",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+        ],
+        "range": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 61,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_exploration_all.dscnpdiddiscovery": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9896,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_exploration_all",
+    "domain_rows": 1566,
+    "range_table": "discovery",
+    "range_rows": 429,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Discovery",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionForDiscovery",
+        "local_name": "productionForDiscovery",
+        "score": 0.468,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 15,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "local_name": "resourcesIncludedInDiscovery",
+        "score": 0.555,
+        "name_score": 0.536,
+        "syntax_score": 0.536,
+        "semantic_score": 0.575,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.85,
+        "syntax_rank": 6,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+        "local_name": "wellboreForDiscovery",
+        "score": 0.512,
+        "name_score": 0.45,
+        "syntax_score": 0.45,
+        "semantic_score": 0.575,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.85,
+        "syntax_rank": 25,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#provinceLocation",
+        "local_name": "provinceLocation",
+        "score": 0.369,
+        "name_score": 0.588,
+        "syntax_score": 0.588,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#AwardArea"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 71,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+        "local_name": "productionFacility",
+        "score": 0.478,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_exploration_all.fldnpdidfield": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_exploration_all",
+    "domain_rows": 1566,
+    "range_table": "field",
+    "range_rows": 101,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#Field",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+        "local_name": "includedInField",
+        "score": 0.583,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForField",
+        "local_name": "operatorForField",
+        "score": 0.594,
+        "name_score": 0.438,
+        "syntax_score": 0.438,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#FieldOperator"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 10,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+        "local_name": "developmentWellboreForField",
+        "score": 0.56,
+        "name_score": 0.37,
+        "syntax_score": 0.37,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 28,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee",
+        "local_name": "fieldLicensee",
+        "score": 0.308,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 74,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+        "local_name": "licenseeForField",
+        "score": 0.531,
+        "name_score": 0.562,
+        "syntax_score": 0.562,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 3,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_exploration_all.prlnpdidproductionlicence": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_exploration_all",
+    "domain_rows": 1566,
+    "range_table": "licence",
+    "range_rows": 910,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany",
+        "local_name": "currentResponsibleCompany",
+        "score": 0.34,
+        "name_score": 0.68,
+        "syntax_score": 0.68,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#MoveableFacility"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 92,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#rcc8ntppi",
+        "local_name": "rcc8ntppi",
+        "score": 0.372,
+        "name_score": 0.32,
+        "syntax_score": 0.32,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 91,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "local_name": "resourcesIncludedInDiscovery",
+        "score": 0.414,
+        "name_score": 0.679,
+        "syntax_score": 0.679,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 73,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehContains",
+        "local_name": "ehContains",
+        "score": 0.353,
+        "name_score": 0.28,
+        "syntax_score": 0.28,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 100,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+        "local_name": "drillingOperatorCompany",
+        "score": 0.395,
+        "name_score": 0.64,
+        "syntax_score": 0.64,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 74,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_exploration_all.wlbnpdidwellbore": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_exploration_all",
+    "domain_rows": 1566,
+    "range_table": "wellbore_npdid_overview",
+    "range_rows": 6303,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbentryyear": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9706,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "field_production_totalt_ncs_year",
+    "range_rows": 43,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#FieldYearlyProduction",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellOperator",
+        "local_name": "wellOperator",
+        "score": 0.408,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 43,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+        "local_name": "shallowWellboreForLicence",
+        "score": 0.43,
+        "name_score": 0.36,
+        "syntax_score": 0.36,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+        ],
+        "range": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.5,
+        "syntax_rank": 90,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.419,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+        "local_name": "wellboreAgeTD",
+        "score": 0.383,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 56,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreFormationHc",
+        "local_name": "wellboreFormationHc",
+        "score": 0.413,
+        "name_score": 0.526,
+        "syntax_score": 0.526,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 11,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbewmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.95,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 33,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.342,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 4,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#member",
+        "local_name": "member",
+        "score": 0.338,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 6,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+        "local_name": "memberList",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+        ],
+        "range": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 59,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#narrower",
+        "local_name": "narrower",
+        "score": 0.338,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbnamepart4": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9655,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "wlbpoint",
+    "range_rows": 6276,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#Point",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.45,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factMapURL",
+        "local_name": "factMapURL",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factPageURL",
+        "local_name": "factPageURL",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+        "local_name": "narrowMatch",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 4,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "local_name": "relatedMatch",
+        "score": 0.442,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 5,
+        "semantic_rank": 5,
+        "track_source": "both"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbnpdidwellbore": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "wellbore_npdid_overview",
+    "range_rows": 6303,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbnsdeg": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.9615,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.419,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#broader",
+        "local_name": "broader",
+        "score": 0.338,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 12,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#npdPageURL",
+        "local_name": "npdPageURL",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://sws.ifi.uio.no/vocab/npd-v2#AwardArea"
+        ],
+        "range": [],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 46,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#narrower",
+        "local_name": "narrower",
+        "score": 0.338,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 13,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#ehInside",
+        "local_name": "ehInside",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 59,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wellbore_shallow_all.wlbnsmin": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 0.95,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wellbore_shallow_all",
+    "domain_rows": 841,
+    "range_table": "wellbore_exploration_all",
+    "range_rows": 1566,
+    "domain_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore",
+    "range_class_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore",
+    "op_candidates": [
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+        "local_name": "inScheme",
+        "score": 0.325,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.15,
+        "domain": [],
+        "range": [
+          "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 33,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+        "local_name": "belongsToWell",
+        "score": 0.342,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 8,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+        "local_name": "mappingRelation",
+        "score": 0.317,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 12,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://www.opengis.net/ont/geosparql#sfWithin",
+        "local_name": "sfWithin",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "range": [
+          "http://www.opengis.net/ont/geosparql#SpatialObject"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 59,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreFormationHc",
+        "local_name": "wellboreFormationHc",
+        "score": 0.308,
+        "name_score": 0.316,
+        "syntax_score": 0.316,
+        "semantic_score": 0.3,
+        "domain": [],
+        "range": [],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "syntax_rank": 15,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "wlbpoint.wlbnpdidwellbore": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "wlbpoint",
+    "domain_rows": 6276,
+    "range_table": "wellbore_npdid_overview",
+    "range_rows": 6303,
+    "domain_class_uri": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#Point",
+    "range_class_uri": null,
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  }
+}

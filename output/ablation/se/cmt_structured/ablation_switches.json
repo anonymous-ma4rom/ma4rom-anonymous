@@ -1,0 +1,14 @@
+{
+  "ABLATION_PRESET": "se",
+  "ABLATION_NAME": "se",
+  "CURRENT_DATABASE": "cmt_structured",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_CEA_ENHANCEMENT": false,
+  "WO_CPA_REASONING": false,
+  "WO_CTA_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": true,
+  "WO_MV_PATTERN": false
+}

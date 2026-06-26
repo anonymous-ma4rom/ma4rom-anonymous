@@ -1,0 +1,1307 @@
+{
+  "abstracts": {
+    "columns": {
+      "id": "integer",
+      "th_part": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAbstractURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "extended_abstracts",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKAbstractis_the_1th_part_of",
+        "fk_arity": 1,
+        "column": "th_part",
+        "references_table": "conference_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "accepted_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAccepted_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "reviewed_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "active_conference_particis": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKActive_conference_pa2",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributors",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKActive_conference_particiURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_participants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "belongs_to_reviewers": {
+    "columns": {
+      "entity": "integer",
+      "reviewer": "integer"
+    },
+    "primary_key": [
+      "entity",
+      "reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKbelongs_to_reviewersReviewer",
+        "fk_arity": 1,
+        "column": "reviewer",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "call_for_papers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCall_for_paperURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "call_for_participations": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCall_for_participationURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "camera_ready_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCamera_ready_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "accepted_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKChairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "committee_members",
+        "references_column": "id"
+      }
+    ]
+  },
+  "co_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCo-chairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "committee_members",
+        "references_column": "id"
+      }
+    ]
+  },
+  "committee_co_chair": {
+    "columns": {
+      "committee": "integer",
+      "co_chair": "integer"
+    },
+    "primary_key": [
+      "committee",
+      "co_chair"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhas_a_committee_co-chai",
+        "fk_arity": 1,
+        "column": "committee",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "has_a_committee_co-cha2FK",
+        "fk_arity": 1,
+        "column": "co_chair",
+        "references_table": "co_chairs",
+        "references_column": "id"
+      }
+    ]
+  },
+  "committee_committee_member": {
+    "columns": {
+      "committee": "integer",
+      "committee_member": "integer"
+    },
+    "primary_key": [
+      "committee",
+      "committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhas_membersCommittee",
+        "fk_arity": 1,
+        "column": "committee",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKhas_membersCommittee_member",
+        "fk_arity": 1,
+        "column": "committee_member",
+        "references_table": "committee_members",
+        "references_column": "id"
+      }
+    ]
+  },
+  "committee_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCommittee_memberURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "committees": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(29)",
+      "committee_chair": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCommitteehas_a_committe",
+        "fk_arity": 1,
+        "column": "committee_chair",
+        "references_table": "chairs",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_announcements": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_announcementURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_applicantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_contributions": {
+    "columns": {
+      "id": "integer",
+      "submitted_at": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_contribution",
+        "fk_arity": 1,
+        "column": "submitted_at",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKConference_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_contributors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_contributorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_documents": {
+    "columns": {
+      "id": "integer",
+      "date_issue": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_fees": {
+    "columns": {
+      "id": "integer",
+      "amount": "character varying(3)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_participants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_participantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_parts": {
+    "columns": {
+      "id": "integer",
+      "part_conference_vol": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_partis_part_",
+        "fk_arity": 1,
+        "column": "part_conference_vol",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_proceedings": {
+    "columns": {
+      "id": "integer",
+      "publisher": "integer",
+      "volume": "integer",
+      "name": "character varying(26)",
+      "isbn": "character varying(13)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_proceedingsh",
+        "fk_arity": 1,
+        "column": "publisher",
+        "references_table": "publishers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_volumes": {
+    "columns": {
+      "id": "integer",
+      "program_committee": "integer",
+      "organizing_committ": "integer",
+      "location": "character varying(16)",
+      "steering_committee": "integer",
+      "important_dates": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "Conference_volumehas_a2FK",
+        "fk_arity": 1,
+        "column": "steering_committee",
+        "references_table": "steering_committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKConference_volumeURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKConference_volumehas_a_",
+        "fk_arity": 1,
+        "column": "program_committee",
+        "references_table": "program_committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKConference_volumehas_an",
+        "fk_arity": 1,
+        "column": "organizing_committ",
+        "references_table": "organizing_committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKConference_volumehas_im",
+        "fk_arity": 1,
+        "column": "important_dates",
+        "references_table": "important_dates",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(6)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "contribution_1th_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKContribution_1th-authorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "regular_authors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "contribution_co_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKContribution_co-authorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "regular_authors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "early_paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKEarly_paid_applicantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "paid_applicants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "emails": {
+    "columns": {
+      "person": "integer",
+      "value": "character varying(43)"
+    },
+    "primary_key": [
+      "person",
+      "value"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhas_an_emailPerson",
+        "fk_arity": 1,
+        "column": "person",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "extended_abstracts": {
+    "columns": {
+      "id": "integer",
+      "text": "character varying(305)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKExtended_abstractURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "regular_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "important_dates": {
+    "columns": {
+      "id": "integer",
+      "date_acceptance_a": "date",
+      "full_paper_submissio": "date",
+      "date_camera_ready": "date",
+      "ending_date": "date",
+      "starting_date": "date",
+      "abstract_submission": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "information_for_participas": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKInformation_for_participaURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "invited_speakers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKInvited_speakerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "invited_talks": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKInvited_talkURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "presentations",
+        "references_column": "id"
+      }
+    ]
+  },
+  "late_paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKLate_paid_applicantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "paid_applicants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "organizations": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizing_committees": {
+    "columns": {
+      "id": "integer",
+      "was_an_organizing_committ": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKOrganizing_committeeURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKOrganizing_committeewas",
+        "fk_arity": 1,
+        "column": "was_an_organizing_committ",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaid_applicantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "registeered_applicants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "papers": {
+    "columns": {
+      "id": "integer",
+      "abstract": "integer",
+      "paper_title": "character varying(200)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaperURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "reviewed_contributions",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperURI2",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "regular_contributions",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperhas_an_abstract",
+        "fk_arity": 1,
+        "column": "abstract",
+        "references_table": "abstracts",
+        "references_column": "id"
+      }
+    ]
+  },
+  "passive_conference_partics": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPassive_conference_particURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_participants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "person_conference_document": {
+    "columns": {
+      "pid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "cid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKcontributesConference_d",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKcontributesPerson",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "first_name": "character varying(14)",
+      "last_name": "character varying(13)",
+      "gender": "character varying(1)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "posters": {
+    "columns": {
+      "id": "integer",
+      "abstract": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPosterURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributions",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPosterhas_an_abstract",
+        "fk_arity": 1,
+        "column": "abstract",
+        "references_table": "abstracts",
+        "references_column": "id"
+      }
+    ]
+  },
+  "presentations": {
+    "columns": {
+      "id": "integer",
+      "given": "integer",
+      "abstract": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPresentationURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributions",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPresentationhas_an_abstract",
+        "fk_arity": 1,
+        "column": "abstract",
+        "references_table": "abstracts",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPresentationis_given_by",
+        "fk_arity": 1,
+        "column": "given",
+        "references_table": "active_conference_particis",
+        "references_column": "id"
+      }
+    ]
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "was_program_committee": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKProgram_committeeURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKProgram_committeewas_a_",
+        "fk_arity": 1,
+        "column": "was_program_committee",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "Program_committee_was_a_program_committee_of_fkey",
+        "fk_arity": 1,
+        "column": "was_program_committee",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "publishers": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "registeered_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKRegisteered_applicantURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_applicants",
+        "references_column": "id"
+      }
+    ]
+  },
+  "regular_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKRegular_authorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "regular_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKRegular_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "written_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "rejected_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKRejected_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "reviewed_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "review_expertises": {
+    "columns": {
+      "id": "integer",
+      "expertise": "character varying(199)",
+      "submitted_contribut": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReview_expertisehas_a_s",
+        "fk_arity": 1,
+        "column": "submitted_contribut",
+        "references_table": "submitted_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "review_preferences": {
+    "columns": {
+      "id": "integer",
+      "belongs_to_review_refer": "integer",
+      "degree": "integer",
+      "topic_or_submissi": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReview_preferencebelong",
+        "fk_arity": 1,
+        "column": "belongs_to_review_refer",
+        "references_table": "topics",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviewed_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewed_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "submitted_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviewer_reviewer": {
+    "columns": {
+      "reviewer1": "integer",
+      "reviewer2": "integer"
+    },
+    "primary_key": [
+      "reviewer1",
+      "reviewer2"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKinvited_byReviewer1",
+        "fk_arity": 1,
+        "column": "reviewer1",
+        "references_table": "reviewers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKinvited_byReviewer2",
+        "fk_arity": 1,
+        "column": "reviewer2",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "reviews": "integer",
+      "detailed_comments": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKReviewreviews",
+        "fk_arity": 1,
+        "column": "reviews",
+        "references_table": "reviewed_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "steering_committees": {
+    "columns": {
+      "id": "integer",
+      "was_steering_committee_": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKSteering_committeeURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "committees",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKSteering_committeewas_a",
+        "fk_arity": 1,
+        "column": "was_steering_committee_",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "submitted_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKSubmitted_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "written_contributions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "topic_tutorial": {
+    "columns": {
+      "conference_part": "integer",
+      "topic": "integer"
+    },
+    "primary_key": [
+      "conference_part",
+      "topic"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhas_a_track-workshop-tu",
+        "fk_arity": 1,
+        "column": "conference_part",
+        "references_table": "tutorials",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "has_a_track-workshop-t2FK",
+        "fk_arity": 1,
+        "column": "topic",
+        "references_table": "topics",
+        "references_column": "id"
+      }
+    ]
+  },
+  "topics": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "track_workshop_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKTrack-workshop_chairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "tracks": {
+    "columns": {
+      "id": "integer",
+      "tracks": "integer",
+      "track_workshop_tuto": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKTrackURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_parts",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKTrackhas_a_track-worksh",
+        "fk_arity": 1,
+        "column": "track_workshop_tuto",
+        "references_table": "track_workshop_chairs",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKTrackhas_tracks_Inv",
+        "fk_arity": 1,
+        "column": "tracks",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "tutorials": {
+    "columns": {
+      "id": "integer",
+      "tutorials": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKTutorialURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_parts",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKTutorialhas_tutorials_Inv",
+        "fk_arity": 1,
+        "column": "tutorials",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "websites": {
+    "columns": {
+      "id": "integer",
+      "url": "character varying(22)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConference_wwwURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_documents",
+        "references_column": "id"
+      }
+    ]
+  },
+  "workshops": {
+    "columns": {
+      "id": "integer",
+      "track_workshop_tuto": "integer",
+      "workshops": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKWorkshopURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_parts",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKWorkshophas_a_track-wor",
+        "fk_arity": 1,
+        "column": "track_workshop_tuto",
+        "references_table": "track_workshop_chairs",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKWorkshophas_workshops_Inv",
+        "fk_arity": 1,
+        "column": "workshops",
+        "references_table": "conference_volumes",
+        "references_column": "id"
+      }
+    ]
+  },
+  "written_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKWritten_contributionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conference_contributions",
+        "references_column": "id"
+      }
+    ]
+  }
+}

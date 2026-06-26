@@ -1,0 +1,103 @@
+{
+  "summary": {
+    "database": "conference_structured",
+    "gold_source": "RODI qpair path-1 single-join subset",
+    "gold_total": 4,
+    "current_correct": 3,
+    "current_accuracy": 0.75,
+    "current_coverage": 1.0,
+    "prediction_json": "output/conference_structured/op_module_clean_endpoint_llm_full.json",
+    "new_correct": 3,
+    "new_accuracy": 0.75,
+    "op_module_correct": 3,
+    "op_module_accuracy": 0.75,
+    "new_answered": 3,
+    "new_coverage": 0.75,
+    "safe_rerank_correct": 4,
+    "safe_rerank_accuracy": 1.0,
+    "delta_accuracy": 0.0,
+    "safe_rerank_delta_accuracy": 0.25
+  },
+  "details": [
+    {
+      "qpair": "Q44.qpair",
+      "relation_key": "Review.reviews",
+      "source": "Review.reviews",
+      "target": "Paper.ID",
+      "sparql_props": [
+        "has_a_review"
+      ],
+      "gold_ops_with_inverse": [
+        "has_a_review",
+        "reviews"
+      ],
+      "current_op": "reviews",
+      "current_correct": true,
+      "new_op": "",
+      "new_correct": false,
+      "safe_rerank_op": "reviews",
+      "safe_rerank_correct": true,
+      "prediction_error": null
+    },
+    {
+      "qpair": "Q47.qpair",
+      "relation_key": "Committee.was_a_program_committee_of",
+      "source": "Committee.was_a_program_committee_of",
+      "target": "Conference_volume.ID",
+      "sparql_props": [
+        "was_a_program_committee_of"
+      ],
+      "gold_ops_with_inverse": [
+        "has_a_program_committee",
+        "was_a_program_committee_of"
+      ],
+      "current_op": "was_a_committee_of",
+      "current_correct": false,
+      "new_op": "was_a_program_committee_of",
+      "new_correct": true,
+      "safe_rerank_op": "was_a_program_committee_of",
+      "safe_rerank_correct": true,
+      "prediction_error": null
+    },
+    {
+      "qpair": "Q49.qpair",
+      "relation_key": "Paper.is_submitted_at",
+      "source": "Paper.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "sparql_props": [
+        "is_submitted_at"
+      ],
+      "gold_ops_with_inverse": [
+        "has_contributions",
+        "is_submitted_at"
+      ],
+      "current_op": "is_submitted_at",
+      "current_correct": true,
+      "new_op": "is_submitted_at",
+      "new_correct": true,
+      "safe_rerank_op": "is_submitted_at",
+      "safe_rerank_correct": true,
+      "prediction_error": null
+    },
+    {
+      "qpair": "Q50.qpair",
+      "relation_key": "Paper.has_an_abstract",
+      "source": "Paper.has_an_abstract",
+      "target": "Abstract.ID",
+      "sparql_props": [
+        "has_an_abstract"
+      ],
+      "gold_ops_with_inverse": [
+        "has_an_abstract",
+        "is_the_1th_part_of"
+      ],
+      "current_op": "has_an_abstract",
+      "current_correct": true,
+      "new_op": "has_an_abstract",
+      "new_correct": true,
+      "safe_rerank_op": "has_an_abstract",
+      "safe_rerank_correct": true,
+      "prediction_error": null
+    }
+  ]
+}

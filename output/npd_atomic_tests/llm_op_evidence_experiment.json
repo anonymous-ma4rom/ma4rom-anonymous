@@ -1,0 +1,2086 @@
+{
+  "database": "npd_atomic_tests",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "evaluated_at": "2026-06-04 17:15:39",
+  "summary": {
+    "total_with_construction_gold": 69,
+    "current_correct": 34,
+    "current_accuracy": 0.4927536231884058,
+    "llm_correct": 69,
+    "llm_accuracy": 1.0,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "baaarea.baanpdidbsnsarrarea",
+      "source": "baaarea.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9591836734693877,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9591836734693877,
+        "valentine_coma_score": 0.9964788732394366,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "候选属性中，只有isGeometryOfFeature完全匹配数据库外键构造，且有限制支持（类BAAArea，表baaArea和bsns_arr_area_area_poly_hst）。模式匹配显示列等价（IND=1.0），且源47个值全部在目标中，表明外键引用关系。尽管名称分数为0，但精确构造证据强于其他候选；broaderTransitive等缺乏直接匹配或领域冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "source": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键关联与isGeometryOfFeature的SQL构造完全匹配，且有限制支持表明该关系涉及BAAArea类，而broaderTransitive仅存在名称相似，缺乏领域/范围证据和具体构造匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "source": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA",
+      "llm_selected_local_name": "licenseeForBAA",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA"
+      ],
+      "gold_local_names": [
+        "licenseeForBAA"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.9823641563393708,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA",
+        "selected_local_name": "licenseeForBAA",
+        "confidence": "high",
+        "reason": "外键构造完全匹配（bsns_arr_area_licensee_hst.baaNpdidBsnsArrArea → bsns_arr_area.baaNpdidBsnsArrArea），且限制支持表明该属性用于BAALicensee到BAA的关系，域和范围类与表对应。IN D验证完全一致（49个值全交），而其他候选（如broaderTransitive、stratigraphicParent）缺乏构造或范围匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_licensee_hst.cmpnpdidcompany",
+      "source": "bsns_arr_area_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "current_local_name": "licenceOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaLicensee",
+      "llm_selected_local_name": "baaLicensee",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#baaLicensee"
+      ],
+      "gold_local_names": [
+        "baaLicensee"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.2631578947368421,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2631578947368421,
+        "valentine_coma_score": 0.8475848563968669,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaLicensee",
+        "selected_local_name": "baaLicensee",
+        "confidence": "high",
+        "reason": "该外键关系直接匹配baaLicensee属性的精确SQL构造（bsns_arr_area_licensee_hst.cmpNpdidCompany => company.cmpNpdidCompany），且restriction支持表明该表对应BAALicensee类，范围是Company。IND证据（source_in_target=1.0）进一步证实。其他候选者无构造匹配，尽管名称相似度较高，但领域不符。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_operator.cmpnpdidcompany",
+      "source": "bsns_arr_area_operator.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+      "current_local_name": "drillingOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaOperatorCompany",
+      "llm_selected_local_name": "baaOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#baaOperatorCompany"
+      ],
+      "gold_local_names": [
+        "baaOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.018796992481203006,
+        "source_in_target": 1.0,
+        "target_in_source": 0.018796992481203006,
+        "valentine_coma_score": 0.5413005272407733,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaOperatorCompany",
+        "selected_local_name": "baaOperatorCompany",
+        "confidence": "high",
+        "reason": "该属性直接匹配外键约束(bsns_arr_area_operator.cmpnpdidcompany → company.cmpnpdidcompany)，且存在BAA类限制，源表属于BAA类，范围匹配Company，尽管名称相似度低，但构造和限制证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "source": "bsns_arr_area_transfer_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredBAA",
+      "llm_selected_local_name": "transferredBAA",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#transferredBAA"
+      ],
+      "gold_local_names": [
+        "transferredBAA"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9591836734693877,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9591836734693877,
+        "valentine_coma_score": 0.9895138226882745,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredBAA",
+        "selected_local_name": "transferredBAA",
+        "confidence": "high",
+        "reason": "该属性精确匹配外键约束，其域BAATransfer对应源表bsns_arr_area_transfer_hst，范围BAA对应目标表bsns_arr_area，且限制支持中明确列出该外键。虽然名称分数低，但构造和语义证据强烈指向此关系，优于泛化属性broaderTransitive。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "source": "bsns_arr_area_transfer_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+      "current_local_name": "drillingOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaTransferCompany",
+      "llm_selected_local_name": "baaTransferCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#baaTransferCompany"
+      ],
+      "gold_local_names": [
+        "baaTransferCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.2556390977443609,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2556390977443609,
+        "valentine_coma_score": 0.8632506527415144,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaTransferCompany",
+        "selected_local_name": "baaTransferCompany",
+        "confidence": "high",
+        "reason": "该外键对应BAATransfer表的公司引用，baaTransferCompany具有精确SQL构造匹配和限制支持（类BAATransfer与表bsns_arr_area_transfer_hst对应），域范围完美匹配，虽然名称得分低但结构证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "company_reserves.cmpnpdidcompany",
+      "source": "company_reserves.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForCompany",
+      "current_local_name": "reservesForCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForCompany",
+      "llm_selected_local_name": "reservesForCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#reservesForCompany"
+      ],
+      "gold_local_names": [
+        "reservesForCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.06954887218045112,
+        "source_in_target": 1.0,
+        "target_in_source": 0.06954887218045112,
+        "valentine_coma_score": 0.7200226244343891,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForCompany",
+        "selected_local_name": "reservesForCompany",
+        "confidence": "high",
+        "reason": "该外键company_reserves.cmpnpdidcompany指向company表，对应领域CompanyReserve和Company。reservesForCompany的domain和range完全匹配，且有精确的SQL构造匹配和限制支持，而其他候选属性缺少domain匹配或构造证据，因此选择reservesForCompany。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "company_reserves.fldnpdidfield",
+      "source": "company_reserves.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+      "current_local_name": "includedInField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField",
+      "llm_selected_local_name": "reservesForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField"
+      ],
+      "gold_local_names": [
+        "reservesForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9801980198019802,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9801980198019802,
+        "valentine_coma_score": 0.9977924944812362,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField",
+        "selected_local_name": "reservesForField",
+        "confidence": "high",
+        "reason": "外键company_reserves.fldNpdidField关联到field表，对应ontology中的CompanyReserve类到Field类。reservesForField具有精确的SQL构造匹配和限制支持（类CompanyReserve，表company_reserves，值Field），而其他候选的域（Discovery、FieldLicensee、FieldOwner）与源表不匹配。名称语义也高度吻合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "discovery.fldnpdidfield",
+      "source": "discovery.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+      "current_local_name": "includedInField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+      "llm_selected_local_name": "includedInField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#includedInField"
+      ],
+      "gold_local_names": [
+        "includedInField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+        "selected_local_name": "includedInField",
+        "confidence": "high",
+        "reason": "外键discovery.fldnpdidfield完全匹配field.fldnpdidfield，且includedInField的域为Discovery，范围为Field，与表结构一致，cpa_name_score较高且存在确切SQL构造匹配和限制支持，而其他候选域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "discovery_reserves.dscnpdiddiscovery",
+      "source": "discovery_reserves.dscnpdiddiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery",
+      "current_local_name": "reservesForDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery",
+      "llm_selected_local_name": "reservesForDiscovery",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery"
+      ],
+      "gold_local_names": [
+        "reservesForDiscovery"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.20745920745920746,
+        "source_in_target": 1.0,
+        "target_in_source": 0.20745920745920746,
+        "valentine_coma_score": 0.6730769230769231,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery",
+        "selected_local_name": "reservesForDiscovery",
+        "confidence": "high",
+        "reason": "该外键从discovery_reserves表指向discovery表，reservesForDiscovery的域(DiscoveryReserve)和范围(Discovery)完全对应，且存在精确SQL构造匹配（匹配外键构造），限制支持明确关联。resourcesIncludedInDiscovery虽有较高名称得分，但缺少域匹配和构造支持，故选择reservesForDiscovery。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "dscarea.dscnpdiddiscovery",
+      "source": "dscarea.dscnpdiddiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "current_local_name": "resourcesIncludedInDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.8951048951048951,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8951048951048951,
+        "valentine_coma_score": 0.9725943970767357,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "外键约束 dscArea.dscNpdidDiscovery 指向 discovery.dscNpdidDiscovery 完全匹配 isGeometryOfFeature 的 SQL 构造，且限制支持 DiscoveryArea -> Discovery，名称/域/范围证据虽低但构造匹配优先。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "dscarea.dscnpdidresinclindiscovery",
+      "source": "dscarea.dscnpdidresinclindiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "current_local_name": "resourcesIncludedInDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "llm_selected_local_name": "resourcesIncludedInDiscovery",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery"
+      ],
+      "gold_local_names": [
+        "resourcesIncludedInDiscovery"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.12121212121212122,
+        "source_in_target": 1.0,
+        "target_in_source": 0.12121212121212122,
+        "valentine_coma_score": 0.6502782931354361,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "selected_local_name": "resourcesIncludedInDiscovery",
+        "confidence": "high",
+        "reason": "外键 dscArea.dscNpdidResInclInDiscovery 指向 discovery.dscNpdidDiscovery，候选属性 resourcesIncludedInDiscovery 有精确的 SQL 构造匹配和限制支持（类 DiscoveryArea 表 dscArea 和类 Discovery），且名称匹配度高（0.786），而其他候选属性（wellboreForDiscovery 无构造匹配，reservesForDiscovery 域不匹配）证据不足。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "facility_moveable.fclnpdidcurrentrespcompany",
+      "source": "facility_moveable.fclnpdidcurrentrespcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany",
+      "current_local_name": "currentResponsibleCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany",
+      "llm_selected_local_name": "currentResponsibleCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany"
+      ],
+      "gold_local_names": [
+        "currentResponsibleCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.10338345864661654,
+        "source_in_target": 1.0,
+        "target_in_source": 0.10338345864661654,
+        "valentine_coma_score": 0.4133677245710441,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentResponsibleCompany",
+        "selected_local_name": "currentResponsibleCompany",
+        "confidence": "high",
+        "reason": "该对象属性与数据库外键完全匹配，有精确的SQL构造对应，域为MoveableFacility、范围为Company，与源表和目标表一致，且名称相似度高、IND完整，其他候选缺少域或构造匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "fclpoint.fclnpdidfacility",
+      "source": "fclpoint.fclnpdidfacility",
+      "target": "facility_fixed.fclnpdidfacility",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingFacility",
+      "current_local_name": "drillingFacility",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.964451313755796,
+        "source_in_target": 1.0,
+        "target_in_source": 0.964451313755796,
+        "valentine_coma_score": 0.9909520062942565,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键连接fclpoint与facility_fixed，精确匹配isGeometryOfFeature属性的SQL构造（外键fclPoint.fclNpdidFacility => facility_fixed.fclNpdidFacility），并且约束支持表明FacilityPoint类通过该属性关联FixedFacility，与目标表完全一致。虽然名称得分低，但构造和约束证据强于其他候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field.cmpnpdidcompany",
+      "source": "field.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOperator",
+      "current_local_name": "currentFieldOperator",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOperator",
+      "llm_selected_local_name": "currentFieldOperator",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOperator"
+      ],
+      "gold_local_names": [
+        "currentFieldOperator"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.03383458646616541,
+        "source_in_target": 1.0,
+        "target_in_source": 0.03383458646616541,
+        "valentine_coma_score": 0.5927099841521395,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOperator",
+        "selected_local_name": "currentFieldOperator",
+        "confidence": "high",
+        "reason": "该属性 exact_sql_construction_match 完全匹配外键关系 field.cmpnpdidcompany → company.cmpnpdidcompany，域为 Field 与源表一致，范围为 Company 与目标表一致，且存在 restriction 支持。其他候选属性 drillingOperatorCompany 缺少域约束和构造匹配，reportingCompany 域为 SeismicSurvey 不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_activity_status_hst.fldnpdidfield",
+      "source": "field_activity_status_hst.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+      "current_local_name": "includedInField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForField",
+      "llm_selected_local_name": "statusForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#statusForField"
+      ],
+      "gold_local_names": [
+        "statusForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForField",
+        "selected_local_name": "statusForField",
+        "confidence": "high",
+        "reason": "该外键field_activity_status_hst.fldnpdidfield指向field.fldnpdidfield，映射到本体中statusForField属性，因为其exact_sql_construction_match为真且restriction_support明确将field_activity_status_hst与FieldStatus类和Field类关联；其他候选的domain（如Discovery、FieldLicensee、FieldOwner）均不匹配源表的FieldStatus语义，尽管名称分数低，但证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_investment_yearly.prfnpdidinformationcarrier",
+      "source": "field_investment_yearly.prfnpdidinformationcarrier",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#investmentForField",
+      "current_local_name": "investmentForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#investmentForField",
+      "llm_selected_local_name": "investmentForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#investmentForField"
+      ],
+      "gold_local_names": [
+        "investmentForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9801980198019802,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9801980198019802,
+        "valentine_coma_score": 0.5552874010639678,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#investmentForField",
+        "selected_local_name": "investmentForField",
+        "confidence": "high",
+        "reason": "该候选属性具有精确的SQL构造匹配，其域(FieldInvestment)和范围(Field)与关系中的源表(field_investment_yearly)和目标表(field)完全对应，且IND完整性检验为1.0，列名相似度高(0.98)，同时有直接的限制支持，因此是最佳选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_licensee_hst.cmpnpdidcompany",
+      "source": "field_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee",
+      "current_local_name": "fieldLicensee",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee",
+      "llm_selected_local_name": "fieldLicensee",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee"
+      ],
+      "gold_local_names": [
+        "fieldLicensee"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.3157894736842105,
+        "source_in_target": 1.0,
+        "target_in_source": 0.3157894736842105,
+        "valentine_coma_score": 0.8453002610966057,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee",
+        "selected_local_name": "fieldLicensee",
+        "confidence": "high",
+        "reason": "该属性有精确的SQL构造匹配（外键），且限制支持指向FieldLicensee类对应的field_licensee_hst表，域和范围完美匹配当前关系，尽管名称得分较低，但构造和限制证据是决定性因素。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_licensee_hst.fldnpdidfield",
+      "source": "field_licensee_hst.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+      "current_local_name": "licenseeForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+      "llm_selected_local_name": "licenseeForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField"
+      ],
+      "gold_local_names": [
+        "licenseeForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.9591280653950953,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+        "selected_local_name": "licenseeForField",
+        "confidence": "high",
+        "reason": "外键 field_licensee_hst.fldnpdidfield → field.fldnpdidfield 完全匹配 ObjectProperty licenseeForField，其 domain 为 FieldLicensee（对应 field_licensee_hst 表），range 为 Field，且拥有 exact_sql_construction_match 和 restriction_support，IND 和 Jaccard 得分均为 1.0，其他候选的 domain 不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_operator_hst.cmpnpdidcompany",
+      "source": "field_operator_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator",
+      "current_local_name": "fieldOperator",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator",
+      "llm_selected_local_name": "fieldOperator",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator"
+      ],
+      "gold_local_names": [
+        "fieldOperator"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.09210526315789473,
+        "source_in_target": 1.0,
+        "target_in_source": 0.09210526315789473,
+        "valentine_coma_score": 0.7261904761904762,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator",
+        "selected_local_name": "fieldOperator",
+        "confidence": "high",
+        "reason": "外键关系直接匹配fieldOperator，域FieldOperator和范围Company完全对应SQL构造，限制支持明确；其他候选域不匹配且无构造支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_operator_hst.fldnpdidfield",
+      "source": "field_operator_hst.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForField",
+      "current_local_name": "operatorForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForField",
+      "llm_selected_local_name": "operatorForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#operatorForField"
+      ],
+      "gold_local_names": [
+        "operatorForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForField",
+        "selected_local_name": "operatorForField",
+        "confidence": "high",
+        "reason": "该属性完全匹配外键关系：field_operator_hst.fldNpdidField → field.fldNpdidField，域(FieldOperator)和范围(Field)精确符合，且存在SQL构造匹配与约束支持。名称得分较低，但域/范围得分均为1.0，IND证据也完全支持。其他候选属性的域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_owner_hst.fldnpdidfield",
+      "source": "field_owner_hst.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField",
+      "current_local_name": "ownerForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField",
+      "llm_selected_local_name": "ownerForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField"
+      ],
+      "gold_local_names": [
+        "ownerForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField",
+        "selected_local_name": "ownerForField",
+        "confidence": "high",
+        "reason": "外键field_owner_hst.fldnpdidfield指向field.fldnpdidfield，列完全等价（IND=1，交集101）。ownerForField的域FieldOwner对应源表field_owner_hst，范围Field对应目标表，且exact_sql_construction_match为真。其他候选的域不匹配（FieldOperator、Discovery），因此选择ownerForField。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "field_reserves.fldnpdidfield",
+      "source": "field_reserves.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+      "current_local_name": "licenseeForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField",
+      "llm_selected_local_name": "reservesForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField"
+      ],
+      "gold_local_names": [
+        "reservesForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForField",
+        "selected_local_name": "reservesForField",
+        "confidence": "high",
+        "reason": "该属性具有精确的SQL构造匹配（外键 field_reserves.fldNpdidField → field.fldNpdidField），并且有restriction支持，类为FieldReserve，表为field_reserves，因此最适合表示该数据库关系。其他候选的domain不匹配（如FieldLicensee、FieldOperator、Discovery），且缺乏构造匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "fldarea.dscnpdiddiscovery",
+      "source": "fldarea.dscnpdiddiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "current_local_name": "resourcesIncludedInDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.45454545454545453,
+        "source_in_target": 1.0,
+        "target_in_source": 0.45454545454545453,
+        "valentine_coma_score": 0.8136942675159236,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该属性在候选中有精确的SQL构造匹配（外键 fldArea.dscNpdidDiscovery -> discovery.dscNpdidDiscovery），并得到FieldArea至Discovery的约束支持，虽名称评分低但构造证据强，其他候选均无直接构造匹配且域/名称不一致。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "fldarea.dscnpdidresinclindiscovery",
+      "source": "fldarea.dscnpdidresinclindiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "current_local_name": "resourcesIncludedInDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+      "llm_selected_local_name": "resourcesIncludedInDiscovery",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery"
+      ],
+      "gold_local_names": [
+        "resourcesIncludedInDiscovery"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.10023310023310024,
+        "source_in_target": 1.0,
+        "target_in_source": 0.10023310023310024,
+        "valentine_coma_score": 0.634469696969697,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+        "selected_local_name": "resourcesIncludedInDiscovery",
+        "confidence": "high",
+        "reason": "该属性与外部键 fldarea.dscnpdidresinclindiscovery 精确匹配，且限制支持显示 FieldArea 与 Discovery 的关联，名称相似度较高，IND 证据表明源列完全包含于目标列，因此是最佳选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "fldarea.fldnpdidfield",
+      "source": "fldarea.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#ownerForField",
+      "current_local_name": "ownerForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9801980198019802,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9801980198019802,
+        "valentine_coma_score": 0.9966666666666666,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该属性有精确的SQL外键构造匹配，并且约束支持明确将FieldArea类与Field关联，而其他候选属性的领域不匹配源表fldArea（FieldArea）。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_area_poly_hst.prlnpdidlicence",
+      "source": "licence_area_poly_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9901098901098901,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9901098901098901,
+        "valentine_coma_score": 0.8175392670157068,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键从licence_area_poly_hst指向licence，本体中isGeometryOfFeature直接匹配该外键构造（exact_sql_construction_match为true），且限制类ProductionLicenceAreaPerBlock包含源表licence_area_poly_hst，范围ProductionLicence。其他候选属性（licenseeForLicence、licenceeForLicence、transferredLicence）域均为其他表，不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_licensee_hst.cmpnpdidcompany",
+      "source": "licence_licensee_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany",
+      "current_local_name": "licenceLicenceeCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceLicensee",
+      "llm_selected_local_name": "licenceLicensee",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenceLicensee"
+      ],
+      "gold_local_names": [
+        "licenceLicensee"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.4041353383458647,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4041353383458647,
+        "valentine_coma_score": 0.8495430809399478,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceLicensee",
+        "selected_local_name": "licenceLicensee",
+        "confidence": "high",
+        "reason": "licenceLicensee与外键licence_licensee_hst.cmpNpdidCompany完全匹配，且域为ProductionLicenceLicensee对应源表，限制类支持证明关系准确；相反licenceLicenceeCompany无构造匹配，licenceOperatorCompany域错误"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_licensee_hst.prlnpdidlicence",
+      "source": "licence_licensee_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "llm_selected_local_name": "licenseeForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence"
+      ],
+      "gold_local_names": [
+        "licenseeForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.7693717277486911,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+        "selected_local_name": "licenseeForLicence",
+        "confidence": "high",
+        "reason": "该对象属性与数据库外键精确匹配（exact_sql_construction_match为真），且域和范围分别对应ProductionLicenceLicensee和ProductionLicence，与源表licence_licensee_hst和目标表licence一致；IND证据显示完全等价（Jaccard=1.0，交集910），限制支持进一步确认该映射；候选2缺少构造匹配且名称拼写有误，候选3域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_oper_hst.cmpnpdidcompany",
+      "source": "licence_oper_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "current_local_name": "licenceOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "llm_selected_local_name": "licenceOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany"
+      ],
+      "gold_local_names": [
+        "licenceOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.22556390977443608,
+        "source_in_target": 1.0,
+        "target_in_source": 0.22556390977443608,
+        "valentine_coma_score": 0.8537859007832898,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+        "selected_local_name": "licenceOperatorCompany",
+        "confidence": "high",
+        "reason": "该属性精确匹配SQL外键（licence_oper_hst.cmpnpdidcompany -> company.cmpnpdidcompany），域ProductionLicenceOperator对应表licence_oper_hst，范围Company，且限制支持类ProductionLicenceOperator的取值Company。名称与当前CPA相同，IND验证源到目标包含比为1.0，而其他候选属性无构造匹配或域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_oper_hst.prlnpdidlicence",
+      "source": "licence_oper_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence",
+      "current_local_name": "operatorForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence",
+      "llm_selected_local_name": "operatorForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence"
+      ],
+      "gold_local_names": [
+        "operatorForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.8560209424083769,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence",
+        "selected_local_name": "operatorForLicence",
+        "confidence": "high",
+        "reason": "该外键关联licence_oper_hst与licence表，且licence_oper_hst对应ProductionLicenceOperator类，operatorForLicence的域和范围完全匹配，且有精确的SQL构造匹配和约束支持，而其他候选域不匹配且缺乏构造证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_petreg_licence_licencee.cmpnpdidcompany",
+      "source": "licence_petreg_licence_licencee.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany",
+      "current_local_name": "licenceLicenceeCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany",
+      "llm_selected_local_name": "licenceLicenceeCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany"
+      ],
+      "gold_local_names": [
+        "licenceLicenceeCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.10714285714285714,
+        "source_in_target": 1.0,
+        "target_in_source": 0.10714285714285714,
+        "valentine_coma_score": 0.8443211488250653,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany",
+        "selected_local_name": "licenceLicenceeCompany",
+        "confidence": "high",
+        "reason": "该对象属性与外部键完全匹配（精确的SQL构造），且域为ProductionLicenceLicensee（源表licence_petreg_licence_licencee对应），范围为Company（目标表company对应）。包含列包含证据（IND=1.0）和约束支持（ProductionLicenceLicensee类指向Company），名称得分0.455高于其他同域候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_petreg_licence_licencee.prlnpdidlicence",
+      "source": "licence_petreg_licence_licencee.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceeForLicence",
+      "llm_selected_local_name": "licenceeForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceeForLicence"
+      ],
+      "gold_local_names": [
+        "licenceeForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.554945054945055,
+        "source_in_target": 1.0,
+        "target_in_source": 0.554945054945055,
+        "valentine_coma_score": 0.8424083769633508,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceeForLicence",
+        "selected_local_name": "licenceeForLicence",
+        "confidence": "high",
+        "reason": "该属性具有精确SQL构造匹配（外键 licence_petreg_licence_licencee.prlNpdidLicence => licence.prlNpdidLicence）和限制支持（ProductionLicenceLicensee的值为ProductionLicence），域和范围与FK一致，名称相似度0.611，且基于包含列的IND覆盖完整。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_petreg_licence_oper.cmpnpdidcompany",
+      "source": "licence_petreg_licence_oper.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "current_local_name": "licenceOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+      "llm_selected_local_name": "licenceOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany"
+      ],
+      "gold_local_names": [
+        "licenceOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.07518796992481203,
+        "source_in_target": 1.0,
+        "target_in_source": 0.07518796992481203,
+        "valentine_coma_score": 0.7627772420443587,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+        "selected_local_name": "licenceOperatorCompany",
+        "confidence": "high",
+        "reason": "精确SQL构造匹配外键，限制支持明确关联类表licence_petreg_licence_oper，域ProductionLicence与许可证运营商逻辑一致，名称和范围匹配良好。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_petreg_message.prlnpdidlicence",
+      "source": "licence_petreg_message.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence",
+      "current_local_name": "transferredLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#messageForLicence",
+      "llm_selected_local_name": "messageForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#messageForLicence"
+      ],
+      "gold_local_names": [
+        "messageForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.5967032967032967,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5967032967032967,
+        "valentine_coma_score": 0.7798429319371728,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#messageForLicence",
+        "selected_local_name": "messageForLicence",
+        "confidence": "high",
+        "reason": "此候选属性有精确的SQL构造匹配和限制支持，直接对应外键关系，尽管名称得分较低，但构造证据确凿。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_phase_hst.prlnpdidlicence",
+      "source": "licence_phase_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence",
+      "current_local_name": "statusForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence",
+      "llm_selected_local_name": "statusForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence"
+      ],
+      "gold_local_names": [
+        "statusForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.88717277486911,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence",
+        "selected_local_name": "statusForLicence",
+        "confidence": "high",
+        "reason": "该属性完全匹配外键构造（licence_phase_hst.prlNpdidLicence => licence.prlNpdidLicence），域名称为ProductionLicenceStatus（对应licence_phase_hst表），范围为ProductionLicence，且提供限制支持；而其他候选属性无构造匹配且域为ProductionLicenceLicensee，与外键语义不符。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_task.cmpnpdidcompany",
+      "source": "licence_task.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#baaLicensee",
+      "current_local_name": "baaLicensee",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForCompany",
+      "llm_selected_local_name": "taskForCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#taskForCompany"
+      ],
+      "gold_local_names": [
+        "taskForCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.07330827067669173,
+        "source_in_target": 1.0,
+        "target_in_source": 0.07330827067669173,
+        "valentine_coma_score": 0.8374673629242819,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForCompany",
+        "selected_local_name": "taskForCompany",
+        "confidence": "high",
+        "reason": "taskForCompany具有精确的SQL构造匹配（licence_task.cmpNpdidCompany => company.cmpNpdidCompany），且限制支持表明ProductionLicenceWorkObligation类对应licence_task表，范围是Company。虽然名称匹配其他候选较高，但结构与映射关系紧密对应，证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_task.prlnpdidlicence",
+      "source": "licence_task.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForLicence",
+      "llm_selected_local_name": "taskForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#taskForLicence"
+      ],
+      "gold_local_names": [
+        "taskForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.4989010989010989,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4989010989010989,
+        "valentine_coma_score": 0.8057591623036648,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForLicence",
+        "selected_local_name": "taskForLicence",
+        "confidence": "high",
+        "reason": "该外键关系由licence_task表指向licence表，taskForLicence具有精确的SQL构造匹配（外键licence_task.prlNpdidLicence => licence.prlNpdidLicence）和限制支持（类ProductionLicenceWorkObligation对应licence_task），域ProductionLicenceWorkObligation与源表匹配，范围ProductionLicence与目标表匹配。其他候选属性如licenseeForLicence域为ProductionLicenceLicensee，不匹配源表，且无构造支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_transfer_hst.cmpnpdidcompany",
+      "source": "licence_transfer_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceTransferCompany",
+      "current_local_name": "licenceTransferCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceTransferCompany",
+      "llm_selected_local_name": "licenceTransferCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenceTransferCompany"
+      ],
+      "gold_local_names": [
+        "licenceTransferCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.39473684210526316,
+        "source_in_target": 1.0,
+        "target_in_source": 0.39473684210526316,
+        "valentine_coma_score": 0.858355091383812,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceTransferCompany",
+        "selected_local_name": "licenceTransferCompany",
+        "confidence": "high",
+        "reason": "外键 licence_transfer_hst.cmpnpdidcompany 指向 company.cmpnpdidcompany，源表 licence_transfer_hst 对应 ProductionLicenceTransfer，目标表 company 对应 Company。候选对象属性 licenceTransferCompany 的域和范围完全匹配，且 exact_sql_construction_match 为真，restriction_support 明确支持该映射。其他候选属性域不匹配（ProductionLicenceOperator 或 ProductionLicence），且无构造匹配证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "licence_transfer_hst.prlnpdidlicence",
+      "source": "licence_transfer_hst.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence",
+      "current_local_name": "transferredLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence",
+      "llm_selected_local_name": "transferredLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence"
+      ],
+      "gold_local_names": [
+        "transferredLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.7362637362637363,
+        "source_in_target": 1.0,
+        "target_in_source": 0.7362637362637363,
+        "valentine_coma_score": 0.7722513089005236,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#transferredLicence",
+        "selected_local_name": "transferredLicence",
+        "confidence": "high",
+        "reason": "外键映射精确匹配（licence_transfer_hst.prlNpdidLicence -> licence.prlNpdidLicence），域为ProductionLicenceTransfer，范围为ProductionLicence，完全对应表结构。IND验证源列完全包含于目标列，且约束支持直接关联。虽然名称分数稍低，但领域和范围分数均为1.0，且其他候选对象域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "pipline.pipnpdidoperator",
+      "source": "pipline.pipnpdidoperator",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#pipelineOperator",
+      "current_local_name": "pipelineOperator",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#pipelineOperator",
+      "llm_selected_local_name": "pipelineOperator",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#pipelineOperator"
+      ],
+      "gold_local_names": [
+        "pipelineOperator"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.011278195488721804,
+        "source_in_target": 1.0,
+        "target_in_source": 0.011278195488721804,
+        "valentine_coma_score": 0.20238543628374137,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#pipelineOperator",
+        "selected_local_name": "pipelineOperator",
+        "confidence": "high",
+        "reason": "pipelineOperator具有精确的SQL构造匹配（pipLine.pipNpdidOperator至company.cmpNpdidCompany），且其domain（Pipeline）和range（Company）与表结构严格对应，同时cpa_name_score（0.812）与domain/range score（1.0）均最高，而其他候选缺乏构造匹配且domain不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "prlarea.prllastoperatornpdidcompany",
+      "source": "prlarea.prllastoperatornpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+      "current_local_name": "lastOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+      "llm_selected_local_name": "lastOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany"
+      ],
+      "gold_local_names": [
+        "lastOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.15413533834586465,
+        "source_in_target": 1.0,
+        "target_in_source": 0.15413533834586465,
+        "valentine_coma_score": 0.6074790435619073,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+        "selected_local_name": "lastOperatorCompany",
+        "confidence": "high",
+        "reason": "候选lastOperatorCompany的local_name直接匹配关系名'prlArea.prlLastOperatorNpdidCompany'中的'lastoperator'，且exact_sql_construction_match为true，同时有ProductionLicenceArea类的restriction支持。虽然drillingOperatorCompany名称分数略高，但语义不匹配（钻井操作员vs最后操作员），且无SQL构造匹配或restriction支持。TUFOperatorCompany不相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "prlarea.prlnpdidlicence",
+      "source": "prlarea.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9901098901098901,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9901098901098901,
+        "valentine_coma_score": 0.8863874345549738,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键连接prlArea表与licence表，对应本体中ProductionLicenceArea类指向ProductionLicence类。isGeometryOfFeature具有精确SQL构造匹配（直接对应此FK），且其限制支持明确包含ProductionLicenceArea（表prlArea）和ProductionLicence，域和范围匹配。而其他候选属性（如licenseeForLicence）域为ProductionLicenceLicensee，不匹配prlArea表，因此isGeometryOfFeature是最佳选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "source": "prlareasplitbyblock.prllastoperatornpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+      "current_local_name": "lastOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+      "llm_selected_local_name": "lastOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany"
+      ],
+      "gold_local_names": [
+        "lastOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.15413533834586465,
+        "source_in_target": 1.0,
+        "target_in_source": 0.15413533834586465,
+        "valentine_coma_score": 0.6019307406898446,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#lastOperatorCompany",
+        "selected_local_name": "lastOperatorCompany",
+        "confidence": "high",
+        "reason": "该属性具有精确的SQL构建匹配（外键prlAreaSplitByBlock.prlLastOperatorNpdidCompany对应company.cmpNpdidCompany），且限制支持类ProductionLicenceAreaPerBlock直接包含源表prlAreaSplitByBlock，结合源到目标100%包含性（IND=1.0）和名称语义匹配，因此是最佳选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "prlareasplitbyblock.prlnpdidlicence",
+      "source": "prlareasplitbyblock.prlnpdidlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+      "current_local_name": "explorationWellboreForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9901098901098901,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9901098901098901,
+        "valentine_coma_score": 0.8175392670157068,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键直接匹配本体中isGeometryOfFeature属性，且存在restriction支持（ProductionLicenceAreaPerBlock到ProductionLicence），其他候选的domain均不匹配源表prlAreaSplitByBlock。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "strat_litho_wellbore.wlbnpdidwellbore",
+      "source": "strat_litho_wellbore.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "current_local_name": "discoveryWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore",
+      "llm_selected_local_name": "stratumForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore"
+      ],
+      "gold_local_names": [
+        "stratumForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.20561637315564016,
+        "source_in_target": 1.0,
+        "target_in_source": 0.20561637315564016,
+        "valentine_coma_score": 0.76225,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore",
+        "selected_local_name": "stratumForWellbore",
+        "confidence": "high",
+        "reason": "该对象属性具有精确的SQL构造匹配（外键strat_litho_wellbore.wlbNpdidWellbore => wellbore_npdid_overview.wlbNpdidWellbore），并且限制支持表明其域为WellboreStratum（包含源表strat_litho_wellbore），值范围为Wellbore，完全对应数据库关系。其他候选属性虽名称相似但缺少构造匹配和域/范围证据，因此选择stratumForWellbore。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "strat_litho_wellbore_core.wlbnpdidwellbore",
+      "source": "strat_litho_wellbore_core.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "current_local_name": "discoveryWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore",
+      "llm_selected_local_name": "coreForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore"
+      ],
+      "gold_local_names": [
+        "coreForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.13612565445026178,
+        "source_in_target": 1.0,
+        "target_in_source": 0.13612565445026178,
+        "valentine_coma_score": 0.81875,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore",
+        "selected_local_name": "coreForWellbore",
+        "confidence": "high",
+        "reason": "直接匹配SQL外键构造（strat_litho_wellbore_core.wlbNpdidWellbore => wellbore_npdid_overview.wlbNpdidWellbore），且具有完整的约束支持（WellboreCore和WellboreStratigraphicCoreSet类均使用该属性关联Wellbore）。其他候选属性虽名称相似度较高，但缺乏构造和约束证据，不考虑当前CPA默认选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_operator_hst.cmpnpdidcompany",
+      "source": "tuf_operator_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+      "current_local_name": "drillingOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany",
+      "llm_selected_local_name": "TUFOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany"
+      ],
+      "gold_local_names": [
+        "TUFOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.03383458646616541,
+        "source_in_target": 1.0,
+        "target_in_source": 0.03383458646616541,
+        "valentine_coma_score": 0.6058282208588956,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany",
+        "selected_local_name": "TUFOperatorCompany",
+        "confidence": "high",
+        "reason": "外键构造完全匹配(tuf_operator_hst.cmpNpdidCompany => company.cmpNpdidCompany)，限制支持明确指向TUFOperator类和tuf_operator_hst表，且属性名称与源表名高度一致，尽管名称得分略低，但构造和限制证据优先"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_owner_hst.cmpnpdidcompany",
+      "source": "tuf_owner_hst.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOwnerCompany",
+      "current_local_name": "TUFOwnerCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOwnerCompany",
+      "llm_selected_local_name": "TUFOwnerCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOwnerCompany"
+      ],
+      "gold_local_names": [
+        "TUFOwnerCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.11654135338345864,
+        "source_in_target": 1.0,
+        "target_in_source": 0.11654135338345864,
+        "valentine_coma_score": 0.8377937336814621,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOwnerCompany",
+        "selected_local_name": "TUFOwnerCompany",
+        "confidence": "high",
+        "reason": "该属性域TUFOwner对应tuf_owner_hst表，范围Company对应company表，SQL外键构造完全匹配，IND证据显示源列完全包含在目标列中，domain/range评分均为1.0，且restriction支持明确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_petreg_licence_licencee.cmpnpdidcompany",
+      "source": "tuf_petreg_licence_licencee.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceLicenceeCompany",
+      "current_local_name": "licenceLicenceeCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany",
+      "llm_selected_local_name": "TUFLicenceeCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany"
+      ],
+      "gold_local_names": [
+        "TUFLicenceeCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.05827067669172932,
+        "source_in_target": 1.0,
+        "target_in_source": 0.05827067669172932,
+        "valentine_coma_score": 0.6712598425196851,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeCompany",
+        "selected_local_name": "TUFLicenceeCompany",
+        "confidence": "high",
+        "reason": "该属性与关系具有精确SQL构造匹配和限制支持，表名tuf_petreg_licence_licencee对应TUFLicensee类，域和范围完全一致；尽管名称得分为0，但结构证据充分，而其他候选缺少精确构造或域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_petreg_licence_licencee.tufnpdidtuf",
+      "source": "tuf_petreg_licence_licencee.tufnpdidtuf",
+      "target": "tuf_petreg_licence.tufnpdidtuf",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+      "current_local_name": "licenseeForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeForTUF",
+      "llm_selected_local_name": "TUFLicenceeForTUF",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeForTUF"
+      ],
+      "gold_local_names": [
+        "TUFLicenceeForTUF"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFLicenceeForTUF",
+        "selected_local_name": "TUFLicenceeForTUF",
+        "confidence": "high",
+        "reason": "该属性具有精确的SQL构造匹配，直接对应外键 tuf_petreg_licence_licencee.tufNpdidTuf => tuf_petreg_licence.tufNpdidTuf；限制支持表明域类TUFLicensee对应表tuf_petreg_licence_licencee，值类TUFacility对应目标表；IND完整性为1.0，证据充分。尽管名称得分低，但构造和限制证据最强。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_petreg_licence_oper.cmpnpdidcompany",
+      "source": "tuf_petreg_licence_oper.cmpnpdidcompany",
+      "target": "company.cmpnpdidcompany",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "current_local_name": "licenceOperatorCompany",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany",
+      "llm_selected_local_name": "TUFOperatorCompany",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany"
+      ],
+      "gold_local_names": [
+        "TUFOperatorCompany"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.011278195488721804,
+        "source_in_target": 1.0,
+        "target_in_source": 0.011278195488721804,
+        "valentine_coma_score": 0.5269784172661871,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany",
+        "selected_local_name": "TUFOperatorCompany",
+        "confidence": "high",
+        "reason": "该候选属性具有精确SQL构造匹配（外键 tuf_petreg_licence_oper.cmpNpdidCompany => company.cmpNpdidCompany）和限制支持（类TUFacility涉及表tuf_petreg_licence_oper），尽管名称得分较低，但证据最强。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "tuf_petreg_message.tufnpdidtuf",
+      "source": "tuf_petreg_message.tufnpdidtuf",
+      "target": "tuf_petreg_licence.tufnpdidtuf",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionForField",
+      "current_local_name": "productionForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#messageForTUF",
+      "llm_selected_local_name": "messageForTUF",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2-ptl#messageForTUF"
+      ],
+      "gold_local_names": [
+        "messageForTUF"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#messageForTUF",
+        "selected_local_name": "messageForTUF",
+        "confidence": "high",
+        "reason": "外键tuf_petreg_message.tufnpdidtuf->tuf_petreg_licence.tufnpdidtuf完全匹配IND（24个值交集100%），且候选属性messageForTUF具有精确的SQL构造匹配（matching_construction明确指向该FK），domain限制为TUFNotification（对应源表tuf_petreg_message），range限制为TUFacility（对应目标表tuf_petreg_licence），而其他候选属性缺少domain/range限制及构造匹配，因此messageForTUF是最佳选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_casing_and_lot.wlbnpdidwellbore",
+      "source": "wellbore_casing_and_lot.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#LOTForWellbore",
+      "current_local_name": "LOTForWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#LOTForWellbore",
+      "llm_selected_local_name": "LOTForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#LOTForWellbore"
+      ],
+      "gold_local_names": [
+        "LOTForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.19403458670474377,
+        "source_in_target": 1.0,
+        "target_in_source": 0.19403458670474377,
+        "valentine_coma_score": 0.6435,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#LOTForWellbore",
+        "selected_local_name": "LOTForWellbore",
+        "confidence": "high",
+        "reason": "该对象属性有精确的SQL构造匹配（外键wellbore_casing_and_lot.wlbNpdidWellbore → wellbore_npdid_overview.wlbNpdidWellbore），domain类WellboreCasingAndLeakoffTest对应源表，range类Wellbore对应目标表，且restriction_support直接验证了映射关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_coordinates.wlbnpdidwellbore",
+      "source": "wellbore_coordinates.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "current_local_name": "coordinateForWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "llm_selected_local_name": "coordinateForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore"
+      ],
+      "gold_local_names": [
+        "coordinateForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.9995,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+        "selected_local_name": "coordinateForWellbore",
+        "confidence": "high",
+        "reason": "该属性与外键完全匹配：源表wellbore_coordinates对应域类WellboreCoordinate，目标表wellbore_npdid_overview对应值域Wellbore，且存在精确的SQL构造匹配，IND和Jaccard得分均为1.0，表明语义等价。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_core.wlbnpdidwellbore",
+      "source": "wellbore_core.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "current_local_name": "discoveryWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore",
+      "llm_selected_local_name": "coreForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore"
+      ],
+      "gold_local_names": [
+        "coreForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.2338568935427574,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2338568935427574,
+        "valentine_coma_score": 0.6785,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coreForWellbore",
+        "selected_local_name": "coreForWellbore",
+        "confidence": "high",
+        "reason": "coreForWellbore具有精确的SQL构造匹配（外键wellbore_core.wlbNpdidWellbore -> wellbore_npdid_overview.wlbNpdidWellbore），且限制支持表明其来自WellboreCore类，与源表wellbore_core对应。虽然其他候选名称得分较高，但缺乏构造匹配，而该属性直接对应关系，因此选择它。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_core_photo.wlbnpdidwellbore",
+      "source": "wellbore_core_photo.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "current_local_name": "discoveryWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#corePhotoForWellbore",
+      "llm_selected_local_name": "corePhotoForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#corePhotoForWellbore"
+      ],
+      "gold_local_names": [
+        "corePhotoForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.11296208154846898,
+        "source_in_target": 1.0,
+        "target_in_source": 0.11296208154846898,
+        "valentine_coma_score": 0.59,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#corePhotoForWellbore",
+        "selected_local_name": "corePhotoForWellbore",
+        "confidence": "high",
+        "reason": "该外键将核心照片与井关联；候选属性corePhotoForWellbore的域为WellboreCorePhoto，范围为Wellbore，且精确匹配SQL外键约束（wellbore_core_photo.wlbNpdidWellbore → wellbore_npdid_overview.wlbNpdidWellbore），同时包含列包含证据（源值全部在目标中）。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_development_all.dscnpdiddiscovery",
+      "source": "wellbore_development_all.dscnpdiddiscovery",
+      "target": "discovery.dscnpdiddiscovery",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+      "current_local_name": "wellboreForDiscovery",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+      "llm_selected_local_name": "wellboreForDiscovery",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery"
+      ],
+      "gold_local_names": [
+        "wellboreForDiscovery"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.28438228438228436,
+        "source_in_target": 1.0,
+        "target_in_source": 0.28438228438228436,
+        "valentine_coma_score": 0.8621413575927221,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+        "selected_local_name": "wellboreForDiscovery",
+        "confidence": "high",
+        "reason": "该属性精确匹配外键约束wellbore_development_all.dscNpdidDiscovery到discovery.dscNpdidDiscovery，限制支持表明域为DevelopmentWellbore（表wellbore_development_all），范围指向Discovery，且IND完全覆盖（source_in_target=1.0），名称wellboreForDiscovery语义吻合，而其他候选缺乏域或范围或精确构造匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_development_all.fldnpdidfield",
+      "source": "wellbore_development_all.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+      "current_local_name": "developmentWellboreForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+      "llm_selected_local_name": "developmentWellboreForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField"
+      ],
+      "gold_local_names": [
+        "developmentWellboreForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.900990099009901,
+        "source_in_target": 1.0,
+        "target_in_source": 0.900990099009901,
+        "valentine_coma_score": 0.9691189827429609,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+        "selected_local_name": "developmentWellboreForField",
+        "confidence": "high",
+        "reason": "该外键wellbore_development_all.fldnpdidfield指向field.fldnpdidfield，匹配到ObjectProperty developmentWellboreForField，其domain为DevelopmentWellbore（对应wellbore_development_all），range为Field（对应field），且exact_sql_construction_match为true。同时IND为1.0，名称部分匹配，域和范围评分均为1.0。其他候选者域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_development_all.prlnpdidproductionlicence",
+      "source": "wellbore_development_all.prlnpdidproductionlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+      "current_local_name": "developmentWellboreForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+      "llm_selected_local_name": "developmentWellboreForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence"
+      ],
+      "gold_local_names": [
+        "developmentWellboreForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.0978021978021978,
+        "source_in_target": 1.0,
+        "target_in_source": 0.0978021978021978,
+        "valentine_coma_score": 0.7680628272251309,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+        "selected_local_name": "developmentWellboreForLicence",
+        "confidence": "high",
+        "reason": "该属性有精确的SQL构造匹配（外键wellbore_development_all.prlNpdidProductionLicence指向licence.prlNpdidLicence），且domain为DevelopmentWellbore，range为ProductionLicence，与源表wellbore_development_all和目标表licence完全对应，IND证据支持1.0。其他候选属性域或范围不匹配，或无构造支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_document.wlbnpdidwellbore",
+      "source": "wellbore_document.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentForWellbore",
+      "current_local_name": "documentForWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentForWellbore",
+      "llm_selected_local_name": "documentForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#documentForWellbore"
+      ],
+      "gold_local_names": [
+        "documentForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.18277010947168015,
+        "source_in_target": 1.0,
+        "target_in_source": 0.18277010947168015,
+        "valentine_coma_score": 0.7315,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentForWellbore",
+        "selected_local_name": "documentForWellbore",
+        "confidence": "high",
+        "reason": "外键wellbore_document.wlbnpdidwellbore关联到wellbore_npdid_overview，属性documentForWellbore的域为WellboreDocument、范围为Wellbore，有精确SQL构造匹配，且源列完全包含于目标列（IND=1.0），语义匹配度（0.7315）高，其他候选缺少构造匹配或域/范围不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_dst.wlbnpdidwellbore",
+      "source": "wellbore_dst.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForField",
+      "current_local_name": "wellboreForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DSTForWellbore",
+      "llm_selected_local_name": "DSTForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#DSTForWellbore"
+      ],
+      "gold_local_names": [
+        "DSTForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.05949547834364588,
+        "source_in_target": 1.0,
+        "target_in_source": 0.05949547834364588,
+        "valentine_coma_score": 0.7108808290155441,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#DSTForWellbore",
+        "selected_local_name": "DSTForWellbore",
+        "confidence": "high",
+        "reason": "该候选属性具有精确的SQL构造匹配（外键wellbore_dst.wlbNpdidWellbore -> wellbore_npdid_overview.wlbNpdidWellbore），且其定义域为WellboreDrillStemTest（对应源表wellbore_dst），值域为Wellbore（对应目标表wellbore_npdid_overview），同时受限制条件支持，因此是最佳选择。其他候选属性值域不匹配Wellbore，且无构造支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_exploration_all.fldnpdidfield",
+      "source": "wellbore_exploration_all.fldnpdidfield",
+      "target": "field.fldnpdidfield",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+      "current_local_name": "explorationWellboreForField",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+      "llm_selected_local_name": "explorationWellboreForField",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField"
+      ],
+      "gold_local_names": [
+        "explorationWellboreForField"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9702970297029703,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9702970297029703,
+        "valentine_coma_score": 0.9980793854033291,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+        "selected_local_name": "explorationWellboreForField",
+        "confidence": "high",
+        "reason": "外键 wellbore_exploration_all.fldNpdidField 直接对应到 field.fldNpdidField，且该属性 exact_sql_construction_match 为 true，域 (ExplorationWellbore) 和范围 (Field) 完全匹配，IND 系数为 1.0，其他候选域不匹配（includedInField 域为 Discovery，developmentWellboreForField 域为 DevelopmentWellbore），因此选择此属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "source": "wellbore_exploration_all.prlnpdidproductionlicence",
+      "target": "licence.prlnpdidlicence",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+      "current_local_name": "explorationWellboreForLicence",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+      "llm_selected_local_name": "explorationWellboreForLicence",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence"
+      ],
+      "gold_local_names": [
+        "explorationWellboreForLicence"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.44065934065934065,
+        "source_in_target": 1.0,
+        "target_in_source": 0.44065934065934065,
+        "valentine_coma_score": 0.8151832460732984,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+        "selected_local_name": "explorationWellboreForLicence",
+        "confidence": "high",
+        "reason": "该属性完全匹配外键约束：领域（ExplorationWellbore）对应源表wellbore_exploration_all，范围（ProductionLicence）对应目标表licence；IND为1.0且存在精确的SQL构造匹配和限制支持，名称和域范围评分均高，无冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_formation_top.wlbnpdidwellbore",
+      "source": "wellbore_formation_top.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+      "current_local_name": "wellboreAgeTD",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore",
+      "llm_selected_local_name": "stratumForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore"
+      ],
+      "gold_local_names": [
+        "stratumForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.20561637315564016,
+        "source_in_target": 1.0,
+        "target_in_source": 0.20561637315564016,
+        "valentine_coma_score": 0.76225,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#stratumForWellbore",
+        "selected_local_name": "stratumForWellbore",
+        "confidence": "high",
+        "reason": "精确SQL构造匹配（外键wellbore_formation_top.wlbNpdidWellbore -> wellbore_npdid_overview.wlbNpdidWellbore），且支持WellboreStratum类通过wellbore_formation_top表关联到Wellbore，与源表（地层顶部）和目标表（井概览）语义一致。其他候选的domain为ExplorationWellbore，与源表不符，且名称与年龄相关，不匹配此关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_mud.wlbnpdidwellbore",
+      "source": "wellbore_mud.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#mudTestForWellbore",
+      "current_local_name": "mudTestForWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#mudTestForWellbore",
+      "llm_selected_local_name": "mudTestForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#mudTestForWellbore"
+      ],
+      "gold_local_names": [
+        "mudTestForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.19149611296208155,
+        "source_in_target": 1.0,
+        "target_in_source": 0.19149611296208155,
+        "valentine_coma_score": 0.5615,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#mudTestForWellbore",
+        "selected_local_name": "mudTestForWellbore",
+        "confidence": "high",
+        "reason": "有精确的SQL构造匹配和限制支持，域WellboreDrillingMudSample和范围Wellbore直接对应外键关系，且所有源值均包含在目标中，IND为1.0，外键约束强。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wellbore_oil_sample.wlbnpdidwellbore",
+      "source": "wellbore_oil_sample.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestForWellbore",
+      "current_local_name": "oilSampleTestForWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestForWellbore",
+      "llm_selected_local_name": "oilSampleTestForWellbore",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestForWellbore"
+      ],
+      "gold_local_names": [
+        "oilSampleTestForWellbore"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.06711089957163256,
+        "source_in_target": 1.0,
+        "target_in_source": 0.06711089957163256,
+        "valentine_coma_score": 0.6633064516129032,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#oilSampleTestForWellbore",
+        "selected_local_name": "oilSampleTestForWellbore",
+        "confidence": "high",
+        "reason": "该属性具有精确的SQL构造匹配，域为WellboreOilSample（对应源表wellbore_oil_sample），范围为Wellbore（对应目标表），且限制支持明确；IND证据显示源列完全包含于目标列，符合外键关系；尽管名称分数较低，但构造和域范围证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "wlbpoint.wlbnpdidwellbore",
+      "source": "wlbpoint.wlbnpdidwellbore",
+      "target": "wellbore_npdid_overview.wlbnpdidwellbore",
+      "current_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "current_local_name": "discoveryWellbore",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9957163255592575,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9957163255592575,
+        "valentine_coma_score": 0.999,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "该外键关系（wlbpoint.wlbnpdidwellbore）与isGeometryOfFeature的SQL构造完全匹配，且restriction支持指出WellborePoint（表wlbPoint）指向Wellbore，尽管名称得分低，但结构证据优先，故选择此属性。"
+      },
+      "error": null
+    }
+  ]
+}

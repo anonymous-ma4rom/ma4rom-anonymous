@@ -1,0 +1,135 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+cmtrenamed:	http://cmt#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-152736502
+target		<http://example.com/subject_areas/{id}> a cmtrenamed:SubjectArea . 
+source		SELECT "id" FROM "subject_areas"
+
+mappingId	mapping--1003369462
+target		<http://example.com/decisions/{id}> a cmtrenamed:Acceptance . 
+source		SELECT "id" FROM "acceptances"
+
+mappingId	mapping--1409416129
+target		<http://example.com/persons/{administrator}> cmtrenamed:setMaxPapers <http://example.com/persons/{program_committee_member}> . 
+source		SELECT "administrator" , "program_committee_member" FROM "set_max_papers"
+
+mappingId	mapping-728785135
+target		<http://example.com/conferences/{id}> a cmtrenamed:Conference ; cmtrenamed:reviewsPerPaper {reviews_per_paper}^^xsd:int ; cmtrenamed:name {name}^^xsd:string ; cmtrenamed:logoURL {logo_url}^^xsd:anyURI ; cmtrenamed:date {date}^^xsd:date ; cmtrenamed:siteURL {site_url}^^xsd:anyURI . 
+source		SELECT "id" , "site_url" , "accepts_hardcopy_submissions" , "logo_url" , "date" , "name" , "reviews_per_paper" FROM "conferences"
+
+mappingId	mapping-1972612383
+target		<http://example.com/persons/{id}> a cmtrenamed:Co-author . 
+source		SELECT "id" FROM "co_authors"
+
+mappingId	mapping-1548699540
+target		<http://example.com/persons/{id}> a cmtrenamed:Administrator ; cmtrenamed:acceptPaper <http://example.com/documents/{accept_paper}> . 
+source		SELECT "id" , "accept_paper" FROM "administrators"
+
+mappingId	mapping--1547466982
+target		<http://example.com/documents/{id}> a cmtrenamed:PaperFullVersion . 
+source		SELECT "id" FROM "paper_full_versions"
+
+mappingId	mapping--1795502072
+target		<http://example.com/preferences/{id}> a cmtrenamed:Preference . 
+source		SELECT "id" FROM "preferences"
+
+mappingId	mapping--1186824321
+target		<http://example.com/persons/{id}> a cmtrenamed:AuthorNotReviewer . 
+source		SELECT "id" FROM "author_not_reviewers"
+
+mappingId	mapping-644475554
+target		<http://example.com/persons/{id}> a cmtrenamed:Meta-Reviewer . 
+source		SELECT "id" FROM "meta_reviewers"
+
+mappingId	mapping--360344446
+target		<http://example.com/persons/{id}> a cmtrenamed:User . 
+source		SELECT "id" FROM "users"
+
+mappingId	mapping--277079169
+target		<http://example.com/persons/{id}> a cmtrenamed:ExternalReviewer ; cmtrenamed:assignedByReviewer <http://example.com/persons/{assigned_by_reviewer}> . 
+source		SELECT "id" , "assigned_by_reviewer" FROM "external_reviewers"
+
+mappingId	mapping--1097044505
+target		<http://example.com/persons/{id}> a cmtrenamed:ConferenceChair . 
+source		SELECT "id" FROM "conference_chairs"
+
+mappingId	mapping--497226309
+target		<http://example.com/persons/{id}> a cmtrenamed:ConferenceMember . 
+source		SELECT "id" FROM "conf_members"
+
+mappingId	mapping--1132545110
+target		<http://example.com/persons/{id}> a cmtrenamed:Chairman . 
+source		SELECT "id" FROM "chairmans"
+
+mappingId	mapping--415258623
+target		<http://example.com/persons/{id}> a cmtrenamed:Reviewer . 
+source		SELECT "id" FROM "reviewers"
+
+mappingId	mapping--1603657674
+target		<http://example.com/persons/{id}> a cmtrenamed:Person ; cmtrenamed:name {name}^^xsd:string ; cmtrenamed:email {email}^^xsd:string . 
+source		SELECT "id" , "name" , "email" FROM "persons"
+
+mappingId	mapping-1920454720
+target		<http://example.com/decisions/{id}> a cmtrenamed:Rejection . 
+source		SELECT "id" FROM "rejections"
+
+mappingId	mapping-1977817467
+target		<http://example.com/documents/{id}> a cmtrenamed:Review ; cmtrenamed:writtenBy <http://example.com/persons/{written}> ; rdfs:comment {comment}^^xsd:string . 
+source		SELECT "id" , "written" , "comment" FROM "reviews"
+
+mappingId	mapping--1526517328
+target		<http://example.com/persons/{id}> a cmtrenamed:AssociatedChair . 
+source		SELECT "id" FROM "associated_chairs"
+
+mappingId	mapping-1077188167
+target		<http://example.com/persons/{id}> a cmtrenamed:ProgramCommitteeChair . 
+source		SELECT "id" FROM "program_committee_chairs"
+
+mappingId	mapping--1458168100
+target		<http://example.com/documents/{paper}> cmtrenamed:markConflictOfInterest <http://example.com/documents/{conference_member}> . 
+source		SELECT "paper" , "conference_member" FROM "mark_conflict_interests"
+
+mappingId	mapping--54167868
+target		<http://example.com/persons/{id}> a cmtrenamed:Author . 
+source		SELECT "id" FROM "authors"
+
+mappingId	mapping-1466994106
+target		<http://example.com/persons/{id}> a cmtrenamed:ProgramCommitteeMember ; cmtrenamed:addedBy <http://example.com/persons/{added}> ; cmtrenamed:maxPapers {max_papers}^^xsd:int . 
+source		SELECT "id" , "max_papers" , "added" FROM "pc_members"
+
+mappingId	mapping--1874096048
+target		<http://example.com/bids/{id}> a cmtrenamed:Bid ; cmtrenamed:adjustedBy <http://example.com/persons/{adjusted}> . 
+source		SELECT "id" , "adjusted" , "bid" FROM "bids"
+
+mappingId	mapping-1588392785
+target		<http://example.com/documents/{id}> a cmtrenamed:Meta-Review . 
+source		SELECT "id" FROM "meta_reviews"
+
+mappingId	mapping--68984895
+target		<http://example.com/decisions/{id}> a cmtrenamed:Decision . 
+source		SELECT "id" FROM "decisions"
+
+mappingId	mapping--1767660140
+target		<http://example.com/program_committees/{id}> a cmtrenamed:ProgramCommittee ; rdfs:label {label}^^xsd:string ; cmtrenamed:name {label}^^xsd:string . 
+source		SELECT "id" , "label" FROM "program_committees"
+
+mappingId	mapping-1314675918
+target		<http://example.com/documents/{id}> a cmtrenamed:PaperAbstract . 
+source		SELECT "id" FROM "paper_abstracts"
+
+mappingId	mapping-290020418
+target		<http://example.com/documents/{id}> a cmtrenamed:Paper ; cmtrenamed:readByMeta-Reviewer <http://example.com/persons/{read_by_meta_reviewer}> ; cmtrenamed:paperID {paper_id}^^xsd:unsignedLong ; cmtrenamed:hasDecision <http://example.com/decisions/{decision}> ; cmtrenamed:rejectedBy <http://example.com/persons/{rejected}> ; cmtrenamed:acceptedBy <http://example.com/persons/{accepted}> ; cmtrenamed:hasAuthor <http://example.com/persons/{author}> ; cmtrenamed:title {title}^^xsd:string . 
+source		SELECT "id" , "paper_id" , "rejected" , "read_by_meta_reviewer" , "author" , "title" , "decision" , "accepted" FROM "papers"
+
+mappingId	mapping--57252196
+target		<http://example.com/documents/{id}> a cmtrenamed:Document . 
+source		SELECT "id" FROM "documents"
+]]
+

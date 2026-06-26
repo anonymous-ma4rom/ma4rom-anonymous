@@ -1,0 +1,255 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+conferencerenamed:	http://conference#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--1722104043
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Conference_document ; conferencerenamed:has_a_date_of_issue {date_issue}^^xsd:date . 
+source		SELECT "id" , "date_issue" FROM "conference_documents"
+
+mappingId	mapping-269803261
+target		<http://example.com/persons/{id}> a conferencerenamed:Co-chair . 
+source		SELECT "id" FROM "co_chairs"
+
+mappingId	mapping-1852795100
+target		<http://example.com/persons/{id}> a conferencerenamed:Contribution_co-author . 
+source		SELECT "id" FROM "contribution_co_authors"
+
+mappingId	mapping-1827829384
+target		<http://example.com/organizers/{id}> a conferencerenamed:Organizer . 
+source		SELECT "id" FROM "organizers"
+
+mappingId	mapping--382558822
+target		<http://example.com/conferences/{id}> a conferencerenamed:Conference_volume ; conferencerenamed:has_a_location {location}^^xsd:string ; conferencerenamed:has_an_organizing_committee <http://example.com/committees/{organizing_committ}> ; conferencerenamed:has_a_program_committee <http://example.com/committees/{program_committee}> ; conferencerenamed:has_important_dates <http://example.com/important_dates/{important_dates}> ; conferencerenamed:has_a_steering_committee <http://example.com/committees/{steering_committee}> . 
+source		SELECT "id" , "program_committee" , "organizing_committ" , "location" , "steering_committee" , "important_dates" FROM "conference_volumes"
+
+mappingId	mapping--1731845848
+target		<http://example.com/review_preferences/{id}> a conferencerenamed:Review_preference ; conferencerenamed:has_a_track-workshop-tutorial_topic <http://example.com/topics/{belongs_to_review_refer}> ; conferencerenamed:has_a_degree {topic_or_submissi}^^xsd:int , {degree}^^xsd:int . 
+source		SELECT "id" , "belongs_to_review_refer" , "degree" , "topic_or_submissi" FROM "review_preferences"
+
+mappingId	mapping--1447666063
+target		<http://example.com/review_expertises/{id}> a conferencerenamed:Review_expertise ; conferencerenamed:has_a_submitted_contribution <http://example.com/conference_documents/{submitted_contribut}> ; conferencerenamed:has_an_expertise {expertise}^^xsd:string . 
+source		SELECT "id" , "expertise" , "submitted_contribut" FROM "review_expertises"
+
+mappingId	mapping--476911408
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Poster ; conferencerenamed:has_an_abstract <http://example.com/conference_documents/{abstract}> . 
+source		SELECT "id" , "abstract" FROM "posters"
+
+mappingId	mapping--2005431278
+target		<http://example.com/persons/{id}> a conferencerenamed:Paid_applicant . 
+source		SELECT "id" FROM "paid_applicants"
+
+mappingId	mapping-1758978497
+target		<http://example.com/persons/{person}> conferencerenamed:has_an_email {value}^^xsd:string . 
+source		SELECT "person" , "value" FROM "emails"
+
+mappingId	mapping--581325663
+target		<http://example.com/persons/{id}> a conferencerenamed:Registeered_applicant . 
+source		SELECT "id" FROM "registeered_applicants"
+
+mappingId	mapping--1474851302
+target		<http://example.com/persons/{id}> a conferencerenamed:Conference_contributor . 
+source		SELECT "id" FROM "conference_contributors"
+
+mappingId	mapping-276425567
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Call_for_paper . 
+source		SELECT "id" FROM "call_for_papers"
+
+mappingId	mapping-1162272741
+target		<http://example.com/persons/{id}> a conferencerenamed:Late_paid_applicant . 
+source		SELECT "id" FROM "late_paid_applicants"
+
+mappingId	mapping-87039593
+target		<http://example.com/organizations/{id}> a conferencerenamed:Organization ; conferencerenamed:has_a_name {name}^^xsd:string . 
+source		SELECT "id" , "name" FROM "organizations"
+
+mappingId	mapping--750778065
+target		<http://example.com/committees/{id}> a conferencerenamed:Organizing_committee ; conferencerenamed:was_an_organizing_committee_of <http://example.com/conferences/{was_an_organizing_committ}> . 
+source		SELECT "id" , "was_an_organizing_committ" FROM "organizing_committees"
+
+mappingId	mapping--162596088
+target		<http://example.com/conference_proceedings/{id}> a conferencerenamed:Conference_proceedings ; conferencerenamed:has_an_ISBN {isbn}^^xsd:string ; conferencerenamed:has_a_volume {volume}^^xsd:int ; conferencerenamed:has_a_publisher <http://example.com/publishers/{publisher}> . 
+source		SELECT "id" , "publisher" , "volume" , "name" , "isbn" FROM "conference_proceedings"
+
+mappingId	mapping--8078484
+target		<http://example.com/committees/{id}> a conferencerenamed:Steering_committee ; conferencerenamed:was_a_steering_committee_of <http://example.com/conferences/{was_steering_committee_}> . 
+source		SELECT "id" , "was_steering_committee_" FROM "steering_committees"
+
+mappingId	mapping--828398793
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Written_contribution . 
+source		SELECT "id" FROM "written_contributions"
+
+mappingId	mapping--1522613784
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Rejected_contribution . 
+source		SELECT "id" FROM "rejected_contributions"
+
+mappingId	mapping-391742750
+target		<http://example.com/persons/{id}> a conferencerenamed:Reviewer . 
+source		SELECT "id" FROM "reviewers"
+
+mappingId	mapping--1696874531
+target		<http://example.com/committees/{id}> a conferencerenamed:Committee ; conferencerenamed:has_a_committee_chair <http://example.com/persons/{committee_chair}> ; conferencerenamed:has_a_name {name}^^xsd:string . 
+source		SELECT "id" , "name" , "committee_chair" FROM "committees"
+
+mappingId	mapping--1029418753
+target		<http://example.com/topics/{id}> a conferencerenamed:Topic ; conferencerenamed:has_a_name {name}^^xsd:string . 
+source		SELECT "id" , "name" FROM "topics"
+
+mappingId	mapping--988736679
+target		<http://example.com/conference_parts/{id}> a conferencerenamed:Conference_part ; conferencerenamed:has_a_name {name}^^xsd:string ; conferencerenamed:is_part_of_conference_volumes <http://example.com/conferences/{part_conference_vol}> . 
+source		SELECT "id" , "part_conference_vol" , "name" FROM "conference_parts"
+
+mappingId	mapping--1044009441
+target		<http://example.com/committees/{id}> a conferencerenamed:Program_committee ; conferencerenamed:was_a_program_committee_of <http://example.com/conferences/{was_program_committee}> . 
+source		SELECT "id" , "was_program_committee" FROM "program_committees"
+
+mappingId	mapping-96572834
+target		<http://example.com/persons/{id}> a conferencerenamed:Track-workshop_chair . 
+source		SELECT "id" FROM "track_workshop_chairs"
+
+mappingId	mapping-1385655615
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Paper ; conferencerenamed:has_a_paper_title {paper_title}^^xsd:string ; conferencerenamed:has_an_abstract <http://example.com/conference_documents/{abstract}> . 
+source		SELECT "id" , "abstract" , "paper_title" FROM "papers"
+
+mappingId	mapping-669908089
+target		<http://example.com/persons/{id}> a conferencerenamed:Conference_participant . 
+source		SELECT "id" FROM "conference_participants"
+
+mappingId	mapping-371732687
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Call_for_participation . 
+source		SELECT "id" FROM "call_for_participations"
+
+mappingId	mapping--529298782
+target		<http://example.com/persons/{id}> a conferencerenamed:Conference_applicant . 
+source		SELECT "id" FROM "conference_applicants"
+
+mappingId	mapping--1002146889
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Reviewed_contribution . 
+source		SELECT "id" FROM "reviewed_contributions"
+
+mappingId	mapping-1027885030
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Information_for_participants . 
+source		SELECT "id" FROM "information_for_participas"
+
+mappingId	mapping--1128514349
+target		<http://example.com/persons/{id}> a conferencerenamed:Contribution_1th-author . 
+source		SELECT "id" FROM "contribution_1th_authors"
+
+mappingId	mapping--293404140
+target		<http://example.com/conferences/{id}> a conferencerenamed:Conference ; conferencerenamed:has_a_name {name}^^xsd:string . 
+source		SELECT "id" , "name" FROM "conferences"
+
+mappingId	mapping-1714412105
+target		<http://example.com/persons/{id}> a conferencerenamed:Passive_conference_participant . 
+source		SELECT "id" FROM "passive_conference_partics"
+
+mappingId	mapping--1705143558
+target		<http://example.com/important_dates/{id}> a conferencerenamed:Important_dates ; conferencerenamed:is_a_date_of_camera_ready_paper_submission {date_camera_ready}^^xsd:date ; conferencerenamed:is_a_full_paper_submission_date {full_paper_submissio}^^xsd:date ; conferencerenamed:is_an_abstract_submission_date {abstract_submission}^^xsd:date ; conferencerenamed:is_a_date_of_acceptance_announcement {date_acceptance_a}^^xsd:date ; conferencerenamed:is_a_starting_date {starting_date}^^xsd:date ; conferencerenamed:is_an_ending_date {ending_date}^^xsd:date . 
+source		SELECT "id" , "date_acceptance_a" , "full_paper_submissio" , "date_camera_ready" , "ending_date" , "starting_date" , "abstract_submission" FROM "important_dates"
+
+mappingId	mapping--2123540247
+target		<http://example.com/persons/{reviewer}> conferencerenamed:belongs_to_reviewers <http://example.com/persons/{entity}> . 
+source		SELECT "reviewer" , "entity" FROM "belongs_to_reviewers"
+
+mappingId	mapping--1855446660
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Conference_contribution ; conferencerenamed:is_submitted_at <http://example.com/conferences/{submitted_at}> . 
+source		SELECT "id" , "submitted_at" FROM "conference_contributions"
+
+mappingId	mapping-1259998848
+target		<http://example.com/conference_parts/{id}> a conferencerenamed:Tutorial . 
+source		SELECT "id" , "tutorials" FROM "tutorials"
+
+mappingId	mapping--209072842
+target		<http://example.com/publishers/{id}> a conferencerenamed:Publisher ; conferencerenamed:has_a_name {name}^^xsd:string . 
+source		SELECT "id" , "name" FROM "publishers"
+
+mappingId	mapping--1542569594
+target		<http://example.com/persons/{id}> a conferencerenamed:Active_conference_participant . 
+source		SELECT "id" FROM "active_conference_particis"
+
+mappingId	mapping-624520259
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Presentation ; conferencerenamed:has_an_abstract <http://example.com/conference_documents/{abstract}> ; conferencerenamed:is_given_by <http://example.com/persons/{given}> . 
+source		SELECT "id" , "given" , "abstract" FROM "presentations"
+
+mappingId	mapping--1558640676
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Conference_www ; conferencerenamed:has_a_URL {url}^^xsd:string . 
+source		SELECT "id" , "url" FROM "websites"
+
+mappingId	mapping--960566368
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Regular_contribution . 
+source		SELECT "id" FROM "regular_contributions"
+
+mappingId	mapping-75087612
+target		<http://example.com/persons/{id}> a conferencerenamed:Committee_member . 
+source		SELECT "id" FROM "committee_members"
+
+mappingId	mapping--1574057569
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Conference_announcement . 
+source		SELECT "id" FROM "conference_announcements"
+
+mappingId	mapping-1737868949
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Camera_ready_contribution . 
+source		SELECT "id" FROM "camera_ready_contributions"
+
+mappingId	mapping--415234064
+target		<http://example.com/persons/{id}> a conferencerenamed:Chair . 
+source		SELECT "id" FROM "chairs"
+
+mappingId	mapping--152890280
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Invited_talk . 
+source		SELECT "id" FROM "invited_talks"
+
+mappingId	mapping-1301430181
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Extended_abstract ; conferencerenamed:has_text {text}^^xsd:string . 
+source		SELECT "id" , "text" FROM "extended_abstracts"
+
+mappingId	mapping-1438959668
+target		<http://example.com/persons/{id}> a conferencerenamed:Person ; conferencerenamed:has_gender {gender}^^xsd:string ; conferencerenamed:has_the_last_name {last_name}^^xsd:string ; conferencerenamed:has_the_first_name {first_name}^^xsd:string . 
+source		SELECT "id" , "first_name" , "last_name" , "gender" FROM "persons"
+
+mappingId	mapping--1837258056
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Review ; conferencerenamed:has_detailed_comments {detailed_comments}^^xsd:string ; conferencerenamed:reviews <http://example.com/conference_documents/{reviews}> . 
+source		SELECT "id" , "reviews" , "detailed_comments" FROM "reviews"
+
+mappingId	mapping--1161198017
+target		<http://example.com/persons/{id}> a conferencerenamed:Regular_author . 
+source		SELECT "id" FROM "regular_authors"
+
+mappingId	mapping--2021536815
+target		<http://example.com/conference_parts/{id}> a conferencerenamed:Workshop ; conferencerenamed:has_a_track-workshop-tutorial_chair <http://example.com/persons/{track_workshop_tuto}> . 
+source		SELECT "id" , "track_workshop_tuto" , "workshops" FROM "workshops"
+
+mappingId	mapping-1292035185
+target		<http://example.com/persons/{id}> a conferencerenamed:Early_paid_applicant . 
+source		SELECT "id" FROM "early_paid_applicants"
+
+mappingId	mapping--1367700290
+target		<http://example.com/conference_parts/{id}> a conferencerenamed:Track ; conferencerenamed:has_a_track-workshop-tutorial_chair <http://example.com/persons/{track_workshop_tuto}> . 
+source		SELECT "id" , "tracks" , "track_workshop_tuto" FROM "tracks"
+
+mappingId	mapping-425559018
+target		<http://example.com/persons/{id}> a conferencerenamed:Invited_speaker . 
+source		SELECT "id" FROM "invited_speakers"
+
+mappingId	mapping-695066761
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Accepted_contribution . 
+source		SELECT "id" FROM "accepted_contributions"
+
+mappingId	mapping-1153984713
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Abstract ; conferencerenamed:is_the_1th_part_of <http://example.com/conference_documents/{th_part}> . 
+source		SELECT "id" , "th_part" FROM "abstracts"
+
+mappingId	mapping--400742867
+target		<http://example.com/conference_fees/{id}> a conferencerenamed:Conference_fees ; conferencerenamed:amount {amount}^^xsd:string . 
+source		SELECT "id" , "amount" FROM "conference_fees"
+
+mappingId	mapping-1873928843
+target		<http://example.com/conference_documents/{id}> a conferencerenamed:Submitted_contribution . 
+source		SELECT "id" FROM "submitted_contributions"
+]]
+

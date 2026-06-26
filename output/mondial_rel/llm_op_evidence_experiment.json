@@ -1,0 +1,15 @@
+{
+  "database": "mondial_rel",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "evaluated_at": "2026-06-04 18:35:29",
+  "summary": {
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": []
+}

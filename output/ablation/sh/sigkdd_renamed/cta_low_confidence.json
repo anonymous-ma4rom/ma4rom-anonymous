@@ -1,0 +1,48 @@
+{
+  "award_author": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "awards": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "committees": {
+    "table_low": true,
+    "columns_low": [
+      "ref",
+      "committee"
+    ]
+  },
+  "conferences": {
+    "table_low": true,
+    "columns_low": [
+      "name_conference",
+      "end_conference"
+    ]
+  },
+  "deadline_document": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "deadlines": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "paper_author": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "place_person": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "registration_fee_person": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "sponzor_acm_sigkdd": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

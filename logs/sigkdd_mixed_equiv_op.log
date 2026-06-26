@@ -1,0 +1,60 @@
+============================================================
+Resume from OP mapping
+============================================================
+  database: sigkdd_mixed
+  output:   /Users/douer_lucky/Documents/科研/MAMG/output/sigkdd_mixed
+  input:    final_alignment.json + enriched_schema.json
+  CPA:      disabled
+  R2RML old OP fallback: disabled
+  等价列 OP 模块任务数: FK=27, SR=16, total=43
+  [1/43] EquivOP selecting acm_sigkdd_person.aid candidates=1
+  [2/43] EquivOP selecting acm_sigkdd_person.pid candidates=1
+  [3/43] EquivOP selecting best_paper_awards_committs.award candidates=2
+  [4/43] EquivOP selecting best_paper_awards_committs.committee candidates=3
+  [5/43] EquivOP selecting best_paper_awards_committs.cid candidates=3
+  [6/43] EquivOP selecting conferences.holded candidates=2
+  [7/43] EquivOP selecting deadline_abstract_submiss.designed candidates=2
+  [8/43] EquivOP selecting document_deadline_abstract_submiss.document candidates=3
+  [9/43] EquivOP selecting document_deadline_abstract_submiss.deadline candidates=3
+  [10/43] EquivOP selecting document_person.pid candidates=3
+  [11/43] EquivOP selecting document_person.did candidates=4
+  [12/43] EquivOP selecting e_mails.person candidates=0
+  [13/43] EquivOP selecting main_office_person.pid candidates=1
+  [14/43] EquivOP selecting main_office_person.mid candidates=1
+  [15/43] EquivOP selecting organizing_committees.cid candidates=2
+  [16/43] EquivOP selecting organizing_committees.committee candidates=2
+  [17/43] EquivOP selecting person_best_research_paper_award.pid candidates=3
+  [18/43] EquivOP selecting person_best_research_paper_award.bid candidates=3
+  [19/43] EquivOP selecting person_deadline_abstract_submiss.pid candidates=3
+  [20/43] EquivOP selecting person_deadline_abstract_submiss.did candidates=2
+  [21/43] EquivOP selecting program_committees.committee candidates=2
+  [22/43] EquivOP selecting program_committees.cid candidates=2
+  [23/43] EquivOP selecting registration_fee_person.pid candidates=2
+  [24/43] EquivOP selecting registration_fee_person.rid candidates=1
+  [25/43] EquivOP selecting reviews.id candidates=1
+  [26/43] EquivOP selecting reviews.ref candidates=2
+  [27/43] EquivOP selecting reviews.review candidates=2
+  [28/43] EquivOP selecting acm_sigkdd_person candidates=2
+  [29/43] EquivOP selecting document_deadline_abstract_submiss candidates=6
+  [30/43] EquivOP selecting document_person candidates=6
+  [31/43] EquivOP selecting main_office_person candidates=2
+  [32/43] EquivOP selecting person_best_research_paper_award candidates=6
+  [33/43] EquivOP selecting person_deadline_abstract_submiss candidates=4
+  [34/43] EquivOP selecting presentation candidates=4
+  [35/43] EquivOP selecting registration_fee_person candidates=3
+  [36/43] EquivOP selecting best_paper_awards_committs::award__committee candidates=7
+  [37/43] EquivOP selecting best_paper_awards_committs::award__cid candidates=7
+  [38/43] EquivOP selecting best_paper_awards_committs::committee__cid candidates=6
+  [39/43] EquivOP selecting organizing_committees::cid__committee candidates=4
+  [40/43] EquivOP selecting program_committees::committee__cid candidates=4
+  [41/43] EquivOP selecting reviews::id__ref candidates=4
+  [42/43] EquivOP selecting reviews::id__review candidates=4
+  [43/43] EquivOP selecting reviews::ref__review candidates=4
+
+R2RML 生成完成: SE=13, SH=1, SR=8
+
+Done.
+  OP results: /Users/douer_lucky/Documents/科研/MAMG/output/sigkdd_mixed/equivalence_op_module_predictions.json
+  CPA shape:  /Users/douer_lucky/Documents/科研/MAMG/output/sigkdd_mixed/cpa_step1_result.json
+  TTL:        /Users/douer_lucky/Documents/科研/MAMG/output/sigkdd_mixed/rodi_sigkdd_mixed_generated_mapping.ttl
+  TTL chars:  16439

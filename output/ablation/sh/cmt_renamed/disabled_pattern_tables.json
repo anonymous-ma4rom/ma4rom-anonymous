@@ -1,0 +1,23 @@
+{
+  "acceptances": "SH",
+  "administrators": "SH",
+  "associated_chairs": "SH",
+  "author_not_reviewers": "SH",
+  "authors": "SH",
+  "chairmans": "SH",
+  "co_authors": "SH",
+  "conf_members": "SH",
+  "conference_chairs": "SH",
+  "external_reviewers": "SH",
+  "meta_reviewers": "SH",
+  "meta_reviews": "SH",
+  "paper_abstracts": "SH",
+  "paper_full_versions": "SH",
+  "papers": "SH",
+  "pc_members": "SH",
+  "program_committee_chairs": "SH",
+  "rejections": "SH",
+  "reviewers": "SH",
+  "reviews": "SH",
+  "users": "SH"
+}

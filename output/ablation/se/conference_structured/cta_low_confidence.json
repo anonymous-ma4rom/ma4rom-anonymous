@@ -1,0 +1,48 @@
+{
+  "Abstract": {
+    "table_low": true,
+    "columns_low": [
+      "is_the_1th_part_of"
+    ]
+  },
+  "Invited_talk": {
+    "table_low": false,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Paper": {
+    "table_low": true,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Poster": {
+    "table_low": false,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Review": {
+    "table_low": true,
+    "columns_low": [
+      "reviews"
+    ]
+  },
+  "belongs_to_reviewers": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "contributes": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "has_a_committee_co-chair": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "has_a_track-workshop-tuto": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

@@ -1,0 +1,136 @@
+============================================================
+Resume from OP mapping
+============================================================
+  database: conference_renamed
+  output:   /Users/douer_lucky/Documents/科研/MAMG/output/conference_renamed
+  input:    final_alignment.json + enriched_schema.json
+  CPA:      disabled
+  R2RML old OP fallback: disabled
+  等价列 OP 模块任务数: FK=83, SR=36, total=119
+  [1/119] EquivOP selecting abstracts.id candidates=0
+  [2/119] EquivOP selecting abstracts.th_part candidates=5
+  [3/119] EquivOP selecting accepted_contributions.id candidates=3
+  [4/119] EquivOP selecting active_conference_particis.id candidates=3
+  [5/119] EquivOP selecting active_conference_particis.id candidates=3
+  [6/119] EquivOP selecting belongs_to_reviewers.reviewer candidates=4
+  [7/119] EquivOP selecting call_for_papers.id candidates=3
+  [8/119] EquivOP selecting call_for_participations.id candidates=3
+  [9/119] EquivOP selecting camera_ready_contributions.id candidates=3
+  [10/119] EquivOP selecting chairs.id candidates=11
+  [11/119] EquivOP selecting co_chairs.id candidates=15
+  [12/119] EquivOP selecting committee_co_chair.committee candidates=14
+  [13/119] EquivOP selecting committee_co_chair.co_chair candidates=15
+  [14/119] EquivOP selecting committee_committee_member.committee candidates=13
+  [15/119] EquivOP selecting committee_committee_member.committee_member candidates=12
+  [16/119] EquivOP selecting committee_members.id candidates=12
+  [17/119] EquivOP selecting committees.committee_chair candidates=14
+  [18/119] EquivOP selecting conference_announcements.id candidates=3
+  [19/119] EquivOP selecting conference_applicants.id candidates=3
+  [20/119] EquivOP selecting conference_contributions.submitted_at candidates=7
+  [21/119] EquivOP selecting conference_contributions.id candidates=9
+  [22/119] EquivOP selecting conference_contributors.id candidates=3
+  [23/119] EquivOP selecting conference_participants.id candidates=3
+  [24/119] EquivOP selecting conference_parts.part_conference_vol candidates=5
+  [25/119] EquivOP selecting conference_proceedings.publisher candidates=4
+  [26/119] EquivOP selecting conference_volumes.steering_committee candidates=14
+  [27/119] EquivOP selecting conference_volumes.id candidates=3
+  [28/119] EquivOP selecting conference_volumes.program_committee candidates=14
+  [29/119] EquivOP selecting conference_volumes.organizing_committ candidates=6
+  [30/119] EquivOP selecting conference_volumes.important_dates candidates=4
+  [31/119] EquivOP selecting contribution_1th_authors.id candidates=4
+  [32/119] EquivOP selecting contribution_co_authors.id candidates=6
+  [33/119] EquivOP selecting early_paid_applicants.id candidates=0
+  [34/119] EquivOP selecting emails.person candidates=2
+  [35/119] EquivOP selecting extended_abstracts.id candidates=3
+  [36/119] EquivOP selecting information_for_participas.id candidates=3
+  [37/119] EquivOP selecting invited_speakers.id candidates=4
+  [38/119] EquivOP selecting invited_talks.id candidates=2
+  [39/119] EquivOP selecting late_paid_applicants.id candidates=0
+  [40/119] EquivOP selecting organizing_committees.id candidates=10
+  [41/119] EquivOP selecting organizing_committees.was_an_organizing_committ candidates=12
+  [42/119] EquivOP selecting paid_applicants.id candidates=0
+  [43/119] EquivOP selecting papers.id candidates=1
+  [44/119] EquivOP selecting papers.id candidates=2
+  [45/119] EquivOP selecting papers.abstract candidates=1
+  [46/119] EquivOP selecting passive_conference_partics.id candidates=3
+  [47/119] EquivOP selecting person_conference_document.cid candidates=8
+  [48/119] EquivOP selecting person_conference_document.pid candidates=6
+  [49/119] EquivOP selecting posters.id candidates=5
+  [50/119] EquivOP selecting posters.abstract candidates=1
+  [51/119] EquivOP selecting presentations.id candidates=6
+  [52/119] EquivOP selecting presentations.abstract candidates=2
+  [53/119] EquivOP selecting presentations.given candidates=6
+  [54/119] EquivOP selecting program_committees.id candidates=10
+  [55/119] EquivOP selecting program_committees.was_program_committee candidates=16
+  [56/119] EquivOP selecting registeered_applicants.id candidates=3
+  [57/119] EquivOP selecting regular_authors.id candidates=4
+  [58/119] EquivOP selecting regular_contributions.id candidates=5
+  [59/119] EquivOP selecting rejected_contributions.id candidates=3
+  [60/119] EquivOP selecting review_expertises.submitted_contribut candidates=8
+  [61/119] EquivOP selecting review_preferences.belongs_to_review_refer candidates=7
+  [62/119] EquivOP selecting reviewed_contributions.id candidates=4
+  [63/119] EquivOP selecting reviewer_reviewer.reviewer1 candidates=3
+  [64/119] EquivOP selecting reviewer_reviewer.reviewer2 candidates=3
+  [65/119] EquivOP selecting reviewers.id candidates=3
+  [66/119] EquivOP selecting reviews.id candidates=4
+  [67/119] EquivOP selecting reviews.reviews candidates=2
+  [68/119] EquivOP selecting steering_committees.id candidates=10
+  [69/119] EquivOP selecting steering_committees.was_steering_committee_ candidates=16
+  [70/119] EquivOP selecting submitted_contributions.id candidates=4
+  [71/119] EquivOP selecting topic_tutorial.conference_part candidates=9
+  [72/119] EquivOP selecting topic_tutorial.topic candidates=4
+  [73/119] EquivOP selecting track_workshop_chairs.id candidates=7
+  [74/119] EquivOP selecting tracks.id candidates=5
+  [75/119] EquivOP selecting tracks.track_workshop_tuto candidates=4
+  [76/119] EquivOP selecting tracks.tracks candidates=4
+  [77/119] EquivOP selecting tutorials.id candidates=5
+  [78/119] EquivOP selecting tutorials.tutorials candidates=4
+  [79/119] EquivOP selecting websites.id candidates=3
+  [80/119] EquivOP selecting workshops.id candidates=5
+  [81/119] EquivOP selecting workshops.track_workshop_tuto candidates=4
+  [82/119] EquivOP selecting workshops.workshops candidates=4
+  [83/119] EquivOP selecting written_contributions.id candidates=8
+  [84/119] EquivOP selecting committee_co_chair candidates=30
+  [85/119] EquivOP selecting committee_committee_member candidates=25
+  [86/119] EquivOP selecting person_conference_document candidates=11
+  [87/119] EquivOP selecting reviewer_reviewer candidates=6
+  [88/119] EquivOP selecting topic_tutorial candidates=14
+  [89/119] EquivOP selecting abstracts::id__th_part candidates=8
+  [90/119] EquivOP selecting active_conference_particis::id__id candidates=6
+  [91/119] EquivOP selecting conference_contributions::submitted_at__id candidates=14
+  [92/119] EquivOP selecting conference_volumes::steering_committee__id candidates=19
+  [93/119] EquivOP selecting conference_volumes::steering_committee__program_committee candidates=26
+  [94/119] EquivOP selecting conference_volumes::steering_committee__organizing_committ candidates=20
+  [95/119] EquivOP selecting conference_volumes::steering_committee__important_dates candidates=20
+  [96/119] EquivOP selecting conference_volumes::id__program_committee candidates=19
+  [97/119] EquivOP selecting conference_volumes::id__organizing_committ candidates=12
+  [98/119] EquivOP selecting conference_volumes::id__important_dates candidates=8
+  [99/119] EquivOP selecting conference_volumes::program_committee__organizing_committ candidates=20
+  [100/119] EquivOP selecting conference_volumes::program_committee__important_dates candidates=20
+  [101/119] EquivOP selecting conference_volumes::organizing_committ__important_dates candidates=12
+  [102/119] EquivOP selecting organizing_committees::id__was_an_organizing_committ candidates=27
+  [103/119] EquivOP selecting papers::id__id candidates=2
+  [104/119] EquivOP selecting papers::id__abstract candidates=3
+  [105/119] EquivOP selecting posters::id__abstract candidates=7
+  [106/119] EquivOP selecting presentations::id__abstract candidates=9
+  [107/119] EquivOP selecting presentations::id__given candidates=13
+  [108/119] EquivOP selecting presentations::abstract__given candidates=11
+  [109/119] EquivOP selecting program_committees::id__was_program_committee candidates=27
+  [110/119] EquivOP selecting program_committees::was_program_committee__was_program_committee candidates=32
+  [111/119] EquivOP selecting reviews::id__reviews candidates=7
+  [112/119] EquivOP selecting steering_committees::id__was_steering_committee_ candidates=27
+  [113/119] EquivOP selecting tracks::id__track_workshop_tuto candidates=12
+  [114/119] EquivOP selecting tracks::id__tracks candidates=11
+  [115/119] EquivOP selecting tracks::track_workshop_tuto__tracks candidates=11
+  [116/119] EquivOP selecting tutorials::id__tutorials candidates=11
+  [117/119] EquivOP selecting workshops::id__track_workshop_tuto candidates=12
+  [118/119] EquivOP selecting workshops::id__workshops candidates=11
+  [119/119] EquivOP selecting workshops::track_workshop_tuto__workshops candidates=11
+
+R2RML 生成完成: SE=15, SH=45, SR=6
+
+Done.
+  OP results: /Users/douer_lucky/Documents/科研/MAMG/output/conference_renamed/equivalence_op_module_predictions.json
+  CPA shape:  /Users/douer_lucky/Documents/科研/MAMG/output/conference_renamed/cpa_step1_result.json
+  TTL:        /Users/douer_lucky/Documents/科研/MAMG/output/conference_renamed/rodi_conference_renamed_generated_mapping.ttl
+  TTL chars:  30111

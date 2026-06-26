@@ -1,0 +1,1030 @@
+{
+  "airport": {
+    "columns": {
+      "iatacode": "character varying(3)",
+      "name": "character varying(100)",
+      "country": "character varying(4)",
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "island": "character varying(50)",
+      "latitude": "numeric",
+      "longitude": "numeric",
+      "elevation": "numeric",
+      "gmtoffset": "numeric"
+    },
+    "primary_key": [
+      "iatacode"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "island",
+        "ref_table": "island",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "borders": {
+    "columns": {
+      "country1": "character varying(4)",
+      "country2": "character varying(4)",
+      "length": "numeric"
+    },
+    "primary_key": [
+      "country1",
+      "country2"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country1",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country2",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "city": {
+    "columns": {
+      "name": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "population": "numeric",
+      "latitude": "numeric",
+      "longitude": "numeric",
+      "elevation": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country",
+      "province"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "cityothername": {
+    "columns": {
+      "city": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "province",
+      "city",
+      "othername"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "continent": {
+    "columns": {
+      "name": "character varying(20)",
+      "area": "numeric(10,0)"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "country": {
+    "columns": {
+      "name": "character varying(50)",
+      "code": "character varying(4)",
+      "capital": "character varying(50)",
+      "province": "character varying(50)",
+      "area": "numeric",
+      "population": "numeric"
+    },
+    "primary_key": [
+      "code"
+    ],
+    "foreign_keys": []
+  },
+  "countryothername": {
+    "columns": {
+      "country": "character varying(4)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "othername"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "countryothername表的country列引用country表主键code，语义匹配且类型一致。"
+      }
+    ]
+  },
+  "desert": {
+    "columns": {
+      "name": "character varying(50)",
+      "area": "numeric",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "economy": {
+    "columns": {
+      "country": "character varying(4)",
+      "gdp": "numeric",
+      "agriculture": "numeric",
+      "service": "numeric",
+      "industry": "numeric",
+      "inflation": "numeric",
+      "unemployment": "numeric"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "encompasses": {
+    "columns": {
+      "country": "character varying(4)",
+      "continent": "character varying(20)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "country",
+      "continent"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "continent",
+        "ref_table": "continent",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "ethnicgroup": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_desert": {
+    "columns": {
+      "desert": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "desert"
+    ],
+    "foreign_keys": [
+      {
+        "column": "desert",
+        "ref_table": "desert",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_estuary": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_island": {
+    "columns": {
+      "island": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "column": "island",
+        "ref_table": "island",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_lake": {
+    "columns": {
+      "lake": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "lake"
+    ],
+    "foreign_keys": [
+      {
+        "column": "lake",
+        "ref_table": "lake",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_mountain": {
+    "columns": {
+      "mountain": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "mountain"
+    ],
+    "foreign_keys": [
+      {
+        "column": "mountain",
+        "ref_table": "mountain",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_river": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_sea": {
+    "columns": {
+      "sea": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "sea"
+    ],
+    "foreign_keys": [
+      {
+        "column": "sea",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "geo_source": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "island": {
+    "columns": {
+      "name": "character varying(50)",
+      "islands": "character varying(50)",
+      "area": "numeric",
+      "elevation": "numeric",
+      "type": "character varying(10)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "islandin": {
+    "columns": {
+      "island": "character varying(50)",
+      "sea": "character varying(50)",
+      "lake": "character varying(50)",
+      "river": "character varying(50)"
+    },
+    "primary_key": [],
+    "foreign_keys": [
+      {
+        "column": "island",
+        "ref_table": "island",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "sea",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "lake",
+        "ref_table": "lake",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "ismember": {
+    "columns": {
+      "country": "character varying(4)",
+      "organization": "character varying(12)",
+      "type": "character varying(60)"
+    },
+    "primary_key": [
+      "country",
+      "organization"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "organization",
+        "ref_table": "organization",
+        "ref_col": "abbreviation",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "lake": {
+    "columns": {
+      "name": "character varying(50)",
+      "area": "numeric",
+      "depth": "numeric",
+      "elevation": "numeric",
+      "type": "character varying(12)",
+      "river": "character varying(50)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": [
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "language": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "located": {
+    "columns": {
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "river": "character varying(50)",
+      "lake": "character varying(50)",
+      "sea": "character varying(50)"
+    },
+    "primary_key": [],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "lake",
+        "ref_table": "lake",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "sea",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "locatedon": {
+    "columns": {
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "island": "character varying(50)"
+    },
+    "primary_key": [
+      "city",
+      "province",
+      "country",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "island",
+        "ref_table": "island",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "mergeswith": {
+    "columns": {
+      "sea1": "character varying(50)",
+      "sea2": "character varying(50)"
+    },
+    "primary_key": [
+      "sea1",
+      "sea2"
+    ],
+    "foreign_keys": [
+      {
+        "column": "sea1",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "sea2",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "mountain": {
+    "columns": {
+      "name": "character varying(50)",
+      "mountains": "character varying(50)",
+      "elevation": "numeric",
+      "type": "character varying(10)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "mountainonisland": {
+    "columns": {
+      "mountain": "character varying(50)",
+      "island": "character varying(50)"
+    },
+    "primary_key": [
+      "mountain",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "column": "mountain",
+        "ref_table": "mountain",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "island",
+        "ref_table": "island",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "organization": {
+    "columns": {
+      "abbreviation": "character varying(12)",
+      "name": "character varying(100)",
+      "city": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "established": "date"
+    },
+    "primary_key": [
+      "abbreviation"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "politics": {
+    "columns": {
+      "country": "character varying(4)",
+      "independence": "date",
+      "wasdependent": "character varying(50)",
+      "dependent": "character varying(4)",
+      "government": "character varying(120)"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "dependent",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "population": {
+    "columns": {
+      "country": "character varying(4)",
+      "population_growth": "numeric",
+      "infant_mortality": "numeric"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "province": {
+    "columns": {
+      "name": "character varying(50)",
+      "country": "character varying(4)",
+      "population": "numeric",
+      "area": "numeric",
+      "capital": "character varying(50)",
+      "capprov": "character varying(50)"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "provinceothername": {
+    "columns": {
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "province",
+      "othername"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "religion": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country",
+        "ref_table": "country",
+        "ref_col": "code",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "river": {
+    "columns": {
+      "name": "character varying(50)",
+      "river": "character varying(50)",
+      "lake": "character varying(50)",
+      "sea": "character varying(50)",
+      "length": "numeric",
+      "source": "geocoord",
+      "mountains": "character varying(50)",
+      "sourceelevation": "numeric",
+      "estuary": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": [
+      {
+        "column": "lake",
+        "ref_table": "lake",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "sea",
+        "ref_table": "sea",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "riverthrough": {
+    "columns": {
+      "river": "character varying(50)",
+      "lake": "character varying(50)"
+    },
+    "primary_key": [
+      "river",
+      "lake"
+    ],
+    "foreign_keys": [
+      {
+        "column": "river",
+        "ref_table": "river",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "lake",
+        "ref_table": "lake",
+        "ref_col": "name",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "sea": {
+    "columns": {
+      "name": "character varying(50)",
+      "depth": "numeric"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  }
+}

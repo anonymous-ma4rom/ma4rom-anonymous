@@ -1,0 +1,1324 @@
+{
+  "Author.ID": {
+    "object_prop_uri": "http://cmt#writePaper",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "所有候选属性的range均为Paper，与目标range User不匹配，且列名ID无语义关联。；LLM 未给出结果，依据结构/语义分数回退 top1",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#writePaper",
+        "local_name": "writePaper",
+        "score": 0.5348,
+        "name_score": 0.1,
+        "domain": [
+          "http://cmt#Author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.85,
+        "implicit_score": 0.85,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#submitPaper",
+        "local_name": "submitPaper",
+        "score": 0.5323,
+        "name_score": 0.091,
+        "domain": [
+          "http://cmt#Author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.85,
+        "implicit_score": 0.85,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#co-writePaper",
+        "local_name": "co-writePaper",
+        "score": 0.4551,
+        "name_score": 0.083,
+        "domain": [
+          "http://cmt#Co-author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "extra_score": 0.85,
+        "implicit_score": 0.85,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ProgramCommitteeChair.ID": {
+    "object_prop_uri": "http://cmt#endReview",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "Domain完全匹配，且名称包含'end'与ID列名无直接关联，但结构证据强，且其他候选的Domain不匹配。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasProgramCommitteeMember",
+        "local_name": "hasProgramCommitteeMember",
+        "score": 0.5365,
+        "name_score": 0.04,
+        "domain": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "range": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "extra_score": 0.715,
+        "implicit_score": 0.715,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#endReview",
+        "local_name": "endReview",
+        "score": 0.5126,
+        "name_score": 0.222,
+        "domain": [
+          "http://cmt#ProgramCommitteeChair"
+        ],
+        "range": [
+          "http://cmt#Review"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.715,
+        "implicit_score": 0.715,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#addProgramCommitteeMember",
+        "local_name": "addProgramCommitteeMember",
+        "score": 0.4727,
+        "name_score": 0.08,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.715,
+        "implicit_score": 0.715,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ProgramCommitteeMember.ID": {
+    "object_prop_uri": "http://cmt#addedBy",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名ID无语义，但addedBy的domain完全匹配且结构证据最强，其他候选domain不匹配或range不明确。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#addedBy",
+        "local_name": "addedBy",
+        "score": 0.5148,
+        "name_score": 0.143,
+        "domain": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.3,
+        "extra_score": 0.666,
+        "implicit_score": 0.666,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#memberOfProgramCommittee",
+        "local_name": "memberOfProgramCommittee",
+        "score": 0.4865,
+        "name_score": 0.042,
+        "domain": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "range": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.3,
+        "extra_score": 0.666,
+        "implicit_score": 0.666,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#endReview",
+        "local_name": "endReview",
+        "score": 0.462,
+        "name_score": 0.222,
+        "domain": [
+          "http://cmt#ProgramCommitteeChair"
+        ],
+        "range": [
+          "http://cmt#Review"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "extra_score": 0.666,
+        "implicit_score": 0.666,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "ProgramCommitteeMember.addedBy": {
+    "object_prop_uri": "http://cmt#addedBy",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "属性名完全匹配，且domain与确认的ProgramCommitteeMember一致，结构证据强度高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#addedBy",
+        "local_name": "addedBy",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.666,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#memberOfProgramCommittee",
+        "local_name": "memberOfProgramCommittee",
+        "score": 0.185,
+        "name_score": 0.125,
+        "domain": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "range": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.666,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#adjustedBy",
+        "local_name": "adjustedBy",
+        "score": 0.168,
+        "name_score": 0.6,
+        "domain": [
+          "http://cmt#Bid"
+        ],
+        "range": [
+          "http://cmt#Reviewer"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.666,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "User.ID": {
+    "object_prop_uri": "http://cmt#hasBid",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名ID与候选属性名称均不匹配，且候选属性的domain/range与User类无关，无法建立合理映射。；LLM 未给出结果，依据结构/语义分数回退 top1",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasBid",
+        "local_name": "hasBid",
+        "score": 0.5583,
+        "name_score": 0.333,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Bid"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#adjustBid",
+        "local_name": "adjustBid",
+        "score": 0.5272,
+        "name_score": 0.222,
+        "domain": [
+          "http://cmt#Reviewer"
+        ],
+        "range": [
+          "http://cmt#Bid"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#endReview",
+        "local_name": "endReview",
+        "score": 0.5272,
+        "name_score": 0.222,
+        "domain": [
+          "http://cmt#ProgramCommitteeChair"
+        ],
+        "range": [
+          "http://cmt#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "assignReviewer.Administrator": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性中无一个以Administrator为domain且以User为range，且结构证据极弱，无法匹配。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#assignedByAdministrator",
+        "local_name": "assignedByAdministrator",
+        "score": 0.2033,
+        "name_score": 0.565,
+        "domain": [
+          "http://cmt#Reviewer"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#assignedTo",
+        "local_name": "assignedTo",
+        "score": 0.1958,
+        "name_score": 0.538,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Reviewer"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hasDecision",
+        "local_name": "hasDecision",
+        "score": 0.1958,
+        "name_score": 0.538,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Decision"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "co-writePaper": {
+    "object_prop_uri": "http://cmt#co-writePaper",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "名称完全匹配，且 domain 为 Co-author 与 Author 语义相近，range 为 Paper 与 Document 兼容，结构证据强。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#writePaper",
+        "local_name": "writePaper",
+        "score": 0.8033,
+        "name_score": 0.833,
+        "domain": [
+          "http://cmt#Author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.88,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#co-writePaper",
+        "local_name": "co-writePaper",
+        "score": 0.775,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Co-author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.88,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#submitPaper",
+        "local_name": "submitPaper",
+        "score": 0.7333,
+        "name_score": 0.583,
+        "domain": [
+          "http://cmt#Author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 0.88,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "detailsEnteredBy": {
+    "object_prop_uri": "http://cmt#enterConferenceDetails",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名 detailsEnteredBy 表示由谁录入会议详情，enterConferenceDetails 语义最匹配，且 domain 和 range 均符合。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#startReviewerBidding",
+        "local_name": "startReviewerBidding",
+        "score": 0.332,
+        "name_score": 0.65,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enableVirtualMeeting",
+        "local_name": "enableVirtualMeeting",
+        "score": 0.318,
+        "name_score": 0.6,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enterConferenceDetails",
+        "local_name": "enterConferenceDetails",
+        "score": 0.3155,
+        "name_score": 0.591,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "enableVirtualMeeting": {
+    "object_prop_uri": "http://cmt#enableVirtualMeeting",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名与属性名完全匹配，且范围类一致，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#enableVirtualMeeting",
+        "local_name": "enableVirtualMeeting",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#startReviewerBidding",
+        "local_name": "startReviewerBidding",
+        "score": 0.332,
+        "name_score": 0.65,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#finalizePaperAssignment",
+        "local_name": "finalizePaperAssignment",
+        "score": 0.3204,
+        "name_score": 0.609,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "endReview": {
+    "object_prop_uri": "http://cmt#hasConflictOfInterest",
+    "confidence": "medium",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "名称不匹配但范围完全匹配Document，且domain为Person与ProgramCommittee有间接关联，综合得分第二。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#endReview",
+        "local_name": "endReview",
+        "score": 0.355,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#ProgramCommitteeChair"
+        ],
+        "range": [
+          "http://cmt#Review"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hasConflictOfInterest",
+        "local_name": "hasConflictOfInterest",
+        "score": 0.2167,
+        "name_score": 0.238,
+        "domain": [
+          "http://cmt#Person"
+        ],
+        "range": [
+          "http://cmt#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hasProgramCommitteeMember",
+        "local_name": "hasProgramCommitteeMember",
+        "score": 0.206,
+        "name_score": 0.2,
+        "domain": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "range": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "enterReviewCriteria": {
+    "object_prop_uri": "http://cmt#enterReviewCriteria",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名与属性名完全一致，且范围匹配，尽管领域不完全匹配但名称得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#enterReviewCriteria",
+        "local_name": "enterReviewCriteria",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#startReviewerBidding",
+        "local_name": "startReviewerBidding",
+        "score": 0.36,
+        "name_score": 0.75,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enableVirtualMeeting",
+        "local_name": "enableVirtualMeeting",
+        "score": 0.318,
+        "name_score": 0.6,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "finalizePaperAssignment": {
+    "object_prop_uri": "http://cmt#finalizePaperAssignment",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名与属性名完全一致，且范围匹配，名称得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#finalizePaperAssignment",
+        "local_name": "finalizePaperAssignment",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#runPaperAssignmentTools",
+        "local_name": "runPaperAssignmentTools",
+        "score": 0.357,
+        "name_score": 0.739,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#printHardcopyMailingManifests",
+        "local_name": "printHardcopyMailingManifests",
+        "score": 0.3431,
+        "name_score": 0.69,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "hardcopyMailingManifestsP": {
+    "object_prop_uri": "http://cmt#hardcopyMailingManifestsPrintedBy",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名 hardcopyMailingManifestsP 与候选属性 hardcopyMailingManifestsPrintedBy 高度匹配，且 domain 完全一致，range 虽为 Administrator 但 User 可能为其父类，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#paperAssignmentFinalizedBy",
+        "local_name": "paperAssignmentFinalizedBy",
+        "score": 0.3762,
+        "name_score": 0.808,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hardcopyMailingManifestsPrintedBy",
+        "local_name": "hardcopyMailingManifestsPrintedBy",
+        "score": 0.3621,
+        "name_score": 0.758,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#paperAssignmentToolsRunBy",
+        "local_name": "paperAssignmentToolsRunBy",
+        "score": 0.3404,
+        "name_score": 0.68,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "hasConferenceMember": {
+    "object_prop_uri": "http://cmt#hasConferenceMember",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "名称完全匹配，domain一致，且结构证据强度为100%。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasConferenceMember",
+        "local_name": "hasConferenceMember",
+        "score": 0.85,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#ConferenceMember"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#memberOfConference",
+        "local_name": "memberOfConference",
+        "score": 0.7308,
+        "name_score": 0.842,
+        "domain": [
+          "http://cmt#ConferenceMember"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#reviewCriteriaEnteredBy",
+        "local_name": "reviewCriteriaEnteredBy",
+        "score": 0.7039,
+        "name_score": 0.478,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "hasConflictOfInterest": {
+    "object_prop_uri": "http://cmt#hasConflictOfInterest",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性名称与关系完全一致，且 domain 和 range 与确认的类匹配，尽管统计证据较弱，但名称和语义完全吻合。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasConflictOfInterest",
+        "local_name": "hasConflictOfInterest",
+        "score": 0.28,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Person"
+        ],
+        "range": [
+          "http://cmt#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#markConflictOfInterest",
+        "local_name": "markConflictOfInterest",
+        "score": 0.2418,
+        "name_score": 0.864,
+        "domain": [
+          "nb3b43a490e824b9ea4424f31be6da276b1"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enterConferenceDetails",
+        "local_name": "enterConferenceDetails",
+        "score": 0.1909,
+        "name_score": 0.682,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "hasProgramCommitteeMember": {
+    "object_prop_uri": "http://cmt#hasProgramCommitteeMember",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "fast_track",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasProgramCommitteeMember",
+        "local_name": "hasProgramCommitteeMember",
+        "score": 1.0,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "range": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#addProgramCommitteeMember",
+        "local_name": "addProgramCommitteeMember",
+        "score": 0.8276,
+        "name_score": 0.92,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#memberOfProgramCommittee",
+        "local_name": "memberOfProgramCommittee",
+        "score": 0.8164,
+        "name_score": 0.88,
+        "domain": [
+          "http://cmt#ProgramCommitteeMember"
+        ],
+        "range": [
+          "http://cmt#ProgramCommittee"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.5,
+        "extra_score": 1.0,
+        "implicit_score": 1.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "hasSubjectArea.SubjectArea": {
+    "object_prop_uri": "http://cmt#hasSubjectArea",
+    "confidence": "high",
+    "scenario": "SMD",
+    "method": "llm_select",
+    "reason": "列名SubjectArea与属性hasSubjectArea名称高度匹配，且其domain和range分别对应Paper和SubjectArea，符合外键关系语义。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasSubjectArea",
+        "local_name": "hasSubjectArea",
+        "score": 0.5036,
+        "name_score": 0.786,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#SubjectArea"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#acceptPaper",
+        "local_name": "acceptPaper",
+        "score": 0.4364,
+        "name_score": 0.636,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#adjustedBy",
+        "local_name": "adjustedBy",
+        "score": 0.4364,
+        "name_score": 0.636,
+        "domain": [
+          "http://cmt#Bid"
+        ],
+        "range": [
+          "http://cmt#Reviewer"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.3,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "paperAssignmentToolsRunBy": {
+    "object_prop_uri": "http://cmt#paperAssignmentToolsRunBy",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "名称完全匹配，且domain一致，range虽为Administrator但User包含Administrator，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#paperAssignmentToolsRunBy",
+        "local_name": "paperAssignmentToolsRunBy",
+        "score": 0.43,
+        "name_score": 1.0,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#paperAssignmentFinalizedBy",
+        "local_name": "paperAssignmentFinalizedBy",
+        "score": 0.3546,
+        "name_score": 0.731,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hardcopyMailingManifestsPrintedBy",
+        "local_name": "hardcopyMailingManifestsPrintedBy",
+        "score": 0.3367,
+        "name_score": 0.667,
+        "domain": [
+          "http://cmt#Conference"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "reviewerBiddingStartedBy": {
+    "object_prop_uri": "http://cmt#startReviewerBidding",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "列名 reviewerBiddingStartedBy 与 startReviewerBidding 语义高度匹配，且 range 正确，domain 虽为 Administrator 但 User 可视为其父类。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#startReviewerBidding",
+        "local_name": "startReviewerBidding",
+        "score": 0.3833,
+        "name_score": 0.833,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enterReviewCriteria",
+        "local_name": "enterReviewCriteria",
+        "score": 0.3367,
+        "name_score": 0.667,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#enableVirtualMeeting",
+        "local_name": "enableVirtualMeeting",
+        "score": 0.3133,
+        "name_score": 0.583,
+        "domain": [
+          "http://cmt#Administrator"
+        ],
+        "range": [
+          "http://cmt#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "setMaxPapers.Administrator": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性中无一个以Administrator为domain或以User为range，且名称不匹配，结构证据极弱。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#assignedByAdministrator",
+        "local_name": "assignedByAdministrator",
+        "score": 0.2033,
+        "name_score": 0.565,
+        "domain": [
+          "http://cmt#Reviewer"
+        ],
+        "range": [
+          "http://cmt#Administrator"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#assignedTo",
+        "local_name": "assignedTo",
+        "score": 0.1958,
+        "name_score": 0.538,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Reviewer"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hasDecision",
+        "local_name": "hasDecision",
+        "score": 0.1958,
+        "name_score": 0.538,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Decision"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  },
+  "submitPaper.Author": {
+    "object_prop_uri": "http://cmt#hasAuthor",
+    "confidence": "high",
+    "scenario": "SLD",
+    "method": "llm_select",
+    "reason": "候选属性 hasAuthor 的 range 精确匹配目标类 Author，且名称高度相关，综合得分最高。",
+    "candidates_used": [
+      {
+        "uri": "http://cmt#hasAuthor",
+        "local_name": "hasAuthor",
+        "score": 0.3817,
+        "name_score": 0.667,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Author"
+        ],
+        "domain_score": 0.3,
+        "range_score": 1.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#hasCo-author",
+        "local_name": "hasCo-author",
+        "score": 0.2727,
+        "name_score": 0.545,
+        "domain": [
+          "http://cmt#Paper"
+        ],
+        "range": [
+          "http://cmt#Co-author"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.5,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      },
+      {
+        "uri": "http://cmt#submitPaper",
+        "local_name": "submitPaper",
+        "score": 0.1468,
+        "name_score": 0.364,
+        "domain": [
+          "http://cmt#Author"
+        ],
+        "range": [
+          "http://cmt#Paper"
+        ],
+        "domain_score": 0.3,
+        "range_score": 0.0,
+        "extra_score": 0.0,
+        "implicit_score": 0.0,
+        "peer_implicit_score": 0.0,
+        "peer_bonus": 0.0
+      }
+    ]
+  }
+}

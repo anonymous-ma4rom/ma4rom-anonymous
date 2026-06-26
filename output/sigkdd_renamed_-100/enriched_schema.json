@@ -1,0 +1,908 @@
+{
+  "abstracts": {
+    "columns": {
+      "id": "integer",
+      "title": "character varying(101)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "acm_sigkdds": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "author_deadline_author_notificat": {
+    "columns": {
+      "aid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "did"
+    ],
+    "foreign_keys": [
+      {
+        "column": "did",
+        "ref_table": "deadline_author_notificats",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名did与deadline_author_notificats表名语义匹配，且该表是截止日期作者通知实体表，作为外键引用其主键合理。"
+      }
+    ]
+  },
+  "author_paper_students": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "author_papers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "speakers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "award_author": {
+    "columns": {
+      "author": "integer",
+      "award": "integer"
+    },
+    "primary_key": [
+      "author",
+      "award"
+    ],
+    "foreign_keys": [
+      {
+        "column": "author",
+        "ref_table": "authors",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 author 与表 authors 语义匹配，且 name_score 最高 (0.8571)，符合关联表外键模式。"
+      },
+      {
+        "column": "award",
+        "ref_table": "awards",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 award 与表 awards 语义匹配，且 name_score 最高 (0.8333)，符合关联表外键模式。"
+      }
+    ]
+  },
+  "awards": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "best_applications_paper_as": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "best_paper_awards_committs": {
+    "columns": {
+      "id": "integer",
+      "award": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "award",
+        "ref_table": "awards",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名'award'语义直接指向awards表，表示奖项标识，最佳论文奖委员会成员关联的奖项"
+      }
+    ]
+  },
+  "best_research_paper_awards": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "best_student_paper_awards": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "best_student_paper_suppors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "best_student_paper_awards",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 best_student_paper_suppors 与 best_student_paper_awards 语义直接相关，支持者指向奖项，且 name_score 最高。"
+      }
+    ]
+  },
+  "bronze_supporters": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "committees": {
+    "columns": {
+      "id": "integer",
+      "ref": "integer",
+      "committee": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ref",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "committee",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conference_halls": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "conference_halls 存储会议厅信息，通常与 conferences 关联，列名 id 引用 conferences.id 语义明确。"
+      }
+    ]
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "holded": "integer",
+      "start_conference": "date",
+      "city_conference": "character varying(16)",
+      "name_conference": "character varying(6)",
+      "end_conference": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "deadline_abstract_submiss": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "deadline_author_notificats": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "deadline_document": {
+    "columns": {
+      "document": "integer",
+      "deadline": "integer"
+    },
+    "primary_key": [
+      "document",
+      "deadline"
+    ],
+    "foreign_keys": [
+      {
+        "column": "document",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表 documents 语义匹配，应是引用 documents 表的主键"
+      },
+      {
+        "column": "deadline",
+        "ref_table": "deadlines",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表 deadlines 语义匹配，应是引用 deadlines 表的主键"
+      }
+    ]
+  },
+  "deadline_paper_submissions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "deadlines": {
+    "columns": {
+      "id": "integer",
+      "designed": "integer",
+      "date": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "designed",
+        "ref_table": "acm_sigkdds",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "medium",
+        "reason": "列名designed与本体对象属性designed_by的range角色匹配，且domain/range完全匹配"
+      }
+    ]
+  },
+  "documents": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "e_mails": {
+    "columns": {
+      "person": "integer",
+      "value": "character varying(43)"
+    },
+    "primary_key": [
+      "person",
+      "value"
+    ],
+    "foreign_keys": [
+      {
+        "column": "person",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "exhibitors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "fees": {
+    "columns": {
+      "id": "integer",
+      "currency": "character varying(199)",
+      "price": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "general_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "gold_supporters": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "hotels": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "invited_speakers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "listeners": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "main_offices": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizators": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "organizing_committee_membs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "organizing_committees",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 organizing_committee_membs 表示组织委员会成员，id 列应引用 organizing_committees 表的主键，语义高度匹配"
+      }
+    ]
+  },
+  "organizing_committees": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "paper_author": {
+    "columns": {
+      "aid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "pid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "aid",
+        "ref_table": "authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "pid",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "papers": {
+    "columns": {
+      "id": "integer",
+      "title": "character varying(101)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "nation": "character varying(199)",
+      "name": "character varying(24)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "place_person": {
+    "columns": {
+      "person": "integer",
+      "place": "integer"
+    },
+    "primary_key": [
+      "person",
+      "place"
+    ],
+    "foreign_keys": [
+      {
+        "column": "person",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 place_person 为地点与人员关联表，person 列语义上引用 persons 表主键"
+      },
+      {
+        "column": "place",
+        "ref_table": "places",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 place_person 为地点与人员关联表，place 列语义上引用 places 表主键"
+      }
+    ]
+  },
+  "places": {
+    "columns": {
+      "id": "integer",
+      "lat": "integer",
+      "long": "integer",
+      "street": "character varying(199)",
+      "postal_code": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "platinum_supporters": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "program_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "organizators",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "program_committee_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "organizators",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "label": "character varying(29)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "committees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "registration_fee_person": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "rid",
+        "ref_table": "registration_fees",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "rid 在表 registration_fee_person 中很可能引用注册费用表的主键，语义匹配且候选目标 registration_fees.id 分数较高。"
+      }
+    ]
+  },
+  "registration_fees": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "fees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "registration_non_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "registration_sigkdd_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "registration_sigmod_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "registration_students": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "ref": "integer",
+      "review": "integer",
+      "internal_id": "integer",
+      "text": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ref",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "review",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "silver_supporters": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "speaker_document": {
+    "columns": {
+      "sid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "sid",
+      "did"
+    ],
+    "foreign_keys": []
+  },
+  "speakers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "sponzor_acm_sigkdd": {
+    "columns": {
+      "aid": "integer",
+      "sid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "sid"
+    ],
+    "foreign_keys": []
+  },
+  "sponzor_fees": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "fees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "sponzors": {
+    "columns": {
+      "id": "integer",
+      "name_sponsor": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "webmasters": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  }
+}

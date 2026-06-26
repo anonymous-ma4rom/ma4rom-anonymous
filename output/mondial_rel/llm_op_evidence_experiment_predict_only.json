@@ -1,0 +1,1005 @@
+{
+  "database": "mondial_rel",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "include_no_gold": true,
+  "evaluated_at": "2026-06-04 21:41:21",
+  "summary": {
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "airport.city",
+      "source": "airport.city",
+      "target": "city.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "current_local_name": "hasCity",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.36703893751886507,
+        "source_in_target": 1.0,
+        "target_in_source": 0.36703893751886507,
+        "valentine_coma_score": 0.15958933023599772,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "关系为airport.city引用city.name，表示机场到城市的关联。候选hasCity和capital的domain限定为AdministrativeArea，与airport不匹配，导致domain_score为0；cityIn的domain和range未明确限制，且名称匹配度最高(0.667)，因此选择cityIn作为最佳映射，尽管其语义方向可能为逆，但无直接冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "airport.country",
+      "source": "airport.country",
+      "target": "city.country",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9508196721311475,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9508196721311475,
+        "valentine_coma_score": 0.7376436781609196,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "列匹配表明机场国家和城市国家代码等价；cityIn名称相似度最高(0.571)，表示'城市在某个国家'，最接近机场所在国语义；尽管领域未明确包含机场，但相比邻国和边界属性更合适。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "airport.island",
+      "source": "airport.island",
+      "target": "island.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+      "current_local_name": "locatedOnIsland",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+      "llm_selected_local_name": "locatedOnIsland",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5604026845637584,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5604026845637584,
+        "valentine_coma_score": 0.39383376202508935,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+        "selected_local_name": "locatedOnIsland",
+        "confidence": "high",
+        "reason": "IND证据表明airport.island完全参照island.name，名称'locatedOnIsland'直接匹配语义，范围是Island，且是locatedIn的子属性，因此最符合机场与岛屿的关系。域得分低可能是因为缺少显式域声明，但不影响选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "airport.province",
+      "source": "airport.province",
+      "target": "city.province",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+      "current_local_name": "isProvinceOf",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+      "llm_selected_local_name": "isProvinceOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5578274760383387,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5578274760383387,
+        "valentine_coma_score": 0.7277254333496094,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "selected_local_name": "isProvinceOf",
+        "confidence": "high",
+        "reason": "基于名称匹配度高（0.667）、数据库外键IND为1.0表明机场省份是城市省份的子集，且当前CPA已有选择，无领域范围冲突。其他候选属性（capital领域范围不匹配，encompasses名称相关性低）不合适。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "borders.country1",
+      "source": "borders.country1",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "current_local_name": "bordering",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "llm_selected_local_name": "bordering",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.48770491803278687,
+        "source_in_target": 1.0,
+        "target_in_source": 0.48770491803278687,
+        "valentine_coma_score": 0.38555347091932457,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "selected_local_name": "bordering",
+        "confidence": "high",
+        "reason": "关系 'borders.country1' 指向国家代码，对应边界表，'bordering' 的域为 Border、范围为 Country，完美匹配源和目标；IND 证据显示源值全部包含于目标（1.0），且存在逆属性 hasBorder。名称相似度较低 (0.333) 但语义完全一致，域范围匹配度均为 1.0。其他候选 'neighbor' 域不匹配（Country vs Border），'cityIn' 完全不相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "borders.country2",
+      "source": "borders.country2",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "current_local_name": "bordering",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "llm_selected_local_name": "bordering",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5286885245901639,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5286885245901639,
+        "valentine_coma_score": 0.4007285974499089,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "selected_local_name": "bordering",
+        "confidence": "high",
+        "reason": "外键borders.country2指向country.code，bordering的域为Border（匹配源表），范围为Country（匹配目标），名称语义一致，域和范围得分均为1.0，支持IND包含关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "city.country",
+      "source": "city.country",
+      "target": "province.country",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "current_local_name": "cityIn",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.8741319444444444,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "high",
+        "reason": "外键city.country引用province.country，并且两列完全包含（IND为1），cityIn的restriction支持连接City到Province，名字匹配度高（0.571），其他候选的域或范围不匹配"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "city.province",
+      "source": "city.province",
+      "target": "province.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "current_local_name": "hasProvince",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "llm_selected_local_name": "hasProvince",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.993020304568528,
+        "source_in_target": 1.0,
+        "target_in_source": 0.993020304568528,
+        "valentine_coma_score": 0.39218843430504313,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "selected_local_name": "hasProvince",
+        "confidence": "low",
+        "reason": "名称相似度高(0.727)，范围匹配(Province)，但领域(Country)与实际源表City冲突；IND证明外键关系，但无结构匹配，综合评估较低"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.capital",
+      "source": "country.capital",
+      "target": "city.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "current_local_name": "capital",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "llm_selected_local_name": "capital",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.07304557802595835,
+        "source_in_target": 1.0,
+        "target_in_source": 0.07304557802595835,
+        "valentine_coma_score": 0.056557595441882734,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "selected_local_name": "capital",
+        "confidence": "high",
+        "reason": "该关系将国家与其首都城市关联，候选属性'capital'名称完全匹配，域（国家属于AdministrativeArea）和范围（城市）符合，而且包含依赖（IND）证实所有国家首都值均出现在城市名称中，因此选择'capital'。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.code",
+      "source": "country.code",
+      "target": "city.country",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#ethnicInfo",
+      "current_local_name": "ethnicInfo",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "llm_selected_local_name": "hasProvince",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.4094412331406551,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "selected_local_name": "hasProvince",
+        "confidence": "low",
+        "reason": "该外键关系连接国家编码（country.code）和城市所在国家（city.country），但候选属性均不直接匹配。hasProvince的域为国家，范围为省份，虽然城市通常位于省份内，但域和范围仍不匹配，且SQL构造和IND证据表明列等价，无直接对应属性，因此选择相对合理的hasProvince，置信度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.province",
+      "source": "country.province",
+      "target": "city.province",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "current_local_name": "hasProvince",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "llm_selected_local_name": "hasProvince",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.15335463258785942,
+        "source_in_target": 1.0,
+        "target_in_source": 0.15335463258785942,
+        "valentine_coma_score": 0.5841122578922434,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "selected_local_name": "hasProvince",
+        "confidence": "medium",
+        "reason": "外键关系从country.province到city.province，语义上country拥有province，且city.province可能对应Province类。hasProvince的域为Country，名称匹配度最高（0.727），虽然范围是Province而非city表，但相比其他候选（neighbor范围Country，ethnicInfo范围EthnicProportion）更接近；IND显示所有country.province值包含于city.province，可能间接关联Province。无确切构造匹配，故置信度为中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "economy.country",
+      "source": "economy.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "llm_selected_local_name": "neighbor",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+        "selected_local_name": "neighbor",
+        "confidence": "low",
+        "reason": "数据库外键关联来源和目标列（均为国家代码），候选属性中‘neighbor’和‘dependentOf’均具备匹配的领域和范围（Country到Country），但‘neighbor’的名称相似度略高，且无构造或约束支持；由于语义上‘economy.country’与邻国关系不符，但其他候选者要么范围不匹配（ethnicInfo），要么名称相似度更低，因此选择neighbor作为折中。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "encompasses.continent",
+      "source": "encompasses.continent",
+      "target": "continent.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#encompassedBy",
+      "current_local_name": "encompassedBy",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#encompassedBy",
+      "llm_selected_local_name": "encompassedBy",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.4999999990613442,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#encompassedBy",
+        "selected_local_name": "encompassedBy",
+        "confidence": "high",
+        "reason": "域(Encompassed)和范围(Continent)完全匹配数据库外键关系，IND验证列等价，名称‘encompassedBy’与‘encompasses.continent’语义一致，无SQL构造或限制冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "encompasses.country",
+      "source": "encompasses.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "low",
+        "reason": "列完全对应（244个相同值）表明encompasses.country是country.code的外键引用。cityIn名称相似度最高（0.571）且无领域/范围约束，避免直接冲突，但语义上适用于城市-国家关系，与当前外键语义不完全匹配，故置信度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "ethnicgroup.country",
+      "source": "ethnicgroup.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.8073770491803278,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8073770491803278,
+        "valentine_coma_score": 0.4738095238095238,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "关系ethnicgroup.country到country.code表示族群所属国家。候选属性中，cityIn名称相似度最高（0.571），且无明确域和范围约束，而neighbor域要求Country（不匹配族群），bordering域要求Border。因此cityIn最合适。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.lake",
+      "source": "islandin.lake",
+      "target": "lake.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "current_local_name": "locatedInWater",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "llm_selected_local_name": "locatedInWater",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.03496503496503497,
+        "source_in_target": 1.0,
+        "target_in_source": 0.03496503496503497,
+        "valentine_coma_score": 0.044833911431802285,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "selected_local_name": "locatedInWater",
+        "confidence": "high",
+        "reason": "外键关系表示岛屿位于湖泊中；locatedInWater的域匹配Island（源表），范围Water涵盖湖泊；名称相似度0.214，域匹配1.0；虽然范围不是精确的Lake，但作为Water子类语义合理；其他候选域或范围不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.river",
+      "source": "islandin.river",
+      "target": "river.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "current_local_name": "locatedInWater",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "llm_selected_local_name": "locatedInWater",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.020161290322580645,
+        "source_in_target": 1.0,
+        "target_in_source": 0.020161290322580645,
+        "valentine_coma_score": 0.025490196078431372,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "selected_local_name": "locatedInWater",
+        "confidence": "high",
+        "reason": "该关系是岛与河流的外键约束，domain为Island、range为Water（河流是水的一种），且IND证据表明所有源值都在目标中，语义匹配。其他候选不相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.sea",
+      "source": "islandin.sea",
+      "target": "sea.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "current_local_name": "locatedInWater",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+      "llm_selected_local_name": "locatedInWater",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.8292682926829268,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8292682926829268,
+        "valentine_coma_score": 0.49180077702166086,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedInWater",
+        "selected_local_name": "locatedInWater",
+        "confidence": "high",
+        "reason": "域为Island，范围为Water，与关系'岛屿位于海'匹配；IND表明source完全包含在target中；领域范围匹配强烈支持，且为当前CPA选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "ismember.country",
+      "source": "ismember.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#ofMember",
+      "current_local_name": "ofMember",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#ofMember",
+      "llm_selected_local_name": "ofMember",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9713114754098361,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9713114754098361,
+        "valentine_coma_score": 0.48649789029535867,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#ofMember",
+        "selected_local_name": "ofMember",
+        "confidence": "high",
+        "reason": "外键关系'ismember.country'引用'country.code'，语义表示成员所属国家。候选属性中仅'ofMember'的domain为Membership、range为Country，完全匹配该外键的语义；IND验证100%覆盖，且手动Jaccard相似度高达0.97，因此选择'ofMember'。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "ismember.organization",
+      "source": "ismember.organization",
+      "target": "organization.abbreviation",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#inOrganization",
+      "current_local_name": "inOrganization",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#inOrganization",
+      "llm_selected_local_name": "inOrganization",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5929065743944637,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#inOrganization",
+        "selected_local_name": "inOrganization",
+        "confidence": "high",
+        "reason": "名称得分0.857，域(Membership)和范围(Organization)完美匹配表关系，且两列完全等价(Jaccard=1.0,IND=1.0,168个值完全交集)，无冲突"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "lake.river",
+      "source": "lake.river",
+      "target": "river.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+      "current_local_name": "hasBorder",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+      "llm_selected_local_name": "haMember",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2862903225806452,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2862903225806452,
+        "valentine_coma_score": 0.23980664339932528,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+        "selected_local_name": "haMember",
+        "confidence": "low",
+        "reason": "关系 lake.river -> river.name 表示湖有河流，但候选属性中 hasBorder 和 isProvinceOf 语义明显不匹配，haMember 虽拼写可能为 hasMember 且名称相似度0.25较低，但相比之下更接近“有成员”的关联；缺少 exact_sql_construction_match 和 restriction_support，且领域范围为空，无法提供更强证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "language.country",
+      "source": "language.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5163934426229508,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5163934426229508,
+        "valentine_coma_score": 0.3821138211382114,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "外键language.country关联语言到国家，语义为“语言所属国家”。候选属性中cityIn名称相似度最高（0.571），且无域范围限制，可解释为类似“languageIn”的关系；neighbor和bordering的域均为地理实体，与Language不匹配，因此选cityIn。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.city",
+      "source": "located.city",
+      "target": "city.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "current_local_name": "hasCity",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "llm_selected_local_name": "hasCity",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.36915182613945063,
+        "source_in_target": 1.0,
+        "target_in_source": 0.36915182613945063,
+        "valentine_coma_score": 0.23382210361772685,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "selected_local_name": "hasCity",
+        "confidence": "medium",
+        "reason": "外键从located.city指向city.name，表明located实体与City关联。hasCity方向正确（从AdministrativeArea到City），范围精确匹配City，名称相似度0.571且为当前CPA选择。cityIn方向相反（City到某物），capital语义过于具体（首都），故hasCity为最佳。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.country",
+      "source": "located.country",
+      "target": "city.country",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "current_local_name": "hasCity",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.889344262295082,
+        "source_in_target": 1.0,
+        "target_in_source": 0.889344262295082,
+        "valentine_coma_score": 0.8410693301997649,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "外键located.country指向city.country；候选属性中cityIn的名称匹配最高(0.571)，且域和范围得分均为0.3，表明一定匹配；hasCity和capital的域得分0，说明located表不匹配AdministrativeArea，因此cityIn更合适。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.lake",
+      "source": "located.lake",
+      "target": "lake.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "current_local_name": "flowsThrough",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "llm_selected_local_name": "flowsThrough",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.24475524475524477,
+        "source_in_target": 1.0,
+        "target_in_source": 0.24475524475524477,
+        "valentine_coma_score": 0.2738894304352491,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "selected_local_name": "flowsThrough",
+        "confidence": "medium",
+        "reason": "外键从located.lake指向lake.name，IND为1.0表明完全包含。flowsThrough的范围是Lake，与目标表匹配，但领域为River，与源表不完全匹配；其他候选haMember和hasBorder缺乏明确领域范围，且名称含义不直接相关。因此选择flowsThrough，但领域不匹配导致置信度中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.province",
+      "source": "located.province",
+      "target": "city.province",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+      "current_local_name": "isProvinceOf",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+      "llm_selected_local_name": "isProvinceOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5060702875399361,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5060702875399361,
+        "valentine_coma_score": 0.7878658905029297,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#isProvinceOf",
+        "selected_local_name": "isProvinceOf",
+        "confidence": "medium",
+        "reason": "名称与'province'高度匹配（0.667），外键关系表明地点指向省份，虽然属性方向可能表示反向关系，但无更优选择；包含依赖（IND=1.0）支持强关联，其他候选（capital、encompasses）名称或域范围不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.river",
+      "source": "located.river",
+      "target": "river.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+      "current_local_name": "hasBorder",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+      "llm_selected_local_name": "haMember",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.6129032258064516,
+        "source_in_target": 1.0,
+        "target_in_source": 0.6129032258064516,
+        "valentine_coma_score": 0.4371831737841052,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#haMember",
+        "selected_local_name": "haMember",
+        "confidence": "low",
+        "reason": "外键包含证据表明located.river引用river.name（所有152个源值均匹配目标），语义上应为地理位置包含河流的关系。候选属性中hasBorder和isProvinceOf与河流无关，只有haMember可能表示'拥有成员'，但匹配度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "located.sea",
+      "source": "located.sea",
+      "target": "sea.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+      "current_local_name": "mergesWith",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+      "llm_selected_local_name": "hasBorder",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9024390243902439,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9024390243902439,
+        "valentine_coma_score": 0.4977813340209024,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasBorder",
+        "selected_local_name": "hasBorder",
+        "confidence": "low",
+        "reason": "数据库关系located.sea引用sea.name表示位置与海的关联。候选属性中，mergesWith域和范围均为海，但语义为合并，不匹配；hasSource-含义为来源，也不符。hasBorder的逆属性bordering表示接壤，可以解释为位置与海相邻或关联，且名称匹配得分0.333较高，但缺乏精确的构造或限制支持，故低置信度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "politics.country",
+      "source": "politics.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "low",
+        "reason": "外键从politics.country到country.code，表示实体与国家的关系。候选属性中，cityIn名称得分最高(0.571)且范围可能为国家，但领域不明确；neighbor和bordering均要求特定领域(Country/Border)，与来源表不匹配。无完美匹配，故选cityIn，置信度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "politics.dependent",
+      "source": "politics.dependent",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+      "current_local_name": "dependentOf",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+      "llm_selected_local_name": "dependentOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.040983606557377046,
+        "source_in_target": 1.0,
+        "target_in_source": 0.040983606557377046,
+        "valentine_coma_score": 0.09712230215827339,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#dependentOf",
+        "selected_local_name": "dependentOf",
+        "confidence": "high",
+        "reason": "名称匹配度高（0.818），明确表示依赖关系，域和范围均为国家，与IND证据（source_in_target=1.0）一致，无冲突。bordering和neighbor语义不符。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "population.country",
+      "source": "population.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "外键关系 population.country 指向国家代码，语义为“位于某个国家”。cityIn 的名称相似度最高（0.571），且其逆属性 hasCity 暗示城市与国家关系，而 neighbor 和 bordering 表示邻接，与关系不符。尽管 cityIn 的 domain/range 分数较低，但无其他更匹配属性，故选择 cityIn。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.capital",
+      "source": "province.capital",
+      "target": "city.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "current_local_name": "capital",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "llm_selected_local_name": "capital",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.4711741623905826,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4711741623905826,
+        "valentine_coma_score": 0.2862259231888138,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "selected_local_name": "capital",
+        "confidence": "high",
+        "reason": "名称完全匹配'capital'，域'AdministrativeArea'和范围'City'与省份和城市类型对应；IND表明全部省份首都值在城市名称中，符合外键语义。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.capprov",
+      "source": "province.capprov",
+      "target": "city.province",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "current_local_name": "hasCity",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "llm_selected_local_name": "capital",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9936102236421726,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9936102236421726,
+        "valentine_coma_score": 0.5702182229031774,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "selected_local_name": "capital",
+        "confidence": "high",
+        "reason": "列名capprov暗示省会关系，capital的domain（AdministrativeArea）和range（City）与province和city匹配，且IND验证了列等价性，语义更准确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.country",
+      "source": "province.country",
+      "target": "city.country",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.8741319444444444,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "名称包含'city'，与目标表city相关；neighbor的domain和range都是Country，与province和city的类不匹配，且语义冲突（邻国关系）；cityIn的domain/range未限制，灵活性高，可通过逆映射hasCity表达省份与城市的关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "religion.country",
+      "source": "religion.country",
+      "target": "country.code",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#neighbor",
+      "current_local_name": "neighbor",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+      "llm_selected_local_name": "cityIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9139344262295082,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9139344262295082,
+        "valentine_coma_score": 0.4861294583883752,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#cityIn",
+        "selected_local_name": "cityIn",
+        "confidence": "medium",
+        "reason": "关系是宗教到国家的外键，需要表示宗教所属国家。'cityIn'（城市位于国家）是唯一语义相近的属性，且其域和范围未严格限制，可泛化使用。其他候选'neighbor'和'bordering'的域（Country或Border）与宗教不匹配，名称也不相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.lake",
+      "source": "river.lake",
+      "target": "lake.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "current_local_name": "flowsThrough",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "llm_selected_local_name": "flowsThrough",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.16783216783216784,
+        "source_in_target": 1.0,
+        "target_in_source": 0.16783216783216784,
+        "valentine_coma_score": 0.16653912642906452,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "selected_local_name": "flowsThrough",
+        "confidence": "high",
+        "reason": "数据库关系river.lake引用lake.name，表示河流流经湖泊。flowsThrough的域（River）和范围（Lake）完全匹配，且IND表明river中的每个lake值都存在于lake表中，支持该关系。其他候选hasSource和hasEstuary的范围不匹配（Source和Estuary），因此排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.river",
+      "source": "river.river",
+      "target": "river.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+      "current_local_name": "hasSource",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+      "llm_selected_local_name": "hasSource",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "valentine_coma_score": 0.2647367292834866,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+        "selected_local_name": "hasSource",
+        "confidence": "medium",
+        "reason": "数据库关系从 river.river 列指向 river.name 列，hasSource 的域为 River，与源表匹配；范围虽为 Source，但目标列存储的是名称，可能作为 Source 的标识符。包含依赖证据（source_in_target_IND=1.0）支持该引用关系，但缺少精确 SQL 构造匹配且名称相似度较低（0.222），因此置信度为中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.sea",
+      "source": "river.sea",
+      "target": "sea.name",
+      "current_uri": "http://www.semwebtech.org/mondial/10/meta#hasSource",
+      "current_local_name": "hasSource",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasEstuary",
+      "llm_selected_local_name": "hasEstuary",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.7073170731707317,
+        "source_in_target": 1.0,
+        "target_in_source": 0.7073170731707317,
+        "valentine_coma_score": 0.4576132153019761,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasEstuary",
+        "selected_local_name": "hasEstuary",
+        "confidence": "medium",
+        "reason": "外键从河流指向海洋，hasEstuary域为河流，范围是河口，语义最接近海洋，而hasSource范围错误（源头），mergesWith域不匹配（海洋）。"
+      },
+      "error": null
+    }
+  ]
+}

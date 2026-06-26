@@ -1,0 +1,76 @@
+{
+  "Abstract": {
+    "table_low": true,
+    "columns_low": [
+      "is_the_1th_part_of"
+    ]
+  },
+  "Committee": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Conference_document": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "Invited_talk": {
+    "table_low": false,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Paper": {
+    "table_low": true,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Person": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "Poster": {
+    "table_low": false,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Review": {
+    "table_low": true,
+    "columns_low": [
+      "reviews"
+    ]
+  },
+  "Review_expertise": {
+    "table_low": false,
+    "columns_low": [
+      "has_a_submitted_contribut"
+    ]
+  },
+  "Review_preference": {
+    "table_low": false,
+    "columns_low": [
+      "has_a_topic_or_a_submissi"
+    ]
+  },
+  "Track": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Workshop": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "contributes": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "has_a_committee_co-chair": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "has_a_track-workshop-tuto": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

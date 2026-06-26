@@ -1,0 +1,80 @@
+{
+  "Abstract": {
+    "table_low": true,
+    "columns_low": [
+      "is_the_1th_part_of",
+      "is_submitted_at"
+    ]
+  },
+  "Committee": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Conference_document": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "Invited_talk": {
+    "table_low": false,
+    "columns_low": [
+      "is_given_by",
+      "is_submitted_at"
+    ]
+  },
+  "Organizing_committee": {
+    "table_low": false,
+    "columns_low": [
+      "was_an_organizing_committ"
+    ]
+  },
+  "Paper": {
+    "table_low": true,
+    "columns_low": [
+      "has_an_abstract"
+    ]
+  },
+  "Person": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "Poster": {
+    "table_low": false,
+    "columns_low": [
+      "is_submitted_at"
+    ]
+  },
+  "Review": {
+    "table_low": true,
+    "columns_low": [
+      "reviews"
+    ]
+  },
+  "Review_preference": {
+    "table_low": false,
+    "columns_low": [
+      "belongs_to_a_review_refer",
+      "has_a_topic_or_a_submissi"
+    ]
+  },
+  "Track": {
+    "table_low": true,
+    "columns_low": [
+      "has_a_track-workshop-tuto",
+      "is_part_of_conference_vol"
+    ]
+  },
+  "Tutorial": {
+    "table_low": false,
+    "columns_low": [
+      "is_part_of_conference_vol"
+    ]
+  },
+  "Workshop": {
+    "table_low": true,
+    "columns_low": [
+      "has_a_track-workshop-tuto",
+      "has_workshops_Inv",
+      "is_part_of_conference_vol"
+    ]
+  }
+}

@@ -1,0 +1,5291 @@
+{
+  "Best_Paper_Awards_Committ.award": {
+    "object_prop_uri": "http://sigkdd#award",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Best_Paper_Awards_Committee",
+    "range_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "name_hint": "award",
+    "sr_direction": null,
+    "sr_subject_column": "award",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "award",
+        "target_table": "Best_Research_Paper_Award",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Best_Paper_Awards_Committ.award"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: exact Best_Paper_Awards_Committee",
+        "range_closure_explanation": "range: compatible because table class Best_Research_Paper_Award is subclass of OP class ['Award']",
+        "name_exact_match": true,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "award"
+        ],
+        "target_role_tokens": [
+          "award"
+        ],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#award",
+      "selected_direction": null,
+      "selected_local_name": "award",
+      "confidence": "high",
+      "reason": "domain精确匹配，range通过子类兼容，名称和角色token与列名完全一致，候选search端点冲突。"
+    },
+    "error": null
+  },
+  "Best_Paper_Awards_Committ.hasCommittee_Inv": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "medium",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Best_Paper_Awards_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "hasCommittee_Inv",
+    "sr_direction": "normal",
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Best_Paper_Awards_Committ.hasCommittee_Inv"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Best_Paper_Awards_Committee",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Best_Paper_Awards_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "medium",
+      "reason": "endpoint: domain兼容（Best_Paper_Awards_Committee是Committee的子类），range exact匹配Conference；column角色'committee'与关系名hasCommittee_Inv中的Committee对应；证据IND弱但端点匹配最佳。"
+    },
+    "error": null
+  },
+  "Best_Paper_Awards_Committ.isCommitteeOf": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Best_Paper_Awards_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "isCommitteeOf",
+    "sr_direction": null,
+    "sr_subject_column": "isCommitteeOf",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Best_Paper_Awards_Committ.isCommitteeOf"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Best_Paper_Awards_Committee",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Paper_Awards_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Best_Paper_Awards_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": true,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": null,
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "high",
+      "reason": "名称完全匹配，domain 通过子类关系兼容 Best_Paper_Awards_Committee，range 精确匹配 Conference，column/constraint role tokens 支持，无冲突"
+    },
+    "error": null
+  },
+  "Conference.holded_by": {
+    "object_prop_uri": "http://sigkdd#holded_by",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Conference",
+    "range_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "name_hint": "holded_by",
+    "sr_direction": "normal",
+    "sr_subject_column": "holded_by",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Conference",
+        "source_column": "holded_by",
+        "target_table": "ACM_SIGKDD",
+        "target_column": "ID",
+        "constraint_name": "FKConferenceholded_by",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Conference.holded_by"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hold",
+        "local_name": "hold",
+        "sr_direction": null,
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Conference']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "holded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Conference"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#holded_by",
+        "local_name": "holded_by",
+        "sr_direction": null,
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "ACM_SIGKDD"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: exact ACM_SIGKDD",
+        "name_exact_match": true,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "holded"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "hold"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#holded_by",
+      "selected_direction": "normal",
+      "selected_local_name": "holded_by",
+      "confidence": "high",
+      "reason": "domain/range端点完全匹配，名称精确匹配，FK方向一致，等价列证据无冲突。"
+    },
+    "error": null
+  },
+  "Deadline_Abstract_Submiss.designed_by": {
+    "object_prop_uri": "http://sigkdd#designed_by",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Deadline_Abstract_Submission",
+    "range_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "name_hint": "designed_by",
+    "sr_direction": null,
+    "sr_subject_column": "designed_by",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Deadline_Abstract_Submiss",
+        "source_column": "designed_by",
+        "target_table": "ACM_SIGKDD",
+        "target_column": "ID",
+        "constraint_name": "Deadline_Abstract_Submiss_designed_by_fkey",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Deadline_Abstract_Submiss.designed_by"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#design",
+        "local_name": "design",
+        "sr_direction": null,
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Deadline']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "designed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Deadline"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#designed_by",
+        "local_name": "designed_by",
+        "sr_direction": null,
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "Deadline"
+        ],
+        "range_local": [
+          "ACM_SIGKDD"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Deadline_Abstract_Submission is subclass of OP class ['Deadline']",
+        "range_closure_explanation": "range: exact ACM_SIGKDD",
+        "name_exact_match": true,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "designed"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "designed"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "design"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#designed_by",
+      "selected_direction": null,
+      "selected_local_name": "designed_by",
+      "confidence": "high",
+      "reason": "端点兼容：domain Deadline_Abstract_Submission 是 OP domain Deadline 的子类，range 精确匹配 ACM_SIGKDD；名称 exact match，列角色和约束角色均支持 designed_by；等价列证据弱但不冲突。"
+    },
+    "error": null
+  },
+  "E-mail.Person": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Person",
+    "name_hint": "Person",
+    "sr_direction": null,
+    "sr_subject_column": "Person",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "E-mail",
+        "source_column": "Person",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "FKE-mailPerson",
+        "source_distinct": 564,
+        "target_distinct": 579,
+        "intersection": 564,
+        "union": 579,
+        "manual_jaccard": 0.9740932642487047,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9740932642487047,
+        "evidence_type": "equivalence_column",
+        "relation_key": "E-mail.Person"
+      }
+    ],
+    "candidates_used": [],
+    "llm_response": {
+      "selected_uri": null,
+      "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+    },
+    "error": null
+  },
+  "Organizing_Committee.hasCommittee_Inv": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "medium",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Organizing_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "hasCommittee_Inv",
+    "sr_direction": "normal",
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Organizing_Committee",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Organizing_Committee_hasCommittee_Inv_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Organizing_Committee.hasCommittee_Inv"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Organizing_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Organizing_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Organizing_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "medium",
+      "reason": "端点兼容：domain Organizing_Committee是Committee的子类，range exact Conference；名称角色包含committee；FK约束方向一致；等价列/IND证据弱但不冲突，因此选择isCommitteeOf。"
+    },
+    "error": null
+  },
+  "Organizing_Committee.isCommitteeOf": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Organizing_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "isCommitteeOf",
+    "sr_direction": null,
+    "sr_subject_column": "isCommitteeOf",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Organizing_Committee",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Organizing_Committee_isCommitteeOf_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "Organizing_Committee.isCommitteeOf"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Organizing_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Organizing_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Organizing_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": null,
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "high",
+      "reason": "名称精确匹配，domain通过子类兼容（Organizing_Committee是Committee的子类），range精确匹配Conference，外键约束名匹配。等价列证据弱但不影响。"
+    },
+    "error": null
+  },
+  "Program_Committee.hasCommittee_Inv": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Program_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "hasCommittee_Inv",
+    "sr_direction": "normal",
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Program_Committee",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Program_Committee_hasCommittee_Inv_fkey",
+        "source_distinct": 7,
+        "target_distinct": 7,
+        "intersection": 7,
+        "union": 7,
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "evidence_type": "equivalence_column",
+        "relation_key": "Program_Committee.hasCommittee_Inv"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Program_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Program_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Program_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "high",
+      "reason": "isCommitteeOf的domain兼容(Program_Committee是Committee的子类)，range精确匹配Conference；等价列证据充分(完全等价)，name hint暗示反向但端点匹配，无冲突。"
+    },
+    "error": null
+  },
+  "Program_Committee.isCommitteeOf": {
+    "object_prop_uri": "http://sigkdd#isCommitteeOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Program_Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "isCommitteeOf",
+    "sr_direction": null,
+    "sr_subject_column": "isCommitteeOf",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Program_Committee",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Program_Committee_isCommitteeOf_fkey",
+        "source_distinct": 7,
+        "target_distinct": 7,
+        "intersection": 7,
+        "union": 7,
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "evidence_type": "equivalence_column",
+        "relation_key": "Program_Committee.isCommitteeOf"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": null,
+        "candidate_domain_class": "Program_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Program_Committee",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_subclass_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: compatible because table class Program_Committee is subclass of OP class ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isCommitteeOf",
+      "selected_direction": null,
+      "selected_local_name": "isCommitteeOf",
+      "confidence": "high",
+      "reason": "端点兼容（Program_Committee是Committee子类，Conference精确匹配），名称完全匹配，等价列IND完全支持。hasCommittee端点和方向冲突。"
+    },
+    "error": null
+  },
+  "Review.ID": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "ID",
+    "sr_direction": null,
+    "sr_subject_column": "ID",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "ID",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewURI",
+        "source_distinct": 734,
+        "target_distinct": 1468,
+        "intersection": 734,
+        "union": 1468,
+        "manual_jaccard": 0.5,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "Review.ID"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Paper']",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: exact Review",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": null,
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "端点匹配：domain精确匹配Review，range通过父类Document兼容；名称isReviewOf暗示评论所属关系，与FK方向一致；等价列IND证据显示所有Review.ID均在Document.ID中存在，支持从Review到Document的连接。候选hasReview的domain为Paper，与当前domain冲突，故不选。"
+    },
+    "error": null
+  },
+  "Review.hasReview_Inv": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "hasReview_Inv",
+    "sr_direction": null,
+    "sr_subject_column": "hasReview_Inv",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "hasReview_Inv",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewhasReview_Inv",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "Review.hasReview_Inv"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Paper']",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: exact Review",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": null,
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "isReviewOf的domain精确匹配Review，range是Document的子类（更具体），endpoint兼容；外键IND从Review到Document支持方向；名称'isReviewOf'符合从Review到Document的评论关系。hasReview方向相反（Paper→Review），与evidence冲突。"
+    },
+    "error": null
+  },
+  "Review.isReviewOf": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "isReviewOf",
+    "sr_direction": "normal",
+    "sr_subject_column": "isReviewOf",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "isReviewOf",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewisReviewOf",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "Review.isReviewOf"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Paper']",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": null,
+        "candidate_domain_class": "Review",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: exact Review",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "isReviewOf的domain精确匹配Review类，name完全匹配，且IND证据（1.0）支持从Review到Document的方向。hasReview端点冲突（domain为Paper），故排除。"
+    },
+    "error": null
+  },
+  "search.ACM_SIGKDD": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "range_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "name_hint": "ACM_SIGKDD",
+    "sr_direction": null,
+    "sr_subject_column": "ACM_SIGKDD",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "search",
+        "source_column": "ACM_SIGKDD",
+        "target_table": "ACM_SIGKDD",
+        "target_column": "ID",
+        "constraint_name": "FKsearchACM_SIGKDD",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "search.ACM_SIGKDD"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "search"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "唯一候选search的domain/range与需求冲突（domain应为Best_Research_Paper_Award但声明为ACM_SIGKDD，range冲突），且等价列/IND证据为零，无法选择。"
+    },
+    "error": null
+  },
+  "search.Sponzor": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "fk_obj",
+    "domain_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "range_class_uri": "http://sigkdd#Person",
+    "name_hint": "Sponzor",
+    "sr_direction": null,
+    "sr_subject_column": "Sponzor",
+    "sr_object_column": null,
+    "sr_subject_ref_table": null,
+    "sr_object_ref_table": null,
+    "schema_matching": [
+      {
+        "source_table": "search",
+        "source_column": "Sponzor",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "search_Sponzor_fkey",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "search.Sponzor"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": null,
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "search"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "search"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "候选OP的domain为ACM_SIGKDD与域类Best_Research_Paper_Award冲突，range为Sponzor与范围类Person冲突；等价列IND为零，无数据支持；返回null。"
+    },
+    "error": null
+  },
+  "can_stay_in": {
+    "object_prop_uri": "http://sigkdd#can_stay_in",
+    "confidence": "medium",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Main_office",
+    "name_hint": "can_stay_in",
+    "sr_direction": "normal",
+    "sr_subject_column": "Person",
+    "sr_object_column": "Place",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Main_office",
+    "schema_matching": [
+      {
+        "source_table": "can_stay_in",
+        "source_column": "Person",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "FKcan_stay_inPerson",
+        "relation_key": "can_stay_in",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "can_stay_in",
+        "source_column": "Place",
+        "target_table": "Main_office",
+        "target_column": "ID",
+        "constraint_name": "can_stay_in_Place_fkey",
+        "relation_key": "can_stay_in",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#can_stay_in",
+        "local_name": "can_stay_in",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Main_office",
+        "domain_local": [
+          "Person"
+        ],
+        "range_local": [
+          "Place"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: exact Person",
+        "range_closure_explanation": "range: compatible because table class Main_office is subclass of OP class ['Place']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "can",
+          "in",
+          "stay"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "can",
+          "in",
+          "stay"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Person",
+            "class_tables": [],
+            "values": [
+              "Hotel"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#can_stay_in",
+        "local_name": "can_stay_in",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Main_office",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Person"
+        ],
+        "range_local": [
+          "Place"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Person']",
+        "range_closure_explanation": "range: conflict with ['Place']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "can",
+          "in",
+          "stay"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "can",
+          "in",
+          "stay"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Person",
+            "class_tables": [],
+            "values": [
+              "Hotel"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#can_stay_in",
+      "selected_direction": "normal",
+      "selected_local_name": "can_stay_in",
+      "confidence": "medium",
+      "reason": "候选 normal 方向 endpoint 完全匹配：domain Person（精确）、range Main_office（是 Place 子类，兼容）。名称和 FK 约束（can_stay_in_Place_fkey）均支持 normal 方向。等价列证据虽为空（无实际数据），但 FK 结构吻合，且 reversed 方向 endpoint 冲突且无 inverseOf 支持。综合选择 normal。"
+    },
+    "error": null
+  },
+  "notification_until": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Deadline_Abstract_Submission",
+    "name_hint": "notification_until",
+    "sr_direction": null,
+    "sr_subject_column": "Author",
+    "sr_object_column": "Deadline_Author_notificat",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Deadline_Abstract_Submiss",
+    "schema_matching": [
+      {
+        "source_table": "notification_until",
+        "source_column": "Author",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "notification_until_Author_fkey",
+        "relation_key": "notification_until",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "notification_until",
+        "source_column": "Deadline_Author_notificat",
+        "target_table": "Deadline_Abstract_Submiss",
+        "target_column": "ID",
+        "constraint_name": "notification_until_Deadline_Author_notificat_fkey",
+        "relation_key": "notification_until",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Deadline_Abstract_Submission",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Deadline_Author_notification"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: conflict with ['Deadline_Author_notification']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "notification",
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "notification",
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author",
+            "class_tables": [],
+            "values": [
+              "Deadline_Author_notification"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Deadline_Abstract_Submission",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Document']",
+        "range_closure_explanation": "range: compatible because table class Deadline_Abstract_Submission is subclass of OP class ['Deadline']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Deadline_Author_notification"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Deadline_Author_notification']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "notification",
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "notification",
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author",
+            "class_tables": [],
+            "values": [
+              "Deadline_Author_notification"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Document']",
+        "range_closure_explanation": "range: conflict with ['Deadline']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所有候选ObjectProperty的domain/range均存在明显冲突：notification_until（仅域名兼容，范围冲突Deadline_Author_notification且等价列证据为0）；submit_until（范围兼容但域名冲突Document）。无IND或FK实际数据支持，且无inverseOf或subPropertyOf关系可调整方向。根据硬规则第10条，返回null。"
+    },
+    "error": null
+  },
+  "obtain": {
+    "object_prop_uri": "http://sigkdd#obtain",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "name_hint": "obtain",
+    "sr_direction": "normal",
+    "sr_subject_column": "Author",
+    "sr_object_column": "Award",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Best_Research_Paper_Award",
+    "schema_matching": [
+      {
+        "source_table": "obtain",
+        "source_column": "Author",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "obtain_Author_fkey",
+        "relation_key": "obtain",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "obtain",
+        "source_column": "Award",
+        "target_table": "Best_Research_Paper_Award",
+        "target_column": "ID",
+        "constraint_name": "obtain_Award_fkey",
+        "relation_key": "obtain",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: compatible because table class Best_Research_Paper_Award is subclass of OP class ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [
+          "award"
+        ],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": true,
+        "restriction_endpoint_hits": [
+          {
+            "class": "Author_of_paper",
+            "values": [
+              "Best_Research_Paper_Award"
+            ]
+          }
+        ],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: compatible because table class Best_Research_Paper_Award is subclass of OP class ['Award']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "obtain"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "obtain"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author_of_paper",
+            "class_tables": [],
+            "values": [
+              "Best_Research_Paper_Award"
+            ]
+          },
+          {
+            "class": "Author_of_paper",
+            "class_tables": [],
+            "values": [
+              "Best_Applications_Paper_Award"
+            ]
+          },
+          {
+            "class": "Author_of_paper_student",
+            "class_tables": [],
+            "values": [
+              "Best_Student_Paper_Award"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "award"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "obtain"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "obtain"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author_of_paper",
+            "class_tables": [],
+            "values": [
+              "Best_Research_Paper_Award"
+            ]
+          },
+          {
+            "class": "Author_of_paper",
+            "class_tables": [],
+            "values": [
+              "Best_Applications_Paper_Award"
+            ]
+          },
+          {
+            "class": "Author_of_paper_student",
+            "class_tables": [],
+            "values": [
+              "Best_Student_Paper_Award"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#obtain",
+      "selected_direction": "normal",
+      "selected_local_name": "obtain",
+      "confidence": "high",
+      "reason": "endpoint完全匹配：domain Person 与 OP 类 Author 兼容（父类），range Best_Research_Paper_Award 是 Award 子类；name 精确匹配表名 'obtain'，FK 约束 obtain.Author 和 obtain.Award 支持方向；restrictions 证实 Author_of_paper 链接至 Best_Research_Paper_Award；与其他候选相比证据最闭合。"
+    },
+    "error": null
+  },
+  "pay": {
+    "object_prop_uri": "http://sigkdd#pay",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "name_hint": "pay",
+    "sr_direction": "normal",
+    "sr_subject_column": "Person",
+    "sr_object_column": "Registration_fee",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Registration_fee",
+    "schema_matching": [
+      {
+        "source_table": "pay",
+        "source_column": "Person",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "FKpayPerson",
+        "relation_key": "pay",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "pay",
+        "source_column": "Registration_fee",
+        "target_table": "Registration_fee",
+        "target_column": "ID",
+        "constraint_name": "FKpayRegistration_fee",
+        "relation_key": "pay",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#pay",
+        "local_name": "pay",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Registration_fee",
+        "domain_local": [
+          "Person"
+        ],
+        "range_local": [
+          "Registration_fee"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: exact Person",
+        "range_closure_explanation": "range: exact Registration_fee",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "pay"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "payed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#pay",
+        "local_name": "pay",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Registration_fee",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Person"
+        ],
+        "range_local": [
+          "Registration_fee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Person']",
+        "range_closure_explanation": "range: conflict with ['Registration_fee']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "pay"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "payed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#payed_by",
+        "local_name": "payed_by",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Registration_fee",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Registration_fee"
+        ],
+        "range_local": [
+          "Person"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": false,
+        "domain_match_kind": "exact",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: exact Registration_fee",
+        "range_closure_explanation": "range: exact Person",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "pay"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#pay",
+      "selected_direction": "normal",
+      "selected_local_name": "pay",
+      "confidence": "high",
+      "reason": "候选pay的normal方向domain=Person、range=Registration_fee与任务端点精确匹配，且名称exact match，table role hint一致；payed_by方向端点反转，排除；pay reversed方向端点冲突。证据虽弱但不冲突，故选择pay normal。"
+    },
+    "error": null
+  },
+  "presentation": {
+    "object_prop_uri": "http://sigkdd#presentation",
+    "confidence": "medium",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Person",
+    "name_hint": "presentation",
+    "sr_direction": "reversed",
+    "sr_subject_column": "Speaker",
+    "sr_object_column": "Document",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Document",
+    "schema_matching": [
+      {
+        "source_table": "presentation",
+        "source_column": "Document",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKpresentationDocument",
+        "relation_key": "presentation",
+        "source_distinct": 0,
+        "target_distinct": 1468,
+        "intersection": 0,
+        "union": 1468,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "presentation",
+        "source_column": "Speaker",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "presentation_Speaker_fkey",
+        "relation_key": "presentation",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Speaker"
+        ],
+        "range_local": [
+          "Document"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Speaker']",
+        "range_closure_explanation": "range: conflict with ['Document']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "presentation"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "presentation"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "presentationed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Speaker"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": false,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: exact Document",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "presentation"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Speaker"
+        ],
+        "range_local": [
+          "Document"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: exact Document",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "presentation"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "presentation"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "presentationed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Paper"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": false,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#presentation",
+      "selected_direction": "reversed",
+      "selected_local_name": "presentation",
+      "confidence": "medium",
+      "reason": "presentation表名提示关系语义为Person展示Document；reversed方向（Person→Document）的domain通过Speaker子类兼容Person，range精确匹配Document；name exact match且role tokens匹配；inverse属性presentationed_by也支持该方向；endpoint证据闭合。"
+    },
+    "error": null
+  },
+  "search": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "range_class_uri": "http://sigkdd#Person",
+    "name_hint": "search",
+    "sr_direction": null,
+    "sr_subject_column": "ACM_SIGKDD",
+    "sr_object_column": "Sponzor",
+    "sr_subject_ref_table": "ACM_SIGKDD",
+    "sr_object_ref_table": "Person",
+    "schema_matching": [
+      {
+        "source_table": "search",
+        "source_column": "ACM_SIGKDD",
+        "target_table": "ACM_SIGKDD",
+        "target_column": "ID",
+        "constraint_name": "FKsearchACM_SIGKDD",
+        "relation_key": "search",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "search",
+        "source_column": "Sponzor",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "search_Sponzor_fkey",
+        "relation_key": "search",
+        "source_distinct": 0,
+        "target_distinct": 579,
+        "intersection": 0,
+        "union": 579,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": "normal",
+        "candidate_domain_class": "ACM_SIGKDD",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact ACM_SIGKDD",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "search"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "search"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "ACM_SIGKDD",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "search"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "search"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "两个候选的端点和实际domain/range closure均冲突：normal方向range实际为Sponzor而非Person，reversed方向domain实际为ACM_SIGKDD、range为Sponzor；schema匹配证据均为0，无连接支持。所有候选冲突，返回null。"
+    },
+    "error": null
+  },
+  "submit": {
+    "object_prop_uri": "http://sigkdd#submit",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "submit",
+    "sr_direction": "normal",
+    "sr_subject_column": "Author",
+    "sr_object_column": "Paper",
+    "sr_subject_ref_table": "Person",
+    "sr_object_ref_table": "Document",
+    "schema_matching": [
+      {
+        "source_table": "submit",
+        "source_column": "Author",
+        "target_table": "Person",
+        "target_column": "ID",
+        "constraint_name": "submit_Author_fkey",
+        "relation_key": "submit",
+        "source_distinct": 564,
+        "target_distinct": 579,
+        "intersection": 564,
+        "union": 579,
+        "manual_jaccard": 0.9740932642487047,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9740932642487047,
+        "evidence_type": "equivalence_column"
+      },
+      {
+        "source_table": "submit",
+        "source_column": "Paper",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "submit_Paper_fkey",
+        "relation_key": "submit",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Speaker"
+        ],
+        "range_local": [
+          "Document"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": false,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: exact Document",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "presentationed_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Paper"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Person",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Document']",
+        "range_closure_explanation": "range: conflict with ['Deadline']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Speaker"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": false,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: exact Document",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "presentation"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Paper"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Paper']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Person",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Document",
+        "range_closure_explanation": "range: conflict with ['Deadline']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#submit",
+      "selected_direction": "normal",
+      "selected_local_name": "submit",
+      "confidence": "high",
+      "reason": "endpoint domain=Person, range=Document完全匹配；名称exact match 'submit'；等价列证据submit.Author→Person.ID和submit.Paper→Document.ID直接支持Person通过Author列提交Paper给Document；table_role和constraint_role均包含'submit'，证据链闭合。"
+    },
+    "error": null
+  },
+  "submit_until": {
+    "object_prop_uri": "http://sigkdd#submit_until",
+    "confidence": "medium",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation",
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Deadline_Abstract_Submission",
+    "name_hint": "submit_until",
+    "sr_direction": "normal",
+    "sr_subject_column": "Document",
+    "sr_object_column": "Deadline",
+    "sr_subject_ref_table": "Document",
+    "sr_object_ref_table": "Deadline_Abstract_Submiss",
+    "schema_matching": [
+      {
+        "source_table": "submit_until",
+        "source_column": "Document",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKsubmit_untilDocument",
+        "relation_key": "submit_until",
+        "source_distinct": 0,
+        "target_distinct": 1468,
+        "intersection": 0,
+        "union": 1468,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      {
+        "source_table": "submit_until",
+        "source_column": "Deadline",
+        "target_table": "Deadline_Abstract_Submiss",
+        "target_column": "ID",
+        "constraint_name": "submit_until_Deadline_fkey",
+        "relation_key": "submit_until",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Deadline_Abstract_Submission",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Deadline_Author_notification"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Deadline_Author_notification']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author",
+            "class_tables": [],
+            "values": [
+              "Deadline_Author_notification"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Deadline_Abstract_Submission",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Paper"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Paper']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Deadline_Abstract_Submission",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: exact Document",
+        "range_closure_explanation": "range: compatible because table class Deadline_Abstract_Submission is subclass of OP class ['Deadline']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "submit",
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit",
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Deadline_Author_notification"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: conflict with ['Deadline_Author_notification']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "Author",
+            "class_tables": [],
+            "values": [
+              "Deadline_Author_notification"
+            ]
+          }
+        ]
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Author"
+        ],
+        "range_local": [
+          "Paper"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Author']",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "submit"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Deadline_Abstract_Submission",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Document"
+        ],
+        "range_local": [
+          "Deadline"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Document']",
+        "range_closure_explanation": "range: conflict with ['Deadline']",
+        "name_exact_match": true,
+        "table_role_tokens": [
+          "submit",
+          "until"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "submit",
+          "until"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#submit_until",
+      "selected_direction": "normal",
+      "selected_local_name": "submit_until",
+      "confidence": "medium",
+      "reason": "domain端点精确匹配Document，range端点兼容（Deadline_Abstract_Submission是Deadline的子类），名字精确匹配'submit_until'，角色tokens包含submit和until，与表名和约束名一致。尽管等价列/IND证据较弱（intersection为0），但端点匹配强、无冲突，且无更具体子属性，故选择normal方向。"
+    },
+    "error": null
+  },
+  "Best_Paper_Awards_Committ::award__hasCommittee_Inv": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "Best_Paper_Awards_Committ",
+    "sr_direction": null,
+    "sr_subject_column": "award",
+    "sr_object_column": "hasCommittee_Inv",
+    "sr_subject_ref_table": "Best_Research_Paper_Award",
+    "sr_object_ref_table": "Conference",
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "award",
+        "target_table": "Best_Research_Paper_Award",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      },
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "award"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: compatible because table class Best_Research_Paper_Award is subclass of OP class ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [
+          "award"
+        ],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: conflict with ['Conference']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所有候选ObjectProperty的domain/range端点均与目标domain(Best_Research_Paper_Award)和range(Conference)不匹配。如award的domain为Committee、range为Award；hasCommittee的domain为Conference、range为Committee；isCommitteeOf的domain为Committee、range为Conference。虽部分候选范围有子类兼容，但domain完全冲突。等价列证据均为weak/conflicting，无有效支持。因此无合适候选，返回null。"
+    },
+    "error": null
+  },
+  "Best_Paper_Awards_Committ::award__isCommitteeOf": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "Best_Paper_Awards_Committ",
+    "sr_direction": null,
+    "sr_subject_column": "award",
+    "sr_object_column": "isCommitteeOf",
+    "sr_subject_ref_table": "Best_Research_Paper_Award",
+    "sr_object_ref_table": "Conference",
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "award",
+        "target_table": "Best_Research_Paper_Award",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+        "source_distinct": 0,
+        "target_distinct": 0,
+        "intersection": 0,
+        "union": 0,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      },
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "award"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Conference']",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Best_Research_Paper_Award",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "table_class_is_subclass_of_op_class",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: compatible because table class Best_Research_Paper_Award is subclass of OP class ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [
+          "award"
+        ],
+        "constraint_role_tokens": [
+          "award"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: conflict with ['Conference']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Best_Research_Paper_Award",
+        "domain_local": [
+          "ACM_SIGKDD"
+        ],
+        "range_local": [
+          "Sponzor"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['ACM_SIGKDD']",
+        "range_closure_explanation": "range: conflict with ['Sponzor']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "searched_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": [
+          {
+            "class": "ACM_SIGKDD",
+            "class_tables": [],
+            "values": [
+              "Sponzor"
+            ]
+          }
+        ]
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所有候选OP的domain/range端点均与目标domain_class(Best_Research_Paper_Award)和range_class(Conference)冲突或仅部分兼容，且等价列/IND证据为弱或冲突，无法形成闭合证据链。"
+    },
+    "error": null
+  },
+  "Best_Paper_Awards_Committ::hasCommittee_Inv__isCommitteeOf": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Conference",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "Best_Paper_Awards_Committ",
+    "sr_direction": null,
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": "isCommitteeOf",
+    "sr_subject_ref_table": "Conference",
+    "sr_object_ref_table": "Conference",
+    "schema_matching": [
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      },
+      {
+        "source_table": "Best_Paper_Awards_Committ",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "best_paper_awards_committ"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Best_Paper_Awards_Committee"
+        ],
+        "range_local": [
+          "Award"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: conflict with ['Best_Paper_Awards_Committee']",
+        "range_closure_explanation": "range: conflict with ['Award']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [
+          "awarded_by"
+        ],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所有候选OP的domain/range均与Conference不匹配（award的domain和range皆冲突；hasCommittee的range为Committee冲突；isCommitteeOf的domain为Committee冲突），等价列证据均为弱或无，无任何候选满足endpoint要求，故返回null。"
+    },
+    "error": null
+  },
+  "Organizing_Committee::hasCommittee_Inv__isCommitteeOf": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Conference",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "Organizing_Committee",
+    "sr_direction": null,
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": "isCommitteeOf",
+    "sr_subject_ref_table": "Conference",
+    "sr_object_ref_table": "Conference",
+    "schema_matching": [
+      {
+        "source_table": "Organizing_Committee",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Organizing_Committee_hasCommittee_Inv_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "organizing_committee"
+      },
+      {
+        "source_table": "Organizing_Committee",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Organizing_Committee_isCommitteeOf_fkey",
+        "source_distinct": 0,
+        "target_distinct": 7,
+        "intersection": 0,
+        "union": 7,
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "evidence_type": "weak_or_conflicting",
+        "relation_key": "organizing_committee"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所需端点domain和range均为Conference，但所有候选hasCommittee和isCommitteeOf的声明端点均为Conference/Committee或Committee/Conference，无一同时匹配两个Conference端点；等价列证据极弱且无法指示方向。"
+    },
+    "error": null
+  },
+  "Program_Committee::hasCommittee_Inv__isCommitteeOf": {
+    "object_prop_uri": null,
+    "confidence": "low",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Conference",
+    "range_class_uri": "http://sigkdd#Conference",
+    "name_hint": "Program_Committee",
+    "sr_direction": null,
+    "sr_subject_column": "hasCommittee_Inv",
+    "sr_object_column": "isCommitteeOf",
+    "sr_subject_ref_table": "Conference",
+    "sr_object_ref_table": "Conference",
+    "schema_matching": [
+      {
+        "source_table": "Program_Committee",
+        "source_column": "hasCommittee_Inv",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Program_Committee_hasCommittee_Inv_fkey",
+        "source_distinct": 7,
+        "target_distinct": 7,
+        "intersection": 7,
+        "union": 7,
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "evidence_type": "equivalence_column",
+        "relation_key": "program_committee"
+      },
+      {
+        "source_table": "Program_Committee",
+        "source_column": "isCommitteeOf",
+        "target_table": "Conference",
+        "target_column": "ID",
+        "constraint_name": "Program_Committee_isCommitteeOf_fkey",
+        "source_distinct": 7,
+        "target_distinct": 7,
+        "intersection": 7,
+        "union": 7,
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "evidence_type": "equivalence_column",
+        "relation_key": "program_committee"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Conference"
+        ],
+        "range_local": [
+          "Committee"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "exact",
+        "range_match_kind": "conflict",
+        "domain_closure_explanation": "domain: exact Conference",
+        "range_closure_explanation": "range: conflict with ['Committee']",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Conference",
+        "candidate_range_class": "Conference",
+        "domain_local": [
+          "Committee"
+        ],
+        "range_local": [
+          "Conference"
+        ],
+        "declared_endpoint_match": false,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "conflict",
+        "range_match_kind": "exact",
+        "domain_closure_explanation": "domain: conflict with ['Committee']",
+        "range_closure_explanation": "range: exact Conference",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "committee"
+        ],
+        "column_role_tokens": [
+          "committee"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "committee"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": null,
+      "selected_direction": null,
+      "selected_local_name": "",
+      "confidence": "low",
+      "reason": "所有候选OP的domain或range与任务要求（Conference-Conference）冲突。hasCommittee range为Committee，isCommitteeOf domain为Committee，即使考虑逆方向也无法同时匹配两个端点。等价列证据支持两列均指向Conference，但候选OP不满足端点匹配，故返回null。"
+    },
+    "error": null
+  },
+  "Review::ID__hasReview_Inv": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "Review",
+    "sr_direction": "normal",
+    "sr_subject_column": "ID",
+    "sr_object_column": "hasReview_Inv",
+    "sr_subject_ref_table": "Document",
+    "sr_object_ref_table": "Document",
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "ID",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewURI",
+        "source_distinct": 734,
+        "target_distinct": 1468,
+        "intersection": 734,
+        "union": 1468,
+        "manual_jaccard": 0.5,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      },
+      {
+        "source_table": "Review",
+        "source_column": "hasReview_Inv",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewhasReview_Inv",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "数据库列 Review.hasReview_Inv 名称含 'Inv' 强暗示反向关系，IND 证据完全覆盖(1.0)且两个外键均指向 Document.ID；isReviewOf 的 domain=Review、range=Document 与证据方向一致，而 hasReview 方向相反。endpoint 均为 Document 父类，角色名称高度匹配。"
+    },
+    "error": null
+  },
+  "Review::ID__isReviewOf": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "Review",
+    "sr_direction": "normal",
+    "sr_subject_column": "ID",
+    "sr_object_column": "isReviewOf",
+    "sr_subject_ref_table": "Document",
+    "sr_object_ref_table": "Document",
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "ID",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewURI",
+        "source_distinct": 734,
+        "target_distinct": 1468,
+        "intersection": 734,
+        "union": 1468,
+        "manual_jaccard": 0.5,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      },
+      {
+        "source_table": "Review",
+        "source_column": "isReviewOf",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewisReviewOf",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "OP名isReviewOf与列名和约束名匹配；FKReviewisReviewOf指向Document.ID，等价列完全包含，支持Review->Document方向；domain和range端点兼容（Review是Document子类）。"
+    },
+    "error": null
+  },
+  "Review::hasReview_Inv__isReviewOf": {
+    "object_prop_uri": "http://sigkdd#isReviewOf",
+    "confidence": "high",
+    "method": "equivalence_column_pattern_matching_llm",
+    "scenario_type": "sr_relation_inferred",
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Document",
+    "name_hint": "Review",
+    "sr_direction": "normal",
+    "sr_subject_column": "hasReview_Inv",
+    "sr_object_column": "isReviewOf",
+    "sr_subject_ref_table": "Document",
+    "sr_object_ref_table": "Document",
+    "schema_matching": [
+      {
+        "source_table": "Review",
+        "source_column": "hasReview_Inv",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewhasReview_Inv",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      },
+      {
+        "source_table": "Review",
+        "source_column": "isReviewOf",
+        "target_table": "Document",
+        "target_column": "ID",
+        "constraint_name": "FKReviewisReviewOf",
+        "source_distinct": 367,
+        "target_distinct": 1468,
+        "intersection": 367,
+        "union": 1468,
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "evidence_type": "inclusion_column_source_to_target",
+        "relation_key": "review"
+      }
+    ],
+    "candidates_used": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "normal",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Paper"
+        ],
+        "range_local": [
+          "Review"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "sr_direction": "reversed",
+        "candidate_domain_class": "Document",
+        "candidate_range_class": "Document",
+        "domain_local": [
+          "Review"
+        ],
+        "range_local": [
+          "nb5bdeb42436642e5b1edb45e7697f035b1"
+        ],
+        "declared_endpoint_match": true,
+        "restriction_endpoint_match": false,
+        "restriction_endpoint_hits": [],
+        "name_pattern_match": true,
+        "domain_match_kind": "table_class_is_parent_of_op_class",
+        "range_match_kind": "table_class_is_parent_of_op_class",
+        "domain_closure_explanation": "domain: OP class is more specific than table class; use only with strong name/role evidence",
+        "range_closure_explanation": "range: OP class is more specific than table class; use only with strong name/role evidence",
+        "name_exact_match": false,
+        "table_role_tokens": [
+          "review"
+        ],
+        "column_role_tokens": [
+          "review"
+        ],
+        "target_role_tokens": [],
+        "constraint_role_tokens": [
+          "review"
+        ],
+        "exact_sql_construction_match": false,
+        "matching_construction": [],
+        "inverse_of": [],
+        "subproperty_of": [],
+        "restrictions": []
+      }
+    ],
+    "llm_response": {
+      "selected_uri": "http://sigkdd#isReviewOf",
+      "selected_direction": "normal",
+      "selected_local_name": "isReviewOf",
+      "confidence": "high",
+      "reason": "关系表名Review，列hasReview_Inv和isReviewOf均指向Document.ID，IND均为1.0，表明两列等价。isReviewOf名称更直接表达Review对Document的评审关系，且domain为Review、range为Document，与FK方向一致。hasReview虽也匹配但方向相反，且无inverseOf支持。"
+    },
+    "error": null
+  }
+}

@@ -1,0 +1,284 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cmtstructured: <http://cmt#> .
+@base <http://example.com/> .
+
+# === Administrator (SH) ===
+<#AdministratorMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" , \"acceptPaper\" FROM \"Administrator\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{ID}" ; rr:class cmtstructured:Administrator ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:acceptPaper ;
+        rr:objectMap [ rr:template "http://example.com/document/{acceptPaper}" ]
+    ] .
+
+# === Paper (SH) ===
+<#PaperMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" , \"paperID\" , \"rejectedBy\" , \"readByMeta-Reviewer\" , \"hasAuthor\" , \"title\" , \"hasDecision\" , \"acceptedBy\" , \"TYPE\" FROM \"Paper\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{ID}" ; rr:class cmtstructured:Paper ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:paperID ;
+        rr:objectMap [ rr:column "paperID" ; rr:datatype xsd:unsignedLong ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:rejectedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{rejectedBy}" ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate <http://cmt#readByMeta-Reviewer> ;
+        rr:objectMap [ rr:template "http://example.com/person/{readByMeta-Reviewer}" ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasAuthor ;
+        rr:objectMap [ rr:template "http://example.com/person/{hasAuthor}" ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:title ;
+        rr:objectMap [ rr:column "title" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasDecision ;
+        rr:objectMap [ rr:template "http://example.com/acceptance/{hasDecision}" ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:acceptedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{acceptedBy}" ]
+    ] .
+
+# === ProgramCommitteeChair (SH) ===
+<#ProgramCommitteeChairMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" , \"maxPapers\" , \"addedBy\" FROM \"ProgramCommitteeChair\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{ID}" ; rr:class cmtstructured:ProgramCommitteeChair ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:maxPapers ;
+        rr:objectMap [ rr:column "maxPapers" ; rr:datatype xsd:int ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:addedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{addedBy}" ]
+    ] .
+
+# === ProgramCommitteeMember (SH) ===
+<#ProgramCommitteeMemberMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" , \"maxPapers\" , \"addedBy\" FROM \"ProgramCommitteeMember\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{ID}" ; rr:class cmtstructured:ProgramCommitteeMember ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:maxPapers ;
+        rr:objectMap [ rr:column "maxPapers" ; rr:datatype xsd:int ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:addedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{addedBy}" ]
+    ] .
+
+# === Review (SH) ===
+<#ReviewMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" , \"writtenBy\" , \"comment\" , \"TYPE\" FROM \"Review\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{ID}" ; rr:class cmtstructured:Review ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:writtenBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{writtenBy}" ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ rr:column "comment" ; rr:datatype xsd:string ]
+    ] .
+
+# === assignReviewer (SR) ===
+<#assignReviewerMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"Reviewer\" FROM \"assignReviewer\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:assignReviewer ;
+        rr:objectMap [ rr:template "http://example.com/person/{Reviewer}" ]
+    ] .
+
+# === assignedTo (SR) ===
+<#assignedToMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"Reviewer\" FROM \"assignedTo\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:assignedTo ;
+        rr:objectMap [ rr:template "http://example.com/person/{Reviewer}" ]
+    ] .
+
+# === co-writePaper (SR) ===
+<#co-writePaperMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"Co-author\" FROM \"co-writePaper\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate <http://cmt#co-writePaper> ;
+        rr:objectMap [ rr:template "http://example.com/person/{Co-author}" ]
+    ] .
+
+# === detailsEnteredBy (SR) ===
+<#detailsEnteredByMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"Conference\" FROM \"detailsEnteredBy\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:enterConferenceDetails ;
+        rr:objectMap [ rr:template "http://example.com/conference/{Conference}" ]
+    ] .
+
+# === enableVirtualMeeting (SR) ===
+<#enableVirtualMeetingMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"Conference\" FROM \"enableVirtualMeeting\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:enableVirtualMeeting ;
+        rr:objectMap [ rr:template "http://example.com/conference/{Conference}" ]
+    ] .
+
+# === endReview (SR) ===
+<#endReviewMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ProgramCommitteeChair\" , \"Review\" FROM \"endReview\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{ProgramCommitteeChair}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:endReview ;
+        rr:objectMap [ rr:template "http://example.com/document/{Review}" ]
+    ] .
+
+# === enterReviewCriteria (SR) ===
+<#enterReviewCriteriaMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"Conference\" FROM \"enterReviewCriteria\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:enterReviewCriteria ;
+        rr:objectMap [ rr:template "http://example.com/conference/{Conference}" ]
+    ] .
+
+# === finalizePaperAssignment (SR) ===
+<#finalizePaperAssignmentMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"Conference\" FROM \"finalizePaperAssignment\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:finalizePaperAssignment ;
+        rr:objectMap [ rr:template "http://example.com/conference/{Conference}" ]
+    ] .
+
+# === hardcopyMailingManifestsP (SR) ===
+<#hardcopyMailingManifestsPMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Conference\" , \"Administrator\" FROM \"hardcopyMailingManifestsP\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/conference/{Conference}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hardcopyMailingManifestsPrintedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{Administrator}" ]
+    ] .
+
+# === hasConferenceMember (SR) ===
+<#hasConferenceMemberMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Conference\" , \"ConferenceMember\" FROM \"hasConferenceMember\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/conference/{Conference}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasConferenceMember ;
+        rr:objectMap [ rr:template "http://example.com/person/{ConferenceMember}" ]
+    ] .
+
+# === hasConflictOfInterest (SR) ===
+<#hasConflictOfInterestMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Document\" , \"Person\" FROM \"hasConflictOfInterest\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Document}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasConflictOfInterest ;
+        rr:objectMap [ rr:template "http://example.com/person/{Person}" ]
+    ] .
+
+# === hasProgramCommitteeMember (SR) ===
+<#hasProgramCommitteeMemberMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ProgramCommittee\" , \"ProgramCommitteeMember\" FROM \"hasProgramCommitteeMember\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/programcommittee/{ProgramCommittee}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasProgramCommitteeMember ;
+        rr:objectMap [ rr:template "http://example.com/person/{ProgramCommitteeMember}" ]
+    ] .
+
+# === hasSubjectArea (SR) ===
+<#hasSubjectAreaMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"SubjectArea\" FROM \"hasSubjectArea\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:hasSubjectArea ;
+        rr:objectMap [ rr:template "http://example.com/subjectarea/{SubjectArea}" ]
+    ] .
+
+# === paperAssignmentToolsRunBy (SR) ===
+<#paperAssignmentToolsRunByMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Conference\" , \"Administrator\" FROM \"paperAssignmentToolsRunBy\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/conference/{Conference}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:paperAssignmentToolsRunBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{Administrator}" ]
+    ] .
+
+# === readByReviewer (SR) ===
+<#readByReviewerMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"Reviewer\" FROM \"readByReviewer\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:readByReviewer ;
+        rr:objectMap [ rr:template "http://example.com/person/{Reviewer}" ]
+    ] .
+
+# === reviewerBiddingStartedBy (SR) ===
+<#reviewerBiddingStartedByMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Conference\" , \"Administrator\" FROM \"reviewerBiddingStartedBy\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/conference/{Conference}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:reviewerBiddingStartedBy ;
+        rr:objectMap [ rr:template "http://example.com/person/{Administrator}" ]
+    ] .
+
+# === submitPaper (SR) ===
+<#submitPaperMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"Author\" FROM \"submitPaper\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:submitPaper ;
+        rr:objectMap [ rr:template "http://example.com/person/{Author}" ]
+    ] .
+
+# === markConflictOfInterest (MV) ===
+<#markConflictOfInterestMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Paper\" , \"ConferenceMember\" FROM \"markConflictOfInterest\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{Paper}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:markConflictOfInterest ;
+        rr:objectMap [ rr:template "http://example.com/document/{ConferenceMember}" ]
+    ] .
+
+# === setMaxPapers (MV) ===
+<#setMaxPapersMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Administrator\" , \"ProgramCommitteeMember\" FROM \"setMaxPapers\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Administrator}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate cmtstructured:setMaxPapers ;
+        rr:objectMap [ rr:template "http://example.com/person/{ProgramCommitteeMember}" ]
+    ] .
+
+# === Paper (Type Assertions) ===
+<#Paper_TYPE_1_Type> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" FROM \"Paper\" WHERE \"TYPE\" = 1" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{ID}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate rdf:type ;
+        rr:objectMap [ rr:constant cmtstructured:PaperFullVersion ]
+    ] .
+
+<#Paper_TYPE_2_Type> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" FROM \"Paper\" WHERE \"TYPE\" = 2" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{ID}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate rdf:type ;
+        rr:objectMap [ rr:constant cmtstructured:PaperAbstract ]
+    ] .
+
+# === Review (Type Assertions) ===
+<#Review_TYPE_0_Type> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"ID\" FROM \"Review\" WHERE \"TYPE\" = 0" ] ;
+    rr:subjectMap [ rr:template "http://example.com/document/{ID}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate rdf:type ;
+        rr:objectMap [ rr:constant cmtstructured:Review ]
+    ] .

@@ -1,0 +1,2045 @@
+{
+  "step1": {
+    "bsns_arr_area_operator.baanpdidbsnsarrarea": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForSurvey",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "候选属性的domain和range均与CompressedNaturalGas不匹配，且名称无关联，无法建立合理映射。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForSurvey",
+          "local_name": "coordinateForSurvey",
+          "score": 0.6366,
+          "name_score": 0.474,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurveyCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.914,
+          "implicit_score": 0.914,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+          "local_name": "broaderTransitive",
+          "score": 0.6361,
+          "name_score": 0.579,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.914,
+          "implicit_score": 0.914,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#narrowerTransitive",
+          "local_name": "narrowerTransitive",
+          "score": 0.6214,
+          "name_score": 0.526,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.914,
+          "implicit_score": 0.914,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "bsns_arr_area_operator.cmpnpdidcompany": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名cmpnpdidcompany暗示与公司相关，且该属性domain为空（可匹配CompressedNaturalGas），range匹配Company，结构证据强度较高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingOperatorCompany",
+          "local_name": "drillingOperatorCompany",
+          "score": 0.6047,
+          "name_score": 0.478,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.657,
+          "implicit_score": 0.657,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reportingCompany",
+          "local_name": "reportingCompany",
+          "score": 0.6008,
+          "name_score": 0.625,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.657,
+          "implicit_score": 0.657,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#TUFOperatorCompany",
+          "local_name": "TUFOperatorCompany",
+          "score": 0.5952,
+          "name_score": 0.444,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.657,
+          "implicit_score": 0.657,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "fclpoint.fclnpdidfacility": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingFacility",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名fclnpdidfacility包含'facility'，与drillingFacility名称匹配度高（0.75），且结构证据强度达98.8%，综合得分最高（0.7148）。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#drillingFacility",
+          "local_name": "drillingFacility",
+          "score": 0.7148,
+          "name_score": 0.75,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.988,
+          "implicit_score": 0.988,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionForField",
+          "local_name": "productionForField",
+          "score": 0.6759,
+          "name_score": 0.611,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.988,
+          "implicit_score": 0.988,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.662,
+          "name_score": 0.722,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.0,
+          "range_score": 0.3,
+          "extra_score": 0.988,
+          "implicit_score": 0.988,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "field_reserves.fldnpdidfield": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名fldnpdidfield与候选属性名均不匹配，且无结构证据，无法确定合适属性。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldLicensee",
+          "local_name": "fieldLicensee",
+          "score": 0.2923,
+          "name_score": 0.615,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForField",
+          "local_name": "licenseeForField",
+          "score": 0.2775,
+          "name_score": 0.562,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#FieldLicensee"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#fieldOperator",
+          "local_name": "fieldOperator",
+          "score": 0.2492,
+          "name_score": 0.462,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#FieldOperator"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "licence_petreg_licence.prlnpdidlicence": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名包含'licence'且domain匹配ProductionLicence，得分最高，但range不明确且结构证据弱。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.335,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2-ptl#ProductionLicence"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceLicensee",
+          "local_name": "licenceLicensee",
+          "score": 0.3067,
+          "name_score": 0.667,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence",
+          "local_name": "licenseeForLicence",
+          "score": 0.2911,
+          "name_score": 0.611,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "licence_petreg_licence_oper.cmpnpdidcompany": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "属性名与列名高度匹配，且domain和range完全吻合，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.44,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.365,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2-ptl#ProductionLicence"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForCompany",
+          "local_name": "taskForCompany",
+          "score": 0.3557,
+          "name_score": 0.467,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceWorkObligation"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "licence_petreg_licence_oper.prlnpdidlicence": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名prlnpdidlicence暗示与licence和operator相关，候选属性licenceOperatorCompany的domain完全匹配且名称最接近，但range不明确且统计证据弱，故中等置信度。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.335,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence",
+          "local_name": "operatorForLicence",
+          "score": 0.335,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceLicensee",
+          "local_name": "licenceLicensee",
+          "score": 0.3067,
+          "name_score": 0.667,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "tuf_petreg_licence_oper.cmpnpdidcompany": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名cmpnpdidcompany暗示公司与许可证区域的关系，候选属性中licenceOperatorCompany的domain为ProductionLicence，与ProductionLicenceArea语义相近，且range完全匹配Company，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.365,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2-ptl#licenceOperatorCompany",
+          "local_name": "licenceOperatorCompany",
+          "score": 0.365,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2-ptl#ProductionLicence"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#taskForCompany",
+          "local_name": "taskForCompany",
+          "score": 0.3557,
+          "name_score": 0.467,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceWorkObligation"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Company"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "tuf_petreg_licence_oper.tufnpdidtuf": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名 tufnpdidtuf 与候选属性名称无直接语义匹配，且 domain 已确认为 ProductionLicenceArea，但候选属性中无 domain 匹配该类的属性，故无合适选择。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionForField",
+          "local_name": "productionForField",
+          "score": 0.23,
+          "name_score": 0.5,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#statusForLicence",
+          "local_name": "statusForLicence",
+          "score": 0.225,
+          "name_score": 0.375,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceStatus"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForSurvey",
+          "local_name": "coordinateForSurvey",
+          "score": 0.2084,
+          "name_score": 0.316,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurveyCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#SeismicSurvey"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_coordinates.wlbewmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性 domain 完全匹配 WellboreCoordinate，range 为 Wellbore（ExplorationWellbore 的子类），且结构证据强度高达 95%，名称语义也暗示坐标与井的关系。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+          "local_name": "coordinateForWellbore",
+          "score": 0.629,
+          "name_score": 0.286,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+          "local_name": "documentURL",
+          "score": 0.6208,
+          "name_score": 0.364,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+          "local_name": "memberList",
+          "score": 0.614,
+          "name_score": 0.5,
+          "domain": [
+            "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+          ],
+          "range": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_coordinates.wlbnpdidwellbore": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名 wlbnpdidwellbore 暗示与 wellbore 相关，且该属性 domain 完全匹配 WellboreCoordinate，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+          "local_name": "coordinateForWellbore",
+          "score": 0.3417,
+          "name_score": 0.524,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#DSTForWellbore",
+          "local_name": "DSTForWellbore",
+          "score": 0.2775,
+          "name_score": 0.562,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDrillStemTest"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.2775,
+          "name_score": 0.562,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_coordinates.wlbnsdeg": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性 domain 完全匹配 WellboreCoordinate，且名称暗示坐标与井的关系，结构证据强度高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.6531,
+          "name_score": 0.462,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.6446,
+          "name_score": 0.538,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+          "local_name": "coordinateForWellbore",
+          "score": 0.6338,
+          "name_score": 0.286,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_coordinates.wlbnsmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域完全匹配WellboreCoordinate，且名称coordinateForWellbore与列名wlbnsmin语义相关，结构证据强度高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coordinateForWellbore",
+          "local_name": "coordinateForWellbore",
+          "score": 0.6157,
+          "name_score": 0.238,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoordinate"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+          "local_name": "memberList",
+          "score": 0.614,
+          "name_score": 0.5,
+          "domain": [
+            "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+          ],
+          "range": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.6014,
+          "name_score": 0.294,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.dscnpdiddiscovery": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名dscnpdiddiscovery暗示发现与井的关系，wellboreForDiscovery语义匹配且range为Discovery，domain虽未显式声明但DevelopmentWellbore是井的子类，符合外键语义。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.3506,
+          "name_score": 0.556,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+          "local_name": "resourcesIncludedInDiscovery",
+          "score": 0.345,
+          "name_score": 0.536,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+          "local_name": "wellboreForDiscovery",
+          "score": 0.321,
+          "name_score": 0.45,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.fclnpdidfacilityproducing": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名包含'facilityproducing'，与productionFacility语义匹配，且domain完全匹配，结构证据强度高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.7927,
+          "name_score": 0.64,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.997,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+          "local_name": "developmentWellboreForLicence",
+          "score": 0.694,
+          "name_score": 0.448,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.997,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.693,
+          "name_score": 0.444,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.997,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.fldnpdidfield": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性 domain 和 range 完全匹配，且名称与列名 fldnpdidfield 语义一致。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.4037,
+          "name_score": 0.37,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+          "local_name": "includedInField",
+          "score": 0.3367,
+          "name_score": 0.667,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+          "local_name": "explorationWellboreForField",
+          "score": 0.3287,
+          "name_score": 0.37,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.prlnpdidproductionlicence": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性名称和域/范围完全匹配外键关系，且综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+          "local_name": "developmentWellboreForLicence",
+          "score": 0.4545,
+          "name_score": 0.552,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+          "local_name": "explorationWellboreForLicence",
+          "score": 0.3795,
+          "name_score": 0.552,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.3518,
+          "name_score": 0.56,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbewmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "候选属性中没有一个的range与目标类Point匹配，且名称与列名wlbewmin无直接语义关联。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.6474,
+          "name_score": 0.167,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.6284,
+          "name_score": 0.259,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+          "local_name": "documentURL",
+          "score": 0.6276,
+          "name_score": 0.364,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbnamepart4": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域完全匹配DevelopmentWellbore，且结构证据强度高，名称部分匹配外键列名wlbnamepart4中的'part'含义，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.6946,
+          "name_score": 0.333,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.967,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.677,
+          "name_score": 0.538,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.967,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+          "local_name": "documentURL",
+          "score": 0.6662,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.967,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbnpdidwellbore": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名wlbnpdidwellbore暗示与wellbore相关，但候选属性中developmentWellboreForField得分最高且domain匹配，range虽未确认但Field是合理目标。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.3402,
+          "name_score": 0.519,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+          "local_name": "developmentWellboreForLicence",
+          "score": 0.3205,
+          "name_score": 0.448,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.3039,
+          "name_score": 0.389,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbnsdeg": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性domain与DevelopmentWellbore完全匹配，且结构证据强度高，但range不明确，名称相关性较低。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.6692,
+          "name_score": 0.462,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.6617,
+          "name_score": 0.167,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.6608,
+          "name_score": 0.538,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbnsmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的range均不匹配目标Point类，且名称与列名wlbnsmin无直接语义关联。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.6472,
+          "name_score": 0.167,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+          "local_name": "developmentWellboreForLicence",
+          "score": 0.6231,
+          "name_score": 0.241,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.6177,
+          "name_score": 0.222,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_development_all.wlbutmzone": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性domain与DevelopmentWellbore完全匹配，且名称与列名wlbutmzone无直接语义关联，但结构证据强，且其他候选不匹配domain或range。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#documentURL",
+          "local_name": "documentURL",
+          "score": 0.7182,
+          "name_score": 0.636,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreDocument"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#productionFacility",
+          "local_name": "productionFacility",
+          "score": 0.6928,
+          "name_score": 0.278,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.6692,
+          "name_score": 0.462,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 1.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_exploration_all.dscnpdiddiscovery": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名dscnpdiddiscovery暗示发现与井的关系，wellboreForDiscovery语义匹配且范围正确，结构证据强度99%支持外键关系。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#resourcesIncludedInDiscovery",
+          "local_name": "resourcesIncludedInDiscovery",
+          "score": 0.7606,
+          "name_score": 0.536,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.99,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreForDiscovery",
+          "local_name": "wellboreForDiscovery",
+          "score": 0.7366,
+          "name_score": 0.45,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.99,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#reservesForDiscovery",
+          "local_name": "reservesForDiscovery",
+          "score": 0.7056,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryReserve"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.99,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_exploration_all.fldnpdidfield": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域和范围完全匹配，且名称与列名fldnpdidfield语义一致，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+          "local_name": "explorationWellboreForField",
+          "score": 0.4037,
+          "name_score": 0.37,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#includedInField",
+          "local_name": "includedInField",
+          "score": 0.3367,
+          "name_score": 0.667,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Discovery"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForField",
+          "local_name": "developmentWellboreForField",
+          "score": 0.3287,
+          "name_score": 0.37,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_exploration_all.prlnpdidproductionlicence": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性名称与列名prlnpdidproductionlicence语义匹配，且domain和range完全吻合，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForLicence",
+          "local_name": "explorationWellboreForLicence",
+          "score": 0.4545,
+          "name_score": 0.552,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#developmentWellboreForLicence",
+          "local_name": "developmentWellboreForLicence",
+          "score": 0.3795,
+          "name_score": 0.552,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DevelopmentWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 0.5,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#currentFieldOwner",
+          "local_name": "currentFieldOwner",
+          "score": 0.2956,
+          "name_score": 0.52,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_exploration_all.wlbnpdidwellbore": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名wlbnpdidwellbore暗示与wellbore相关，且候选属性中explorationWellboreForField具有明确的domain和range，语义最接近外键关系。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeTD",
+          "local_name": "wellboreAgeTD",
+          "score": 0.3525,
+          "name_score": 0.562,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#explorationWellboreForField",
+          "local_name": "explorationWellboreForField",
+          "score": 0.3298,
+          "name_score": 0.481,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Field"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreAgeHcLevel1",
+          "local_name": "wellboreAgeHcLevel1",
+          "score": 0.3276,
+          "name_score": 0.474,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ExplorationWellbore"
+          ],
+          "range": [],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbentryyear": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "候选属性中，shallowWellboreForLicence的range是ProductionLicence而非FieldYearlyProduction，其余属性domain/range不匹配，无合适选项。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+          "local_name": "shallowWellboreForLicence",
+          "score": 0.7335,
+          "name_score": 0.36,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.5,
+          "extra_score": 0.971,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.6484,
+          "name_score": 0.538,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.971,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreFormationHc",
+          "local_name": "wellboreFormationHc",
+          "score": 0.645,
+          "name_score": 0.526,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.971,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbewmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的range均不匹配目标类ExplorationWellbore，且名称与列名wlbewmin无直接语义关联。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+          "local_name": "shallowWellboreForLicence",
+          "score": 0.6274,
+          "name_score": 0.28,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.6014,
+          "name_score": 0.294,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.5967,
+          "name_score": 0.385,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbnamepart4": {
+      "object_prop_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "候选属性均为通用或无关属性，与列名wlbnamepart4及ShallowWellbore到Point的几何关系不匹配。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+          "local_name": "mappingRelation",
+          "score": 0.6635,
+          "name_score": 0.6,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factMapURL",
+          "local_name": "factMapURL",
+          "score": 0.6588,
+          "name_score": 0.583,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#factPageURL",
+          "local_name": "factPageURL",
+          "score": 0.6588,
+          "name_score": 0.583,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.966,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbnpdidwellbore": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名 wlbnpdidwellbore 暗示与 wellbore 相关，且 domain 完全匹配 ShallowWellbore，候选属性中仅此一个 domain 匹配，且名称包含 shallowWellbore。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+          "local_name": "shallowWellboreForLicence",
+          "score": 0.3294,
+          "name_score": 0.48,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#coresForWellbore",
+          "local_name": "coresForWellbore",
+          "score": 0.26,
+          "name_score": 0.5,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#WellboreCoreSet"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.2547,
+          "name_score": 0.588,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbnsdeg": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称belongsToWell与列名wlbnsdeg语义匹配，且结构证据强度高达96.2%，domain和range类虽未显式声明但隐含匹配，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.6446,
+          "name_score": 0.538,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.6227,
+          "name_score": 0.353,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+          "local_name": "shallowWellboreForLicence",
+          "score": 0.621,
+          "name_score": 0.24,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.962,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wellbore_shallow_all.wlbnsmin": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的range均不匹配目标类ExplorationWellbore，且名称与列名wlbnsmin无直接语义关联。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#shallowWellboreForLicence",
+          "local_name": "shallowWellboreForLicence",
+          "score": 0.6162,
+          "name_score": 0.24,
+          "domain": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ShallowWellbore"
+          ],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.6014,
+          "name_score": 0.294,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.5967,
+          "name_score": 0.385,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.95,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "wlbpoint.wlbnpdidwellbore": {
+      "object_prop_uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+      "confidence": "low",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名wlbnpdidwellbore与discoveryWellbore名称部分匹配，且其range包含Wellbore，但domain不匹配且结构证据为0，综合得分最高但置信度低。",
+      "candidates_used": [
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#discoveryWellbore",
+          "local_name": "discoveryWellbore",
+          "score": 0.2547,
+          "name_score": 0.588,
+          "domain": [],
+          "range": [
+            "http://sws.ifi.uio.no/vocab/npd-v2#DiscoveryWellbore",
+            "http://sws.ifi.uio.no/vocab/npd-v2#Wellbore"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#wellboreFormationTD",
+          "local_name": "wellboreFormationTD",
+          "score": 0.2521,
+          "name_score": 0.579,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sws.ifi.uio.no/vocab/npd-v2#belongsToWell",
+          "local_name": "belongsToWell",
+          "score": 0.2475,
+          "name_score": 0.562,
+          "domain": [],
+          "range": [],
+          "domain_score": 0.3,
+          "range_score": 0.3,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    }
+  },
+  "step2_orphans": {
+    "wellbore_exploration_all.wlbagewithhc1": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "wellbore_exploration_all.wlbagewithhc2": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    },
+    "wellbore_exploration_all.wlbagewithhc3": {
+      "object_prop_uri": null,
+      "confidence": "low",
+      "method": "skip_non_relational_orphan",
+      "reason": "non_inv_non_fk_orphan",
+      "is_inv": false,
+      "is_fk_col": false
+    }
+  },
+  "step2_multivalue": {}
+}

@@ -1,0 +1,1813 @@
+{
+  "generated_at": "2026-06-07 17:57:40",
+  "setting": "clean OP module: hard domain/range filtering + equivalence/inclusion column evidence + ontology endpoint candidates + LLM",
+  "candidate_policy": "no weighted OP scoring; candidates are retained by endpoint closure, restriction closure, or exact sql:construction",
+  "summary": {
+    "total": 43,
+    "answered": 26,
+    "no_answer": 17
+  },
+  "results": [
+    {
+      "relation_key": "acm_sigkdd_person.aid",
+      "task_type": "fk_obj",
+      "source": "acm_sigkdd_person.aid",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "acm_sigkdd_person",
+          "source_column": "aid",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKsearchACM_SIGKDD",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "acm_sigkdd_person.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选search的range为Sponzor，与目标range类ACM_SIGKDD冲突，且等价列证据显示无任何匹配值(source_in_target_IND=0)，FK约束名虽含search但端点不匹配，无法形成闭合证据链，故无合适OP，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "acm_sigkdd_person.pid",
+      "task_type": "fk_obj",
+      "source": "acm_sigkdd_person.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "acm_sigkdd_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "search_Sponzor_fkey",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "acm_sigkdd_person.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP 'search'的range为Sponzor而非Person，endpoint冲突；等价列证据无交集，FK名含Sponzor但不支持Person；无其他候选，故返回null"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs.award",
+      "task_type": "fk_obj",
+      "source": "best_paper_awards_committs.award",
+      "target": "best_research_paper_awards.id",
+      "llm_selected_uri": "http://sigkdd#award",
+      "llm_selected_local_name": "award",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "award",
+          "target_table": "best_research_paper_awards",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs.award"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#award",
+        "selected_direction": null,
+        "selected_local_name": "award",
+        "confidence": "high",
+        "reason": "候选award的domain精确匹配Best_Paper_Awards_Committee，range兼容（Best_Research_Paper_Award是Award的子类），名称与列角色完全匹配，FK约束名包含award，证据链支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs.committee",
+      "task_type": "fk_obj",
+      "source": "best_paper_awards_committs.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs.committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "端点兼容：domain类Best_Paper_Awards_Committee是Committee的子类，range类精确匹配Conference；角色名'committee'与列名和约束名完全匹配；等价列证据弱但未冲突；其他候选端点冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs.cid",
+      "task_type": "fk_obj",
+      "source": "best_paper_awards_committs.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": "normal",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "isCommitteeOf的domain兼容（Best_Paper_Awards_Committee是Committee的子类），range精确匹配Conference；外键约束名包含'isCommitteeOf'，名称与角色线索一致；其他候选的endpoint均冲突或不可用。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conferences.holded",
+      "task_type": "fk_obj",
+      "source": "conferences.holded",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "http://sigkdd#holded_by",
+      "llm_selected_local_name": "holded_by",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "conferences",
+          "source_column": "holded",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKConferenceholded_by",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conferences.holded"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#holded_by",
+        "selected_direction": null,
+        "selected_local_name": "holded_by",
+        "confidence": "high",
+        "reason": "候选holded_by的domain和range分别精确匹配Conference和ACM_SIGKDD，column_role_tokens包含列名'holded'，且FK约束名'FKConferenceholded_by'也暗示该关系。候选hold端点相反且无列名匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_abstract_submiss.designed",
+      "task_type": "fk_obj",
+      "source": "deadline_abstract_submiss.designed",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "http://sigkdd#designed_by",
+      "llm_selected_local_name": "designed_by",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "deadline_abstract_submiss",
+          "source_column": "designed",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "Deadline_Abstract_Submiss_designed_by_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_abstract_submiss.designed"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#designed_by",
+        "selected_direction": null,
+        "selected_local_name": "designed_by",
+        "confidence": "medium",
+        "reason": "端点兼容：domain 通过子类关系匹配（Deadline_Abstract_Submission 是 Deadline 的子类），range 精确匹配 ACM_SIGKDD；名称 hint 'designed' 出现在列角色和约束角色中，与 designed_by 一致；尽管等价列/IND 证据较弱（均为0），但 FK 约束名设计模式支持选择 designed_by。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_deadline_abstract_submiss.document",
+      "task_type": "fk_obj",
+      "source": "document_deadline_abstract_submiss.document",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "document_deadline_abstract_submiss",
+          "source_column": "document",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDocument",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "document_deadline_abstract_submiss.document"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain/range端点均不与当前关系(Abstract->Document)完全匹配。submit_until domain兼容但range为Deadline，与Document冲突；其他候选范围也冲突。等价列/IND证据为零，FK约束名仅部分匹配，但端点方向不成立。无法选择合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_deadline_abstract_submiss.deadline",
+      "task_type": "fk_obj",
+      "source": "document_deadline_abstract_submiss.deadline",
+      "target": "deadline_abstract_submiss.id",
+      "llm_selected_uri": "http://sigkdd#submit_until",
+      "llm_selected_local_name": "submit_until",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "document_deadline_abstract_submiss",
+          "source_column": "deadline",
+          "target_table": "deadline_abstract_submiss",
+          "target_column": "id",
+          "constraint_name": "submit_until_Deadline_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "document_deadline_abstract_submiss.deadline"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit_until",
+        "selected_direction": null,
+        "selected_local_name": "submit_until",
+        "confidence": "medium",
+        "reason": "候选 submit_until 的 domain (Abstract) 是 OP domain (Document) 的子类，range (Deadline_Abstract_Submission) 是 OP range (Deadline) 的子类，端点兼容；名称中包含 'submit_until' 与 FK 约束名 'submit_until_Deadline_fkey' 匹配，角色更具体。等价列 IND 证据为 0，但 FK 本身提供了直接连接支持。其他候选端点冲突，故选择此候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_person.pid",
+      "task_type": "fk_obj",
+      "source": "document_person.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "document_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "submit_Author_fkey",
+          "source_distinct": 564,
+          "target_distinct": 579,
+          "intersection": 564,
+          "union": 579,
+          "manual_jaccard": 0.9740932642487047,
+          "source_in_target": 1.0,
+          "target_in_source": 0.9740932642487047,
+          "evidence_type": "equivalence_column",
+          "relation_key": "document_person.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP中，submit和submit_until的range与Person冲突；presentationed_by的range为Speaker（Person子类），但缺乏name/role及等价列证据支持，且约束名指向submit关系，故无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_person.did",
+      "task_type": "fk_obj",
+      "source": "document_person.did",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#submit",
+      "llm_selected_local_name": "submit",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "document_person",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "submit_Paper_fkey",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "document_person.did"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit",
+        "selected_direction": null,
+        "selected_local_name": "submit",
+        "confidence": "medium",
+        "reason": "FK约束名‘submit_Paper_fkey’强烈指向submit；等价列IND显示document_person.did完全包含于documents.id，支持外键关系；submit的range是Paper（documents表可能映射为Paper），但domain是Author，与当前domain_class Document冲突；根据规则，不机械相信top-1，证据链闭合度最高，故选择submit。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "e_mails.person",
+      "task_type": "fk_obj",
+      "source": "e_mails.person",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "e_mails",
+          "source_column": "person",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKE-mailPerson",
+          "source_distinct": 564,
+          "target_distinct": 579,
+          "intersection": 564,
+          "union": 579,
+          "manual_jaccard": 0.9740932642487047,
+          "source_in_target": 1.0,
+          "target_in_source": 0.9740932642487047,
+          "evidence_type": "equivalence_column",
+          "relation_key": "e_mails.person"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "main_office_person.pid",
+      "task_type": "fk_obj",
+      "source": "main_office_person.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "main_office_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPerson",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "main_office_person.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP 'can_stay_in'的声明domain为Person、range为Place，与当前domain Main_office、range Person冲突；且等价列证据显示main_office_person.pid与persons.id无交集，数据不支持连接；虽FK约束名含'can_stay_in'但仅名称匹配，证据链不闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "main_office_person.mid",
+      "task_type": "fk_obj",
+      "source": "main_office_person.mid",
+      "target": "main_offices.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "main_office_person",
+          "source_column": "mid",
+          "target_table": "main_offices",
+          "target_column": "id",
+          "constraint_name": "can_stay_in_Place_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "main_office_person.mid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP can_stay_in的domain是Person，与当前domain_class Main_office冲突；range虽兼容但domain不匹配；等价列IND证据为零，无实际值支撑；因此无合适候选，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizing_committees.cid",
+      "task_type": "fk_obj",
+      "source": "organizing_committees.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "organizing_committees",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Organizing_Committee_hasCommittee_Inv_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committees.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "isCommitteeOf的domain兼容Organizing_Committee（子类），range精确匹配Conference；约束名包含Committee角色，符合外键语义；hasCommittee方向冲突无法使用。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizing_committees.committee",
+      "task_type": "fk_obj",
+      "source": "organizing_committees.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "organizing_committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Organizing_Committee_isCommitteeOf_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committees.committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "isCommitteeOf的domain兼容（Organizing_Committee是Committee的子类），range精确匹配Conference；外键约束名'Organizing_Committee_isCommitteeOf_fkey'和column_role_tokens'committee'支持该选择；等价列证据虽弱但约束名和端点匹配更可信。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_best_research_paper_award.pid",
+      "task_type": "fk_obj",
+      "source": "person_best_research_paper_award.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "person_best_research_paper_award",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "obtain_Author_fkey",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_best_research_paper_award.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain/range 端点均与目标类（Best_Research_Paper_Award, Person）冲突，等价列/IND 证据无交集且为弱冲突，无候选匹配，故返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_best_research_paper_award.bid",
+      "task_type": "fk_obj",
+      "source": "person_best_research_paper_award.bid",
+      "target": "best_research_paper_awards.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "person_best_research_paper_award",
+          "source_column": "bid",
+          "target_table": "best_research_paper_awards",
+          "target_column": "id",
+          "constraint_name": "obtain_Award_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_best_research_paper_award.bid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain 均与给定表类 Best_Research_Paper_Award 冲突（award domain 为 Best_Paper_Awards_Committee，obtain domain 为 Author，search domain 为 ACM_SIGKDD）。虽然 FK 约束名 obtain_Award_fkey 与 obtain 的约束角色匹配，但 endpoint 不兼容且无 inverseOf 支持方向反转。等价列/IND 证据显示弱匹配，无法闭合证据链。因此选择 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_deadline_abstract_submiss.pid",
+      "task_type": "fk_obj",
+      "source": "person_deadline_abstract_submiss.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "person_deadline_abstract_submiss",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "notification_until_Author_fkey",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_deadline_abstract_submiss.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的endpoint均不匹配或仅部分匹配：notification_until的domain/range均冲突，submit_until的range冲突，presentationed_by虽domain/range兼容但名称和角色证据完全缺失，且等价列证据（intersection=0）极弱，无法支持任何候选。根据规则，所有候选明显冲突，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_deadline_abstract_submiss.did",
+      "task_type": "fk_obj",
+      "source": "person_deadline_abstract_submiss.did",
+      "target": "deadline_abstract_submiss.id",
+      "llm_selected_uri": "http://sigkdd#submit_until",
+      "llm_selected_local_name": "submit_until",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "person_deadline_abstract_submiss",
+          "source_column": "did",
+          "target_table": "deadline_abstract_submiss",
+          "target_column": "id",
+          "constraint_name": "notification_until_Deadline_Author_notificat_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_deadline_abstract_submiss.did"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit_until",
+        "selected_direction": null,
+        "selected_local_name": "submit_until",
+        "confidence": "medium",
+        "reason": "候选notification_until的endpoint与当前domain/range冲突（Author和Deadline_Author_notification），因此排除。submit_until的domain和range兼容：Abstract是Document的子类，Deadline_Abstract_Submission是Deadline的子类；name pattern匹配且包含角色token 'until'；等价列/IND证据较弱但无冲突，且唯一兼容候选，故选择submit_until。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committees.committee",
+      "task_type": "fk_obj",
+      "source": "program_committees.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "program_committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Program_Committee_hasCommittee_Inv_fkey",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committees.committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "端点兼容：domain Program_Committee是Committee子类，range精确匹配Conference；名称/角色tokens（committee）与列名一致；等价列证据完全支持连接；FK名暗示反向hasCommittee，但isCommitteeOf方向正确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committees.cid",
+      "task_type": "fk_obj",
+      "source": "program_committees.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "program_committees",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Program_Committee_isCommitteeOf_fkey",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committees.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "端点匹配：domain类Program_Committee是Committee子类，range精确匹配Conference；FK约束名称'Program_Committee_isCommitteeOf_fkey'直接支持；等价列证据显示program_committees.cid与conferences.id完全等价(IND=1.0)；hasCommittee端点冲突（domain和range均反），故选isCommitteeOf。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person.pid",
+      "task_type": "fk_obj",
+      "source": "registration_fee_person.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "http://sigkdd#payed_by",
+      "llm_selected_local_name": "payed_by",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKpayPerson",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_fee_person.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#payed_by",
+        "selected_direction": "normal",
+        "selected_local_name": "payed_by",
+        "confidence": "high",
+        "reason": "endpoint精确匹配：domain=Registration_fee，range=Person；FK约束名'FKpayPerson'虽含'pay'但payed_by是其inverse，等价列证据弱但无冲突，故选payed_by"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person.rid",
+      "task_type": "fk_obj",
+      "source": "registration_fee_person.rid",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "rid",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKpayRegistration_fee",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_fee_person.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP pay的domain为Person，与要求的domain Registration_fee冲突；range匹配但domain不匹配，且无其他候选支持自引用关系，故返回null"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.id",
+      "task_type": "fk_obj",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": null,
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "endpoint exact match（domain Review, range Document），等价列IND完全支持Review→Document的FK方向（reviews.id 完全包含于 documents.id），OP名称“isReviewOf”语义匹配，且为唯一候选，无冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.ref",
+      "task_type": "fk_obj",
+      "source": "reviews.ref",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.ref"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": null,
+        "selected_local_name": "isReviewOf",
+        "confidence": "medium",
+        "reason": "domain精确匹配Review，range是Document的子类，但名称'isReviewOf'和约束名'FKReviewhasReview_Inv'暗示从Review到Document的关系；IND证据表明reviews.ref完全包含于documents.id，方向正确。候选hasReview的domain冲突（Paper），不选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.review",
+      "task_type": "fk_obj",
+      "source": "reviews.review",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.review"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": "normal",
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "候选 isReviewOf 的 domain 精确匹配 Review，range 为 Document 的子类；名字 isReviewOf 与 FK 约束名 FKReviewisReviewOf 一致；等价列证据显示 reviews.review 完全包含于 documents.id，支持从 Review 到 Document 的 FK 方向。候选 hasReview 的 domain 冲突（Paper vs Review），排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "acm_sigkdd_person",
+      "task_type": "sr_relation",
+      "source": "acm_sigkdd_person.aid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "acm_sigkdd_person",
+          "source_column": "aid",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKsearchACM_SIGKDD",
+          "relation_key": "acm_sigkdd_person",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "acm_sigkdd_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "search_Sponzor_fkey",
+          "relation_key": "acm_sigkdd_person",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选search的normal方向domain匹配但range冲突（声明range为Sponzor而非Person），reversed方向均冲突；等价列IND均为0，无construction支持，证据不足，故选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_deadline_abstract_submiss",
+      "task_type": "sr_relation",
+      "source": "document_deadline_abstract_submiss.document",
+      "target": "deadline_abstract_submiss.id",
+      "llm_selected_uri": "http://sigkdd#submit_until",
+      "llm_selected_local_name": "submit_until",
+      "llm_selected_direction": "normal",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "document_deadline_abstract_submiss",
+          "source_column": "document",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDocument",
+          "relation_key": "document_deadline_abstract_submiss",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "document_deadline_abstract_submiss",
+          "source_column": "deadline",
+          "target_table": "deadline_abstract_submiss",
+          "target_column": "id",
+          "constraint_name": "submit_until_Deadline_fkey",
+          "relation_key": "document_deadline_abstract_submiss",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit_until",
+        "selected_direction": "normal",
+        "selected_local_name": "submit_until",
+        "confidence": "high",
+        "reason": "domain 精确匹配 Document，range 兼容（Deadline_Abstract_Submission 是 Deadline 子类）；FK 约束名包含 submit_until 和 until，与关系表名和列名高度一致；其他候选 endpoint 冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "document_person",
+      "task_type": "sr_relation",
+      "source": "document_person.pid",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#submit",
+      "llm_selected_local_name": "submit",
+      "llm_selected_direction": "normal",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "document_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "submit_Author_fkey",
+          "relation_key": "document_person",
+          "source_distinct": 564,
+          "target_distinct": 579,
+          "intersection": 564,
+          "union": 579,
+          "manual_jaccard": 0.9740932642487047,
+          "source_in_target": 1.0,
+          "target_in_source": 0.9740932642487047,
+          "evidence_type": "equivalence_column"
+        },
+        {
+          "source_table": "document_person",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "submit_Paper_fkey",
+          "relation_key": "document_person",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit",
+        "selected_direction": "normal",
+        "selected_local_name": "submit",
+        "confidence": "high",
+        "reason": "等价列证据显示 document_person.pid 与 persons.id 完全等价，document_person.did 包含于 documents.id，表映射至 Person 和 Document。FK 约束名 'submit_Author_fkey' 和 'submit_Paper_fkey' 均含 'submit'，与 OP 名称和角色匹配。OP 的 domain 为 Author (Person 的子类)，range 为 Paper (Document 的子类)，endpoint 兼容且语义契合 'Person 提交 Document'。其他候选缺乏强 name/role 证据或 endpoint 冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "main_office_person",
+      "task_type": "sr_relation",
+      "source": "main_office_person.pid",
+      "target": "main_offices.id",
+      "llm_selected_uri": "http://sigkdd#can_stay_in",
+      "llm_selected_local_name": "can_stay_in",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "main_office_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPerson",
+          "relation_key": "main_office_person",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "main_office_person",
+          "source_column": "mid",
+          "target_table": "main_offices",
+          "target_column": "id",
+          "constraint_name": "can_stay_in_Place_fkey",
+          "relation_key": "main_office_person",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#can_stay_in",
+        "selected_direction": "normal",
+        "selected_local_name": "can_stay_in",
+        "confidence": "medium",
+        "reason": "候选OP只有can_stay_in，normal方向endpoint完全匹配（domain Person exact，range Main_office为Place子类兼容），reversed方向endpoint冲突；证据等价列均为0但FK名can_stay_in_Place_fkey与表角色main_office_person无直接语义支持，但name_pattern和constraint角色匹配，且无其他候选，因此选择normal方向，置信度中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_best_research_paper_award",
+      "task_type": "sr_relation",
+      "source": "person_best_research_paper_award.pid",
+      "target": "best_research_paper_awards.id",
+      "llm_selected_uri": "http://sigkdd#obtain",
+      "llm_selected_local_name": "obtain",
+      "llm_selected_direction": "normal",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "person_best_research_paper_award",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "obtain_Author_fkey",
+          "relation_key": "person_best_research_paper_award",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "person_best_research_paper_award",
+          "source_column": "bid",
+          "target_table": "best_research_paper_awards",
+          "target_column": "id",
+          "constraint_name": "obtain_Award_fkey",
+          "relation_key": "person_best_research_paper_award",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#obtain",
+        "selected_direction": "normal",
+        "selected_local_name": "obtain",
+        "confidence": "medium",
+        "reason": "候选obtain的domain端点匹配（Author是Person的子类，且restriction指向Author_of_paper包含Best_Research_Paper_Award），range端点兼容（Best_Research_Paper_Award是Award的子类），FK约束名obtain_Award_fkey直接匹配obtain角色，而award的domain冲突（Best_Paper_Awards_Committee），因此选择obtain。但等价列IND证据为空，置信度为medium。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_deadline_abstract_submiss",
+      "task_type": "sr_relation",
+      "source": "person_deadline_abstract_submiss.pid",
+      "target": "deadline_abstract_submiss.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "person_deadline_abstract_submiss",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "notification_until_Author_fkey",
+          "relation_key": "person_deadline_abstract_submiss",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "person_deadline_abstract_submiss",
+          "source_column": "did",
+          "target_table": "deadline_abstract_submiss",
+          "target_column": "id",
+          "constraint_name": "notification_until_Deadline_Author_notificat_fkey",
+          "relation_key": "person_deadline_abstract_submiss",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain或range与目标类Person和Deadline_Abstract_Submission均存在冲突，等价列IND证据为零，无法确认映射关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "presentation",
+      "task_type": "sr_relation",
+      "source": "presentation.did",
+      "target": "persons.id",
+      "llm_selected_uri": "http://sigkdd#presentationed_by",
+      "llm_selected_local_name": "presentationed_by",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "presentation",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKpresentationDocument",
+          "relation_key": "presentation",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "presentation",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "presentation_Speaker_fkey",
+          "relation_key": "presentation",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#presentationed_by",
+        "selected_direction": "normal",
+        "selected_local_name": "presentationed_by",
+        "confidence": "medium",
+        "reason": "端点匹配：domain精确匹配Document，range通过父类Person覆盖Speaker；FK约束名称presentation_Speaker_fkey支持range为Speaker，FKpresentationDocument支持domain；虽然名称不匹配，但inverseOf与表名presentation关联，且证据链闭合"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person",
+      "task_type": "sr_relation",
+      "source": "registration_fee_person.pid",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "http://sigkdd#pay",
+      "llm_selected_local_name": "pay",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKpayPerson",
+          "relation_key": "registration_fee_person",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "rid",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKpayRegistration_fee",
+          "relation_key": "registration_fee_person",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#pay",
+        "selected_direction": "normal",
+        "selected_local_name": "pay",
+        "confidence": "medium",
+        "reason": "端点 Person→Registration_fee 完全匹配声明端点；名称模式匹配，FK约束名含'pay'支持；等价列证据很弱但无冲突；反向候选端点冲突或方向不符，故选择pay正向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs::award__committee",
+      "task_type": "sr_relation_inferred",
+      "source": "best_paper_awards_committs.award",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "award",
+          "target_table": "best_research_paper_awards",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        },
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain/range均与目标类冲突或方向相反，无合适OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs::award__cid",
+      "task_type": "sr_relation_inferred",
+      "source": "best_paper_awards_committs.award",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#award",
+      "llm_selected_local_name": "award",
+      "llm_selected_direction": "reversed",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "award",
+          "target_table": "best_research_paper_awards",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_award_fkey",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        },
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#award",
+        "selected_direction": "reversed",
+        "selected_local_name": "award",
+        "confidence": "high",
+        "reason": "结合FK约束，award列指向最佳论文奖（Best_Research_Paper_Award），cid列指向会议；候选OP 'award' reversed的range通过子类匹配Best_Research_Paper_Award，domain为Conference，通过其inverseOf 'awarded_by'可得到所需方向；名称和约束名均匹配award；其他候选端点均冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs::committee__cid",
+      "task_type": "sr_relation_inferred",
+      "source": "best_paper_awards_committs.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_hasCommittee_Inv_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        },
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Best_Paper_Awards_Committ_isCommitteeOf_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain 和 range 都与当前关系（Conference→Conference）冲突（award 的 domain/range 分别为 Best_Paper_Awards_Committee/Award；hasCommittee 的 range 为 Committee；isCommitteeOf 的 domain 为 Committee），且等价列/IND 证据均为弱或冲突（交集0），无法通过方向或 inverseOf 弥补，故返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizing_committees::cid__committee",
+      "task_type": "sr_relation_inferred",
+      "source": "organizing_committees.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "organizing_committees",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Organizing_Committee_hasCommittee_Inv_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committees"
+        },
+        {
+          "source_table": "organizing_committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Organizing_Committee_isCommitteeOf_fkey",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committees"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain/range都与所需的Conference-Conference不匹配（分别涉及Committee类），且无inverseOf支持，等价列证据弱（无交集）。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committees::committee__cid",
+      "task_type": "sr_relation_inferred",
+      "source": "program_committees.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "program_committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Program_Committee_hasCommittee_Inv_fkey",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committees"
+        },
+        {
+          "source_table": "program_committees",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "Program_Committee_isCommitteeOf_fkey",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committees"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的声明端点均为Conference-Committee或Committee-Conference，与任务要求的Conference-Conference端点冲突，无inverseOf或subpropertyOf支持转换，等价列证据虽强但无法匹配端点，因此返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::id__ref",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#hasReview",
+      "llm_selected_local_name": "hasReview",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#hasReview",
+        "selected_direction": "normal",
+        "selected_local_name": "hasReview",
+        "confidence": "high",
+        "reason": "端点匹配：Document 是 Paper/Review 父类；约束名 FKReviewhasReview_Inv 表明 reviews.ref 是评审文档，reviews.id 是被评审文档，hasReview 正常方向（Paper->Review）对应，且表名 reviews 与 hasReview 语义一致。等价列 IND 支持两个外键。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::id__review",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "reversed",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": "reversed",
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "关系表reviews的列review通过IND完全包含于documents.id，且FK约束名FKReviewisReviewOf明确指向isReviewOf角色；endpoint均为Document，候选isReviewOf reversed方向使domain为Review（更具体）但通过父类兼容，且name/role证据最强；hasReview的domain为Paper与表名reviews冲突，故选择isReviewOf reversed。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::ref__review",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.ref",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#hasReview",
+      "llm_selected_local_name": "hasReview",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#hasReview",
+        "selected_direction": "normal",
+        "selected_local_name": "hasReview",
+        "confidence": "high",
+        "reason": "关系表reviews的两个FK列(reviews.ref和reviews.review)均引用documents.id,构成自引用。hasReview的方向（domain=被评文档,range=评审文档）与常见语义一致，且表名reviews和约束名FkReviewhasReview_Inv包含review token，domain/range的端点是Document（父类）与候选OP的声明端点匹配（OP类更具体，但evidence足够）。hasReview normal优于isReviewOf normal，因为它更直接表示“有评审”关系。"
+      },
+      "error": null
+    }
+  ]
+}

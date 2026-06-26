@@ -1,0 +1,63 @@
+{
+  "countryothername": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "economy": {
+    "table_low": true,
+    "columns_low": [
+      "gdp",
+      "agriculture",
+      "service",
+      "industry"
+    ]
+  },
+  "geo_desert": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_estuary": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_island": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_lake": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_mountain": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_river": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_sea": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_source": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "locatedon": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "politics": {
+    "table_low": true,
+    "columns_low": [
+      "independence",
+      "wasdependent",
+      "dependent"
+    ]
+  },
+  "riverthrough": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

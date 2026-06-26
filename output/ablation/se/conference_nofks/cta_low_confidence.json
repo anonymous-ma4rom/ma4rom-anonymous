@@ -1,0 +1,10 @@
+{
+  "has_a_committee_co-chair": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "has_a_track-workshop-tuto": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

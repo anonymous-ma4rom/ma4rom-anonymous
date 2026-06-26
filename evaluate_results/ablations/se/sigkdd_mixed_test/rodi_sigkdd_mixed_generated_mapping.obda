@@ -1,0 +1,51 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+sigkddmixed:	http://sigkdd#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-900353978
+target		<http://example.com/acm_sigkdds/{aid}> sigkddmixed:search <http://example.com/persons/{pid}> . 
+source		SELECT "aid" , "pid" FROM "acm_sigkdd_person"
+
+mappingId	mapping-1815387800
+target		<http://example.com/persons/{person}> sigkddmixed:E-mail {value}^^xsd:string . 
+source		SELECT "person" , "value" FROM "e_mails"
+
+mappingId	mapping-548760785
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/main_offices/{mid}> . 
+source		SELECT "pid" , "mid" FROM "main_office_person"
+
+mappingId	mapping--1752658217
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/deadline_abstract_submiss/{did}> . 
+source		SELECT "pid" , "did" FROM "person_deadline_abstract_submiss"
+
+mappingId	mapping-1211807025
+target		<http://example.com/persons/{pid}> sigkddmixed:pay <http://example.com/registration_fees/{rid}> . 
+source		SELECT "pid" , "rid" FROM "registration_fee_person"
+
+mappingId	mapping-390071059
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/best_research_paper_awards/{bid}> . 
+source		SELECT "pid" , "bid" FROM "person_best_research_paper_award"
+
+mappingId	mapping-770965256
+target		<http://example.com/persons/{pid}> sigkddmixed:presentation <http://example.com/documents/{did}> . 
+source		SELECT "pid" , "did" FROM "document_person"
+
+mappingId	mapping-1692572140
+target		<http://example.com/documents/{document}> sigkddmixed:submit_until <http://example.com/deadline_abstract_submiss/{deadline}> . 
+source		SELECT "document" , "deadline" FROM "document_deadline_abstract_submiss"
+
+mappingId	mapping-1521271270
+target		<http://example.com/documents/{did}> sigkddmixed:presentationed_by <http://example.com/persons/{pid}> . 
+source		SELECT "did" , "pid" FROM "presentation"
+
+mappingId	mapping--1166858577
+target		<http://example.com/documents/{id}> a sigkddmixed:Review ; sigkddmixed:hasText {text}^^xsd:string ; sigkddmixed:hasID {internal_id}^^xsd:int ; sigkddmixed:isReviewOf <http://example.com/documents/{review}> , <http://example.com/documents/{ref}> . 
+source		SELECT "id" , "ref" , "review" , "internal_id" , "text" FROM "reviews"
+]]
+

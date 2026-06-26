@@ -1,0 +1,106 @@
+{
+  "database": "npd_atomic_tests",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "evaluated_at": "2026-06-04 17:07:03",
+  "summary": {
+    "total_with_construction_gold": 3,
+    "current_correct": 0,
+    "current_accuracy": 0.0,
+    "llm_correct": 3,
+    "llm_accuracy": 1.0,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "baaarea.baanpdidbsnsarrarea",
+      "source": "baaarea.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 0.9591836734693877,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9591836734693877,
+        "valentine_coma_score": 0.9964788732394366,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "外键关系精确匹配isGeometryOfFeature的SQL构造，且该属性有BAAArea类的约束支持（涉及baaArea和bsns_arr_area表），而broaderTransitive仅为语义泛化关系，无特定构造匹配，因此选择isGeometryOfFeature。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "source": "bsns_arr_area_area_poly_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+      "llm_selected_local_name": "isGeometryOfFeature",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature"
+      ],
+      "gold_local_names": [
+        "isGeometryOfFeature"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 1.0,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#isGeometryOfFeature",
+        "selected_local_name": "isGeometryOfFeature",
+        "confidence": "high",
+        "reason": "虽然名称相似度为0，但具有精确SQL构造匹配（外键 bsns_arr_area_area_poly_hst.baaNpdidBsnsArrArea 引用 bsns_arr_area.baaNpdidBsnsArrArea），且有限制支持（BAAArea类），符合数据库外键语义，而其他候选缺乏构造匹配或语义不相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "source": "bsns_arr_area_licensee_hst.baanpdidbsnsarrarea",
+      "target": "bsns_arr_area.baanpdidbsnsarrarea",
+      "current_uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "current_local_name": "broaderTransitive",
+      "llm_selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA",
+      "llm_selected_local_name": "licenseeForBAA",
+      "gold_uris": [
+        "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA"
+      ],
+      "gold_local_names": [
+        "licenseeForBAA"
+      ],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.9823641563393708,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "llm_response": {
+        "selected_uri": "http://sws.ifi.uio.no/vocab/npd-v2#licenseeForBAA",
+        "selected_local_name": "licenseeForBAA",
+        "confidence": "high",
+        "reason": "外键关系精确匹配licenseeForBAA的SQL构造，且限制证据表明类BAALicensee关联表bsns_arr_area_licensee_hst，范围BAA对应bsns_arr_area，而其他候选域/范围不匹配或语义过泛。"
+      },
+      "error": null
+    }
+  ]
+}

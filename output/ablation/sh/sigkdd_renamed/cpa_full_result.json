@@ -1,0 +1,818 @@
+{
+  "step1": {
+    "author_deadline_author_notificat": {
+      "object_prop_uri": "http://sigkdd#notification_until",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#notification_until",
+          "local_name": "notification_until",
+          "score": 0.4448,
+          "name_score": 0.517,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Deadline_Author_notification"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#obtain",
+          "local_name": "obtain",
+          "score": 0.1983,
+          "name_score": 0.172,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Award"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#submit",
+          "local_name": "submit",
+          "score": 0.179,
+          "name_score": 0.103,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Paper"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "award_author": {
+      "object_prop_uri": "http://sigkdd#obtain",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "obtain 的 domain 和 range 完全匹配 Author 和 Award，且综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#obtain",
+          "local_name": "obtain",
+          "score": 0.3764,
+          "name_score": 0.273,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Award"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#award",
+          "local_name": "award",
+          "score": 0.29,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Best_Paper_Awards_Committee"
+          ],
+          "range": [
+            "http://sigkdd#Award"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#notification_until",
+          "local_name": "notification_until",
+          "score": 0.2159,
+          "name_score": 0.235,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Deadline_Author_notification"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "committees.committee": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.9138,
+          "name_score": 0.692,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.63,
+          "name_score": 0.75,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.6011,
+          "name_score": 0.111,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        }
+      ]
+    },
+    "committees.ref": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.7631,
+          "name_score": 0.154,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.57,
+          "name_score": 0.0,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        },
+        {
+          "uri": "http://sigkdd#search",
+          "local_name": "search",
+          "score": 0.5133,
+          "name_score": 0.333,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Sponzor"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "conferences.holded": {
+      "object_prop_uri": "http://sigkdd#holded_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#holded_by",
+          "local_name": "holded_by",
+          "score": 0.51,
+          "name_score": 0.75,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#designed_by",
+          "local_name": "designed_by",
+          "score": 0.234,
+          "name_score": 0.3,
+          "domain": [
+            "http://sigkdd#Deadline"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#searched_by",
+          "local_name": "searched_by",
+          "score": 0.234,
+          "name_score": 0.3,
+          "domain": [
+            "http://sigkdd#Sponzor"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "deadline_document": {
+      "object_prop_uri": "http://sigkdd#presentation",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的domain或range均与Deadline和Document不完全匹配，且无结构证据支持。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.29,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#designed_by",
+          "local_name": "designed_by",
+          "score": 0.255,
+          "name_score": 0.375,
+          "domain": [
+            "http://sigkdd#Deadline"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentationed_by",
+          "local_name": "presentationed_by",
+          "score": 0.175,
+          "name_score": 0.625,
+          "domain": [
+            "http://sigkdd#Document"
+          ],
+          "range": [
+            "http://sigkdd#Speaker"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "deadlines.designed": {
+      "object_prop_uri": "http://sigkdd#designed_by",
+      "confidence": "high",
+      "scenario": "SMD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#designed_by",
+          "local_name": "designed_by",
+          "score": 0.86,
+          "name_score": 0.8,
+          "domain": [
+            "http://sigkdd#Deadline"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#searched_by",
+          "local_name": "searched_by",
+          "score": 0.43,
+          "name_score": 0.4,
+          "domain": [
+            "http://sigkdd#Sponzor"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#holded_by",
+          "local_name": "holded_by",
+          "score": 0.4188,
+          "name_score": 0.375,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "e_mails.person": {
+      "object_prop_uri": "http://sigkdd#payed_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性range为Person，与关系信息中的range完全匹配，且结构证据强度高达99.1%，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#payed_by",
+          "local_name": "payed_by",
+          "score": 0.6912,
+          "name_score": 0.286,
+          "domain": [
+            "http://sigkdd#Registration_fee"
+          ],
+          "range": [
+            "http://sigkdd#Person"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#search",
+          "local_name": "search",
+          "score": 0.6762,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Sponzor"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#design",
+          "local_name": "design",
+          "score": 0.6012,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Deadline"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.0,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "paper_author": {
+      "object_prop_uri": "http://sigkdd#obtain",
+      "confidence": "medium",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "所有候选属性的range均不匹配目标类Author_of_paper，且名称与关系语义不符。；LLM 未给出结果，依据结构/语义分数回退 top1",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#obtain",
+          "local_name": "obtain",
+          "score": 0.6464,
+          "name_score": 0.273,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Award"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#notification_until",
+          "local_name": "notification_until",
+          "score": 0.6359,
+          "name_score": 0.235,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Deadline_Author_notification"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#submit",
+          "local_name": "submit",
+          "score": 0.6209,
+          "name_score": 0.182,
+          "domain": [
+            "http://sigkdd#Author"
+          ],
+          "range": [
+            "http://sigkdd#Paper"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "place_person": {
+      "object_prop_uri": "http://sigkdd#can_stay_in",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#can_stay_in",
+          "local_name": "can_stay_in",
+          "score": 0.4018,
+          "name_score": 0.364,
+          "domain": [
+            "http://sigkdd#Person"
+          ],
+          "range": [
+            "http://sigkdd#Place"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#searched_by",
+          "local_name": "searched_by",
+          "score": 0.2277,
+          "name_score": 0.545,
+          "domain": [
+            "http://sigkdd#Sponzor"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.5,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#pay",
+          "local_name": "pay",
+          "score": 0.2009,
+          "name_score": 0.182,
+          "domain": [
+            "http://sigkdd#Person"
+          ],
+          "range": [
+            "http://sigkdd#Registration_fee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "registration_fee_person": {
+      "object_prop_uri": "http://sigkdd#pay",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名 registration_fee_person 暗示 Person 与 Registration_fee 之间的支付关系，且 pay 的 domain 和 range 完全匹配，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#pay",
+          "local_name": "pay",
+          "score": 0.3267,
+          "name_score": 0.095,
+          "domain": [
+            "http://sigkdd#Person"
+          ],
+          "range": [
+            "http://sigkdd#Registration_fee"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#can_stay_in",
+          "local_name": "can_stay_in",
+          "score": 0.23,
+          "name_score": 0.286,
+          "domain": [
+            "http://sigkdd#Person"
+          ],
+          "range": [
+            "http://sigkdd#Place"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentationed_by",
+          "local_name": "presentationed_by",
+          "score": 0.1733,
+          "name_score": 0.619,
+          "domain": [
+            "http://sigkdd#Document"
+          ],
+          "range": [
+            "http://sigkdd#Speaker"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "speaker_document": {
+      "object_prop_uri": "http://sigkdd#presentationed_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性名称与关系语义高度匹配，且domain完全匹配Document，range虽为Speaker但Invited_Speaker为其子类，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#presentationed_by",
+          "local_name": "presentationed_by",
+          "score": 0.3425,
+          "name_score": 0.688,
+          "domain": [
+            "http://sigkdd#Document"
+          ],
+          "range": [
+            "http://sigkdd#Speaker"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#submit_until",
+          "local_name": "submit_until",
+          "score": 0.2433,
+          "name_score": 0.333,
+          "domain": [
+            "http://sigkdd#Document"
+          ],
+          "range": [
+            "http://sigkdd#Deadline"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.168,
+          "name_score": 0.6,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "sponzor_acm_sigkdd": {
+      "object_prop_uri": "http://sigkdd#search",
+      "confidence": "high",
+      "scenario": "SMD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#search",
+          "local_name": "search",
+          "score": 0.6125,
+          "name_score": 0.25,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Sponzor"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#design",
+          "local_name": "design",
+          "score": 0.3906,
+          "name_score": 0.312,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Deadline"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.3063,
+          "name_score": 0.125,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    }
+  },
+  "step2_orphans": {},
+  "step2_multivalue": {}
+}

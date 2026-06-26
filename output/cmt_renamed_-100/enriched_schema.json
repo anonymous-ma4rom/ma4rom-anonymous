@@ -1,0 +1,861 @@
+{
+  "acceptances": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "administrator_conference": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": []
+  },
+  "administrators": {
+    "columns": {
+      "id": "integer",
+      "accept_paper": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "accept_paper",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP acceptPaper的domain为Administrator，range为Paper，列名accept_paper与OP名称一致"
+      }
+    ]
+  },
+  "associated_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "author_not_reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "users",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "bids": {
+    "columns": {
+      "id": "integer",
+      "adjusted": "integer",
+      "bid": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "adjusted",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与ObjectProperty adjustedBy的domain/range匹配，语义得分0.9333。"
+      }
+    ]
+  },
+  "chairmans": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "co_author_paper": {
+    "columns": {
+      "cid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "pid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "cid",
+        "ref_table": "co_authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "pid",
+        "ref_table": "paper_full_versions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "co_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "users",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conf_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_administrator": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": []
+  },
+  "conference_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_members": {
+    "columns": {
+      "conference": "integer",
+      "conference_member": "integer"
+    },
+    "primary_key": [
+      "conference",
+      "conference_member"
+    ],
+    "foreign_keys": [
+      {
+        "column": "conference",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "conference_member",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "site_url": "character varying(22)",
+      "accepts_hardcopy_submissions": "character varying(199)",
+      "logo_url": "character varying(199)",
+      "date": "date",
+      "name": "character varying(6)",
+      "reviews_per_paper": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "decisions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "details_entered": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": []
+  },
+  "documents": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "enable_virtual_meeting": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": []
+  },
+  "external_reviewers": {
+    "columns": {
+      "id": "integer",
+      "assigned_by_reviewer": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "assigned_by_reviewer",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 assigned_by_reviewer 与本体对象属性 assignedByReviewer 匹配，domain/range 评分均为 1.0，语义明确指向 Reviewer。"
+      }
+    ]
+  },
+  "finalize_paper_assignment": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": []
+  },
+  "hardcopy_mailing_manifests_p": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": []
+  },
+  "mark_conflict_interests": {
+    "columns": {
+      "conference_member": "integer",
+      "paper": "integer"
+    },
+    "primary_key": [
+      "conference_member",
+      "paper"
+    ],
+    "foreign_keys": [
+      {
+        "column": "paper",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'paper' 直接对应 'papers' 表，语义明确，是最可能的引用目标。"
+      }
+    ]
+  },
+  "meta_reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "meta_reviews",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "medium",
+        "reason": "表名meta_reviewers暗示与meta_reviews相关，id列名匹配且类型一致，但id通常为主键，外键可能性中等"
+      }
+    ]
+  },
+  "meta_reviews": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "paper_abstracts": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "paper_assignment_tools_run": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "cid",
+        "ref_table": "program_committee_chairs",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "cid 高概率指向 program_committee_chairs 主键，因为该表存储程序委员会主席信息，由主席运行论文分配工具是合理语义。"
+      }
+    ]
+  },
+  "paper_author": {
+    "columns": {
+      "aid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "pid"
+    ],
+    "foreign_keys": []
+  },
+  "paper_full_versions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "paper_reviewer": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "pid",
+        "ref_table": "paper_full_versions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "rid",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "paper_subject_area": {
+    "columns": {
+      "pid": "integer",
+      "sid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "sid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "pid",
+        "ref_table": "paper_abstracts",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "paper_subject_area是论文与主题领域的关联表，pid应为论文标识，候选中最匹配的是paper_abstracts表的id"
+      },
+      {
+        "column": "sid",
+        "ref_table": "subject_areas",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "sid应为主题领域标识，候选中最匹配的是subject_areas表的id"
+      }
+    ]
+  },
+  "papers": {
+    "columns": {
+      "id": "integer",
+      "paper_id": "integer",
+      "rejected": "integer",
+      "read_by_meta_reviewer": "integer",
+      "author": "integer",
+      "title": "character varying(101)",
+      "decision": "integer",
+      "accepted": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "author",
+        "ref_table": "authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "rejected",
+        "ref_table": "administrators",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "ObjectProperty 'rejectedBy' maps column to Administrator with high domain/range and name similarity"
+      },
+      {
+        "column": "read_by_meta_reviewer",
+        "ref_table": "meta_reviewers",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "ObjectProperty 'readByMeta-Reviewer' perfectly aligns with column name and entity classes"
+      },
+      {
+        "column": "accepted",
+        "ref_table": "administrators",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "ObjectProperty 'acceptedBy' maps column to Administrator with high domain/range and name similarity"
+      }
+    ]
+  },
+  "pc_members": {
+    "columns": {
+      "id": "integer",
+      "max_papers": "integer",
+      "added": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "person_document": {
+    "columns": {
+      "pid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "did"
+    ],
+    "foreign_keys": []
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(24)",
+      "email": "character varying(43)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "preferences": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "program_committee_chair_review": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "pid",
+        "ref_table": "program_committee_chairs",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 program_committee_chair_review 中的 pid 通常指代 program committee chair，与 program_committee_chairs 表语义匹配且 name_score 最高。"
+      }
+    ]
+  },
+  "program_committee_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "program_committee_members": {
+    "columns": {
+      "program_committee": "integer",
+      "program_committee_member": "integer"
+    },
+    "primary_key": [
+      "program_committee",
+      "program_committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "column": "program_committee",
+        "ref_table": "program_committees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "program_committee_member",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "label": "character varying(29)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "read_by_reviewer": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": []
+  },
+  "rejections": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "reviewer_administrator": {
+    "columns": {
+      "aid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "rid"
+    ],
+    "foreign_keys": []
+  },
+  "reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "users",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "written": "integer",
+      "comment": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "written",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "set_max_papers": {
+    "columns": {
+      "administrator": "integer",
+      "program_committee_member": "integer"
+    },
+    "primary_key": [
+      "administrator",
+      "program_committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "column": "administrator",
+        "ref_table": "administrators",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'administrator' 与 'administrators' 表名高度匹配，语义明确指向管理员实体主键。"
+      }
+    ]
+  },
+  "subject_areas": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "users": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "acm_sigkdd_person": {
+    "columns": {
+      "aid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "pid"
+    ],
+    "foreign_keys": []
+  },
+  "acm_sigkdds": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "best_paper_awards_committs": {
+    "columns": {
+      "id": "integer",
+      "award": "integer",
+      "committee": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "award",
+        "ref_table": "best_research_paper_awards",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "award列名与best_research_paper_awards奖项表直接对应，且name_score最高"
+      }
+    ]
+  },
+  "best_research_paper_awards": {
+    "columns": {
+      "id": "integer",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "holded": "integer",
+      "start_conference": "date",
+      "city_conference": "character varying(16)",
+      "name_conference": "character varying(6)",
+      "end_conference": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "deadline_abstract_submiss": {
+    "columns": {
+      "id": "integer",
+      "designed": "integer",
+      "date": "date",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "document_deadline_abstract_submiss": {
+    "columns": {
+      "document": "integer",
+      "deadline": "integer"
+    },
+    "primary_key": [
+      "document",
+      "deadline"
+    ],
+    "foreign_keys": [
+      {
+        "column": "document",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名高度匹配，语义明确表示关联文档实体。"
+      }
+    ]
+  },
+  "document_person": {
+    "columns": {
+      "pid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "did"
+    ],
+    "foreign_keys": [
+      {
+        "column": "pid",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "did",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "documents": {
+    "columns": {
+      "id": "integer",
+      "title": "character varying(101)",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "e_mails": {
+    "columns": {
+      "person": "integer",
+      "value": "character varying(43)"
+    },
+    "primary_key": [
+      "person",
+      "value"
+    ],
+    "foreign_keys": [
+      {
+        "column": "person",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "main_office_person": {
+    "columns": {
+      "pid": "integer",
+      "mid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "mid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "mid",
+        "ref_table": "main_offices",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "mid 在关联表 main_office_person 中很可能引用 main_offices 表的 id，表示 main_office 角色"
+      }
+    ]
+  },
+  "main_offices": {
+    "columns": {
+      "id": "integer",
+      "lat": "integer",
+      "long": "integer",
+      "street": "character varying(199)",
+      "postal_code": "integer",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizing_committees": {
+    "columns": {
+      "id": "integer",
+      "cid": "integer",
+      "committee": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "person_best_research_paper_award": {
+    "columns": {
+      "pid": "integer",
+      "bid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "bid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "bid",
+        "ref_table": "best_research_paper_awards",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 bid 为 best_research_paper_award id 缩写，表名直接包含该实体，引用最佳研究论文奖项表主键。"
+      }
+    ]
+  },
+  "person_deadline_abstract_submiss": {
+    "columns": {
+      "pid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "did"
+    ],
+    "foreign_keys": [
+      {
+        "column": "did",
+        "ref_table": "deadline_abstract_submiss",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "did 是 deadline_abstract_submiss 的缩写，引用 deadline_abstract_submiss 表的主键 id，构成关联表的外键。"
+      }
+    ]
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "nation": "character varying(199)",
+      "name": "character varying(24)",
+      "name_sponsor": "character varying(199)",
+      "organizator": "boolean",
+      "program_chair": "boolean",
+      "listener": "boolean",
+      "author_paper_student": "boolean",
+      "program_committee_member": "boolean",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "presentation": {
+    "columns": {
+      "pid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "did"
+    ],
+    "foreign_keys": []
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "label": "character varying(29)",
+      "committee": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "committee",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "cid",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "registration_fee_person": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "rid",
+        "ref_table": "registration_fees",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "rid应为registration fee id，语义指向registration_fees表主键"
+      }
+    ]
+  },
+  "registration_fees": {
+    "columns": {
+      "id": "integer",
+      "currency": "character varying(199)",
+      "price": "integer",
+      "type": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "ref": "integer",
+      "review": "integer",
+      "internal_id": "integer",
+      "text": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ref",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "review",
+        "ref_table": "documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "sponzor_fees": {
+    "columns": {
+      "id": "integer",
+      "currency": "character varying(199)",
+      "price": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  }
+}

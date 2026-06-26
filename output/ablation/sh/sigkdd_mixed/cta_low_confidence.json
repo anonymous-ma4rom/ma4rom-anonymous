@@ -1,0 +1,88 @@
+{
+  "acm_sigkdd_person": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "best_paper_awards_committs": {
+    "table_low": false,
+    "columns_low": [
+      "committee",
+      "cid"
+    ]
+  },
+  "best_research_paper_awards": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "conferences": {
+    "table_low": true,
+    "columns_low": [
+      "name_conference",
+      "end_conference"
+    ]
+  },
+  "deadline_abstract_submiss": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "document_deadline_abstract_submiss": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "documents": {
+    "table_low": false,
+    "columns_low": [
+      "title"
+    ]
+  },
+  "main_office_person": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "main_offices": {
+    "table_low": false,
+    "columns_low": [
+      "street"
+    ]
+  },
+  "organizing_committees": {
+    "table_low": true,
+    "columns_low": [
+      "cid",
+      "committee"
+    ]
+  },
+  "person_best_research_paper_award": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "person_deadline_abstract_submiss": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "persons": {
+    "table_low": false,
+    "columns_low": [
+      "name_sponsor"
+    ]
+  },
+  "presentation": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "program_committees": {
+    "table_low": true,
+    "columns_low": [
+      "committee",
+      "cid"
+    ]
+  },
+  "registration_fee_person": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "registration_fees": {
+    "table_low": false,
+    "columns_low": []
+  }
+}

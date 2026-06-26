@@ -1,0 +1,50 @@
+{
+  "Administrator": {
+    "table_low": false,
+    "columns_low": [
+      "acceptPaper"
+    ]
+  },
+  "Paper": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "ProgramCommitteeChair": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "ProgramCommitteeMember": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "Review": {
+    "table_low": true,
+    "columns_low": [
+      "comment"
+    ]
+  },
+  "co-writePaper": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "detailsEnteredBy": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hardcopyMailingManifestsP": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "hasConflictOfInterest": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "markConflictOfInterest": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "submitPaper": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

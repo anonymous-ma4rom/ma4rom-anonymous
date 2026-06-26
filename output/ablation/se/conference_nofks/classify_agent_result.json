@@ -1,0 +1,274 @@
+{
+  "Abstract": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_the_1th_part_of",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK属性列has_text，故为SE。"
+  },
+  "Committee": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "was_a_program_committee_of",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK属性列has_a_name和TYPE，故为SE。"
+  },
+  "Conference_document": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK属性列has_a_date_of_issue和has_a_URL，故为SE。"
+  },
+  "Conference_fees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK属性列amount，故为SE。"
+  },
+  "Conference_proceedings": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK属性列has_a_name和has_an_ISBN，故为SE。"
+  },
+  "Conference_volume": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK属性列has_a_location和has_a_name，故为SE。"
+  },
+  "Important_dates": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含多个非FK日期属性列，故为SE。"
+  },
+  "Invited_talk": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_given_by",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "has_an_abstract",
+        "references_table": "Abstract",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK属性列（无额外属性列？实际有ID主键，但ID非FK，故为SE）。"
+  },
+  "Organization": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK属性列has_a_name，故为SE。"
+  },
+  "Organizer": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且无其他列，但主键非FK，故为SE。"
+  },
+  "Organizing_committee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键约束，不属于SH或SR，为主实体表。"
+  },
+  "Paper": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "has_an_abstract",
+        "references_table": "Abstract",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非外键集，且包含非外键列，为主实体表。"
+  },
+  "Person": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键，为主实体表。"
+  },
+  "Poster": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键约束，为主实体表。"
+  },
+  "Publisher": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键，为主实体表。"
+  },
+  "Review": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "reviews",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非外键集，且包含非外键列，为主实体表。"
+  },
+  "Review_expertise": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键约束，为主实体表。"
+  },
+  "Review_preference": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键约束，为主实体表。"
+  },
+  "Steering_committee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键约束，为主实体表。"
+  },
+  "Topic": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID且无外键，为主实体表。"
+  },
+  "Track": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK列集，且包含非FK属性列has_a_name等，符合主实体特征。"
+  },
+  "Tutorial": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK列集，且包含非FK属性列has_a_name等，符合主实体特征。"
+  },
+  "Workshop": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK列集，且包含非FK属性列has_a_name等，符合主实体特征。"
+  },
+  "belongs_to_reviewers": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Entity",
+        "references_table": "Entity",
+        "references_column": "ID"
+      },
+      {
+        "column": "Reviewer",
+        "references_table": "Reviewer",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK（虽未显式声明但语义为外键），且为二元关系，无额外属性列。"
+  },
+  "contributes": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Conference_document",
+        "references_table": "Conference_document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "has_a_committee_co-chair": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Committee",
+        "references_table": "Committee",
+        "references_column": "ID"
+      },
+      {
+        "column": "Co-chair",
+        "references_table": "Co-chair",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK（语义上），且为二元关系，无额外属性列。"
+  },
+  "has_a_track-workshop-tuto": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Conference_part",
+        "references_table": "Conference_part",
+        "references_column": "ID"
+      },
+      {
+        "column": "Topic",
+        "references_table": "Topic",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK（语义上），且为二元关系，无额外属性列。"
+  },
+  "has_an_email": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "包含非FK属性列VALUE，且主键为(Person, VALUE)不等于FK列集，故为带属性关系表。"
+  },
+  "has_members": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Committee",
+        "references_table": "Committee",
+        "references_column": "ID"
+      },
+      {
+        "column": "Committee_member",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "invited_by": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Reviewer1",
+        "references_table": "Reviewer",
+        "references_column": "ID"
+      },
+      {
+        "column": "Reviewer2",
+        "references_table": "Reviewer",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为FK（语义上），且为二元关系，无额外属性列。"
+  }
+}

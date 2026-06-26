@@ -1,0 +1,280 @@
+{
+  "database": "sigkdd_structured",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "include_no_gold": true,
+  "evaluated_at": "2026-06-04 22:59:31",
+  "summary": {
+    "prediction_total": 10,
+    "prediction_no_answer": 0,
+    "changed_from_current": 0,
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "Best_Paper_Awards_Committ.award",
+      "source": "Best_Paper_Awards_Committ.award",
+      "target": "Best_Research_Paper_Award.ID",
+      "current_uri": "http://sigkdd#award",
+      "current_local_name": "award",
+      "llm_selected_uri": "http://sigkdd#award",
+      "llm_selected_local_name": "award",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#award",
+        "selected_local_name": "award",
+        "confidence": "high",
+        "reason": "属性名与列名'award'完全匹配；domain为Best_Paper_Awards_Committee与来源表一致；range为Award，目标表Best_Research_Paper_Award为其子类；存在逆属性awarded_by进一步确认方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Best_Paper_Awards_Committ.hasCommittee_Inv",
+      "source": "Best_Paper_Awards_Committ.hasCommittee_Inv",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "medium",
+        "reason": "关系名称'hasCommittee_Inv'暗示逆关系，而'isCommitteeOf'语义上匹配从委员会到会议的方向；域(Committee)和范围(Conference)完全匹配；名称相似度较高；其他候选域或范围不匹配或方向相反。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Best_Paper_Awards_Committ.isCommitteeOf",
+      "source": "Best_Paper_Awards_Committ.isCommitteeOf",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "外键名称'isCommitteeOf'与候选对象属性名称完全匹配，且domain为Committee与来源表'Best_Paper_Awards_Committ'（委员会）相符，range为Conference与目标表Conference的ID列对应，语义方向一致。其他候选'hasCommittee'方向相反，'hold'的domain不匹配，因此选择isCommitteeOf。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference.holded_by",
+      "source": "Conference.holded_by",
+      "target": "ACM_SIGKDD.ID",
+      "current_uri": "http://sigkdd#holded_by",
+      "current_local_name": "holded_by",
+      "llm_selected_uri": "http://sigkdd#holded_by",
+      "llm_selected_local_name": "holded_by",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#holded_by",
+        "selected_local_name": "holded_by",
+        "confidence": "high",
+        "reason": "领域和范围完全匹配：domain是Conference（与源表一致），range是ACM_SIGKDD（与目标表一致），且属性名称holded_by与数据库列名一致。其他候选者的领域不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Deadline_Abstract_Submiss.designed_by",
+      "source": "Deadline_Abstract_Submiss.designed_by",
+      "target": "ACM_SIGKDD.ID",
+      "current_uri": "http://sigkdd#designed_by",
+      "current_local_name": "designed_by",
+      "llm_selected_uri": "http://sigkdd#designed_by",
+      "llm_selected_local_name": "designed_by",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#designed_by",
+        "selected_local_name": "designed_by",
+        "confidence": "high",
+        "reason": "名称完全匹配（designed_by），domain为Deadline（与源表Deadline_Abstract_Submiss相关），range为ACM_SIGKDD（目标表），其他候选domain不匹配（Sponzor或Conference）。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Organizing_Committee.hasCommittee_Inv",
+      "source": "Organizing_Committee.hasCommittee_Inv",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "medium",
+        "reason": "关系名包含'Inv'，暗示这是'hasCommittee'的逆关系，即从委员会到会议。'isCommitteeOf'作为逆关系，范围匹配目标类'Conference'，虽然域是'Committee'而非'Organizing_Committee'，但后者可能为其子类或同义。名称得分0.733，且其他候选的域范围均不匹配或逆关系方向相反。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Organizing_Committee.isCommitteeOf",
+      "source": "Organizing_Committee.isCommitteeOf",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "medium",
+        "reason": "名称完全匹配关系名；范围匹配目标Conference；域为Committee，源表Organizing_Committee可能为其子类，但域得分低，故中置信度"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Program_Committee.hasCommittee_Inv",
+      "source": "Program_Committee.hasCommittee_Inv",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "外键从Program_Committee指向Conference，Program_Committee对应Committee类，因此关系是Committee到Conference。isCommitteeOf的域为Committee且范围为Conference完全匹配，而hasCommittee方向相反，hold域不匹配。名字匹配度高，且数据完全等价。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Program_Committee.isCommitteeOf",
+      "source": "Program_Committee.isCommitteeOf",
+      "target": "Conference.ID",
+      "current_uri": "http://sigkdd#isCommitteeOf",
+      "current_local_name": "isCommitteeOf",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "关系名与候选完全一致（Jaccard=1.0），domain/range分别匹配Program_Committee和Conference，且方向正确。其他候选不满足方向或名称相似度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Review.ID",
+      "source": "Review.ID",
+      "target": "Document.ID",
+      "current_uri": "http://sigkdd#isReviewOf",
+      "current_local_name": "isReviewOf",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5,
+        "valentine_coma_score": 0.7122260492978212,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "领域(Review完全匹配), 数据库外键从Review.ID指向Document.ID, 包含依赖表明所有Review对应Document, 属性名isReviewOf语义贴切, 虽range代码未显示Document但领域证据充分, 其他候选属性领域不匹配."
+      },
+      "error": null
+    }
+  ]
+}

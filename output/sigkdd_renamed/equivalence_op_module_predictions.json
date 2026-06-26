@@ -1,0 +1,2899 @@
+{
+  "generated_at": "2026-06-07 17:23:19",
+  "setting": "clean OP module: hard domain/range filtering + equivalence/inclusion column evidence + ontology endpoint candidates + LLM",
+  "candidate_policy": "no weighted OP scoring; candidates are retained by endpoint closure, restriction closure, or exact sql:construction",
+  "summary": {
+    "total": 77,
+    "answered": 26,
+    "no_answer": 51
+  },
+  "results": [
+    {
+      "relation_key": "abstracts.id",
+      "task_type": "fk_obj",
+      "source": "abstracts.id",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "abstracts",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKAbstractURI",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "abstracts.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_deadline_author_notificat.aid",
+      "task_type": "fk_obj",
+      "source": "author_deadline_author_notificat.aid",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "author_deadline_author_notificat",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKnotification_untilAuthor",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "author_deadline_author_notificat.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选的domain/range均与需求冲突（notification_until domain为Author，submit_until domain为Document），且等价列证据极弱（IND=0），无法确定有效连接。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_deadline_author_notificat.did",
+      "task_type": "fk_obj",
+      "source": "author_deadline_author_notificat.did",
+      "target": "deadline_author_notificats.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "author_deadline_author_notificat",
+          "source_column": "did",
+          "target_table": "deadline_author_notificats",
+          "target_column": "id",
+          "constraint_name": "FKnotification_untilDeadl",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "author_deadline_author_notificat.did"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选的domain（Author或Document）均与需求domain（Deadline）冲突，range虽兼容但domain不匹配，且等价列IND证据弱，无有效OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_paper_students.id",
+      "task_type": "fk_obj",
+      "source": "author_paper_students.id",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "author_paper_students",
+          "source_column": "id",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKAuthor_of_paper_studentURI",
+          "source_distinct": 227,
+          "target_distinct": 564,
+          "intersection": 227,
+          "union": 564,
+          "manual_jaccard": 0.4024822695035461,
+          "source_in_target": 1.0,
+          "target_in_source": 0.4024822695035461,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "author_paper_students.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_papers.id",
+      "task_type": "fk_obj",
+      "source": "author_papers.id",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "author_papers",
+          "source_column": "id",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKAuthor_of_paperURI",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "author_papers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "authors.id",
+      "task_type": "fk_obj",
+      "source": "authors.id",
+      "target": "speakers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "authors",
+          "source_column": "id",
+          "target_table": "speakers",
+          "target_column": "id",
+          "constraint_name": "FKAuthorURI",
+          "source_distinct": 564,
+          "target_distinct": 564,
+          "intersection": 564,
+          "union": 564,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "authors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "award_author.author",
+      "task_type": "fk_obj",
+      "source": "award_author.author",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "award_author",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKobtainAuthor",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "award_author.author"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的声明端点均与任务domain/range（Author/Author）冲突：obtain域匹配但范围冲突（Award），award域和范围均冲突；等价列/IND证据极弱（交集为零），外键名虽匹配obtain但端点不支持，故无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "award_author.award",
+      "task_type": "fk_obj",
+      "source": "award_author.award",
+      "target": "awards.id",
+      "llm_selected_uri": "http://sigkdd#obtain",
+      "llm_selected_local_name": "obtain",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "award_author",
+          "source_column": "award",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKobtainAward",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "award_author.award"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#obtain",
+        "selected_direction": null,
+        "selected_local_name": "obtain",
+        "confidence": "high",
+        "reason": "终结点完全匹配（domain Author, range Award），FK约束名FKobtainAward支持的obtain；award的domain冲突（Best_Paper_Awards_Committee），不满足endpoint匹配；等价列/IND数据无交集但约束名作为强证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_applications_paper_as.id",
+      "task_type": "fk_obj",
+      "source": "best_applications_paper_as.id",
+      "target": "awards.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "best_applications_paper_as",
+          "source_column": "id",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKBest_Applications_Paper_AURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_applications_paper_as.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP 'award'的声明domain为Best_Paper_Awards_Committee，与当前domain Best_Applications_Paper_Award冲突；等价列/IND证据均为0，外键引用弱；endpoint不匹配，故选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs.award",
+      "task_type": "fk_obj",
+      "source": "best_paper_awards_committs.award",
+      "target": "awards.id",
+      "llm_selected_uri": "http://sigkdd#award",
+      "llm_selected_local_name": "award",
+      "llm_selected_direction": "normal",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "award",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKBest_Paper_Awards_Commi",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs.award"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#award",
+        "selected_direction": "normal",
+        "selected_local_name": "award",
+        "confidence": "high",
+        "reason": "端点完全匹配（domain：Best_Paper_Awards_Committee，range：Award），名称exact匹配，且没有其他候选冲突。等价列/IND证据较弱，但终点和名称匹配足够支持选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs.id",
+      "task_type": "fk_obj",
+      "source": "best_paper_awards_committs.id",
+      "target": "committees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "id",
+          "target_table": "committees",
+          "target_column": "id",
+          "constraint_name": "FKBest_Paper_Awards_CommittURI",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP 'award'的range为Award，与所需range类Committee冲突；等价列证据显示无数据交集，无法支持关系方向；无其他候选，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_research_paper_awards.id",
+      "task_type": "fk_obj",
+      "source": "best_research_paper_awards.id",
+      "target": "awards.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "best_research_paper_awards",
+          "source_column": "id",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKBest_Research_Paper_AwardURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_research_paper_awards.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选的 domain 均与 Best_Research_Paper_Award 不匹配，且等价列/IND 证据非常弱（intersection=0），无法确认实际连接；award 的 range 匹配但 domain 冲突，search 完全冲突；故返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_student_paper_awards.id",
+      "task_type": "fk_obj",
+      "source": "best_student_paper_awards.id",
+      "target": "awards.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "best_student_paper_awards",
+          "source_column": "id",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKBest_Student_Paper_AwardURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_student_paper_awards.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "唯一候选OP的domain为Best_Paper_Awards_Committee，与所需domain Best_Student_Paper_Award冲突；range匹配但domain不匹配，且无其他候选，无法建立合适映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_student_paper_suppors.id",
+      "task_type": "fk_obj",
+      "source": "best_student_paper_suppors.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "best_student_paper_suppors",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKBest_Student_Paper_SupporURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_student_paper_suppors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bronze_supporters.id",
+      "task_type": "fk_obj",
+      "source": "bronze_supporters.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "bronze_supporters",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKBronze_SupporterURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "bronze_supporters.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "committees.ref",
+      "task_type": "fk_obj",
+      "source": "committees.ref",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "committees",
+          "source_column": "ref",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKCommitteehasCommittee_Inv",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "committees.ref"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": "normal",
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "isCommitteeOf的domain和range分别精确匹配Committee和Conference，与普通FK方向一致；等价列证据完全支持committees.ref连接conferences.id；hasCommittee端点冲突（domain/range相反），且无inverseOf支持反转。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "committees.committee",
+      "task_type": "fk_obj",
+      "source": "committees.committee",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://sigkdd#isCommitteeOf",
+      "llm_selected_local_name": "isCommitteeOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKCommitteeisCommitteeOf",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "committees.committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isCommitteeOf",
+        "selected_direction": null,
+        "selected_local_name": "isCommitteeOf",
+        "confidence": "high",
+        "reason": "端点完全匹配（domain Committee, range Conference），名称中 'committee' 角色与列名和约束名一致，等价列证据（committees.committee 与 conferences.id 完全等价）支持关系方向。候选 hasCommittee 方向相反且无 inverseOf，故排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_halls.id",
+      "task_type": "fk_obj",
+      "source": "conference_halls.id",
+      "target": "places.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "conference_halls",
+          "source_column": "id",
+          "target_table": "places",
+          "target_column": "id",
+          "constraint_name": "FKConference_hallURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conference_halls.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conferences.holded",
+      "task_type": "fk_obj",
+      "source": "conferences.holded",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "http://sigkdd#holded_by",
+      "llm_selected_local_name": "holded_by",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "conferences",
+          "source_column": "holded",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKConferenceholded_by",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conferences.holded"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#holded_by",
+        "selected_direction": null,
+        "selected_local_name": "holded_by",
+        "confidence": "high",
+        "reason": "候选 holded_by 的 domain 和 range 与数据库外键方向精确匹配（Conference→ACM_SIGKDD），且列角色 token 'holded' 匹配列名，FK 约束名也支持。候选 hold 的端点相反，故不选。等价列 IND 证据虽弱，但 FK 约束提供了强证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_abstract_submiss.id",
+      "task_type": "fk_obj",
+      "source": "deadline_abstract_submiss.id",
+      "target": "deadlines.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "deadline_abstract_submiss",
+          "source_column": "id",
+          "target_table": "deadlines",
+          "target_column": "id",
+          "constraint_name": "FKDeadline_Abstract_SubmissURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_abstract_submiss.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_author_notificats.id",
+      "task_type": "fk_obj",
+      "source": "deadline_author_notificats.id",
+      "target": "deadlines.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "deadline_author_notificats",
+          "source_column": "id",
+          "target_table": "deadlines",
+          "target_column": "id",
+          "constraint_name": "FKDeadline_Author_notificatURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_author_notificats.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_document.deadline",
+      "task_type": "fk_obj",
+      "source": "deadline_document.deadline",
+      "target": "deadlines.id",
+      "llm_selected_uri": "http://sigkdd#submit_until",
+      "llm_selected_local_name": "submit_until",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "deadline_document",
+          "source_column": "deadline",
+          "target_table": "deadlines",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDeadline",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_document.deadline"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit_until",
+        "selected_direction": null,
+        "selected_local_name": "submit_until",
+        "confidence": "medium",
+        "reason": "域名冲突但实际源表deadline_document应对应Document类，OP submission_until的domain为Document、range为Deadline完全匹配；名字包含until，与FK约束名FKsubmit_untilDeadline吻合；但等价列IND为零，证据强度中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_document.document",
+      "task_type": "fk_obj",
+      "source": "deadline_document.document",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "deadline_document",
+          "source_column": "document",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDocument",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_document.document"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP的endpoint均不匹配：notification_until和submit的domain为Author，submit_until的domain为Document（range为Deadline），与所需Deadline->Document方向相反且无inverseOf支持，因此无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_paper_submissions.id",
+      "task_type": "fk_obj",
+      "source": "deadline_paper_submissions.id",
+      "target": "deadlines.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "deadline_paper_submissions",
+          "source_column": "id",
+          "target_table": "deadlines",
+          "target_column": "id",
+          "constraint_name": "FKDeadline_Paper_SubmissionURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadline_paper_submissions.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadlines.designed",
+      "task_type": "fk_obj",
+      "source": "deadlines.designed",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "http://sigkdd#designed_by",
+      "llm_selected_local_name": "designed_by",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "deadlines",
+          "source_column": "designed",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKDeadlinedesigned_by",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "deadlines.designed"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#designed_by",
+        "selected_direction": "normal",
+        "selected_local_name": "designed_by",
+        "confidence": "high",
+        "reason": "端点精确匹配（domain=Deadline, range=ACM_SIGKDD），列名tokens包含designed，FK约束名FKDeadlinedesigned_by支持，等价列证据弱但无冲突，符合规则。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "e_mails.person",
+      "task_type": "fk_obj",
+      "source": "e_mails.person",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "e_mails",
+          "source_column": "person",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKE-mailPerson",
+          "source_distinct": 564,
+          "target_distinct": 579,
+          "intersection": 564,
+          "union": 579,
+          "manual_jaccard": 0.9740932642487047,
+          "source_in_target": 1.0,
+          "target_in_source": 0.9740932642487047,
+          "evidence_type": "equivalence_column",
+          "relation_key": "e_mails.person"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "exhibitors.id",
+      "task_type": "fk_obj",
+      "source": "exhibitors.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "exhibitors",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKExhibitorURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "exhibitors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "general_chairs.id",
+      "task_type": "fk_obj",
+      "source": "general_chairs.id",
+      "target": "organizators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "general_chairs",
+          "source_column": "id",
+          "target_table": "organizators",
+          "target_column": "id",
+          "constraint_name": "FKGeneral_ChairURI",
+          "source_distinct": 0,
+          "target_distinct": 33,
+          "intersection": 0,
+          "union": 33,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "general_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "gold_supporters.id",
+      "task_type": "fk_obj",
+      "source": "gold_supporters.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "gold_supporters",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKGold_SupporterURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "gold_supporters.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "hotels.id",
+      "task_type": "fk_obj",
+      "source": "hotels.id",
+      "target": "places.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "hotels",
+          "source_column": "id",
+          "target_table": "places",
+          "target_column": "id",
+          "constraint_name": "FKHotelURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "hotels.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "invited_speakers.id",
+      "task_type": "fk_obj",
+      "source": "invited_speakers.id",
+      "target": "speakers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "invited_speakers",
+          "source_column": "id",
+          "target_table": "speakers",
+          "target_column": "id",
+          "constraint_name": "FKInvited_SpeakerURI",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "invited_speakers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "listeners.id",
+      "task_type": "fk_obj",
+      "source": "listeners.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "listeners",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKListenerURI",
+          "source_distinct": 143,
+          "target_distinct": 579,
+          "intersection": 143,
+          "union": 579,
+          "manual_jaccard": 0.2469775474956822,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2469775474956822,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "listeners.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "main_offices.id",
+      "task_type": "fk_obj",
+      "source": "main_offices.id",
+      "target": "places.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "main_offices",
+          "source_column": "id",
+          "target_table": "places",
+          "target_column": "id",
+          "constraint_name": "FKMain_officeURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "main_offices.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizators.id",
+      "task_type": "fk_obj",
+      "source": "organizators.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "organizators",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKOrganizatorURI",
+          "source_distinct": 33,
+          "target_distinct": 579,
+          "intersection": 33,
+          "union": 579,
+          "manual_jaccard": 0.05699481865284974,
+          "source_in_target": 1.0,
+          "target_in_source": 0.05699481865284974,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "organizators.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizing_committee_membs.id",
+      "task_type": "fk_obj",
+      "source": "organizing_committee_membs.id",
+      "target": "organizators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "organizing_committee_membs",
+          "source_column": "id",
+          "target_table": "organizators",
+          "target_column": "id",
+          "constraint_name": "FKOrganizing_Committee_membURI",
+          "source_distinct": 0,
+          "target_distinct": 33,
+          "intersection": 0,
+          "union": 33,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committee_membs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选的domain/range（Conference/Committee）与当前domain Organizing_Committee_member和range Organizator完全不匹配，均显示conflict；等价列证据为弱冲突，无支持；name hint和role token只部分匹配表名，但端点指向错误，因此无法选择任何候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "organizing_committees.id",
+      "task_type": "fk_obj",
+      "source": "organizing_committees.id",
+      "target": "committees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "organizing_committees",
+          "source_column": "id",
+          "target_table": "committees",
+          "target_column": "id",
+          "constraint_name": "FKOrganizing_CommitteeURI",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "organizing_committees.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选均存在端点冲突：hasCommittee domain冲突（Conference vs Organizing_Committee），isCommitteeOf range冲突（Conference vs Committee），且等价列/IND证据极弱（交集0，无实际值匹配），无法形成有效连接。根据规则，所有候选明显冲突，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author.aid",
+      "task_type": "fk_obj",
+      "source": "paper_author.aid",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKsubmitAuthor",
+          "source_distinct": 564,
+          "target_distinct": 564,
+          "intersection": 564,
+          "union": 564,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "paper_author.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "唯一候选submit的domain为Author但range为Paper，与需求domain=Author、range=Author冲突，等价列证据指向authors.id但范围不匹配，无其他候选，故返回null"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author.pid",
+      "task_type": "fk_obj",
+      "source": "paper_author.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://sigkdd#submit",
+      "llm_selected_local_name": "submit",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaper",
+          "source_distinct": 367,
+          "target_distinct": 367,
+          "intersection": 367,
+          "union": 367,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "paper_author.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit",
+        "selected_direction": null,
+        "selected_local_name": "submit",
+        "confidence": "high",
+        "reason": "候选submit的domain和range与当前关系domain Author和range Paper精确匹配，等价列证据显示paper_author.pid与papers.id完全等价，FK约束名FKsubmitPaper包含submit，名称模式匹配且无冲突，且不存在更具体子属性，因此选择submit。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.id",
+      "task_type": "fk_obj",
+      "source": "papers.id",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP hasReview的range是Review而非Document，endpoint不匹配；无name/role或construction证据支持；等价列IND仅确认Paper到Document的包含关系，与OP无关；无inverseOf/subPropertyOf可调整方向；因此选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "place_person.person",
+      "task_type": "fk_obj",
+      "source": "place_person.person",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "place_person",
+          "source_column": "person",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPerson",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "place_person.person"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选 OP can_stay_in 的 range 是 Place 而非所需 Person，endpoint 冲突；等价列证据极弱（intersection=0），无 inverseOf 或 subproperty 支持，故无法选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "place_person.place",
+      "task_type": "fk_obj",
+      "source": "place_person.place",
+      "target": "places.id",
+      "llm_selected_uri": "http://sigkdd#can_stay_in",
+      "llm_selected_local_name": "can_stay_in",
+      "llm_selected_direction": "normal",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "place_person",
+          "source_column": "place",
+          "target_table": "places",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPlace",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "place_person.place"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#can_stay_in",
+        "selected_direction": "normal",
+        "selected_local_name": "can_stay_in",
+        "confidence": "high",
+        "reason": "候选OP端点精确匹配domain Person和range Place；约束名FKcan_stay_inPlace和name_hint“place”均指向can_stay_in；restriction证据支持Person与Hotel关联；尽管等价列IND证据弱，但FK约束和名称模式高度一致，且唯一候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "platinum_supporters.id",
+      "task_type": "fk_obj",
+      "source": "platinum_supporters.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "platinum_supporters",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKPlatinum_SupporterURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "platinum_supporters.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_chairs.id",
+      "task_type": "fk_obj",
+      "source": "program_chairs.id",
+      "target": "organizators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "program_chairs",
+          "source_column": "id",
+          "target_table": "organizators",
+          "target_column": "id",
+          "constraint_name": "FKProgram_ChairURI",
+          "source_distinct": 6,
+          "target_distinct": 33,
+          "intersection": 6,
+          "union": 33,
+          "manual_jaccard": 0.18181818181818182,
+          "source_in_target": 1.0,
+          "target_in_source": 0.18181818181818182,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "program_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_members.id",
+      "task_type": "fk_obj",
+      "source": "program_committee_members.id",
+      "target": "organizators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_members",
+          "source_column": "id",
+          "target_table": "organizators",
+          "target_column": "id",
+          "constraint_name": "FKProgram_Committee_memberURI",
+          "source_distinct": 33,
+          "target_distinct": 33,
+          "intersection": 33,
+          "union": 33,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committee_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选OP的domain/range端点均与当前关系冲突（domain应为Program_Committee_member但候选为Conference/Committee，range应为Organizator但候选为Committee/Conference），且无inverseOf或subpropertyOf支持，等价列证据与名称/角色无关，根据规则返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committees.id",
+      "task_type": "fk_obj",
+      "source": "program_committees.id",
+      "target": "committees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "program_committees",
+          "source_column": "id",
+          "target_table": "committees",
+          "target_column": "id",
+          "constraint_name": "FKProgram_CommitteeURI",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committees.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选均存在端点冲突：hasCommittee domain为Conference，与Program_Committee冲突；isCommitteeOf range为Conference，与Committee冲突；且无inverseOf支持反转；等价列证据仅确认列等价，无法弥补端点不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person.pid",
+      "task_type": "fk_obj",
+      "source": "registration_fee_person.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "http://sigkdd#payed_by",
+      "llm_selected_local_name": "payed_by",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKpayPerson",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_fee_person.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#payed_by",
+        "selected_direction": null,
+        "selected_local_name": "payed_by",
+        "confidence": "medium",
+        "reason": "端点完全匹配：domain=Registration_fee、range=Person；名称模式不直接匹配但‘payed_by’隐含被支付关系；等价列/IND证据极弱（全0），无法提供额外支持；仅payed_by的声明端点与要求的domain/range一致，pay的端点相反且不满足方向条件。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person.rid",
+      "task_type": "fk_obj",
+      "source": "registration_fee_person.rid",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "rid",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKpayRegistration_fee",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_fee_person.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选pay的domain为Person与目标domain Registration_fee冲突，range匹配但端点整体不吻合，且inverse_of payed_by也不支持两个端点均为Registration_fee，等价列证据弱（交集0），无construction/restriction支持，故选择null"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fees.id",
+      "task_type": "fk_obj",
+      "source": "registration_fees.id",
+      "target": "fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "registration_fees",
+          "source_column": "id",
+          "target_table": "fees",
+          "target_column": "id",
+          "constraint_name": "FKRegistration_feeURI",
+          "source_distinct": 7,
+          "target_distinct": 14,
+          "intersection": 7,
+          "union": 14,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "registration_fees.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_non_members.id",
+      "task_type": "fk_obj",
+      "source": "registration_non_members.id",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "registration_non_members",
+          "source_column": "id",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKRegistration_Non-MemberURI",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_non_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_sigkdd_members.id",
+      "task_type": "fk_obj",
+      "source": "registration_sigkdd_members.id",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "registration_sigkdd_members",
+          "source_column": "id",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKRegistration_SIGKDD_Mem",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_sigkdd_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_sigmod_members.id",
+      "task_type": "fk_obj",
+      "source": "registration_sigmod_members.id",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "registration_sigmod_members",
+          "source_column": "id",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKRegistration_SIGMOD_Mem",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_sigmod_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_students.id",
+      "task_type": "fk_obj",
+      "source": "registration_students.id",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "registration_students",
+          "source_column": "id",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKRegistration_StudentURI",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "registration_students.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.id",
+      "task_type": "fk_obj",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": null,
+        "selected_local_name": "isReviewOf",
+        "confidence": "medium",
+        "reason": "唯一候选，domain精确匹配Review，range为Document子类（兼容），等价列IND支持Review到Document方向，但名称与role不匹配，限制证据不足，故medium。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.ref",
+      "task_type": "fk_obj",
+      "source": "reviews.ref",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.ref"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": null,
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "domain精确匹配Review，range类为表类Document的子类(兼容)，等价列IND 1.0支持从Review到Document的方向，名称isReviewOf与ref语义吻合，且hasReview的domain冲突，故选择isReviewOf。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.review",
+      "task_type": "fk_obj",
+      "source": "reviews.review",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.review"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": null,
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "domain 精确匹配 Review，range 类 Document 兼容；外键约束名 FKReviewisReviewOf 和列名 review 都指向 isReviewOf，等价列 IND=1.0 完全支持从 Review 到 Document 的引用方向"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "silver_supporters.id",
+      "task_type": "fk_obj",
+      "source": "silver_supporters.id",
+      "target": "sponzors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "silver_supporters",
+          "source_column": "id",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKSilver_SupporterURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "silver_supporters.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "speaker_document.did",
+      "task_type": "fk_obj",
+      "source": "speaker_document.did",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "speaker_document",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKpresentationDocument",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "speaker_document.did"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选hasReview和isReviewOf的领域/范围更具体为Paper/Review，与当前Document-Document关系无角色匹配；presentation名称匹配FK名但领域冲突（Speaker vs Document），且逆属性也不匹配范围Document。等价列证据极弱（IND为0），无足够证据选择任一候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "speaker_document.sid",
+      "task_type": "fk_obj",
+      "source": "speaker_document.sid",
+      "target": "speakers.id",
+      "llm_selected_uri": "http://sigkdd#presentationed_by",
+      "llm_selected_local_name": "presentationed_by",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "speaker_document",
+          "source_column": "sid",
+          "target_table": "speakers",
+          "target_column": "id",
+          "constraint_name": "FKpresentationSpeaker",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "speaker_document.sid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#presentationed_by",
+        "selected_direction": null,
+        "selected_local_name": "presentationed_by",
+        "confidence": "high",
+        "reason": "端点完全匹配：domain=Document, range=Speaker；外键约束名'FKpresentationSpeaker'虽匹配'presentation'但方向相反，且等价列证据弱；最终选择端点正确的presentationed_by。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "speakers.id",
+      "task_type": "fk_obj",
+      "source": "speakers.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "speakers",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKSpeakerURI",
+          "source_distinct": 564,
+          "target_distinct": 579,
+          "intersection": 564,
+          "union": 579,
+          "manual_jaccard": 0.9740932642487047,
+          "source_in_target": 1.0,
+          "target_in_source": 0.9740932642487047,
+          "evidence_type": "equivalence_column",
+          "relation_key": "speakers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "sponzor_acm_sigkdd.aid",
+      "task_type": "fk_obj",
+      "source": "sponzor_acm_sigkdd.aid",
+      "target": "acm_sigkdds.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "sponzor_acm_sigkdd",
+          "source_column": "aid",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKsearchACM_SIGKDD",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "sponzor_acm_sigkdd.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP search的range类为Sponzor而非ACM_SIGKDD，且数据库源表对应Sponzor类、目标表对应ACM_SIGKDD类，方向相反；候选的逆searched_by不在候选列表中；等价列/IND证据弱；因此无合适候选，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "sponzor_acm_sigkdd.sid",
+      "task_type": "fk_obj",
+      "source": "sponzor_acm_sigkdd.sid",
+      "target": "sponzors.id",
+      "llm_selected_uri": "http://sigkdd#search",
+      "llm_selected_local_name": "search",
+      "llm_selected_direction": "normal",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "sponzor_acm_sigkdd",
+          "source_column": "sid",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKsearchSponzor",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "sponzor_acm_sigkdd.sid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#search",
+        "selected_direction": "normal",
+        "selected_local_name": "search",
+        "confidence": "high",
+        "reason": "端点 ACM_SIGKDD 和 Sponzor 精确匹配，外键约束名 'FKsearchSponzor' 与 OP 名称 'search' 模式匹配，且无其他候选冲突，证据链闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "sponzor_fees.id",
+      "task_type": "fk_obj",
+      "source": "sponzor_fees.id",
+      "target": "fees.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "sponzor_fees",
+          "source_column": "id",
+          "target_table": "fees",
+          "target_column": "id",
+          "constraint_name": "FKSponzor_feeURI",
+          "source_distinct": 7,
+          "target_distinct": 14,
+          "intersection": 7,
+          "union": 14,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "sponzor_fees.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "sponzors.id",
+      "task_type": "fk_obj",
+      "source": "sponzors.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "sponzors",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKSponzorURI",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "sponzors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "webmasters.id",
+      "task_type": "fk_obj",
+      "source": "webmasters.id",
+      "target": "organizators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "webmasters",
+          "source_column": "id",
+          "target_table": "organizators",
+          "target_column": "id",
+          "constraint_name": "FKWebmasterURI",
+          "source_distinct": 0,
+          "target_distinct": 33,
+          "intersection": 0,
+          "union": 33,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "webmasters.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_deadline_author_notificat",
+      "task_type": "sr_relation",
+      "source": "author_deadline_author_notificat.aid",
+      "target": "deadline_author_notificats.id",
+      "llm_selected_uri": "http://sigkdd#notification_until",
+      "llm_selected_local_name": "notification_until",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "author_deadline_author_notificat",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKnotification_untilAuthor",
+          "relation_key": "author_deadline_author_notificat",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "author_deadline_author_notificat",
+          "source_column": "did",
+          "target_table": "deadline_author_notificats",
+          "target_column": "id",
+          "constraint_name": "FKnotification_untilDeadl",
+          "relation_key": "author_deadline_author_notificat",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#notification_until",
+        "selected_direction": "normal",
+        "selected_local_name": "notification_until",
+        "confidence": "high",
+        "reason": "端点精确匹配Author和Deadline_Author_notification，声明和限制都支持；关系表名包含'notification'，约束token'until'一致；其他候选端点冲突或兼容性差，因此选择此OP。等价列证据虽弱但不影响端点匹配的强支撑。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "award_author",
+      "task_type": "sr_relation",
+      "source": "award_author.author",
+      "target": "awards.id",
+      "llm_selected_uri": "http://sigkdd#obtain",
+      "llm_selected_local_name": "obtain",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "award_author",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKobtainAuthor",
+          "relation_key": "award_author",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "award_author",
+          "source_column": "award",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKobtainAward",
+          "relation_key": "award_author",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#obtain",
+        "selected_direction": "normal",
+        "selected_local_name": "obtain",
+        "confidence": "high",
+        "reason": "唯一endpoint完全匹配（domain=Author, range=Award）的候选，且约束端点和名称模式匹配支持；其他候选（award方向冲突，obtain reversed方向不匹配）均不符合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "deadline_document",
+      "task_type": "sr_relation",
+      "source": "deadline_document.deadline",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "deadline_document",
+          "source_column": "deadline",
+          "target_table": "deadlines",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDeadline",
+          "relation_key": "deadline_document",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "deadline_document",
+          "source_column": "document",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKsubmit_untilDocument",
+          "relation_key": "deadline_document",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选endpoint均不与Deadline domain/Document range精确匹配；仅submit_until reversed精确匹配反向但无inverseOf支持，故不可选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author",
+      "task_type": "sr_relation",
+      "source": "paper_author.aid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://sigkdd#submit",
+      "llm_selected_local_name": "submit",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKsubmitAuthor",
+          "relation_key": "paper_author",
+          "source_distinct": 564,
+          "target_distinct": 564,
+          "intersection": 564,
+          "union": 564,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        },
+        {
+          "source_table": "paper_author",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaper",
+          "relation_key": "paper_author",
+          "source_distinct": 367,
+          "target_distinct": 367,
+          "intersection": 367,
+          "union": 367,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#submit",
+        "selected_direction": "normal",
+        "selected_local_name": "submit",
+        "confidence": "high",
+        "reason": "domain和range精确匹配Author和Paper，FK约束名F KsubmitAuthor和FKsubmitPaper包含'submit'，与候选名称模式匹配，等价列证据明确支持Author到Paper的方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "place_person",
+      "task_type": "sr_relation",
+      "source": "place_person.person",
+      "target": "places.id",
+      "llm_selected_uri": "http://sigkdd#can_stay_in",
+      "llm_selected_local_name": "can_stay_in",
+      "llm_selected_direction": "normal",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "place_person",
+          "source_column": "person",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPerson",
+          "relation_key": "place_person",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "place_person",
+          "source_column": "place",
+          "target_table": "places",
+          "target_column": "id",
+          "constraint_name": "FKcan_stay_inPlace",
+          "relation_key": "place_person",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#can_stay_in",
+        "selected_direction": "normal",
+        "selected_local_name": "can_stay_in",
+        "confidence": "high",
+        "reason": "normal方向endpoint精确匹配Person→Place，FK约束名含'can_stay_in'与name hint一致，restriction显示Person含Hotel支持，等价列证据虽弱但不冲突，故选择此OP"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "registration_fee_person",
+      "task_type": "sr_relation",
+      "source": "registration_fee_person.pid",
+      "target": "registration_fees.id",
+      "llm_selected_uri": "http://sigkdd#pay",
+      "llm_selected_local_name": "pay",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKpayPerson",
+          "relation_key": "registration_fee_person",
+          "source_distinct": 0,
+          "target_distinct": 579,
+          "intersection": 0,
+          "union": 579,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "registration_fee_person",
+          "source_column": "rid",
+          "target_table": "registration_fees",
+          "target_column": "id",
+          "constraint_name": "FKpayRegistration_fee",
+          "relation_key": "registration_fee_person",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#pay",
+        "selected_direction": "normal",
+        "selected_local_name": "pay",
+        "confidence": "medium",
+        "reason": "候选pay正常方向domain/range与目标Person→Registration_fee完全匹配，且FK约束名包含'pay'（FKpayPerson、FKpayRegistration_fee）支持角色关系，name_pattern_match为true；虽然等价列/IND证据因空表导致交集为0，但端点声明匹配且无冲突，故选择pay normal。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "speaker_document",
+      "task_type": "sr_relation",
+      "source": "speaker_document.did",
+      "target": "speakers.id",
+      "llm_selected_uri": "http://sigkdd#presentationed_by",
+      "llm_selected_local_name": "presentationed_by",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "speaker_document",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKpresentationDocument",
+          "relation_key": "speaker_document",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "speaker_document",
+          "source_column": "sid",
+          "target_table": "speakers",
+          "target_column": "id",
+          "constraint_name": "FKpresentationSpeaker",
+          "relation_key": "speaker_document",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#presentationed_by",
+        "selected_direction": "normal",
+        "selected_local_name": "presentationed_by",
+        "confidence": "high",
+        "reason": "候选 presentationed_by 的 domain 和 range 与当前关系 (Document 到 Speaker) 完全精确匹配；虽然 name 不是直接匹配，但语义上 presentation 暗示了演讲者与文档的关系；等价列/IND 证据弱，但 endpoint 闭合证据强，且无其他候选兼容。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "sponzor_acm_sigkdd",
+      "task_type": "sr_relation",
+      "source": "sponzor_acm_sigkdd.aid",
+      "target": "sponzors.id",
+      "llm_selected_uri": "http://sigkdd#search",
+      "llm_selected_local_name": "search",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "sponzor_acm_sigkdd",
+          "source_column": "aid",
+          "target_table": "acm_sigkdds",
+          "target_column": "id",
+          "constraint_name": "FKsearchACM_SIGKDD",
+          "relation_key": "sponzor_acm_sigkdd",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "sponzor_acm_sigkdd",
+          "source_column": "sid",
+          "target_table": "sponzors",
+          "target_column": "id",
+          "constraint_name": "FKsearchSponzor",
+          "relation_key": "sponzor_acm_sigkdd",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#search",
+        "selected_direction": "normal",
+        "selected_local_name": "search",
+        "confidence": "high",
+        "reason": "domain/range exact匹配，且restriction也指向Sponzor；名称模式匹配；等价列证据虽弱但不冲突。无其他更优候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "best_paper_awards_committs::award__id",
+      "task_type": "sr_relation_inferred",
+      "source": "best_paper_awards_committs.award",
+      "target": "committees.id",
+      "llm_selected_uri": "http://sigkdd#awarded_by",
+      "llm_selected_local_name": "awarded_by",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "award",
+          "target_table": "awards",
+          "target_column": "id",
+          "constraint_name": "FKBest_Paper_Awards_Commi",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        },
+        {
+          "source_table": "best_paper_awards_committs",
+          "source_column": "id",
+          "target_table": "committees",
+          "target_column": "id",
+          "constraint_name": "FKBest_Paper_Awards_CommittURI",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "best_paper_awards_committs"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#awarded_by",
+        "selected_direction": "normal",
+        "selected_local_name": "awarded_by",
+        "confidence": "medium",
+        "reason": "endpoint: domain exact Award, range 为 Committee 子类 (Best_Paper_Awards_Committee) 可接受；name/role: 无直接模式匹配，但列名 award 隐含从 Award 到 Committee 关系；等价列/IND 证据均为0，弱支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "committees::ref__committee",
+      "task_type": "sr_relation_inferred",
+      "source": "committees.ref",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "committees",
+          "source_column": "ref",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKCommitteehasCommittee_Inv",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "committees"
+        },
+        {
+          "source_table": "committees",
+          "source_column": "committee",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKCommitteeisCommitteeOf",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "committees"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain 或 range 与目标（Conference→Conference）冲突：hasCommittee 的 range 是 Committee，isCommitteeOf 的 domain 是 Committee，且无反方向 inverseOf 或 subpropertyOf 支持。等价列证据仅说明 committees 表两列均引用 conferences.id，但未提供类层次信息使 Committee 可视为 Conference。因此无匹配候选，返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::id__ref",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#isReviewOf",
+      "llm_selected_local_name": "isReviewOf",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#isReviewOf",
+        "selected_direction": "normal",
+        "selected_local_name": "isReviewOf",
+        "confidence": "high",
+        "reason": "端点兼容（Document父类），第二外键名FKReviewhasReview_Inv暗示逆关系，isReviewOf方向（Review→Paper）与reviews.ref指向被评论对象一致，且表名reviews表示评论关系，故选择isReviewOf normal。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::id__review",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#hasReview",
+      "llm_selected_local_name": "hasReview",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#hasReview",
+        "selected_direction": "normal",
+        "selected_local_name": "hasReview",
+        "confidence": "high",
+        "reason": "reviews表是SR关系表，两个外键都指向documents.id。约束名FKReviewURI和FKReviewisReviewOf分别对应reviews.id（被评论文档）和reviews.review（评论文档）。hasReview的normal方向表示被评论文档hasReview评论文档，与列角色和约束名语义一致。domain和range类都是Document，endpoint完全兼容。名称和约束名提供强角色证据。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::ref__review",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.ref",
+      "target": "documents.id",
+      "llm_selected_uri": "http://sigkdd#hasReview",
+      "llm_selected_local_name": "hasReview",
+      "llm_selected_direction": "reversed",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "ref",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewhasReview_Inv",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "review",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewisReviewOf",
+          "source_distinct": 367,
+          "target_distinct": 1468,
+          "intersection": 367,
+          "union": 1468,
+          "manual_jaccard": 0.25,
+          "source_in_target": 1.0,
+          "target_in_source": 0.25,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://sigkdd#hasReview",
+        "selected_direction": "reversed",
+        "selected_local_name": "hasReview",
+        "confidence": "high",
+        "reason": "关系表reviews的列ref和review均通过FK指向documents.id，IND证据支持Document到Document的映射。候选hasReview的domain为Paper（Document子类）、range为Review（Document子类），endpoint兼容；reversed方向下column_role_tokens包含'review'，与表名reviews及约束名FKReviewhasReview_Inv中的'review'高度匹配，且比isReviewOf更具体（isReviewOf的range为匿名类）。因此选择reversed hasReview。"
+      },
+      "error": null
+    }
+  ]
+}

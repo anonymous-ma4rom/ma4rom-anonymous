@@ -1,0 +1,14 @@
+{
+  "ABLATION_PRESET": "sr",
+  "ABLATION_NAME": "sr",
+  "CURRENT_DATABASE": "cmt_renamed",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_CEA_ENHANCEMENT": false,
+  "WO_CPA_REASONING": false,
+  "WO_CTA_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": true,
+  "WO_SE_PATTERN": false,
+  "WO_MV_PATTERN": false
+}

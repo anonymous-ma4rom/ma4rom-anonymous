@@ -1,0 +1,36 @@
+{
+  "ABLATION_PRESET": "se",
+  "ABLATION_NAME": "se",
+  "CURRENT_DATABASE": "cmt_structured",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_CEA_ENHANCEMENT": false,
+  "WO_CPA_REASONING": false,
+  "WO_CTA_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": true,
+  "WO_MV_PATTERN": false,
+  "ablation_root_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/se",
+  "output_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/se/cmt_structured",
+  "output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/se/cmt_structured/rodi_cmt_structured_generated_mapping.ttl",
+  "root_output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/se/rodi_cmt_structured_generated_mapping.ttl",
+  "num_tables": 32,
+  "num_patterns": 32,
+  "pattern_counts": {
+    "SE": 8,
+    "SH": 5,
+    "SR": 17,
+    "MV": 2,
+    "OTHER": 0
+  },
+  "disabled_pattern_components": [
+    "SE"
+  ],
+  "num_disabled_pattern_tables": 8,
+  "num_discovered_fks": 3,
+  "num_low_conf_tables": 11,
+  "num_cpa_step1_relations": 33,
+  "elapsed_seconds": 179.34,
+  "status": "completed"
+}

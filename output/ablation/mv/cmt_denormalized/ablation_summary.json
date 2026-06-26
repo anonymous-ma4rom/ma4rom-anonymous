@@ -1,0 +1,36 @@
+{
+  "ABLATION_PRESET": "mv",
+  "ABLATION_NAME": "mv",
+  "CURRENT_DATABASE": "cmt_denormalized",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_CEA_ENHANCEMENT": false,
+  "WO_CPA_REASONING": false,
+  "WO_CTA_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": false,
+  "WO_MV_PATTERN": true,
+  "ablation_root_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/mv",
+  "output_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/mv/cmt_denormalized",
+  "output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/mv/cmt_denormalized/rodi_cmt_denormalized_generated_mapping.ttl",
+  "root_output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/mv/rodi_cmt_denormalized_generated_mapping.ttl",
+  "num_tables": 30,
+  "num_patterns": 30,
+  "pattern_counts": {
+    "SE": 10,
+    "SH": 4,
+    "SR": 12,
+    "MV": 4,
+    "OTHER": 0
+  },
+  "disabled_pattern_components": [
+    "MV"
+  ],
+  "num_disabled_pattern_tables": 4,
+  "num_discovered_fks": 8,
+  "num_low_conf_tables": 17,
+  "num_cpa_step1_relations": 24,
+  "elapsed_seconds": 169.03,
+  "status": "completed"
+}

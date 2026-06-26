@@ -1,0 +1,708 @@
+{
+  "Abstract": {
+    "columns": {
+      "ID": "integer",
+      "is_the_1th_part_of": "integer",
+      "has_text": "character varying(305)",
+      "is_submitted_at": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Conference_document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "is_the_1th_part_of",
+        "ref_table": "Paper",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "is_submitted_at",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名角色'is_submitted_at'指向本体对象属性，domain/range得分高，语义匹配Conference_volume"
+      }
+    ]
+  },
+  "Committee": {
+    "columns": {
+      "ID": "integer",
+      "has_a_name": "character varying(29)",
+      "has_a_committee_chair": "integer",
+      "was_a_program_committee_of": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "was_a_program_committee_of",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "has_a_committee_chair",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与对象属性has_a_committee_chair匹配，domain/range证据充分，Chair是Person的子类"
+      }
+    ]
+  },
+  "Conference_document": {
+    "columns": {
+      "ID": "integer",
+      "has_a_date_of_issue": "date",
+      "has_a_URL": "character varying(22)",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Conference_fees": {
+    "columns": {
+      "ID": "integer",
+      "amount": "character varying(3)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Conference_proceedings": {
+    "columns": {
+      "ID": "integer",
+      "has_a_publisher": "integer",
+      "has_a_volume": "integer",
+      "has_a_name": "character varying(26)",
+      "has_an_ISBN": "character varying(13)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "has_a_publisher",
+        "ref_table": "Publisher",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体ObjectProperty has_a_publisher匹配，且domain和range均满足"
+      }
+    ]
+  },
+  "Conference_volume": {
+    "columns": {
+      "ID": "integer",
+      "has_a_program_committee": "integer",
+      "has_an_organizing_committ": "integer",
+      "has_a_location": "character varying(16)",
+      "has_a_steering_committee": "integer",
+      "has_important_dates": "integer",
+      "has_a_name": "character varying(6)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "has_an_organizing_committ",
+        "ref_table": "Organizing_committee",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 has_an_organizing_committ 与本体对象属性 has_an_organizing_committee 匹配，domain/range 得分高，端点类 Organizing_committee 与目标表一致"
+      },
+      {
+        "column": "has_a_steering_committee",
+        "ref_table": "Steering_committee",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 has_a_steering_committee 与本体对象属性 has_a_steering_committee 完全匹配，domain/range 得分均为 1.0，端点类 Steering_committee 与目标表一致"
+      },
+      {
+        "column": "has_important_dates",
+        "ref_table": "Important_dates",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 has_important_dates 与本体对象属性 has_important_dates 匹配，domain/range 得分均为 1.0，端点类 Important_dates 与目标表一致"
+      }
+    ]
+  },
+  "Important_dates": {
+    "columns": {
+      "ID": "integer",
+      "is_a_date_of_acceptance_a": "date",
+      "is_a_full_paper_submissio": "date",
+      "is_a_date_of_camera_ready": "date",
+      "is_an_ending_date": "date",
+      "is_a_starting_date": "date",
+      "is_an_abstract_submission": "date"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Invited_talk": {
+    "columns": {
+      "ID": "integer",
+      "is_given_by": "integer",
+      "has_an_abstract": "integer",
+      "is_submitted_at": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "is_given_by",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性'is_given_by'完全匹配，domain/range均支持Invited_talk指向Person，语义得分0.9"
+      },
+      {
+        "column": "has_an_abstract",
+        "ref_table": "Abstract",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性'has_an_abstract'完全匹配，且目标表与endpoint_class一致，语义得分0.95"
+      },
+      {
+        "column": "is_submitted_at",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性'is_submitted_at'完全匹配，且目标表与endpoint_class一致，语义得分0.95"
+      }
+    ]
+  },
+  "Organization": {
+    "columns": {
+      "ID": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Organizer": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Organizing_committee": {
+    "columns": {
+      "ID": "integer",
+      "was_an_organizing_committ": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Committee",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "Organizing_committee is a subtype of Committee, so its ID references Committee's primary key."
+      },
+      {
+        "column": "was_an_organizing_committ",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性 'was_an_organizing_committee_of' 匹配，且 domain 为 Organizing_committee，range 为 Conference_volume"
+      }
+    ]
+  },
+  "Paper": {
+    "columns": {
+      "ID": "integer",
+      "has_an_abstract": "integer",
+      "has_a_paper_title": "character varying(200)",
+      "is_submitted_at": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Conference_document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "has_an_abstract",
+        "ref_table": "Abstract",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "is_submitted_at",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Person": {
+    "columns": {
+      "ID": "integer",
+      "has_the_first_name": "character varying(14)",
+      "has_the_last_name": "character varying(13)",
+      "has_gender": "character varying(1)",
+      "is_Conference_contributor": "boolean",
+      "is_Contribution_co-author": "boolean",
+      "is_Committee_member": "boolean",
+      "is_Chair": "boolean",
+      "is_Contribution_1th-author": "boolean",
+      "is_Reviewer": "boolean",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Poster": {
+    "columns": {
+      "ID": "integer",
+      "has_an_abstract": "integer",
+      "is_submitted_at": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "has_an_abstract",
+        "ref_table": "Abstract",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性 has_an_abstract 完全匹配，且 domain 和 range 均支持 Poster→Abstract 关联"
+      },
+      {
+        "column": "is_submitted_at",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "medium",
+        "reason": "列名匹配本体对象属性 is_submitted_at，domain 得分0.85稍弱，但 range 和 name 完全匹配，语义分数0.95支持外键"
+      }
+    ]
+  },
+  "Publisher": {
+    "columns": {
+      "ID": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Review": {
+    "columns": {
+      "ID": "integer",
+      "reviews": "integer",
+      "has_detailed_comments": "character varying(191)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Conference_document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "reviews",
+        "ref_table": "Conference_document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Review_expertise": {
+    "columns": {
+      "ID": "integer",
+      "has_an_expertise": "character varying(199)",
+      "has_a_submitted_contribut": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Review_preference": {
+    "columns": {
+      "ID": "integer",
+      "belongs_to_a_review_refer": "integer",
+      "has_a_degree": "integer",
+      "has_a_topic_or_a_submissi": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Steering_committee": {
+    "columns": {
+      "ID": "integer",
+      "was_a_steering_committee_": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Committee",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "Steering_committee is a subtype of Committee, so its ID references Committee.ID."
+      },
+      {
+        "column": "was_a_steering_committee_",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体 ObjectProperty 'was_a_steering_committee_of' 的 domain 为 Steering_committee，range 为 Conference_volume，列名与本 OP 高度匹配，语义得分 0.971"
+      }
+    ]
+  },
+  "Topic": {
+    "columns": {
+      "ID": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Track": {
+    "columns": {
+      "ID": "integer",
+      "has_tracks_Inv": "integer",
+      "has_a_track-workshop-tuto": "integer",
+      "is_part_of_conference_vol": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "is_part_of_conference_vol",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性'is_part_of_conference_volumes'匹配，domain/range得分支持引用Conference_volume"
+      }
+    ]
+  },
+  "Tutorial": {
+    "columns": {
+      "ID": "integer",
+      "has_tutorials_Inv": "integer",
+      "is_part_of_conference_vol": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "is_part_of_conference_vol",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名匹配对象属性is_part_of_conference_volumes，域和范围支持引用Conference_volume.ID"
+      }
+    ]
+  },
+  "Workshop": {
+    "columns": {
+      "ID": "integer",
+      "has_a_track-workshop-tuto": "integer",
+      "has_workshops_Inv": "integer",
+      "is_part_of_conference_vol": "integer",
+      "has_a_name": "character varying(199)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "is_part_of_conference_vol",
+        "ref_table": "Conference_volume",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名is_part_of_conference_vol对应本体OP is_part_of_conference_volumes，domain和range分数分别为0.85和1.0，表明Workshop实例通过该列引用Conference_volume实例。"
+      }
+    ]
+  },
+  "belongs_to_reviewers": {
+    "columns": {
+      "Entity": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "Entity",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Reviewer",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP belongs_to_reviewers的range为Reviewer类，列名Reviewer与此一致，且Person.ID是推荐目标"
+      }
+    ]
+  },
+  "contributes": {
+    "columns": {
+      "Person": "integer",
+      "Conference_document": "integer"
+    },
+    "primary_key": [
+      "Person",
+      "Conference_document"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Conference_document",
+        "ref_table": "Conference_document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "has_a_committee_co-chair": {
+    "columns": {
+      "Committee": "integer",
+      "Co-chair": "integer"
+    },
+    "primary_key": [
+      "Committee",
+      "Co-chair"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Committee",
+        "ref_table": "Committee",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，语义明确指代Committee实体"
+      },
+      {
+        "column": "Co-chair",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP 'has_a_committee_co-chair' 的range为Co-chair类，且表名与列名均匹配，同时OP 'was_a_committe_co-chair_of' 的domain也为Co-chair，语义强支持外键引用Person.ID。"
+      }
+    ]
+  },
+  "has_a_track-workshop-tuto": {
+    "columns": {
+      "Conference_part": "integer",
+      "Topic": "integer"
+    },
+    "primary_key": [
+      "Conference_part",
+      "Topic"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Topic",
+        "ref_table": "Topic",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全一致，语义明确，典型的外键引用"
+      }
+    ]
+  },
+  "has_an_email": {
+    "columns": {
+      "Person": "integer",
+      "VALUE": "character varying(43)"
+    },
+    "primary_key": [
+      "Person",
+      "VALUE"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "has_members": {
+    "columns": {
+      "Committee": "integer",
+      "Committee_member": "integer"
+    },
+    "primary_key": [
+      "Committee",
+      "Committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Committee",
+        "ref_table": "Committee",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Committee_member",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "invited_by": {
+    "columns": {
+      "Reviewer1": "integer",
+      "Reviewer2": "integer"
+    },
+    "primary_key": [
+      "Reviewer1",
+      "Reviewer2"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Reviewer1",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名Reviewer1匹配OP invited_by domain端点类Reviewer，语义分数0.913，目标表Person为Reviewer基类"
+      },
+      {
+        "column": "Reviewer2",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名Reviewer2匹配OP invited_by domain端点类Reviewer，语义分数0.913，目标表Person为Reviewer基类"
+      }
+    ]
+  }
+}

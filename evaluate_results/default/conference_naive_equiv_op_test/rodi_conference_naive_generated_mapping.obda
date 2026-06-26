@@ -1,0 +1,271 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+conferencenaive:	http://conference#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--826801083
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Camera_ready_contribution . 
+source		SELECT "ID" FROM "Camera_ready_contribution"
+
+mappingId	mapping--1269930655
+target		<http://example.com/important_dates/{ID}> a conferencenaive:Important_dates ; conferencenaive:is_a_date_of_acceptance_announcement {is_a_date_of_acceptance_a}^^xsd:date ; conferencenaive:is_an_abstract_submission_date {is_an_abstract_submission}^^xsd:date ; conferencenaive:is_an_ending_date {is_an_ending_date}^^xsd:date ; conferencenaive:is_a_starting_date {is_a_starting_date}^^xsd:date ; conferencenaive:is_a_full_paper_submission_date {is_a_full_paper_submissio}^^xsd:date ; conferencenaive:is_a_date_of_camera_ready_paper_submission {is_a_date_of_camera_ready}^^xsd:date . 
+source		SELECT "ID" , "is_a_date_of_acceptance_a" , "is_a_full_paper_submissio" , "is_a_date_of_camera_ready" , "is_an_ending_date" , "is_a_starting_date" , "is_an_abstract_submission" FROM "Important_dates"
+
+mappingId	mapping--661301715
+target		<http://example.com/conference_proceedings/{ID}> a conferencenaive:Conference_proceedings ; conferencenaive:has_a_publisher <http://example.com/publisher/{has_a_publisher}> ; conferencenaive:has_an_ISBN {has_an_ISBN}^^xsd:string ; conferencenaive:has_an_isbn {has_an_ISBN}^^xsd:string ; conferencenaive:has_a_name {has_a_name}^^xsd:string ; conferencenaive:has_a_volume {has_a_volume}^^xsd:int . 
+source		SELECT "ID" , "has_a_publisher" , "has_a_volume" , "has_a_name" , "has_an_ISBN" FROM "Conference_proceedings"
+
+mappingId	mapping-2097457627
+target		<http://example.com/committee/{ID}> a conferencenaive:Program_committee ; conferencenaive:was_a_program_committee_of <http://example.com/conference/{was_a_program_committee_of}> . 
+source		SELECT "ID" , "was_a_program_committee_of" FROM "Program_committee"
+
+mappingId	mapping-1874545063
+target		<http://example.com/person/{ID}> a conferencenaive:Person ; conferencenaive:has_the_last_name {has_the_last_name}^^xsd:string ; conferencenaive:has_the_first_name {has_the_first_name}^^xsd:string ; conferencenaive:has_gender {has_gender}^^xsd:string . 
+source		SELECT "ID" , "has_the_first_name" , "has_the_last_name" , "has_gender" FROM "Person"
+
+mappingId	mapping--1771579839
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Reviewed_contribution . 
+source		SELECT "ID" FROM "Reviewed_contribution"
+
+mappingId	mapping--1376301913
+target		<http://example.com/person/{ID}> a conferencenaive:Regular_author . 
+source		SELECT "ID" FROM "Regular_author"
+
+mappingId	mapping-1354868443
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Presentation ; conferencenaive:is_given_by <http://example.com/person/{is_given_by}> ; conferencenaive:has_an_abstract <http://example.com/conference_document/{has_an_abstract}> . 
+source		SELECT "ID" , "is_given_by" , "has_an_abstract" FROM "Presentation"
+
+mappingId	mapping-48687912
+target		<http://example.com/conference/{ID}> a conferencenaive:Conference_volume ; conferencenaive:has_important_dates <http://example.com/important_dates/{has_important_dates}> ; conferencenaive:has_a_program_committee <http://example.com/committee/{has_a_program_committee}> ; conferencenaive:has_an_organizing_committee <http://example.com/committee/{has_an_organizing_committ}> ; conferencenaive:has_a_location {has_a_location}^^xsd:string ; conferencenaive:has_a_steering_committee <http://example.com/committee/{has_a_steering_committee}> . 
+source		SELECT "ID" , "has_a_program_committee" , "has_an_organizing_committ" , "has_a_location" , "has_a_steering_committee" , "has_important_dates" FROM "Conference_volume"
+
+mappingId	mapping-1511156719
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Call_for_participation . 
+source		SELECT "ID" FROM "Call_for_participation"
+
+mappingId	mapping--941212416
+target		<http://example.com/committee/{Committee}> conferencenaive:has_members <http://example.com/person/{Committee_member}> . 
+source		SELECT "Committee" , "Committee_member" FROM "has_members"
+
+mappingId	mapping--1991646988
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Rejected_contribution . 
+source		SELECT "ID" FROM "Rejected_contribution"
+
+mappingId	mapping-1725463538
+target		<http://example.com/topic/{ID}> a conferencenaive:Topic ; conferencenaive:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Topic"
+
+mappingId	mapping--1316981991
+target		<http://example.com/person/{ID}> a conferencenaive:Conference_participant . 
+source		SELECT "ID" FROM "Conference_participant"
+
+mappingId	mapping--404316508
+target		<http://example.com/person/{ID}> a conferencenaive:Invited_speaker . 
+source		SELECT "ID" FROM "Invited_speaker"
+
+mappingId	mapping-1584257088
+target		<http://example.com/person/{Person}> conferencenaive:contributes <http://example.com/conference_document/{Conference_document}> . 
+source		SELECT "Person" , "Conference_document" FROM "contributes"
+
+mappingId	mapping-1828831262
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Conference_contribution ; conferencenaive:is_submitted_at <http://example.com/conference/{is_submitted_at}> . 
+source		SELECT "ID" , "is_submitted_at" FROM "Conference_contribution"
+
+mappingId	mapping--247360321
+target		<http://example.com/conference_part/{ID}> a conferencenaive:Workshop ; conferencenaive:has_a_track-workshop-tutorial_chair <http://example.com/person/{has_a_track-workshop-tuto}> ; conferencenaive:is_part_of_conference_volumes <http://example.com/conference/{has_workshops_Inv}> . 
+source		SELECT "ID" , "has_a_track-workshop-tuto" , "has_workshops_Inv" FROM "Workshop"
+
+mappingId	mapping--1774704996
+target		<http://example.com/person/{ID}> a conferencenaive:Committee_member . 
+source		SELECT "ID" FROM "Committee_member"
+
+mappingId	mapping-1429850951
+target		<http://example.com/organization/{ID}> a conferencenaive:Organization ; conferencenaive:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Organization"
+
+mappingId	mapping--329955898
+target		<http://example.com/person/{ID}> a conferencenaive:Contribution_co-author . 
+source		SELECT "ID" FROM "Contribution_co-author"
+
+mappingId	mapping-12190068
+target		<http://example.com/committee/{ID}> a conferencenaive:Committee ; conferencenaive:has_a_name {has_a_name}^^xsd:string ; conferencenaive:has_a_committee_chair <http://example.com/person/{has_a_committee_chair}> . 
+source		SELECT "ID" , "has_a_name" , "has_a_committee_chair" FROM "Committee"
+
+mappingId	mapping--199308989
+target		<http://example.com/person/{ID}> a conferencenaive:Passive_conference_participant . 
+source		SELECT "ID" FROM "Passive_conference_partic"
+
+mappingId	mapping-1182308796
+target		<http://example.com/conference/{ID}> a conferencenaive:Conference ; conferencenaive:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Conference"
+
+mappingId	mapping--295441571
+target		<http://example.com/person/{ID}> a conferencenaive:Co-chair . 
+source		SELECT "ID" FROM "Co-chair"
+
+mappingId	mapping--1859385310
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Written_contribution . 
+source		SELECT "ID" FROM "Written_contribution"
+
+mappingId	mapping-1889497396
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Abstract ; conferencenaive:is_the_1th_part_of <http://example.com/conference_document/{is_the_1th_part_of}> . 
+source		SELECT "ID" , "is_the_1th_part_of" FROM "Abstract"
+
+mappingId	mapping--685431217
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Conference_announcement . 
+source		SELECT "ID" FROM "Conference_announcement"
+
+mappingId	mapping--618518526
+target		<http://example.com/person/{ID}> a conferencenaive:Conference_applicant . 
+source		SELECT "ID" FROM "Conference_applicant"
+
+mappingId	mapping--702534710
+target		<http://example.com/review_expertise/{ID}> a conferencenaive:Review_expertise ; conferencenaive:has_an_expertise {has_an_expertise}^^xsd:string ; conferencenaive:has_a_submitted_contribution <http://example.com/conference_document/{has_a_submitted_contribut}> . 
+source		SELECT "ID" , "has_an_expertise" , "has_a_submitted_contribut" FROM "Review_expertise"
+
+mappingId	mapping--1422754487
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Accepted_contribution . 
+source		SELECT "ID" FROM "Accepted_contribution"
+
+mappingId	mapping--1863178784
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Information_for_participants . 
+source		SELECT "ID" FROM "Information_for_participa"
+
+mappingId	mapping-1603005932
+target		<http://example.com/committee/{Committee}> conferencenaive:has_a_committee_co-chair <http://example.com/person/{Co-chair}> . 
+source		SELECT "Committee" , "Co-chair" FROM "has_a_committee_co-chair"
+
+mappingId	mapping--1296962334
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Paper ; conferencenaive:has_an_abstract <http://example.com/conference_document/{has_an_abstract}> ; conferencenaive:has_a_paper_title {has_a_paper_title}^^xsd:string . 
+source		SELECT "ID" , "has_an_abstract" , "has_a_paper_title" FROM "Paper"
+
+mappingId	mapping--834070999
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Conference_document ; conferencenaive:has_a_date_of_issue {has_a_date_of_issue}^^xsd:date . 
+source		SELECT "ID" , "has_a_date_of_issue" FROM "Conference_document"
+
+mappingId	mapping--393318546
+target		<http://example.com/organizer/{ID}> a conferencenaive:Organizer . 
+source		SELECT "ID" FROM "Organizer"
+
+mappingId	mapping--1605092666
+target		<http://example.com/person/{ID}> a conferencenaive:Active_conference_participant . 
+source		SELECT "ID" FROM "Active_conference_partici"
+
+mappingId	mapping--13160900
+target		<http://example.com/person/{ID}> a conferencenaive:Paid_applicant . 
+source		SELECT "ID" FROM "Paid_applicant"
+
+mappingId	mapping--1023366256
+target		<http://example.com/person/{ID}> a conferencenaive:Track-workshop_chair . 
+source		SELECT "ID" FROM "Track-workshop_chair"
+
+mappingId	mapping-1491421272
+target		<http://example.com/conference_fees/{ID}> a conferencenaive:Conference_fees ; conferencenaive:amount {amount}^^xsd:string . 
+source		SELECT "ID" , "amount" FROM "Conference_fees"
+
+mappingId	mapping-1257607464
+target		<http://example.com/person/{Person}> conferencenaive:has_an_email {VALUE}^^xsd:string . 
+source		SELECT "Person" , "VALUE" FROM "has_an_email"
+
+mappingId	mapping--820108731
+target		<http://example.com/person/{ID}> a conferencenaive:Registeered_applicant . 
+source		SELECT "ID" FROM "Registeered_applicant"
+
+mappingId	mapping-777779018
+target		<http://example.com/conference_part/{ID}> a conferencenaive:Track ; conferencenaive:is_part_of_conference_volumes <http://example.com/conference/{has_tracks_Inv}> ; conferencenaive:has_a_track-workshop-tutorial_chair <http://example.com/person/{has_a_track-workshop-tuto}> . 
+source		SELECT "ID" , "has_tracks_Inv" , "has_a_track-workshop-tuto" FROM "Track"
+
+mappingId	mapping--1632648307
+target		<http://example.com/person/{ID}> a conferencenaive:Contribution_1th-author . 
+source		SELECT "ID" FROM "Contribution_1th-author"
+
+mappingId	mapping--1323063067
+target		<http://example.com/publisher/{ID}> a conferencenaive:Publisher ; conferencenaive:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Publisher"
+
+mappingId	mapping-282828217
+target		<http://example.com/committee/{ID}> a conferencenaive:Steering_committee ; conferencenaive:was_a_steering_committee_of <http://example.com/conference/{was_a_steering_committee_}> . 
+source		SELECT "ID" , "was_a_steering_committee_" FROM "Steering_committee"
+
+mappingId	mapping-865983440
+target		<http://example.com/person/{ID}> a conferencenaive:Early_paid_applicant . 
+source		SELECT "ID" FROM "Early_paid_applicant"
+
+mappingId	mapping--931444404
+target		<http://example.com/person/{ID}> a conferencenaive:Reviewer . 
+source		SELECT "ID" FROM "Reviewer"
+
+mappingId	mapping--1275124038
+target		<http://example.com/person/{ID}> a conferencenaive:Conference_contributor . 
+source		SELECT "ID" FROM "Conference_contributor"
+
+mappingId	mapping--1884956663
+target		<http://example.com/person/{ID}> a conferencenaive:Late_paid_applicant . 
+source		SELECT "ID" FROM "Late_paid_applicant"
+
+mappingId	mapping--2133746788
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Regular_contribution . 
+source		SELECT "ID" FROM "Regular_contribution"
+
+mappingId	mapping-1458511112
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Poster ; conferencenaive:has_an_abstract <http://example.com/conference_document/{has_an_abstract}> . 
+source		SELECT "ID" , "has_an_abstract" FROM "Poster"
+
+mappingId	mapping-1080507361
+target		<http://example.com/review_preference/{ID}> a conferencenaive:Review_preference ; conferencenaive:has_a_degree {has_a_topic_or_a_submissi}^^xsd:int , {has_a_degree}^^xsd:int ; conferencenaive:has_a_topic_or_a_submission_contribution <http://example.com/topic/{belongs_to_a_review_refer}> . 
+source		SELECT "ID" , "belongs_to_a_review_refer" , "has_a_degree" , "has_a_topic_or_a_submissi" FROM "Review_preference"
+
+mappingId	mapping--674369952
+target		<http://example.com/person/{ID}> a conferencenaive:Chair . 
+source		SELECT "ID" FROM "Chair"
+
+mappingId	mapping--157032071
+target		<http://example.com/committee/{ID}> a conferencenaive:Organizing_committee ; conferencenaive:was_an_organizing_committee_of <http://example.com/conference/{was_an_organizing_committ}> . 
+source		SELECT "ID" , "was_an_organizing_committ" FROM "Organizing_committee"
+
+mappingId	mapping-1726613265
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Conference_www ; conferencenaive:has_a_URL {has_a_URL}^^xsd:string ; conferencenaive:has_a_url {has_a_URL}^^xsd:string . 
+source		SELECT "ID" , "has_a_URL" FROM "Conference_www"
+
+mappingId	mapping-1784969850
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Submitted_contribution . 
+source		SELECT "ID" FROM "Submitted_contribution"
+
+mappingId	mapping-1876213718
+target		<http://example.com/person/{Reviewer1}> conferencenaive:invited_by <http://example.com/person/{Reviewer2}> . 
+source		SELECT "Reviewer1" , "Reviewer2" FROM "invited_by"
+
+mappingId	mapping--418543578
+target		<http://example.com/conference_part/{ID}> a conferencenaive:Tutorial ; conferencenaive:is_part_of_conference_volumes <http://example.com/conference/{has_tutorials_Inv}> . 
+source		SELECT "ID" , "has_tutorials_Inv" FROM "Tutorial"
+
+mappingId	mapping--1794502062
+target		<http://example.com/conference_part/{Conference_part}> conferencenaive:has_a_track-workshop-tutorial_topic <http://example.com/topic/{Topic}> . 
+source		SELECT "Conference_part" , "Topic" FROM "has_a_track-workshop-tuto"
+
+mappingId	mapping-1481349780
+target		<http://example.com/conference_part/{ID}> a conferencenaive:Conference_part ; conferencenaive:is_part_of_conference_volumes <http://example.com/conference/{is_part_of_conference_vol}> ; conferencenaive:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "is_part_of_conference_vol" , "has_a_name" FROM "Conference_part"
+
+mappingId	mapping--439833207
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Extended_abstract ; conferencenaive:has_text {has_text}^^xsd:string . 
+source		SELECT "ID" , "has_text" FROM "Extended_abstract"
+
+mappingId	mapping--1563228656
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Review ; conferencenaive:has_detailed_comments {has_detailed_comments}^^xsd:string ; conferencenaive:reviews <http://example.com/conference_document/{reviews}> . 
+source		SELECT "ID" , "reviews" , "has_detailed_comments" FROM "Review"
+
+mappingId	mapping-1200790519
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Invited_talk . 
+source		SELECT "ID" FROM "Invited_talk"
+
+mappingId	mapping--723136633
+target		<http://example.com/conference_document/{ID}> a conferencenaive:Call_for_paper . 
+source		SELECT "ID" FROM "Call_for_paper"
+]]
+

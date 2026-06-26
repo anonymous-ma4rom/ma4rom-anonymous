@@ -1,0 +1,280 @@
+{
+  "database": "cmt_structured",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "include_no_gold": true,
+  "evaluated_at": "2026-06-04 22:56:30",
+  "summary": {
+    "prediction_total": 10,
+    "prediction_no_answer": 0,
+    "changed_from_current": 1,
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "Administrator.ID",
+      "source": "Administrator.ID",
+      "target": "Person.ID",
+      "current_uri": "http://cmt#startReviewerBidding",
+      "current_local_name": "startReviewerBidding",
+      "llm_selected_uri": "http://cmt#addProgramCommitteeMember",
+      "llm_selected_local_name": "addProgramCommitteeMember",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#addProgramCommitteeMember",
+        "selected_local_name": "addProgramCommitteeMember",
+        "confidence": "low",
+        "reason": "候选属性中，只有addProgramCommitteeMember的域为Administrator，范围为ProgramCommitteeMember（Person的子类），与数据库FK从Administrator指向Person的语义部分匹配；其他候选范围均为Conference，完全不匹配。但缺乏直接的构造或限制支持，且名称不直接相关，故置信度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Administrator.acceptPaper",
+      "source": "Administrator.acceptPaper",
+      "target": "Paper.ID",
+      "current_uri": "http://cmt#acceptPaper",
+      "current_local_name": "acceptPaper",
+      "llm_selected_uri": "http://cmt#acceptPaper",
+      "llm_selected_local_name": "acceptPaper",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptPaper",
+        "selected_local_name": "acceptPaper",
+        "confidence": "high",
+        "reason": "关系名'acceptPaper'与对象属性名称完全一致，且定义域为Administrator、值域为Paper，与数据库外键的源表和目标表精确匹配。其他候选属性名称不匹配或定义域不符。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Bid.adjustedBy",
+      "source": "Bid.adjustedBy",
+      "target": "Person.ID",
+      "current_uri": "http://cmt#adjustedBy",
+      "current_local_name": "adjustedBy",
+      "llm_selected_uri": "http://cmt#adjustedBy",
+      "llm_selected_local_name": "adjustedBy",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#adjustedBy",
+        "selected_local_name": "adjustedBy",
+        "confidence": "medium",
+        "reason": "名称完全匹配，且域为Bid，与外键源表一致。范围Reviewer可能是Person的子类，因此合理。但由于没有具体数据验证，且范围不完全匹配Person，置信度为中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Bid.hasBid_Inv",
+      "source": "Bid.hasBid_Inv",
+      "target": "Paper.ID",
+      "current_uri": "http://cmt#adjustedBy",
+      "current_local_name": "adjustedBy",
+      "llm_selected_uri": "http://cmt#adjustedBy",
+      "llm_selected_local_name": "adjustedBy",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#adjustedBy",
+        "selected_local_name": "adjustedBy",
+        "confidence": "low",
+        "reason": "域匹配Bid但范围不匹配Paper，无IND或名字匹配，其他候选域不匹配，选择adjustedBy作为最接近"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.ID",
+      "source": "Paper.ID",
+      "target": "Document.ID",
+      "current_uri": "http://cmt#hasDecision",
+      "current_local_name": "hasDecision",
+      "llm_selected_uri": "http://cmt#hasDecision",
+      "llm_selected_local_name": "hasDecision",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5,
+        "valentine_coma_score": 0.6534025110862934,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#hasDecision",
+        "selected_local_name": "hasDecision",
+        "confidence": "medium",
+        "reason": "外键Paper.ID→Document.ID，但候选ObjectProperty的range均不直接匹配Document；hasDecision的domain完全匹配Paper，range为Decision（可能对应决策文档），且cpa_domain_score=1.0，cpa_range_score=0.5高于其他候选；无更佳匹配，故选择已有的hasDecision。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.acceptedBy",
+      "source": "Paper.acceptedBy",
+      "target": "Administrator.ID",
+      "current_uri": "http://cmt#acceptedBy",
+      "current_local_name": "acceptedBy",
+      "llm_selected_uri": "http://cmt#acceptedBy",
+      "llm_selected_local_name": "acceptedBy",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptedBy",
+        "selected_local_name": "acceptedBy",
+        "confidence": "high",
+        "reason": "名称完全匹配'acceptBy'；域(Paper)和范围(Administrator)与关系完全一致；无结构冲突，证据强。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.hasAuthor",
+      "source": "Paper.hasAuthor",
+      "target": "Person.ID",
+      "current_uri": "http://cmt#hasAuthor",
+      "current_local_name": "hasAuthor",
+      "llm_selected_uri": "http://cmt#hasAuthor",
+      "llm_selected_local_name": "hasAuthor",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.20930232558139536,
+        "source_in_target": 1.0,
+        "target_in_source": 0.20930232558139536,
+        "valentine_coma_score": 0.2318141980718668,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#hasAuthor",
+        "selected_local_name": "hasAuthor",
+        "confidence": "high",
+        "reason": "外键Paper.hasAuthor指向Person.ID，hasAuthor名称完全匹配（cpa_name_score=1.0），域Paper匹配，范围Author是Person的子类，且包含依赖IND=1.0证实源值全部在目标中，语义最契合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.hasDecision",
+      "source": "Paper.hasDecision",
+      "target": "Acceptance.ID",
+      "current_uri": "http://cmt#hasDecision",
+      "current_local_name": "hasDecision",
+      "llm_selected_uri": "http://cmt#hasDecision",
+      "llm_selected_local_name": "hasDecision",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#hasDecision",
+        "selected_local_name": "hasDecision",
+        "confidence": "medium",
+        "reason": "关系名为'Paper.hasDecision'，与本体对象属性'hasDecision'名称完全匹配，域均为Paper，虽然范围是Decision而目标表是Acceptance，但Acceptance可能属于Decision子类，且其他候选属性（assignedTo、hasBid）范围与Acceptance完全不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.readByMeta-Reviewer",
+      "source": "Paper.readByMeta-Reviewer",
+      "target": "Person.ID",
+      "current_uri": "http://cmt#readByMeta-Reviewer",
+      "current_local_name": "readByMeta-Reviewer",
+      "llm_selected_uri": "http://cmt#readByMeta-Reviewer",
+      "llm_selected_local_name": "readByMeta-Reviewer",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#readByMeta-Reviewer",
+        "selected_local_name": "readByMeta-Reviewer",
+        "confidence": "medium",
+        "reason": "名称完全匹配关系名称，域匹配Paper类，但范围是Meta-Reviewer而非Person，且外键列无实际数据支持，因此置信度中等。其他候选如readByReviewer（范围为Reviewer）和rejectedBy（范围为Administrator）与目标Person不匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.rejectedBy",
+      "source": "Paper.rejectedBy",
+      "target": "Administrator.ID",
+      "current_uri": "http://cmt#rejectedBy",
+      "current_local_name": "rejectedBy",
+      "llm_selected_uri": "http://cmt#rejectedBy",
+      "llm_selected_local_name": "rejectedBy",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.0,
+        "source_in_target": 0.0,
+        "target_in_source": 0.0,
+        "valentine_coma_score": 0.0,
+        "evidence_type": "weak_or_conflicting"
+      },
+      "candidate_count": 3,
+      "llm_response": {
+        "selected_uri": "http://cmt#rejectedBy",
+        "selected_local_name": "rejectedBy",
+        "confidence": "high",
+        "reason": "属性名称与数据库外键名称完全匹配，domain为Paper，range为Administrator，与源表和目标表一致，语义上表示拒稿操作，证据充分。"
+      },
+      "error": null
+    }
+  ]
+}

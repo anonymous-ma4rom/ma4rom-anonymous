@@ -1,0 +1,4 @@
+{
+  "_skipped": true,
+  "reason": "Legacy OP scenario judgement has been removed; ablation runs the equivalence-column OP module directly."
+}

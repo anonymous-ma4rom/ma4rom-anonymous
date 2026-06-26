@@ -1,0 +1,131 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+sigkddstructured:	http://sigkdd#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--437246986
+target		<http://example.com/deadline_abstract_submiss/{ID}> a sigkddstructured:Deadline_Abstract_Submission ; sigkddstructured:designed_by <http://example.com/acm_sigkdd/{designed_by}> ; sigkddstructured:Date {Date}^^xsd:dateTime . 
+source		SELECT "ID" , "designed_by" , "Date" , "TYPE" FROM "Deadline_Abstract_Submiss"
+
+mappingId	mapping-1733804236
+target		<http://example.com/person/{ID}> a sigkddstructured:Program_Committee_member . 
+source		SELECT "ID" FROM "Person" WHERE "is_Program_Committee_member" = true
+
+mappingId	mapping--1345476197
+target		<http://example.com/person/{Person}> sigkddstructured:can_stay_in <http://example.com/main_office/{Place}> . 
+source		SELECT "Person" , "Place" FROM "can_stay_in"
+
+mappingId	mapping-983128962
+target		<http://example.com/registration_fee/{ID}> a sigkddstructured:Registration_fee ; sigkddstructured:Price {Price}^^xsd:int ; sigkddstructured:Currency {Currency}^^xsd:string . 
+source		SELECT "ID" , "Currency" , "Price" , "TYPE" FROM "Registration_fee"
+
+mappingId	mapping-289459965
+target		<http://example.com/person/{Person}> sigkddstructured:E-mail {VALUE}^^xsd:string . 
+source		SELECT "Person" , "VALUE" FROM "E-mail"
+
+mappingId	mapping-1403258741
+target		<http://example.com/best_research_paper_award/{ID}> a sigkddstructured:Best_Research_Paper_Award . 
+source		SELECT "ID" , "TYPE" FROM "Best_Research_Paper_Award"
+
+mappingId	mapping--1199891771
+target		<http://example.com/person/{ID}> a sigkddstructured:Person ; sigkddstructured:Name_of_sponsor {Name_of_sponsor}^^xsd:string ; sigkddstructured:Nation {Nation}^^xsd:string ; sigkddstructured:Name {Name}^^xsd:string . 
+source		SELECT "ID" , "Nation" , "Name" , "Name_of_sponsor" , "is_Organizator" , "is_Program_Chair" , "is_Listener" , "is_Author_of_paper_student" , "is_Program_Committee_member" , "TYPE" FROM "Person"
+
+mappingId	mapping-743944498
+target		<http://example.com/person/{Author}> sigkddstructured:obtain <http://example.com/best_research_paper_award/{Award}> . 
+source		SELECT "Author" , "Award" FROM "obtain"
+
+mappingId	mapping--1687299401
+target		<http://example.com/document/{ID}> a sigkddstructured:Review . 
+source		SELECT "ID" FROM "Document" WHERE "TYPE" = 3
+
+mappingId	mapping--961371394
+target		<http://example.com/main_office/{ID}> a sigkddstructured:Main_office ; <http://www.w3.org/2003/01/geo/wgs84_pos#lat> {lat}^^xsd:float ; <http://www.w3.org/2003/01/geo/wgs84_pos#long> {long}^^xsd:float ; sigkddstructured:hasStreet {hasStreet}^^xsd:string ; sigkddstructured:hasPostalCode {hasPostalCode}^^xsd:int . 
+source		SELECT "ID" , "lat" , "long" , "hasStreet" , "hasPostalCode" , "TYPE" FROM "Main_office"
+
+mappingId	mapping-1123473896
+target		<http://example.com/document/{ID}> a sigkddstructured:Abstract . 
+source		SELECT "ID" FROM "Document" WHERE "TYPE" = 2
+
+mappingId	mapping--1871607659
+target		<http://example.com/organizing_committee/{ID}> a sigkddstructured:Organizing_Committee ; sigkddstructured:isCommitteeOf <http://example.com/conference/{hasCommittee_Inv}> , <http://example.com/conference/{isCommitteeOf}> . 
+source		SELECT "ID" , "hasCommittee_Inv" , "isCommitteeOf" FROM "Organizing_Committee"
+
+mappingId	mapping-1707855047
+target		<http://example.com/sponzor_fee/{ID}> a sigkddstructured:Sponzor_fee ; sigkddstructured:Currency {Currency}^^xsd:string ; sigkddstructured:Price {Price}^^xsd:int . 
+source		SELECT "ID" , "Currency" , "Price" FROM "Sponzor_fee"
+
+mappingId	mapping--2004573320
+target		<http://example.com/person/{ID}> a sigkddstructured:Listener . 
+source		SELECT "ID" FROM "Person" WHERE "is_Listener" = true
+
+mappingId	mapping-1020041927
+target		<http://example.com/document/{Document}> sigkddstructured:presentationed_by <http://example.com/person/{Speaker}> . 
+source		SELECT "Document" , "Speaker" FROM "presentation"
+
+mappingId	mapping-184183152
+target		<http://example.com/document/{Document}> sigkddstructured:submit_until <http://example.com/deadline_abstract_submiss/{Deadline}> . 
+source		SELECT "Document" , "Deadline" FROM "submit_until"
+
+mappingId	mapping-1669619237
+target		<http://example.com/person/{ID}> a sigkddstructured:Author . 
+source		SELECT "ID" FROM "Person" WHERE "TYPE" = 2
+
+mappingId	mapping-2019672591
+target		<http://example.com/person/{Person}> sigkddstructured:pay <http://example.com/registration_fee/{Registration_fee}> . 
+source		SELECT "Person" , "Registration_fee" FROM "pay"
+
+mappingId	mapping-1269645415
+target		<http://example.com/person/{Author}> sigkddstructured:submit <http://example.com/document/{Paper}> . 
+source		SELECT "Author" , "Paper" FROM "submit"
+
+mappingId	mapping--1442284422
+target		<http://example.com/person/{ID}> a sigkddstructured:Author_of_paper_student . 
+source		SELECT "ID" FROM "Person" WHERE "is_Author_of_paper_student" = true
+
+mappingId	mapping-1211744974
+target		<http://example.com/acm_sigkdd/{ID}> a sigkddstructured:ACM_SIGKDD . 
+source		SELECT "ID" FROM "ACM_SIGKDD"
+
+mappingId	mapping--1044514867
+target		<http://example.com/document/{ID}> a sigkddstructured:Document ; sigkddstructured:hasTitle {hasTitle}^^xsd:string . 
+source		SELECT "ID" , "hasTitle" , "TYPE" FROM "Document"
+
+mappingId	mapping--2077921729
+target		<http://example.com/conference/{ID}> a sigkddstructured:Conference ; sigkddstructured:Start_of_conference {Start_of_conference}^^xsd:dateTime ; sigkddstructured:City_of_conference {City_of_conference}^^xsd:string ; sigkddstructured:Name_of_conference {Name_of_conference}^^xsd:string ; sigkddstructured:End_of_conference {End_of_conference}^^xsd:dateTime ; sigkddstructured:holded_by <http://example.com/acm_sigkdd/{holded_by}> . 
+source		SELECT "ID" , "holded_by" , "Start_of_conference" , "City_of_conference" , "Name_of_conference" , "End_of_conference" FROM "Conference"
+
+mappingId	mapping-811775654
+target		<http://example.com/document/{ID}> a sigkddstructured:Paper . 
+source		SELECT "ID" FROM "Document" WHERE "TYPE" = 1
+
+mappingId	mapping--1522942537
+target		<http://example.com/person/{ID}> a sigkddstructured:Program_Chair . 
+source		SELECT "ID" FROM "Person" WHERE "is_Program_Chair" = true
+
+mappingId	mapping-1723411167
+target		<http://example.com/best_paper_awards_committ/{ID}> a sigkddstructured:Best_Paper_Awards_Committee ; sigkddstructured:award <http://example.com/best_research_paper_award/{award}> ; sigkddstructured:isCommitteeOf <http://example.com/conference/{hasCommittee_Inv}> , <http://example.com/conference/{isCommitteeOf}> . 
+source		SELECT "ID" , "award" , "hasCommittee_Inv" , "isCommitteeOf" FROM "Best_Paper_Awards_Committ"
+
+mappingId	mapping--1343359793
+target		<http://example.com/registration_fee/{ID}> a sigkddstructured:Registration_fee . 
+source		SELECT "ID" FROM "Registration_fee" WHERE "TYPE" = 0
+
+mappingId	mapping--749685402
+target		<http://example.com/program_committee/{ID}> a sigkddstructured:Program_Committee ; rdfs:label {label}^^xsd:string ; sigkddstructured:isCommitteeOf <http://example.com/conference/{hasCommittee_Inv}> , <http://example.com/conference/{isCommitteeOf}> ; sigkddstructured:Name {label}^^xsd:string . 
+source		SELECT "ID" , "label" , "hasCommittee_Inv" , "isCommitteeOf" FROM "Program_Committee"
+
+mappingId	mapping--587192432
+target		<http://example.com/document/{ID}> a sigkddstructured:Review ; sigkddstructured:hasText {hasText}^^xsd:string ; sigkddstructured:hasID {hasID}^^xsd:int ; sigkddstructured:hasid {hasID}^^xsd:int ; sigkddstructured:isReviewOf <http://example.com/document/{hasReview_Inv}> , <http://example.com/document/{isReviewOf}> . 
+source		SELECT "ID" , "hasReview_Inv" , "isReviewOf" , "hasID" , "hasText" FROM "Review"
+
+mappingId	mapping-1024733558
+target		<http://example.com/person/{ID}> a sigkddstructured:Organizator . 
+source		SELECT "ID" FROM "Person" WHERE "is_Organizator" = true
+]]
+

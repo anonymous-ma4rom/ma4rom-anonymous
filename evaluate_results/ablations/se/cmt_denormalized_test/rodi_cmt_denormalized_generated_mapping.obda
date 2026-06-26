@@ -1,0 +1,99 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+cmtdenormalized:	http://cmt#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--693579615
+target		<http://example.com/person/{ID}> a cmtdenormalized:Author . 
+source		SELECT "ID" , "TYPE" FROM "Author"
+
+mappingId	mapping-1432507894
+target		<http://example.com/person/{Administrator}> cmtdenormalized:enterReviewCriteria <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "enterReviewCriteria"
+
+mappingId	mapping--406965176
+target		<http://example.com/person/{Administrator}> cmtdenormalized:enableVirtualMeeting <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "enableVirtualMeeting"
+
+mappingId	mapping--427520107
+target		<http://example.com/person/{Administrator}> cmtdenormalized:enterConferenceDetails <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "detailsEnteredBy"
+
+mappingId	mapping--1676331387
+target		<http://example.com/person/{Author}> cmtdenormalized:submitPaper <http://example.com/person/{Paper}> . 
+source		SELECT "Author" , "Paper" FROM "submitPaper"
+
+mappingId	mapping--1591662473
+target		<http://example.com/person/{ID}> a cmtdenormalized:User . 
+source		SELECT "ID" , "acceptPaper" , "TYPE" FROM "User"
+
+mappingId	mapping--120057152
+target		<http://example.com/person/{Administrator}> cmtdenormalized:startReviewerBidding <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "reviewerBiddingStartedBy"
+
+mappingId	mapping--2038114483
+target		<http://example.com/conference/{Conference}> cmtdenormalized:hasConferenceMember <http://example.com/person/{ConferenceMember}> . 
+source		SELECT "Conference" , "ConferenceMember" FROM "hasConferenceMember"
+
+mappingId	mapping--68455961
+target		<http://example.com/document/{Document}> cmtdenormalized:hasConflictOfInterest <http://example.com/person/{Person}> . 
+source		SELECT "Document" , "Person" FROM "hasConflictOfInterest"
+
+mappingId	mapping-1412099806
+target		<http://example.com/person/{ID}> a cmtdenormalized:Author . 
+source		SELECT "ID" FROM "User" WHERE "TYPE" = 0
+
+mappingId	mapping-11662932
+target		<http://example.com/person/{ID}> a cmtdenormalized:Co-author . 
+source		SELECT "ID" FROM "Author" WHERE "TYPE" = 2
+
+mappingId	mapping--1520505306
+target		<http://example.com/conference/{Conference}> cmtdenormalized:hardcopyMailingManifestsPrintedBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "hardcopyMailingManifestsP"
+
+mappingId	mapping-1811351871
+target		<http://example.com/person/{ProgramCommitteeChair}> cmtdenormalized:hasConflictOfInterest <http://example.com/document/{Review}> . 
+source		SELECT "ProgramCommitteeChair" , "Review" FROM "endReview"
+
+mappingId	mapping--1396096179
+target		<http://example.com/person/{Administrator}> cmtdenormalized:finalizePaperAssignment <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "finalizePaperAssignment"
+
+mappingId	mapping--1405731805
+target		<http://example.com/person/{ID}> a cmtdenormalized:AuthorNotReviewer . 
+source		SELECT "ID" FROM "Author" WHERE "TYPE" = 0
+
+mappingId	mapping-72508369
+target		<http://example.com/conference/{Conference}> cmtdenormalized:paperAssignmentToolsRunBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "paperAssignmentToolsRunBy"
+
+mappingId	mapping-587957054
+target		<http://example.com/person/{ID}> a cmtdenormalized:ProgramCommitteeMember ; cmtdenormalized:addedBy <http://example.com/person/{addedBy}> ; cmtdenormalized:maxPapers {maxPapers}^^xsd:int . 
+source		SELECT "ID" , "maxPapers" , "addedBy" FROM "ProgramCommitteeMember"
+
+mappingId	mapping-843548809
+target		<http://example.com/person/{Co-author}> cmtdenormalized:co-writePaper <http://example.com/document/{Paper}> . 
+source		SELECT "Co-author" , "Paper" FROM "co-writePaper"
+
+mappingId	mapping--826561080
+target		<http://example.com/person/{ID}> a cmtdenormalized:ProgramCommitteeChair . 
+source		SELECT "ID" FROM "ProgramCommitteeChair"
+
+mappingId	mapping--1897537885
+target		<http://example.com/person/{Administrator}> cmtdenormalized:setMaxPapers <http://example.com/person/{ProgramCommitteeMember}> . 
+source		SELECT "Administrator" , "ProgramCommitteeMember" FROM "setMaxPapers"
+
+mappingId	mapping--674045991
+target		<http://example.com/person/{Administrator}> cmtdenormalized:assignReviewer <http://example.com/person/{Reviewer}> . 
+source		SELECT "Administrator" , "Reviewer" FROM "assignReviewer"
+
+mappingId	mapping--307548906
+target		<http://example.com/programcommittee/{ProgramCommittee}> cmtdenormalized:hasProgramCommitteeMember <http://example.com/person/{ProgramCommitteeMember}> . 
+source		SELECT "ProgramCommittee" , "ProgramCommitteeMember" FROM "hasProgramCommitteeMember"
+]]
+

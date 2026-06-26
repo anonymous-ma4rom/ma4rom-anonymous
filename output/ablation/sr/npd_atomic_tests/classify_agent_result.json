@@ -1,0 +1,875 @@
+{
+  "apaareagross": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "apamap_no",
+        "references_table": "wellbore_shallow_all",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键apaareagross_id不是FK列集，且包含非FK列，故为SE。"
+  },
+  "apaareanet": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "blkid",
+        "references_table": "wlbpoint",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "apaareanet_id",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键包含多个列且不是某个FK列集，包含非FK列，故为SE。"
+  },
+  "baaarea": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "column": "baanpdidbsnsarrareapoly",
+        "references_table": "bsns_arr_area_area_poly_hst",
+        "references_column": "baanpdidbsnsarrarea"
+      }
+    ],
+    "reason": "主键(baanpdidbsnsarrarea, baanpdidbsnsarrareapoly)整体等于FK列集，且无额外属性列，故为SH。"
+  },
+  "bsns_arr_area": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键baanpdidbsnsarrarea不是FK列集，且包含非FK列，故为SE。"
+  },
+  "bsns_arr_area_area_poly_hst": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      }
+    ],
+    "reason": "主键(baanpdidbsnsarrarea, baaareapolyblockname, baaareapolyno, baaareapolydatevalidfrom, baaareapolydatevalidto)整体等于FK列集，且无额外属性列，故为SH。"
+  },
+  "bsns_arr_area_licensee_hst": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键(baanpdidbsnsarrarea, cmpnpdidcompany, baalicenseedatevalidfrom, baalicenseedatevalidto)整体等于FK列集，且无额外属性列，故为SH。"
+  },
+  "bsns_arr_area_operator": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键baanpdidbsnsarrarea是FK列，且无额外属性列，故为SH。"
+  },
+  "bsns_arr_area_transfer_hst": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键(baanpdidbsnsarrarea, baatransferdirection, cmpnpdidcompany, baatransferdatevalidfrom)整体等于FK列集，且无额外属性列，故为SH。"
+  },
+  "company": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键cmpnpdidcompany不是FK列集，且包含非FK列，故为SE。"
+  },
+  "company_reserves": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键(cmpnpdidcompany, fldnpdidfield)整体等于FK列集，且无额外属性列，故为SH。"
+  },
+  "discovery": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主实体表，带有自身属性（如dscname、dsccurrentactivitystatus等），主键dscnpdiddiscovery是业务主键，虽有两个外键但不等于主键整体。"
+  },
+  "discovery_reserves": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ],
+    "reason": "带有非外键属性列（如dscrecoverableoil、dscrecoverablegas等），主键(dscnpdiddiscovery, dscreservesrc)整体不等于单个FK列集。"
+  },
+  "dscarea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "column": "dscnpdidresinclindiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ],
+    "reason": "包含多个非外键属性列（如fldname、dscname等），主键(dscnpdiddiscovery, dschctype)不全部等于任何FK列集。"
+  },
+  "facility_fixed": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fclnsdeg",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "fclnsmin",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "fclewmin",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "fcldesignlifetime",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主实体表，含大量自身属性（如fclname、fclphase等），主键fclnpdidfacility不是FK列。"
+  },
+  "facility_moveable": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fclnpdidcurrentrespcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主实体表，带有自身属性（如fclname、fclkind等），主键fclnpdidfacility不是FK列。"
+  },
+  "fclpoint": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "fclnpdidfacility",
+        "references_table": "facility_fixed",
+        "references_column": "fclnpdidfacility"
+      }
+    ],
+    "reason": "主键fclnpdidfacility整体等于唯一的FK列集，指向facility_fixed，且包含其他属性列（如fclsurface、fclname等）。"
+  },
+  "field": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_exploration_all",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主实体表，含自身属性（如fldname、cmplongname等），主键fldnpdidfield不是FK列。"
+  },
+  "field_activity_status_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ],
+    "reason": "带有非外键属性列（如fldstatus、fldstatusfromdate等），主键(fldnpdidfield, fldstatus, fldstatusfromdate, fldstatustodate)不全部等于FK列集。"
+  },
+  "field_description": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ],
+    "reason": "带有非外键属性列（如flddescriptiontext、fldname等），主键(fldnpdidfield, flddescriptionheading)不全部等于FK列集。"
+  },
+  "field_investment_yearly": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prfnpdidinformationcarrier",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ],
+    "reason": "带有非外键属性列（如prfinvestmentsmillnok、prfyear等），主键(prfnpdidinformationcarrier, prfyear)不全部等于FK列集。"
+  },
+  "field_licensee_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键包含非外键列（fldlicenseefrom, fldlicenseeto）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "field_operator_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键包含非外键列（fldoperatorfrom, fldoperatorto）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "field_owner_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ],
+    "reason": "主键包含非外键列（fldnpdidowner, fldownershipfromdate, fldownershiptodate）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "field_production_monthly": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prfnpdidinformationcarrier",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "prfyear",
+        "references_table": "field_production_totalt_ncs_year",
+        "references_column": "prfyear"
+      }
+    ],
+    "reason": "主键包含非外键列（prfmonth）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "field_production_totalt_ncs_month": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prfyear",
+        "references_table": "field_production_totalt_ncs_year",
+        "references_column": "prfyear"
+      }
+    ],
+    "reason": "主键包含非外键列（prfmonth）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "field_production_totalt_ncs_year": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，主键仅一列且无外键引用，定义为主实体，故为SE。"
+  },
+  "field_production_yearly": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prfnpdidinformationcarrier",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "prfyear",
+        "references_table": "field_production_totalt_ncs_year",
+        "references_column": "prfyear"
+      }
+    ],
+    "reason": "主键由两个外键组成，但分别指向不同父表，不满足SH要求的单一FK列集；且存在非外键属性列，不满足SR，故为SE。"
+  },
+  "field_reserves": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ],
+    "reason": "主键fldnpdidfield完全等于单个外键列（指向field），满足SH结构硬条件，故为SH。"
+  },
+  "fldarea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "column": "dscnpdidresinclindiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ],
+    "reason": "主键包含非外键列（dschctype）和多个属性列，不满足SH或SR结构硬条件，故为SE。"
+  },
+  "licence": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，是独立主实体，故为SE。"
+  },
+  "licence_area_poly_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键包含多列且包含非外键列，含有属性列，非全外键，不符合SH或SR条件。"
+  },
+  "licence_licensee_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键包含外键列但有额外日期列，且含有非外键属性列，不是SH或SR。"
+  },
+  "licence_oper_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键包含外键列但有额外日期列，且含有非外键属性列，不是SH或SR。"
+  },
+  "licence_petreg_licence": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键仅包含一个外键列，且该外键列集与主键完全一致，符合SH定义。"
+  },
+  "licence_petreg_licence_licencee": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键由两个外键列组成，且PK等于该FK列集，符合SH定义。"
+  },
+  "licence_petreg_licence_oper": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键仅包含一个外键列，而FK列集有两列，PK不等于FK列集，且含有非外键属性列，不是SH或SR。"
+  },
+  "licence_petreg_message": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键包含外键列但有额外非外键列，且含有属性列，不符合SH或SR。"
+  },
+  "licence_phase_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键包含外键列但有额外非外键列，且含有属性列，不符合SH或SR。"
+  },
+  "licence_task": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键包含外键列但有额外非外键列，且含有属性列，不符合SH或SR。"
+  },
+  "licence_transfer_hst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键包含外键列但有额外非外键列，且含有属性列，不符合SH或SR。"
+  },
+  "pipline": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "pipnpdidoperator",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "column": "pipnpdidfromfacility",
+        "references_table": "fclpoint",
+        "references_column": "fclnpdidfacility"
+      },
+      {
+        "column": "pipnpdidtofacility",
+        "references_table": "fclpoint",
+        "references_column": "fclnpdidfacility"
+      }
+    ],
+    "reason": "主键为单一自增列，包含多个非FK属性列（如pipname、pipmedium等），属于主实体表。"
+  },
+  "prlarea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "prllastoperatornpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键为复合键（包含多个列），但并非全部由FK组成，且包含大量非FK属性列（如prlname、prlactive等），属于主实体表。"
+  },
+  "prlareasplitbyblock": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "prllastoperatornpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ],
+    "reason": "主键为复合键（包含多个列），但并非全部由FK组成，且包含大量非FK属性列（如prlname、blcname等），属于主实体表。"
+  },
+  "seaarea": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "seaarea_id",
+        "references_table": "wlbpoint",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键为复合键（包含seaarea_id和seasurveyname），但并非全部由FK组成，且包含大量非FK属性列（如seastatus、seageographicalarea等），属于主实体表。"
+  },
+  "seamultiline": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为单一列seasurveyname，无外键，包含多个非FK属性列，属于主实体表。"
+  },
+  "seis_acquisition": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为复合键（seanpdidsurvey, seaname），无外键，包含多个非FK属性列，属于主实体表。"
+  },
+  "seis_acquisition_coordinates_inc_turnarea": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为复合键（seasurveyname, seapolygonpointnumber），但并非全部由FK组成，且包含多个非FK属性列（如seapolygonnsdeg等），属于主实体表。"
+  },
+  "seis_acquisition_progress": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为复合键（seis_acquisition_progress_id, seaprogresstext2），无外键，包含多个非FK属性列，属于主实体表。"
+  },
+  "strat_litho_wellbore": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键为复合键（包含wlbnpdidwellbore等列），但并非全部由FK组成，且包含非FK属性列（如wlbname、lsutopdepth等），属于主实体表。"
+  },
+  "strat_litho_wellbore_core": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键为复合键（wlbnpdidwellbore, lsunpdidlithostrat），但并非全部由FK组成，且包含非FK属性列（如wlbname、lsucorelenght等），属于主实体表。"
+  },
+  "tuf_operator_hst": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列(tufoperdatevalidfrom, tufoperdatevalidto)，且包含属性列(cmplongname, tufname等)，不符合SH或SR条件。"
+  },
+  "tuf_owner_hst": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列(tufownerdatevalidfrom, tufownerdatevalidto)，且包含属性列(tufownershare等)，不符合SH或SR条件。"
+  },
+  "tuf_petreg_licence": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为单列tufnpdidtuf，但无FK，且包含多个属性列，不符合SH或SR条件。"
+  },
+  "tuf_petreg_licence_licencee": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "tufnpdidtuf",
+        "references_table": "tuf_petreg_licence",
+        "references_column": "tufnpdidtuf"
+      },
+      {
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ],
+    "reason": "主键由两个FK列组成，无其他非FK列，符合二元关系表定义。"
+  },
+  "tuf_petreg_licence_oper": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为单列tufnpdidtuf，但包含多个非FK属性列(textbox42, textbox2等)，不符合SH或SR条件。"
+  },
+  "tuf_petreg_message": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列ptlmessagedocumentno，且包含多个属性列，不符合SH或SR条件。"
+  },
+  "wellbore_casing_and_lot": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列wellbore_casing_and_lot_id，且包含多个属性列，不符合SH或SR条件。"
+  },
+  "wellbore_coordinates": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键为单列wlbnpdidwellbore，且该列是FK引用wellbore_npdid_overview，符合SH条件。"
+  },
+  "wellbore_core": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列wellbore_core_id和wlbcorenumber，且包含多个属性列，不符合SH或SR条件。"
+  },
+  "wellbore_core_photo": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键包含非FK列wellbore_core_photo_id、wlbcorenumber和wlbcorephototitle，且包含属性列，不符合SH或SR条件。"
+  },
+  "wellbore_development_all": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "prlnpdidproductionlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "fclnpdidfacilitydrilling",
+        "references_table": "fclpoint",
+        "references_column": "fclnpdidfacility"
+      },
+      {
+        "column": "fclnpdidfacilityproducing",
+        "references_table": "fclpoint",
+        "references_column": "fclnpdidfacility"
+      },
+      {
+        "column": "wlbnpdidwellborereclass",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键wlbnpdidwellbore是单一自增ID，非FK集合；包含大量非FK属性列，符合SE定义。"
+  },
+  "wellbore_document": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键包含自增ID wellbore_document_id，非纯FK集合；有非FK属性列，符合SE。"
+  },
+  "wellbore_dst": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键(wlbnpdidwellbore, wlbdsttestnumber)包含非FK列wlbdsttestnumber，且有多余属性列，符合SE。"
+  },
+  "wellbore_exploration_all": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "column": "prlnpdidproductionlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "column": "fclnpdidfacilitydrilling",
+        "references_table": "fclpoint",
+        "references_column": "fclnpdidfacility"
+      },
+      {
+        "column": "wlbnpdidwellborereclass",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键wlbnpdidwellbore是单一自增ID，非FK集合；包含大量非FK属性列，符合SE。"
+  },
+  "wellbore_formation_top": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键包含非FK列lsutopdepth和lsubottomdepth，且有多余属性列，符合SE。"
+  },
+  "wellbore_mud": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键包含自增ID wellbore_mud_id，非纯FK集合；有非FK属性列，符合SE。"
+  },
+  "wellbore_npdid_overview": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键wlbnpdidwellbore是自增ID，无FK，有非FK属性列，符合SE。"
+  },
+  "wellbore_oil_sample": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键包含自增ID wellbore_oil_sample_id，非纯FK集合；有非FK属性列，符合SE。"
+  },
+  "wellbore_shallow_all": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键wlbnpdidwellbore是单一自增ID，非FK集合；包含大量非FK属性列，符合SE。"
+  },
+  "wlbpoint": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ],
+    "reason": "主键wlbnpdidwellbore是单一自增ID，非FK集合；包含大量非FK属性列，符合SE。"
+  }
+}

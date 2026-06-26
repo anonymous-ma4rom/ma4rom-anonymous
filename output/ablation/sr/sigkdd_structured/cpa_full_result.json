@@ -1,0 +1,824 @@
+{
+  "step1": {
+    "Best_Paper_Awards_Committ.award": {
+      "object_prop_uri": "http://sigkdd#award",
+      "confidence": "high",
+      "scenario": "SMD",
+      "method": "llm_select",
+      "reason": "属性名完全匹配列名，且domain完全匹配，range虽不完全匹配但包含在父类中，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#award",
+          "local_name": "award",
+          "score": 0.7,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Best_Paper_Awards_Committee"
+          ],
+          "range": [
+            "http://sigkdd#Award"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#awarded_by",
+          "local_name": "awarded_by",
+          "score": 0.375,
+          "name_score": 0.556,
+          "domain": [
+            "http://sigkdd#Award"
+          ],
+          "range": [
+            "http://sigkdd#Best_Paper_Awards_Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.5,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasReview",
+          "local_name": "hasReview",
+          "score": 0.15,
+          "name_score": 0.333,
+          "domain": [
+            "http://sigkdd#Paper"
+          ],
+          "range": [
+            "http://sigkdd#Review"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Best_Paper_Awards_Committ.hasCommittee_Inv": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "列名 hasCommittee_Inv 表示反向关系，对应 isCommitteeOf，且其 range 匹配 Conference，domain 虽为 Committee 但 Best_Paper_Awards_Committee 是其子类，语义一致。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.3553,
+          "name_score": 0.733,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.224,
+          "name_score": 0.8,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.1873,
+          "name_score": 0.133,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Best_Paper_Awards_Committ.isCommitteeOf": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，尽管域类不完全匹配但最接近。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.43,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.2154,
+          "name_score": 0.769,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.1715,
+          "name_score": 0.077,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Conference.holded_by": {
+      "object_prop_uri": "http://sigkdd#holded_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "fast_track",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#holded_by",
+          "local_name": "holded_by",
+          "score": 0.58,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 1.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#designed_by",
+          "local_name": "designed_by",
+          "score": 0.29,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Deadline"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#searched_by",
+          "local_name": "searched_by",
+          "score": 0.29,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Sponzor"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Deadline_Abstract_Submiss.designed_by": {
+      "object_prop_uri": "http://sigkdd#designed_by",
+      "confidence": "high",
+      "scenario": "SMD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，领域类虽不完全匹配但语义上Deadline_Abstract_Submission是Deadline的子类，因此最合适。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#designed_by",
+          "local_name": "designed_by",
+          "score": 0.7,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Deadline"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#searched_by",
+          "local_name": "searched_by",
+          "score": 0.52,
+          "name_score": 0.6,
+          "domain": [
+            "http://sigkdd#Sponzor"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#holded_by",
+          "local_name": "holded_by",
+          "score": 0.475,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "E-mail.Person": {
+      "object_prop_uri": "http://sigkdd#payed_by",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性range为Person，与关系信息中的Range Class完全匹配，且结构证据强度高达99.1%，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#payed_by",
+          "local_name": "payed_by",
+          "score": 0.6912,
+          "name_score": 0.286,
+          "domain": [
+            "http://sigkdd#Registration_fee"
+          ],
+          "range": [
+            "http://sigkdd#Person"
+          ],
+          "domain_score": 0.3,
+          "range_score": 1.0,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#search",
+          "local_name": "search",
+          "score": 0.6762,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Sponzor"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.5,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#design",
+          "local_name": "design",
+          "score": 0.6012,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Deadline"
+          ],
+          "domain_score": 0.3,
+          "range_score": 0.0,
+          "extra_score": 0.991,
+          "implicit_score": 0.991,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Organizing_Committee.hasCommittee_Inv": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称匹配且范围类一致，且为 hasCommittee 的逆关系，符合外键语义。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.3553,
+          "name_score": 0.733,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.224,
+          "name_score": 0.8,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.1873,
+          "name_score": 0.133,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Organizing_Committee.isCommitteeOf": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，尽管域类不完全匹配但最接近。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.43,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.2154,
+          "name_score": 0.769,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.1715,
+          "name_score": 0.077,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.0,
+          "implicit_score": 0.0,
+          "peer_implicit_score": 0.0,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Program_Committee.hasCommittee_Inv": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称语义匹配（isCommitteeOf 表示委员会属于会议），且 range 完全匹配 Conference，domain 的 Committee 与 Program_Committee 兼容，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.7753,
+          "name_score": 0.733,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.644,
+          "name_score": 0.8,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.6073,
+          "name_score": 0.133,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        }
+      ]
+    },
+    "Program_Committee.isCommitteeOf": {
+      "object_prop_uri": "http://sigkdd#isCommitteeOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，且范围类一致，结构证据强，综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isCommitteeOf",
+          "local_name": "isCommitteeOf",
+          "score": 0.85,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Committee"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        },
+        {
+          "uri": "http://sigkdd#hasCommittee",
+          "local_name": "hasCommittee",
+          "score": 0.6354,
+          "name_score": 0.769,
+          "domain": [
+            "http://sigkdd#Conference"
+          ],
+          "range": [
+            "http://sigkdd#Committee"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#hold",
+          "local_name": "hold",
+          "score": 0.5915,
+          "name_score": 0.077,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Conference"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 1.0,
+          "implicit_score": 1.0,
+          "peer_implicit_score": 1.0,
+          "peer_bonus": 0.25
+        }
+      ]
+    },
+    "Review.ID": {
+      "object_prop_uri": "http://sigkdd#isReviewOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "该属性域为Review，范围为Document，与关系完全匹配，且综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isReviewOf",
+          "local_name": "isReviewOf",
+          "score": 0.5245,
+          "name_score": 0.1,
+          "domain": [
+            "http://sigkdd#Review"
+          ],
+          "range": [
+            "n499cfa6673c841a887cb20852444da6bb1"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.825,
+          "implicit_score": 0.825,
+          "peer_implicit_score": 0.738,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.5198,
+          "name_score": 0.083,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.825,
+          "implicit_score": 0.825,
+          "peer_implicit_score": 0.738,
+          "peer_bonus": 0.184
+        },
+        {
+          "uri": "http://sigkdd#design",
+          "local_name": "design",
+          "score": 0.4398,
+          "name_score": 0.333,
+          "domain": [
+            "http://sigkdd#ACM_SIGKDD"
+          ],
+          "range": [
+            "http://sigkdd#Deadline"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.825,
+          "implicit_score": 0.825,
+          "peer_implicit_score": 0.738,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Review.hasReview_Inv": {
+      "object_prop_uri": "http://sigkdd#isReviewOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称语义匹配（isReviewOf 与 hasReview_Inv 互为逆关系），且 domain 完全匹配 Review，结构证据强。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isReviewOf",
+          "local_name": "isReviewOf",
+          "score": 0.6464,
+          "name_score": 0.667,
+          "domain": [
+            "http://sigkdd#Review"
+          ],
+          "range": [
+            "n499cfa6673c841a887cb20852444da6bb1"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.6231,
+          "name_score": 0.583,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.206
+        },
+        {
+          "uri": "http://sigkdd#hasReview",
+          "local_name": "hasReview",
+          "score": 0.5198,
+          "name_score": 0.75,
+          "domain": [
+            "http://sigkdd#Paper"
+          ],
+          "range": [
+            "http://sigkdd#Review"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.0
+        }
+      ]
+    },
+    "Review.isReviewOf": {
+      "object_prop_uri": "http://sigkdd#isReviewOf",
+      "confidence": "high",
+      "scenario": "SLD",
+      "method": "llm_select",
+      "reason": "名称完全匹配，domain 完全匹配，且综合得分最高。",
+      "candidates_used": [
+        {
+          "uri": "http://sigkdd#isReviewOf",
+          "local_name": "isReviewOf",
+          "score": 0.7398,
+          "name_score": 1.0,
+          "domain": [
+            "http://sigkdd#Review"
+          ],
+          "range": [
+            "n499cfa6673c841a887cb20852444da6bb1"
+          ],
+          "domain_score": 1.0,
+          "range_score": 0.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.0
+        },
+        {
+          "uri": "http://sigkdd#presentation",
+          "local_name": "presentation",
+          "score": 0.5998,
+          "name_score": 0.5,
+          "domain": [
+            "http://sigkdd#Speaker"
+          ],
+          "range": [
+            "http://sigkdd#Document"
+          ],
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.206
+        },
+        {
+          "uri": "http://sigkdd#hasReview",
+          "local_name": "hasReview",
+          "score": 0.5058,
+          "name_score": 0.7,
+          "domain": [
+            "http://sigkdd#Paper"
+          ],
+          "range": [
+            "http://sigkdd#Review"
+          ],
+          "domain_score": 0.0,
+          "range_score": 0.0,
+          "extra_score": 0.738,
+          "implicit_score": 0.738,
+          "peer_implicit_score": 0.825,
+          "peer_bonus": 0.0
+        }
+      ]
+    }
+  },
+  "step2_orphans": {},
+  "step2_multivalue": {}
+}

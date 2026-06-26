@@ -1,0 +1,60 @@
+{
+  "orphan_matches": {
+    "Workshop.has_workshops_Inv": {
+      "object_prop_uri": "http://conference#has_workshops",
+      "direction": "inverse",
+      "confidence": "high",
+      "method": "llm_select",
+      "reason": "列名含 '_Inv' 后缀，且 has_workshops 的 range 为 Workshop，与当前表类匹配，反向引用合理。",
+      "candidates_used": [
+        {
+          "uri": "http://conference#has_workshops",
+          "local_name": "has_workshops",
+          "score": 0.7,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Workshop"
+          ],
+          "name_score": 1.0,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 1.0
+        },
+        {
+          "uri": "http://conference#gives_presentations",
+          "local_name": "gives_presentations",
+          "score": 0.4722,
+          "domain": [
+            "http://conference#Active_conference_participant"
+          ],
+          "range": [
+            "http://conference#Presentation"
+          ],
+          "name_score": 0.556,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.5
+        },
+        {
+          "uri": "http://conference#has_tracks",
+          "local_name": "has_tracks",
+          "score": 0.45,
+          "domain": [
+            "http://conference#Conference_volume"
+          ],
+          "range": [
+            "http://conference#Track"
+          ],
+          "name_score": 0.5,
+          "domain_score": 0.0,
+          "range_score": 1.0,
+          "inv_bonus": 0.5
+        }
+      ],
+      "is_inv": true,
+      "is_fk_col": false
+    }
+  }
+}

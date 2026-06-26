@@ -1,0 +1,126 @@
+{
+  "airport": {
+    "table_low": true,
+    "columns_low": [
+      "country",
+      "island"
+    ]
+  },
+  "country": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "countryothername": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "encompasses": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "ethnicgroup": {
+    "table_low": true,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "geo_desert": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_estuary": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_island": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_lake": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_mountain": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_river": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_sea": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "geo_source": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "island": {
+    "table_low": true,
+    "columns_low": [
+      "islands"
+    ]
+  },
+  "islandin": {
+    "table_low": false,
+    "columns_low": [
+      "island"
+    ]
+  },
+  "ismember": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "lake": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "language": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "located": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "locatedon": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "mountain": {
+    "table_low": true,
+    "columns_low": [
+      "mountains",
+      "coordinates"
+    ]
+  },
+  "organization": {
+    "table_low": false,
+    "columns_low": [
+      "city",
+      "country"
+    ]
+  },
+  "religion": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "river": {
+    "table_low": false,
+    "columns_low": [
+      "sourceelevation",
+      "estuary"
+    ]
+  },
+  "riverthrough": {
+    "table_low": true,
+    "columns_low": []
+  }
+}

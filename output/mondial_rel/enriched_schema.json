@@ -1,0 +1,1041 @@
+{
+  "airport": {
+    "columns": {
+      "iatacode": "character varying(3)",
+      "name": "character varying(100)",
+      "country": "character varying(4)",
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "island": "character varying(50)",
+      "latitude": "numeric",
+      "longitude": "numeric",
+      "elevation": "numeric",
+      "gmtoffset": "numeric"
+    },
+    "primary_key": [
+      "iatacode"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "airportrefscity",
+        "fk_arity": 3,
+        "column": "city",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "airportrefscity",
+        "fk_arity": 3,
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "airportrefscity",
+        "fk_arity": 3,
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "constraint_name": "airportrefscountry",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "constraint_name": "airportrefsisland",
+        "fk_arity": 1,
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      }
+    ]
+  },
+  "borders": {
+    "columns": {
+      "country1": "character varying(4)",
+      "country2": "character varying(4)",
+      "length": "numeric"
+    },
+    "primary_key": [
+      "country1",
+      "country2"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "borders1ref",
+        "fk_arity": 1,
+        "column": "country1",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "constraint_name": "borders2ref",
+        "fk_arity": 1,
+        "column": "country2",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "city": {
+    "columns": {
+      "name": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "population": "numeric",
+      "latitude": "numeric",
+      "longitude": "numeric",
+      "elevation": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country",
+      "province"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "cityrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "cityrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "cityothername": {
+    "columns": {
+      "city": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "province",
+      "city",
+      "othername"
+    ],
+    "foreign_keys": []
+  },
+  "continent": {
+    "columns": {
+      "name": "character varying(20)",
+      "area": "numeric(10,0)"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "country": {
+    "columns": {
+      "name": "character varying(50)",
+      "code": "character varying(4)",
+      "capital": "character varying(50)",
+      "province": "character varying(50)",
+      "area": "numeric",
+      "population": "numeric"
+    },
+    "primary_key": [
+      "code"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "countryrefscap",
+        "fk_arity": 3,
+        "column": "capital",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "countryrefscap",
+        "fk_arity": 3,
+        "column": "code",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "countryrefscap",
+        "fk_arity": 3,
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      }
+    ]
+  },
+  "countryothername": {
+    "columns": {
+      "country": "character varying(4)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "othername"
+    ],
+    "foreign_keys": []
+  },
+  "desert": {
+    "columns": {
+      "name": "character varying(50)",
+      "area": "numeric",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "economy": {
+    "columns": {
+      "country": "character varying(4)",
+      "gdp": "numeric",
+      "agriculture": "numeric",
+      "service": "numeric",
+      "industry": "numeric",
+      "inflation": "numeric",
+      "unemployment": "numeric"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "economyref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "encompasses": {
+    "columns": {
+      "country": "character varying(4)",
+      "continent": "character varying(20)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "country",
+      "continent"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "enccontref",
+        "fk_arity": 1,
+        "column": "continent",
+        "references_table": "continent",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "enccountryref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "ethnicgroup": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "relref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "geo_desert": {
+    "columns": {
+      "desert": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "desert"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gdesertref",
+        "fk_arity": 1,
+        "column": "desert",
+        "references_table": "desert",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gdesertrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gdesertrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_estuary": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gestuaryref",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gestuaryrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gestuaryrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_island": {
+    "columns": {
+      "island": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gislandref",
+        "fk_arity": 1,
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gislandrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gislandrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_lake": {
+    "columns": {
+      "lake": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "lake"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "glakeref",
+        "fk_arity": 1,
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "glakerefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "glakerefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_mountain": {
+    "columns": {
+      "mountain": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "mountain"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gmountainref",
+        "fk_arity": 1,
+        "column": "mountain",
+        "references_table": "mountain",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gmountainrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gmountainrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_river": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "griverref",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "griverrefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "griverrefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_sea": {
+    "columns": {
+      "sea": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "sea"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gsearef",
+        "fk_arity": 1,
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gsearefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gsearefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "geo_source": {
+    "columns": {
+      "river": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)"
+    },
+    "primary_key": [
+      "province",
+      "country",
+      "river"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "gsourceref",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "gsourcerefsprov",
+        "fk_arity": 2,
+        "column": "country",
+        "references_table": "province",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "gsourcerefsprov",
+        "fk_arity": 2,
+        "column": "province",
+        "references_table": "province",
+        "references_column": "name"
+      }
+    ]
+  },
+  "island": {
+    "columns": {
+      "name": "character varying(50)",
+      "islands": "character varying(50)",
+      "area": "numeric",
+      "elevation": "numeric",
+      "type": "character varying(10)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "islandin": {
+    "columns": {
+      "island": "character varying(50)",
+      "sea": "character varying(50)",
+      "lake": "character varying(50)",
+      "river": "character varying(50)"
+    },
+    "primary_key": [],
+    "foreign_keys": [
+      {
+        "constraint_name": "islandlake",
+        "fk_arity": 1,
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "islandriver",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "islandsea",
+        "fk_arity": 1,
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ]
+  },
+  "ismember": {
+    "columns": {
+      "country": "character varying(4)",
+      "organization": "character varying(12)",
+      "type": "character varying(60)"
+    },
+    "primary_key": [
+      "country",
+      "organization"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "membercref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "constraint_name": "memberorgref",
+        "fk_arity": 1,
+        "column": "organization",
+        "references_table": "organization",
+        "references_column": "abbreviation"
+      }
+    ]
+  },
+  "lake": {
+    "columns": {
+      "name": "character varying(50)",
+      "area": "numeric",
+      "depth": "numeric",
+      "elevation": "numeric",
+      "type": "character varying(12)",
+      "river": "character varying(50)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "lakerefsriver",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      }
+    ]
+  },
+  "language": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "langref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "located": {
+    "columns": {
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "river": "character varying(50)",
+      "lake": "character varying(50)",
+      "sea": "character varying(50)"
+    },
+    "primary_key": [],
+    "foreign_keys": [
+      {
+        "constraint_name": "locatedlake",
+        "fk_arity": 1,
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "locatedrefscity",
+        "fk_arity": 3,
+        "column": "city",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "locatedrefscity",
+        "fk_arity": 3,
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "locatedrefscity",
+        "fk_arity": 3,
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "constraint_name": "locatedriver",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "locatedsea",
+        "fk_arity": 1,
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ]
+  },
+  "locatedon": {
+    "columns": {
+      "city": "character varying(50)",
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "island": "character varying(50)"
+    },
+    "primary_key": [
+      "city",
+      "province",
+      "country",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "locatedonrefscity",
+        "fk_arity": 3,
+        "column": "city",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "locatedonrefscity",
+        "fk_arity": 3,
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "locatedonrefscity",
+        "fk_arity": 3,
+        "column": "province",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "constraint_name": "locatedonrefsisland",
+        "fk_arity": 1,
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      }
+    ]
+  },
+  "mergeswith": {
+    "columns": {
+      "sea1": "character varying(50)",
+      "sea2": "character varying(50)"
+    },
+    "primary_key": [
+      "sea1",
+      "sea2"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "sea1ref",
+        "fk_arity": 1,
+        "column": "sea1",
+        "references_table": "sea",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "sea2ref",
+        "fk_arity": 1,
+        "column": "sea2",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ]
+  },
+  "mountain": {
+    "columns": {
+      "name": "character varying(50)",
+      "mountains": "character varying(50)",
+      "elevation": "numeric",
+      "type": "character varying(10)",
+      "coordinates": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  },
+  "mountainonisland": {
+    "columns": {
+      "mountain": "character varying(50)",
+      "island": "character varying(50)"
+    },
+    "primary_key": [
+      "mountain",
+      "island"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "mountainonrefscity",
+        "fk_arity": 1,
+        "column": "mountain",
+        "references_table": "mountain",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "mountainonrefsisland",
+        "fk_arity": 1,
+        "column": "island",
+        "references_table": "island",
+        "references_column": "name"
+      }
+    ]
+  },
+  "organization": {
+    "columns": {
+      "abbreviation": "character varying(12)",
+      "name": "character varying(100)",
+      "city": "character varying(50)",
+      "country": "character varying(4)",
+      "province": "character varying(50)",
+      "established": "date"
+    },
+    "primary_key": [
+      "abbreviation"
+    ],
+    "foreign_keys": []
+  },
+  "politics": {
+    "columns": {
+      "country": "character varying(4)",
+      "independence": "date",
+      "wasdependent": "character varying(50)",
+      "dependent": "character varying(4)",
+      "government": "character varying(120)"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "dependentcountry",
+        "fk_arity": 1,
+        "column": "dependent",
+        "references_table": "country",
+        "references_column": "code"
+      },
+      {
+        "constraint_name": "politicsref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "population": {
+    "columns": {
+      "country": "character varying(4)",
+      "population_growth": "numeric",
+      "infant_mortality": "numeric"
+    },
+    "primary_key": [
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "populationref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "province": {
+    "columns": {
+      "name": "character varying(50)",
+      "country": "character varying(4)",
+      "population": "numeric",
+      "area": "numeric",
+      "capital": "character varying(50)",
+      "capprov": "character varying(50)"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "provrefscap",
+        "fk_arity": 3,
+        "column": "capital",
+        "references_table": "city",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "provrefscap",
+        "fk_arity": 3,
+        "column": "capprov",
+        "references_table": "city",
+        "references_column": "province"
+      },
+      {
+        "constraint_name": "provrefscap",
+        "fk_arity": 3,
+        "column": "country",
+        "references_table": "city",
+        "references_column": "country"
+      },
+      {
+        "constraint_name": "provrefscountry",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "provinceothername": {
+    "columns": {
+      "province": "character varying(50)",
+      "country": "character varying(4)",
+      "othername": "character varying(50)"
+    },
+    "primary_key": [
+      "country",
+      "province",
+      "othername"
+    ],
+    "foreign_keys": []
+  },
+  "religion": {
+    "columns": {
+      "country": "character varying(4)",
+      "name": "character varying(50)",
+      "percentage": "numeric"
+    },
+    "primary_key": [
+      "name",
+      "country"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "relref",
+        "fk_arity": 1,
+        "column": "country",
+        "references_table": "country",
+        "references_column": "code"
+      }
+    ]
+  },
+  "river": {
+    "columns": {
+      "name": "character varying(50)",
+      "river": "character varying(50)",
+      "lake": "character varying(50)",
+      "sea": "character varying(50)",
+      "length": "numeric",
+      "source": "geocoord",
+      "mountains": "character varying(50)",
+      "sourceelevation": "numeric",
+      "estuary": "geocoord"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "riverlake",
+        "fk_arity": 1,
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "riverriver",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "riversea",
+        "fk_arity": 1,
+        "column": "sea",
+        "references_table": "sea",
+        "references_column": "name"
+      }
+    ]
+  },
+  "riverthrough": {
+    "columns": {
+      "river": "character varying(50)",
+      "lake": "character varying(50)"
+    },
+    "primary_key": [
+      "river",
+      "lake"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "rthroughrefslake",
+        "fk_arity": 1,
+        "column": "lake",
+        "references_table": "lake",
+        "references_column": "name"
+      },
+      {
+        "constraint_name": "rthroughrefsriver",
+        "fk_arity": 1,
+        "column": "river",
+        "references_table": "river",
+        "references_column": "name"
+      }
+    ]
+  },
+  "sea": {
+    "columns": {
+      "name": "character varying(50)",
+      "depth": "numeric"
+    },
+    "primary_key": [
+      "name"
+    ],
+    "foreign_keys": []
+  }
+}

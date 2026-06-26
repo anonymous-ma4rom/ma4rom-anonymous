@@ -1,0 +1,254 @@
+{
+  "Abstract": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_the_1th_part_of",
+        "references_table": "Paper",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK列has_text，故为SE。"
+  },
+  "Committee": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "was_a_program_committee_of",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK列has_a_name和TYPE，故为SE。"
+  },
+  "Conference_document": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK列has_a_date_of_issue和has_a_URL，故为SE。"
+  },
+  "Conference_fees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK列amount，故为SE。"
+  },
+  "Conference_proceedings": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK列has_a_name和has_an_ISBN，故为SE。"
+  },
+  "Conference_volume": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK列has_a_location和has_a_name，故为SE。"
+  },
+  "Important_dates": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含多个非FK日期列，故为SE。"
+  },
+  "Invited_talk": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_given_by",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "has_an_abstract",
+        "references_table": "Abstract",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID非FK，且包含非FK列，故为SE。"
+  },
+  "Organization": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且包含非FK列has_a_name，故为SE。"
+  },
+  "Organizer": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非FK，且无FK列，故为SE。"
+  },
+  "Organizing_committee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID不是外键列集，且含有非外键列，不符合SH或SR结构约束。"
+  },
+  "Paper": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "has_an_abstract",
+        "references_table": "Abstract",
+        "references_column": "ID"
+      },
+      {
+        "column": "is_submitted_at",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID不是外键列集，且存在非外键属性列，不满足SH或SR条件。"
+  },
+  "Person": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含多个非外键属性列，不符合SH或SR。"
+  },
+  "Poster": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，列中包含非外键属性，不满足SH/SR。"
+  },
+  "Publisher": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含非外键列，不符合SH/SR。"
+  },
+  "Review": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "reviews",
+        "references_table": "Paper",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键ID不是外键列集，且存在非外键详细评论列，不满足SH/SR。"
+  },
+  "Review_expertise": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含非外键列，不符合SH/SR。"
+  },
+  "Review_preference": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含非外键列，不符合SH/SR。"
+  },
+  "Steering_committee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含非外键列，不符合SH/SR。"
+  },
+  "Topic": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键ID非外键，且含非外键列，不符合SH/SR。"
+  },
+  "Track": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_part_of_conference_vol",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主实体表，包含额外属性列，无外键约束但列名暗示引用Conference_volume"
+  },
+  "Tutorial": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_part_of_conference_vol",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主实体表，包含额外属性列，无外键约束但列名暗示引用Conference_volume"
+  },
+  "Workshop": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "is_part_of_conference_vol",
+        "references_table": "Conference_volume",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主实体表，包含额外属性列，无外键约束但列名暗示引用Conference_volume"
+  },
+  "belongs_to_reviewers": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "两列复合主键，但无外键约束定义，不满足SR全列FK条件，因此分类为SE"
+  },
+  "contributes": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Conference_document",
+        "references_table": "Conference_document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "二元关系表，两列均为外键，复合主键，无额外属性"
+  },
+  "has_a_committee_co-chair": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "两列复合主键，但无外键约束定义，不满足SR条件"
+  },
+  "has_a_track-workshop-tuto": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Topic",
+        "references_table": "Topic",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "两列复合主键，无外键约束定义，但列名Topic可能引用Topic表，不满足SR全列FK条件"
+  },
+  "has_an_email": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "包含非FK属性列VALUE，不满足SR或SH条件"
+  },
+  "has_members": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Committee",
+        "references_table": "Committee",
+        "references_column": "ID"
+      },
+      {
+        "column": "Committee_member",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "二元关系表，两列均为外键，复合主键，无额外属性"
+  },
+  "invited_by": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "两列复合主键，无外键约束定义，不满足SR条件"
+  }
+}

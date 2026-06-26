@@ -1,0 +1,66 @@
+{
+  "Author": [
+    {
+      "column": "TYPE",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Document": [
+    {
+      "column": "writtenBy",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Paper": [
+    {
+      "column": "TYPE",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "Person": [
+    {
+      "column": "TYPE",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "User": [
+    {
+      "column": "TYPE",
+      "ref_table": "Author",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "co-writePaper": [
+    {
+      "column": "Paper",
+      "ref_table": "Document",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "hasConferenceMember": [
+    {
+      "column": "ConferenceMember",
+      "ref_table": "Person",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ],
+  "hasProgramCommitteeMember": [
+    {
+      "column": "ProgramCommitteeMember",
+      "ref_table": "ProgramCommitteeMember",
+      "ref_col": "ID",
+      "ind_score": 1.0
+    }
+  ]
+}

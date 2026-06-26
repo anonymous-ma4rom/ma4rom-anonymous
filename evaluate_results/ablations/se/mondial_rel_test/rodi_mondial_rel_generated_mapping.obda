@@ -1,0 +1,75 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+mondialrel:	http://www.semwebtech.org/mondial/10/meta#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--1724902202
+target		<http://example.com/island/{island}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "island" , "country" FROM "geo_island"
+
+mappingId	mapping-63360828
+target		<http://example.com/country/{country}> a mondialrel:PoliticalBody ; mondialrel:independenceDate {independence}^^xsd:date ; mondialrel:dependentOf <http://example.com/country/{dependent}> ; mondialrel:government {government}^^xsd:string . 
+source		SELECT "country" , "independence" , "wasdependent" , "dependent" , "government" FROM "politics"
+
+mappingId	mapping--1902184231
+target		<http://example.com/country/{country}> a mondialrel:Country ; mondialrel:gdpServ {service}^^xsd:decimal ; mondialrel:gdpAgri {agriculture}^^xsd:decimal ; mondialrel:gdpInd {industry}^^xsd:decimal ; mondialrel:gdpTotal {gdp}^^xsd:decimal ; mondialrel:inflation {inflation}^^xsd:decimal ; mondialrel:unemployment {unemployment}^^xsd:decimal . 
+source		SELECT "country" , "gdp" , "agriculture" , "service" , "industry" , "inflation" , "unemployment" FROM "economy"
+
+mappingId	mapping-1621571673
+target		<http://example.com/river/{river}> mondialrel:hasSource <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_source"
+
+mappingId	mapping--112014590
+target		<http://example.com/sea/{sea}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "sea" , "country" FROM "geo_sea"
+
+mappingId	mapping-565781628
+target		<http://example.com/river/{river}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_river"
+
+mappingId	mapping--1262596781
+target		<http://example.com/mountain/{mountain}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "mountain" , "country" FROM "geo_mountain"
+
+mappingId	mapping-680351327
+target		<http://example.com/lake/{lake}> mondialrel:hasBorder <http://example.com/river/{river}> . 
+source		SELECT "lake" , "river" FROM "riverthrough"
+
+mappingId	mapping-1457084422
+target		<http://example.com/country/{country}> a mondialrel:PopulationCount ; mondialrel:infantMortality {infant_mortality}^^xsd:decimal ; mondialrel:populationGrowth {population_growth}^^xsd:decimal . 
+source		SELECT "country" , "population_growth" , "infant_mortality" FROM "population"
+
+mappingId	mapping--1370320450
+target		<http://example.com/countryothername/{country}__{othername}> a mondialrel:Country . 
+source		SELECT "country" , "othername" FROM "countryothername"
+
+mappingId	mapping--25305269
+target		<http://example.com/sea/{sea1}> mondialrel:mergesWith <http://example.com/sea/{sea2}> . 
+source		SELECT "sea1" , "sea2" FROM "mergeswith"
+
+mappingId	mapping-1174610467
+target		<http://example.com/lake/{lake}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "lake" , "country" FROM "geo_lake"
+
+mappingId	mapping--278097162
+target		<http://example.com/river/{river}> mondialrel:hasEstuary <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_estuary"
+
+mappingId	mapping--1821717865
+target		<http://example.com/desert/{desert}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "desert" , "country" FROM "geo_desert"
+
+mappingId	mapping-425564760
+target		<http://example.com/city/{city}> mondialrel:locatedAt <http://example.com/city/{country}> . 
+source		SELECT "city" , "country" FROM "locatedon"
+
+mappingId	mapping-442461111
+target		<http://example.com/mountain/{mountain}> mondialrel:locatedOnIsland <http://example.com/island/{island}> . 
+source		SELECT "mountain" , "island" FROM "mountainonisland"
+]]
+

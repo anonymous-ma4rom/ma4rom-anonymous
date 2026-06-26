@@ -1,0 +1,34 @@
+{
+  "cityothername": [
+    {
+      "column": "country",
+      "ref_table": "country",
+      "ref_col": "code",
+      "ind_score": 1.0
+    }
+  ],
+  "islandin": [
+    {
+      "column": "island",
+      "ref_table": "island",
+      "ref_col": "name",
+      "ind_score": 1.0
+    }
+  ],
+  "organization": [
+    {
+      "column": "country",
+      "ref_table": "country",
+      "ref_col": "code",
+      "ind_score": 1.0
+    }
+  ],
+  "provinceothername": [
+    {
+      "column": "country",
+      "ref_table": "country",
+      "ref_col": "code",
+      "ind_score": 1.0
+    }
+  ]
+}

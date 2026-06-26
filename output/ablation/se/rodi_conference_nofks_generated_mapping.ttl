@@ -1,0 +1,45 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix conferencenofks: <http://conference#> .
+@base <http://example.com/> .
+
+# === belongs_to_reviewers (SR) ===
+# SKIP: belongs_to_reviewers (SR) FK 列信息不完整
+
+# === contributes (SR) ===
+<#contributesMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Person\" , \"Conference_document\" FROM \"contributes\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Person}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate conferencenofks:contributes ;
+        rr:objectMap [ rr:template "http://example.com/conference_document/{Conference_document}" ]
+    ] .
+
+# === has_a_committee_co-chair (SR) ===
+# SKIP: has_a_committee_co-chair (SR) FK 列信息不完整
+
+# === has_a_track-workshop-tuto (SR) ===
+# SKIP: has_a_track-workshop-tuto (SR) FK 列信息不完整
+
+# === has_members (SR) ===
+<#has_membersMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Committee\" , \"Committee_member\" FROM \"has_members\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/committee/{Committee}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate conferencenofks:has_members ;
+        rr:objectMap [ rr:template "http://example.com/person/{Committee_member}" ]
+    ] .
+
+# === invited_by (SR) ===
+# SKIP: invited_by (SR) FK 列信息不完整
+
+# === has_an_email (MV) ===
+<#has_an_emailMapping> a rr:TriplesMap ;
+    rr:logicalTable [ rr:sqlQuery "SELECT \"Person\" , \"VALUE\" FROM \"has_an_email\"" ] ;
+    rr:subjectMap [ rr:template "http://example.com/person/{Person}" ] ;
+    rr:predicateObjectMap [
+        rr:predicate conferencenofks:has_an_email ;
+        rr:objectMap [ rr:column "VALUE" ; rr:datatype xsd:string ]
+    ] .

@@ -1,0 +1,272 @@
+{
+  "acm_sigkdd_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      },
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "二元关系表，所有列均为外键，无额外属性列"
+  },
+  "acm_sigkdds": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，有独立主键，无外键"
+  },
+  "best_paper_awards_committs": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "award",
+        "references_table": "best_research_paper_awards",
+        "references_column": "id"
+      },
+      {
+        "column": "committee",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "带属性关系表，主键为自增id，包含多个外键和自身id"
+  },
+  "best_research_paper_awards": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，有独立主键，无外键"
+  },
+  "conferences": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "holded",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主实体表，有独立主键和属性列，包含外键"
+  },
+  "deadline_abstract_submiss": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "designed",
+        "references_table": "acm_sigkdds",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主实体表，有独立主键和属性列，包含外键"
+  },
+  "document_deadline_abstract_submiss": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "document",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "deadline",
+        "references_table": "deadline_abstract_submiss",
+        "references_column": "id"
+      }
+    ],
+    "reason": "二元关系表，复合主键且全部为外键，无额外属性列"
+  },
+  "document_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "did",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "二元关系表，复合主键且全部为外键，无额外属性列"
+  },
+  "documents": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，有独立主键和属性列，无外键"
+  },
+  "e_mails": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "person",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "带属性关系表，主键包含非外键属性列，非纯外键表"
+  },
+  "main_office_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "mid",
+        "references_table": "main_offices",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系（两个外键引用不同表），无额外属性列。"
+  },
+  "main_offices": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为自增id，包含多个非外键属性列，无外键，为主实体。"
+  },
+  "organizing_committees": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "committee",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键为自增id，包含额外属性列，外键存在但非主键全部列，故为带属性关系表。"
+  },
+  "person_best_research_paper_award": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "bid",
+        "references_table": "best_research_paper_awards",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系（两个外键引用不同表），无额外属性列。"
+  },
+  "person_deadline_abstract_submiss": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "did",
+        "references_table": "deadline_abstract_submiss",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系（两个外键引用不同表），无额外属性列。"
+  },
+  "persons": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为自增id，包含多个非外键属性列，无外键，为主实体。"
+  },
+  "presentation": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "did",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系（两个外键引用不同表），无额外属性列。"
+  },
+  "program_committees": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "committee",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键为自增id，包含额外属性列，外键存在但非主键全部列，故为带属性关系表。"
+  },
+  "registration_fee_person": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "registration_fees",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系（两个外键引用不同表），无额外属性列。"
+  },
+  "registration_fees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键为自增id，包含多个非外键属性列，无外键，为主实体。"
+  },
+  "reviews": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "ref",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "review",
+        "references_table": "documents",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 是外键指向 documents.id，满足 SH 条件（主键整体等于某个 FK 列集），且包含额外属性列。"
+  },
+  "sponzor_fees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，是独立的实体表。"
+  }
+}

@@ -1,0 +1,151 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+cmtstructured:	http://cmt#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--947499465
+target		<http://example.com/acceptance/{ID}> a cmtstructured:Acceptance . 
+source		SELECT "ID" , "TYPE" FROM "Acceptance"
+
+mappingId	mapping-1055382874
+target		<http://example.com/person/{Administrator}> cmtstructured:enterReviewCriteria <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "enterReviewCriteria"
+
+mappingId	mapping-1074749999
+target		<http://example.com/document/{ID}> cmtstructured:rejectedBy <http://example.com/person/{rejectedBy}> ; cmtstructured:acceptedBy <http://example.com/person/{acceptedBy}> ; cmtstructured:hasAuthor <http://example.com/person/{hasAuthor}> ; cmtstructured:readByMeta-Reviewer <http://example.com/person/{readByMeta-Reviewer}> ; cmtstructured:paperID {paperID}^^xsd:unsignedLong ; cmtstructured:hasDecision <http://example.com/acceptance/{hasDecision}> ; cmtstructured:paperid {paperID}^^xsd:unsignedLong ; cmtstructured:title {title}^^xsd:string . 
+source		SELECT "ID" , "paperID" , "rejectedBy" , "readByMeta-Reviewer" , "hasAuthor" , "title" , "hasDecision" , "acceptedBy" , "TYPE" FROM "Paper"
+
+mappingId	mapping--144119070
+target		<http://example.com/person/{ID}> a cmtstructured:Person ; cmtstructured:name {name}^^xsd:string ; cmtstructured:email {email}^^xsd:string ; cmtstructured:assignedByReviewer <http://example.com/person/{assignedByReviewer}> . 
+source		SELECT "ID" , "name" , "email" , "is_user" , "assignedByReviewer" , "is_Reviewer" , "is_Author" , "is_Co-author" , "TYPE" FROM "Person"
+
+mappingId	mapping-1909578273
+target		<http://example.com/document/{Paper}> cmtstructured:hasAuthor <http://example.com/person/{Author}> . 
+source		SELECT "Paper" , "Author" FROM "submitPaper"
+
+mappingId	mapping-1398803048
+target		<http://example.com/document/{Paper}> cmtstructured:readByReviewer <http://example.com/person/{Reviewer}> . 
+source		SELECT "Paper" , "Reviewer" FROM "readByReviewer"
+
+mappingId	mapping-1716041974
+target		<http://example.com/conference/{Conference}> cmtstructured:hasConferenceMember <http://example.com/person/{ConferenceMember}> . 
+source		SELECT "Conference" , "ConferenceMember" FROM "hasConferenceMember"
+
+mappingId	mapping-65892742
+target		<http://example.com/person/{ID}> a cmtstructured:Author . 
+source		SELECT "ID" FROM "Person" WHERE "is_Author" = true
+
+mappingId	mapping--279292693
+target		<http://example.com/subjectarea/{ID}> a cmtstructured:SubjectArea . 
+source		SELECT "ID" FROM "SubjectArea"
+
+mappingId	mapping--651483337
+target		<http://example.com/person/{ProgramCommitteeChair}> cmtstructured:endReview <http://example.com/document/{Review}> . 
+source		SELECT "ProgramCommitteeChair" , "Review" FROM "endReview"
+
+mappingId	mapping--1257271592
+target		<http://example.com/person/{ID}> a cmtstructured:Administrator ; cmtstructured:acceptPaper <http://example.com/document/{acceptPaper}> . 
+source		SELECT "ID" , "acceptPaper" FROM "Administrator"
+
+mappingId	mapping-1641806403
+target		<http://example.com/bid/{ID}> a cmtstructured:Bid ; cmtstructured:adjustedBy <http://example.com/person/{adjustedBy}> . 
+source		SELECT "ID" , "adjustedBy" , "hasBid_Inv" FROM "Bid"
+
+mappingId	mapping--913774647
+target		<http://example.com/programcommittee/{ID}> a cmtstructured:ProgramCommittee ; rdfs:label {label}^^xsd:string ; cmtstructured:name {label}^^xsd:string . 
+source		SELECT "ID" , "label" FROM "ProgramCommittee"
+
+mappingId	mapping--1850373773
+target		<http://example.com/person/{Administrator}> cmtstructured:finalizePaperAssignment <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "finalizePaperAssignment"
+
+mappingId	mapping-18282582
+target		<http://example.com/document/{Paper}> cmtstructured:hasSubjectArea <http://example.com/subjectarea/{SubjectArea}> . 
+source		SELECT "Paper" , "SubjectArea" FROM "hasSubjectArea"
+
+mappingId	mapping-1575086894
+target		<http://example.com/person/{ID}> a cmtstructured:ProgramCommitteeChair ; cmtstructured:addedBy <http://example.com/person/{addedBy}> ; cmtstructured:maxPapers {maxPapers}^^xsd:int . 
+source		SELECT "ID" , "maxPapers" , "addedBy" FROM "ProgramCommitteeChair"
+
+mappingId	mapping-904595933
+target		<http://example.com/person/{Co-author}> cmtstructured:co-writePaper <http://example.com/document/{Paper}> . 
+source		SELECT "Co-author" , "Paper" FROM "co-writePaper"
+
+mappingId	mapping--538531717
+target		<http://example.com/person/{Administrator}> cmtstructured:assignReviewer <http://example.com/person/{Reviewer}> . 
+source		SELECT "Administrator" , "Reviewer" FROM "assignReviewer"
+
+mappingId	mapping-75744334
+target		<http://example.com/person/{ID}> a cmtstructured:User . 
+source		SELECT "ID" FROM "Person" WHERE "is_user" = true
+
+mappingId	mapping--1003088685
+target		<http://example.com/document/{ID}> a cmtstructured:Review . 
+source		SELECT "ID" FROM "Review" WHERE "TYPE" = 0
+
+mappingId	mapping-789072217
+target		<http://example.com/person/{ID}> a cmtstructured:Reviewer . 
+source		SELECT "ID" FROM "Person" WHERE "is_Reviewer" = true
+
+mappingId	mapping-1503379041
+target		<http://example.com/conference/{Conference}> cmtstructured:detailsEnteredBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "detailsEnteredBy"
+
+mappingId	mapping-168166228
+target		<http://example.com/person/{Administrator}> cmtstructured:enableVirtualMeeting <http://example.com/conference/{Conference}> . 
+source		SELECT "Administrator" , "Conference" FROM "enableVirtualMeeting"
+
+mappingId	mapping-2091515093
+target		<http://example.com/preference/{ID}> a cmtstructured:Preference . 
+source		SELECT "ID" FROM "Preference"
+
+mappingId	mapping--889315844
+target		<http://example.com/conference/{Conference}> cmtstructured:reviewerBiddingStartedBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "reviewerBiddingStartedBy"
+
+mappingId	mapping-381395987
+target		<http://example.com/document/{ID}> a cmtstructured:Document . 
+source		SELECT "ID" FROM "Document"
+
+mappingId	mapping--1890740344
+target		<http://example.com/conference/{ID}> a cmtstructured:Conference ; cmtstructured:siteURL {siteURL}^^xsd:anyURI ; cmtstructured:date {date}^^xsd:date ; cmtstructured:name {name}^^xsd:string ; cmtstructured:logoURL {logoURL}^^xsd:anyURI ; cmtstructured:logourl {logoURL}^^xsd:anyURI ; cmtstructured:siteurl {siteURL}^^xsd:anyURI ; cmtstructured:reviewsPerPaper {reviewsPerPaper}^^xsd:int . 
+source		SELECT "ID" , "siteURL" , "acceptsHardcopySubmissions" , "logoURL" , "date" , "name" , "reviewsPerPaper" FROM "Conference"
+
+mappingId	mapping-1229873119
+target		<http://example.com/document/{ID}> a cmtstructured:PaperFullVersion . 
+source		SELECT "ID" FROM "Paper" WHERE "TYPE" = 1
+
+mappingId	mapping-798365575
+target		<http://example.com/document/{ID}> a cmtstructured:PaperAbstract . 
+source		SELECT "ID" FROM "Paper" WHERE "TYPE" = 2
+
+mappingId	mapping-1876116938
+target		<http://example.com/conference/{Conference}> cmtstructured:hardcopyMailingManifestsPrintedBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "hardcopyMailingManifestsP"
+
+mappingId	mapping-957556349
+target		<http://example.com/person/{ID}> a cmtstructured:Co-author . 
+source		SELECT "ID" FROM "Person" WHERE "is_Co-author" = true
+
+mappingId	mapping-18317050
+target		<http://example.com/conference/{Conference}> cmtstructured:paperAssignmentToolsRunBy <http://example.com/person/{Administrator}> . 
+source		SELECT "Conference" , "Administrator" FROM "paperAssignmentToolsRunBy"
+
+mappingId	mapping--1226278050
+target		<http://example.com/person/{ID}> a cmtstructured:ProgramCommitteeMember ; cmtstructured:addedBy <http://example.com/person/{addedBy}> ; cmtstructured:maxPapers {maxPapers}^^xsd:int . 
+source		SELECT "ID" , "maxPapers" , "addedBy" FROM "ProgramCommitteeMember"
+
+mappingId	mapping--260192811
+target		<http://example.com/document/{ID}> a cmtstructured:Review ; cmtstructured:writtenBy <http://example.com/person/{writtenBy}> ; rdfs:comment {comment}^^xsd:string . 
+source		SELECT "ID" , "writtenBy" , "comment" , "TYPE" FROM "Review"
+
+mappingId	mapping--1443798676
+target		<http://example.com/document/{Paper}> cmtstructured:assignedTo <http://example.com/person/{Reviewer}> . 
+source		SELECT "Paper" , "Reviewer" FROM "assignedTo"
+]]
+

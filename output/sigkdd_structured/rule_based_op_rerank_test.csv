@@ -1,0 +1,13 @@
+relation_key,source,target,current_op,rule_op,changed,gold_ops,current_correct,rule_correct,rule_score,name_score,domain_score,range_score,table_role_score,manual_jaccard,source_in_target,valentine_coma_score
+Best_Paper_Awards_Committ.award,Best_Paper_Awards_Committ.award,Best_Research_Paper_Award.ID,award,award,False,,,,0.45833333333333337,1.0,1.0,0.0,0.0,0.0,0.0,0.0
+Best_Paper_Awards_Committ.hasCommittee_Inv,Best_Paper_Awards_Committ.hasCommittee_Inv,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.39325,0.733,0.0,1.0,0.0,0.0,0.0,0.0
+Best_Paper_Awards_Committ.isCommitteeOf,Best_Paper_Awards_Committ.isCommitteeOf,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.5,1.0,0.0,1.0,0.0,0.0,0.0,0.0
+Conference.holded_by,Conference.holded_by,ACM_SIGKDD.ID,holded_by,holded_by,False,,,,0.6500000000000001,1.0,1.0,1.0,0.0,0.0,0.0,0.0
+Deadline_Abstract_Submiss.designed_by,Deadline_Abstract_Submiss.designed_by,ACM_SIGKDD.ID,designed_by,designed_by,False,,,,0.5,1.0,0.0,1.0,0.0,0.0,0.0,0.0
+Organizing_Committee.hasCommittee_Inv,Organizing_Committee.hasCommittee_Inv,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.44325,0.733,0.0,1.0,0.25,0.0,0.0,0.0
+Organizing_Committee.isCommitteeOf,Organizing_Committee.isCommitteeOf,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.55,1.0,0.0,1.0,0.25,0.0,0.0,0.0
+Program_Committee.hasCommittee_Inv,Program_Committee.hasCommittee_Inv,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.53325,0.733,0.0,1.0,0.25,1.0,1.0,0.5
+Program_Committee.isCommitteeOf,Program_Committee.isCommitteeOf,Conference.ID,isCommitteeOf,isCommitteeOf,False,,,,0.6400000000000001,1.0,0.0,1.0,0.25,1.0,1.0,0.5
+Review.ID,Review.ID,Document.ID,isReviewOf,isReviewOf,False,,,,0.31091118765262304,0.1,1.0,0.0,0.3333333333333333,0.5,1.0,0.7122260492978212
+Review.hasReview_Inv,Review.hasReview_Inv,Document.ID,isReviewOf,isReviewOf,False,,,,0.44226614763552474,0.667,1.0,0.0,0.3333333333333333,0.25,1.0,0.31747404844290655
+Review.isReviewOf,Review.isReviewOf,Document.ID,isReviewOf,isReviewOf,False,,,,0.5655161476355248,1.0,1.0,0.0,0.3333333333333333,0.25,1.0,0.31747404844290655

@@ -1,0 +1,4235 @@
+{
+  "generated_at": "2026-06-07 16:59:50",
+  "setting": "clean OP module: hard domain/range filtering + equivalence/inclusion column evidence + ontology endpoint candidates + LLM",
+  "candidate_policy": "no weighted OP scoring; candidates are retained by endpoint closure, restriction closure, or exact sql:construction",
+  "summary": {
+    "total": 101,
+    "answered": 57,
+    "no_answer": 44
+  },
+  "results": [
+    {
+      "relation_key": "acceptances.id",
+      "task_type": "fk_obj",
+      "source": "acceptances.id",
+      "target": "decisions.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "acceptances",
+          "source_column": "id",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKAcceptanceURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "acceptances.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrator_conference.aid",
+      "task_type": "fk_obj",
+      "source": "administrator_conference.aid",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "administrator_conference",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKenterReviewCriteriaAdmi",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrator_conference.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain和range均未同时精确匹配Administrator，且外键约束名'FKenterReviewCriteriaAdmi'虽与enterReviewCriteria/reviewCriteriaEnteredBy关联，但后者的range为Conference非Administrator，存在明显类冲突；其他候选如assignedByAdministrator的domain为Reviewer，也不匹配。根据规则，无证据链闭合的候选，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrator_conference.cid",
+      "task_type": "fk_obj",
+      "source": "administrator_conference.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#enterReviewCriteria",
+      "llm_selected_local_name": "enterReviewCriteria",
+      "llm_selected_direction": "",
+      "candidate_count": 13,
+      "schema_matching": [
+        {
+          "source_table": "administrator_conference",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKenterReviewCriteriaConf",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrator_conference.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#enterReviewCriteria",
+        "selected_direction": null,
+        "selected_local_name": "enterReviewCriteria",
+        "confidence": "high",
+        "reason": "候选OP中只有enterReviewCriteria的declared endpoint完全匹配Administrator->Conference，且其constraint_role_tokens包含'criteria'和'review'，与FK约束名'FKenterReviewCriteriaConf'高度吻合。其他endpoint匹配的候选缺乏类似的约束名或角色匹配，且等价列证据极弱。因此选择enterReviewCriteria。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrators.id",
+      "task_type": "fk_obj",
+      "source": "administrators.id",
+      "target": "users.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "administrators",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKAdministratorURI",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrators.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP的range类Reviewer比当前range类User更具体，但缺乏名称/角色和等价列证据支持（数据交集为0）；同时FK名称匹配的ID列数据无重叠，因此不选择"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrators.accept_paper",
+      "task_type": "fk_obj",
+      "source": "administrators.accept_paper",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#acceptPaper",
+      "llm_selected_local_name": "acceptPaper",
+      "llm_selected_direction": "",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "administrators",
+          "source_column": "accept_paper",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKAdministratoracceptPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrators.accept_paper"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptPaper",
+        "selected_direction": null,
+        "selected_local_name": "acceptPaper",
+        "confidence": "high",
+        "reason": "domain和range均精确匹配Administrator和Paper，name完全匹配accept_paper，column role tokens包含accept和paper，等价列证据尽管弱但无冲突，因此选择acceptPaper。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "associated_chairs.id",
+      "task_type": "fk_obj",
+      "source": "associated_chairs.id",
+      "target": "chairmans.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "associated_chairs",
+          "source_column": "id",
+          "target_table": "chairmans",
+          "target_column": "id",
+          "constraint_name": "FKAssociatedChairURI",
+          "source_distinct": 0,
+          "target_distinct": 6,
+          "intersection": 0,
+          "union": 6,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "associated_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "author_not_reviewers.id",
+      "task_type": "fk_obj",
+      "source": "author_not_reviewers.id",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 9,
+      "schema_matching": [
+        {
+          "source_table": "author_not_reviewers",
+          "source_column": "id",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKAuthorNotReviewerURI",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "author_not_reviewers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain均与AuthorNotReviewer冲突（如hasAuthor domain为Paper），range仅hasAuthor精确匹配Author但方向不符；等价列IND证据为零（intersection=0），无任何候选满足domain/range端点要求，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "authors.id",
+      "task_type": "fk_obj",
+      "source": "authors.id",
+      "target": "conf_members.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "authors",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKAuthorURI",
+          "source_distinct": 564,
+          "target_distinct": 774,
+          "intersection": 564,
+          "union": 774,
+          "manual_jaccard": 0.7286821705426356,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7286821705426356,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "authors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "authors.id",
+      "task_type": "fk_obj",
+      "source": "authors.id",
+      "target": "users.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "authors",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKAuthorURI2",
+          "source_distinct": 564,
+          "target_distinct": 774,
+          "intersection": 564,
+          "union": 774,
+          "manual_jaccard": 0.7286821705426356,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7286821705426356,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "authors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bids.adjusted",
+      "task_type": "fk_obj",
+      "source": "bids.adjusted",
+      "target": "reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "bids",
+          "source_column": "adjusted",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKBidadjustedBy",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "bids.adjusted"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选adjustedBy的range为Reviewer，而所需range为ExternalReviewer，endpoint不匹配；等价列/IND证据显示无交集、弱冲突，无其他候选支撑。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bids.bid",
+      "task_type": "fk_obj",
+      "source": "bids.bid",
+      "target": "papers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "bids",
+          "source_column": "bid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKBidhasBid_Inv",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "bids.bid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain/range均与所需方向（Bid->Paper）冲突；adjustBid和hasBid方向相反，setMaxPapers完全不匹配，且等价列证据极弱（Jaccard=0, IND=0），无支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "chairmans.id",
+      "task_type": "fk_obj",
+      "source": "chairmans.id",
+      "target": "conf_members.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "chairmans",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKChairmanURI",
+          "source_distinct": 6,
+          "target_distinct": 774,
+          "intersection": 6,
+          "union": 774,
+          "manual_jaccard": 0.007751937984496124,
+          "source_in_target": 1.0,
+          "target_in_source": 0.007751937984496124,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "chairmans.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "co_author_paper.cid",
+      "task_type": "fk_obj",
+      "source": "co_author_paper.cid",
+      "target": "co_authors.id",
+      "llm_selected_uri": "http://cmt#hasCo-author",
+      "llm_selected_local_name": "hasCo-author",
+      "llm_selected_direction": "",
+      "candidate_count": 13,
+      "schema_matching": [
+        {
+          "source_table": "co_author_paper",
+          "source_column": "cid",
+          "target_table": "co_authors",
+          "target_column": "id",
+          "constraint_name": "FKco-writePaperCo-author",
+          "source_distinct": 402,
+          "target_distinct": 402,
+          "intersection": 402,
+          "union": 402,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "co_author_paper.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasCo-author",
+        "selected_direction": null,
+        "selected_local_name": "hasCo-author",
+        "confidence": "high",
+        "reason": "候选OP hasCo-author的range为Co-author，与目标range_class完全匹配；domain为Paper，虽与domain_class Co-author冲突，但等价列证据显示co_author_paper.cid与co_authors.id完全等价（Jaccard=1.0，IND=1.0），且FK约束名FKco-writePaperCo-author暗示co_author_paper表连接co_authors表，而hasCo-author的inverseOf为co-writePaper，与FK约束名高度吻合；name/role tokens包含'co'和'author'，与表名co_author_paper和列名cid角色一致；其他候选均存在endpoint冲突或角色不匹配，因此选择hasCo-author。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "co_author_paper.pid",
+      "task_type": "fk_obj",
+      "source": "co_author_paper.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#co-writePaper",
+      "llm_selected_local_name": "co-writePaper",
+      "llm_selected_direction": "normal",
+      "candidate_count": 16,
+      "schema_matching": [
+        {
+          "source_table": "co_author_paper",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKco-writePaperPaper",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "co_author_paper.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#co-writePaper",
+        "selected_direction": "normal",
+        "selected_local_name": "co-writePaper",
+        "confidence": "high",
+        "reason": "co-writePaper 的 domain 和 range 与 Co-author 和 Paper 精确匹配，外键约束名 'FKco-writePaperPaper' 直接包含其名称，且等价列证据（co_author_paper.pid 到 papers.id 的 IND 为 1.0）支持该关系方向。其他候选如 submitPaper 或 writePaper 尽管 domain 兼容（子类），但不如 co-writePaper 针对 co-author 角色具体，故选择该候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "co_authors.id",
+      "task_type": "fk_obj",
+      "source": "co_authors.id",
+      "target": "authors.id",
+      "llm_selected_uri": "http://cmt#co-writePaper",
+      "llm_selected_local_name": "co-writePaper",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "co_authors",
+          "source_column": "id",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKCo-authorURI",
+          "source_distinct": 402,
+          "target_distinct": 564,
+          "intersection": 402,
+          "union": 564,
+          "manual_jaccard": 0.7127659574468085,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7127659574468085,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "co_authors.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#co-writePaper",
+        "selected_direction": null,
+        "selected_local_name": "co-writePaper",
+        "confidence": "high",
+        "reason": "domain 精确匹配 Co-author，range 虽声明为 Paper 但通过 inverseOf hasCo-author 可得到 Author 端点；等价列 IND 1.0 支持 co_authors.id 到 authors.id 的连接，且表名 co_authors 与 OP 名称 co-writePaper 高度吻合，角色更具体。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conf_members.id",
+      "task_type": "fk_obj",
+      "source": "conf_members.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "conf_members",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKConferenceMemberURI",
+          "source_distinct": 774,
+          "target_distinct": 774,
+          "intersection": 774,
+          "union": 774,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "conf_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "等价列证据显示conf_members.id与persons.id完全匹配，domain为ConferenceMember、range为Person。候选OP中无完全匹配的domain/range端点：addProgramCommitteeMember的domain冲突（Administrator），hasConferenceMember的domain冲突且range为Conference，memberOfConference的range冲突（Conference），addedBy等端点虽兼容但指向更具体的子类且缺乏role证据（无member角色）。约束角色token['member']指向的候选均存在端点冲突，故无合适OP，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_administrator.cid",
+      "task_type": "fk_obj",
+      "source": "conference_administrator.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#startReviewerBidding",
+      "llm_selected_local_name": "startReviewerBidding",
+      "llm_selected_direction": "normal",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "conference_administrator",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKreviewerBiddingStartedB",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conference_administrator.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#startReviewerBidding",
+        "selected_direction": "normal",
+        "selected_local_name": "startReviewerBidding",
+        "confidence": "medium",
+        "reason": "候选startReviewerBidding的domain/range与FK一致（Administrator->Conference），且名称中的'bidding'与FK约束名'FKreviewerBiddingStartedB'匹配，而其他候选名称未直接关联约束名。等价列证据（conference_administrator.cid与conferences.id）为弱匹配，但约束名提供了额外支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_administrator.aid",
+      "task_type": "fk_obj",
+      "source": "conference_administrator.aid",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "conference_administrator",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "reviewerBiddingStarted2FK",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conference_administrator.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain和range均不能同时匹配Administrator；虽然startReviewerBidding和reviewerBiddingStartedBy与FK约束名高度匹配，但domain或range与目标类冲突（一个range为Conference，一个domain为Conference），且等价列/IND证据极弱（全部为0），无法形成闭合证据链。根据规则，选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_chairs.id",
+      "task_type": "fk_obj",
+      "source": "conference_chairs.id",
+      "target": "chairmans.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "conference_chairs",
+          "source_column": "id",
+          "target_table": "chairmans",
+          "target_column": "id",
+          "constraint_name": "FKConferenceChairURI",
+          "source_distinct": 0,
+          "target_distinct": 6,
+          "intersection": 0,
+          "union": 6,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "conference_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain和range均与当前映射（domain: ConferenceChair, range: Chairman）不匹配。等价列证据显示IND为零且无交叉，不支持任何连接。memberOfConference虽domain兼容（ConferenceChair是ConferenceMember的子类），但range冲突（Chairman非Conference子类），且无inverseOf可修正。结论：无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_members.conference",
+      "task_type": "fk_obj",
+      "source": "conference_members.conference",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#memberOfConference",
+      "llm_selected_local_name": "memberOfConference",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "conference_members",
+          "source_column": "conference",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKhasConferenceMemberConf",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "conference_members.conference"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#memberOfConference",
+        "selected_direction": null,
+        "selected_local_name": "memberOfConference",
+        "confidence": "high",
+        "reason": "domain和range完全匹配（ConferenceMember→Conference），名称和角色令牌（conference, member）符合FK约束，等价列证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "external_reviewers.id",
+      "task_type": "fk_obj",
+      "source": "external_reviewers.id",
+      "target": "persons.id",
+      "llm_selected_uri": "http://cmt#assignedByReviewer",
+      "llm_selected_local_name": "assignedByReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "external_reviewers",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKExternalReviewerURI",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "external_reviewers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignedByReviewer",
+        "confidence": "medium",
+        "reason": "候选 assignedByReviewer 的 domain 精确匹配 ExternalReviewer，range 为 Reviewr（Person 的子类），名称和约束角色支持，且逆关系 assignExternalReviewer 存在；其他候选 domain 冲突或 range 不匹配，因此选择此候选。等价列/IND 证据弱，但 endpoint 和角色证据闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "external_reviewers.assigned_by_reviewer",
+      "task_type": "fk_obj",
+      "source": "external_reviewers.assigned_by_reviewer",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#assignedByReviewer",
+      "llm_selected_local_name": "assignedByReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "external_reviewers",
+          "source_column": "assigned_by_reviewer",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKExternalReviewerassigne",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "external_reviewers.assigned_by_reviewer"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignedByReviewer",
+        "confidence": "high",
+        "reason": "名称精确匹配数据库列名assigned_by_reviewer；domain精确匹配ExternalReviewer，range为Reviewer（ExternalReviewer父类），与FK方向一致；等价列证据虽弱但名称和角色高度支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "finalize_paper_assignment.aid",
+      "task_type": "fk_obj",
+      "source": "finalize_paper_assignment.aid",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "finalize_paper_assignment",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKfinalizePaperAssignment",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "finalize_paper_assignment.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选没有同时满足domain=Paper且range=Administrator且名称/角色与表名finalize_paper_assignment及约束名匹配的ObjectProperty。虽然acceptedBy和rejectedBy端点完全匹配，但语义与分配无关，且等价列证据为弱（jaccard/IND均为0），造成明显冲突。其他候选如finalizePaperAssignment/paperAssignmentFinalizedBy端点不匹配（domain冲突），因此无法可靠选择，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "finalize_paper_assignment.cid",
+      "task_type": "fk_obj",
+      "source": "finalize_paper_assignment.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "finalize_paper_assignment",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "finalizePaperAssignmen2FK",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "finalize_paper_assignment.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain_local都不是Paper，range_local都不是Conference；endpoint完全不匹配。等价列/IND证据极弱（交集为0，jaccard=0），无法支持任何候选。FK约束名虽含'finalizePaper'，但对应OP的domain为Administrator，与需要的Paper域冲突且无可用的inverseOf调整方向。因此无合适候选，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "mark_conflict_interests.paper",
+      "task_type": "fk_obj",
+      "source": "mark_conflict_interests.paper",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#markConflictOfInterest",
+      "llm_selected_local_name": "markConflictOfInterest",
+      "llm_selected_direction": "",
+      "candidate_count": 13,
+      "schema_matching": [
+        {
+          "source_table": "mark_conflict_interests",
+          "source_column": "paper",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKmarkConflictOfInterestPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "mark_conflict_interests.paper"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#markConflictOfInterest",
+        "selected_direction": null,
+        "selected_local_name": "markConflictOfInterest",
+        "confidence": "high",
+        "reason": "FK约束名FKmarkConflictOfInterestPaper直接匹配markConflictOfInterest；range精确匹配Paper；名称包含冲突兴趣，与表角色一致；虽domain冲突但所有候选均如此，故选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "meta_reviewers.id",
+      "task_type": "fk_obj",
+      "source": "meta_reviewers.id",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#assignExternalReviewer",
+      "llm_selected_local_name": "assignExternalReviewer",
+      "llm_selected_direction": "normal",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "meta_reviewers",
+          "source_column": "id",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKMeta-ReviewerURI",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "meta_reviewers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignExternalReviewer",
+        "selected_direction": "normal",
+        "selected_local_name": "assignExternalReviewer",
+        "confidence": "high",
+        "reason": "候选OP中只有assignExternalReviewer的domain兼容（Meta-Reviewer是Reviewer子类）、range精确匹配ExternalReviewer，名称和FK约束名'FKMeta-ReviewerURI'均指向reviewer角色，等价列证据虽弱但模式匹配支持，无其他兼容候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "meta_reviews.id",
+      "task_type": "fk_obj",
+      "source": "meta_reviews.id",
+      "target": "reviews.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "meta_reviews",
+          "source_column": "id",
+          "target_table": "reviews",
+          "target_column": "id",
+          "constraint_name": "FKMeta-ReviewURI",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "meta_reviews.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain 均与目标类 Meta-Review 冲突（domain 为 ProgramCommitteeChair、Administrator、Paper、Reviewer 等），且无 inverseOf 支持反转后能匹配。等价列证据为弱/冲突（source_in_target_IND=0），也无 restriction 或 construction 支持。因此无法找到合适 OP，返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_abstracts.id",
+      "task_type": "fk_obj",
+      "source": "paper_abstracts.id",
+      "target": "papers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "paper_abstracts",
+          "source_column": "id",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKPaperAbstractURI",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "paper_abstracts.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "high",
+        "reason": "所有候选 ObjectProperty 的 domain 均非 PaperAbstract，且 range 虽部分为 Paper，但 domain 冲突（如 Administrator、Author 等），与 FK 方向不匹配，等价列证据不支持任何候选，故选择 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_assignment_tools_run.cid",
+      "task_type": "fk_obj",
+      "source": "paper_assignment_tools_run.cid",
+      "target": "conferences.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "paper_assignment_tools_run",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKpaperAssignmentToolsRun",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_assignment_tools_run.cid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain_local均非Paper，range_local均非Conference（唯一range匹配Conference的runPaperAssignmentTools其domain为Administrator），且等价列/IND证据为零，FK约束名虽与表名相关但endpoint完全冲突，因此无合适候选，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_assignment_tools_run.aid",
+      "task_type": "fk_obj",
+      "source": "paper_assignment_tools_run.aid",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "paper_assignment_tools_run",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "paperAssignmentToolsRu2FK",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_assignment_tools_run.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选均不匹配FK语义：仅acceptedBy和rejectedBy的端点精确匹配（Paper domain, Administrator range），但其名称角色与'paperAssignmentToolsRun'的约束名和表角色完全无关，等价列证据极弱（intersection=0），且无更具体的OP支持此关系，因此选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author.aid",
+      "task_type": "fk_obj",
+      "source": "paper_author.aid",
+      "target": "authors.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaperAuthor",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_author.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain和range均不能同时匹配Author类（domain和range都需要是Author）。虽然部分候选通过子类关系使一端兼容，但另一端冲突（如co-writePaper domain兼容但range为Paper，hasCo-author range兼容但domain为Paper）。name hint和FK约束名提示submitPaper或writePaper，但其range不匹配。等价列/IND证据为0且intersection为0，进一步削弱。故无合适候选，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author.pid",
+      "task_type": "fk_obj",
+      "source": "paper_author.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#submitPaper",
+      "llm_selected_local_name": "submitPaper",
+      "llm_selected_direction": "",
+      "candidate_count": 15,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaperPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_author.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#submitPaper",
+        "selected_direction": null,
+        "selected_local_name": "submitPaper",
+        "confidence": "medium",
+        "reason": "domain/range完全匹配Author和Paper，FK名FKsubmitPaperPaper直接匹配OP名submitPaper，角色token支持paper关系。等价列IND证据显示0交，但模式匹配证据充分，优先选择具体OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_full_versions.id",
+      "task_type": "fk_obj",
+      "source": "paper_full_versions.id",
+      "target": "papers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "paper_full_versions",
+          "source_column": "id",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKPaperFullVersionURI",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "paper_full_versions.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain均不是PaperFullVersion（实际为Administrator、Author等），range也非PaperFullVersion，通过inverseOf也无法使端点匹配；等价列证据虽支持PaperFullVersion到Paper的引用，但无OP同时满足domain=PaperFullVersion且range=Paper，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_reviewer.pid",
+      "task_type": "fk_obj",
+      "source": "paper_reviewer.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#hasBeenAssigned",
+      "llm_selected_local_name": "hasBeenAssigned",
+      "llm_selected_direction": "",
+      "candidate_count": 22,
+      "schema_matching": [
+        {
+          "source_table": "paper_reviewer",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKassignedToPaper",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "paper_reviewer.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasBeenAssigned",
+        "selected_direction": null,
+        "selected_local_name": "hasBeenAssigned",
+        "confidence": "high",
+        "reason": "端点 domain Reviewer 和 range Paper 完全匹配；OP 名称 'hasBeenAssigned' 与 FK 约束名 'FKassignedToPaper' 强相关，明确表示分配关系；等价列 IND 证据（1.0）支持 paper_reviewer.pid 连接 papers.id，证据链闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_reviewer.rid",
+      "task_type": "fk_obj",
+      "source": "paper_reviewer.rid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#assignExternalReviewer",
+      "llm_selected_local_name": "assignExternalReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 18,
+      "schema_matching": [
+        {
+          "source_table": "paper_reviewer",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKassignedToReviewer",
+          "source_distinct": 477,
+          "target_distinct": 477,
+          "intersection": 477,
+          "union": 477,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "paper_reviewer.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignExternalReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignExternalReviewer",
+        "confidence": "high",
+        "reason": "候选 OP 中唯一 domain 和 range 分别精确匹配 Reviewer 和 ExternalReviewer，且等价列证据（paper_reviewer.rid 与 reviewers.id 完全等价）支持该外键关联；名称和角色 tokens（reviewer）进一步确认语义，符合分配外部审稿人场景。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_subject_area.pid",
+      "task_type": "fk_obj",
+      "source": "paper_subject_area.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "paper_subject_area",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKhasSubjectAreaPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_subject_area.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的声明domain均与SubjectArea冲突（如acceptPaper domain为Administrator，hasSubjectArea domain为Paper且方向相反且无反属性支持），等价列证据弱，FK约束名虽暗示hasSubjectArea但方向不匹配，因此无法选择任何候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_subject_area.sid",
+      "task_type": "fk_obj",
+      "source": "paper_subject_area.sid",
+      "target": "subject_areas.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "paper_subject_area",
+          "source_column": "sid",
+          "target_table": "subject_areas",
+          "target_column": "id",
+          "constraint_name": "FKhasSubjectAreaSubjectArea",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "paper_subject_area.sid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain/range端点均与当前关系严重冲突（domain_class应为SubjectArea，但候选OP的domain多是Paper/Author等；仅hasSubjectArea的range匹配但domain为Paper）。等价列/IND证据为全0且weak_or_conflicting，无法支持任何候选。根据规则返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.id",
+      "task_type": "fk_obj",
+      "source": "papers.id",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选 setMaxPapers 的 domain 为 Administrator、range 为 ProgramCommitteeMember，与需要的 domain Paper、range Document 冲突；name_pattern_match 仅为表名 'papers' 模式匹配，但 endpoint 不匹配且等价列/IND 证据不支持；因此无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.accepted",
+      "task_type": "fk_obj",
+      "source": "papers.accepted",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#acceptedBy",
+      "llm_selected_local_name": "acceptedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers.accepted"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "acceptedBy",
+        "confidence": "high",
+        "reason": "endpoint精确匹配Paper和Administrator；FK约束名'FKPaperacceptedBy'和列名'accepted'与OP名称角色一致；rejectedBy端点虽匹配但含义相反且无角色支持；setMaxPapers端点冲突。数据等价列证据弱但模式证据强，综合选择acceptedBy。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.author",
+      "task_type": "fk_obj",
+      "source": "papers.author",
+      "target": "authors.id",
+      "llm_selected_uri": "http://cmt#hasAuthor",
+      "llm_selected_local_name": "hasAuthor",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers.author"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasAuthor",
+        "selected_direction": "normal",
+        "selected_local_name": "hasAuthor",
+        "confidence": "high",
+        "reason": "端点精确匹配 Paper 和 Author，名称包含 'author' 且角色明确，等价列 IND 从 papers.author 到 authors.id 完全覆盖，支持 FK 方向从 Paper 到 Author。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.decision",
+      "task_type": "fk_obj",
+      "source": "papers.decision",
+      "target": "decisions.id",
+      "llm_selected_uri": "http://cmt#hasDecision",
+      "llm_selected_local_name": "hasDecision",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers.decision"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasDecision",
+        "selected_direction": null,
+        "selected_local_name": "hasDecision",
+        "confidence": "high",
+        "reason": "候选hasDecision的domain和range分别精确匹配Paper和Decision，并且外键FKPaperhasDecision指向decisions.id，与名称模式、列角色tokens 'decision'、约束角色tokens 'decision'均一致；等价列IND证据虽弱但未冲突，整体证据链闭合。另一候选setMaxPapers的endpoint冲突，故排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.read_by_meta_reviewer",
+      "task_type": "fk_obj",
+      "source": "papers.read_by_meta_reviewer",
+      "target": "meta_reviewers.id",
+      "llm_selected_uri": "http://cmt#readByMeta-Reviewer",
+      "llm_selected_local_name": "readByMeta-Reviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers.read_by_meta_reviewer"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#readByMeta-Reviewer",
+        "selected_direction": null,
+        "selected_local_name": "readByMeta-Reviewer",
+        "confidence": "high",
+        "reason": "domain和range完全精确匹配Paper和Meta-Reviewer，名称精确匹配read_by_meta_reviewer，column/constraint角色包含meta、read、reviewer，等价列证据缺失但FK约束支持方向，无冲突候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers.rejected",
+      "task_type": "fk_obj",
+      "source": "papers.rejected",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#rejectedBy",
+      "llm_selected_local_name": "rejectedBy",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers.rejected"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#rejectedBy",
+        "selected_direction": null,
+        "selected_local_name": "rejectedBy",
+        "confidence": "high",
+        "reason": "候选rejectedBy的domain/range精确匹配Paper和Administrator，列名rejected与属性名模式匹配（column_role_tokens包含rejected），FK约束名FKPaperrejectedBy也支持rejected方向。虽然等价列证据弱，但endpoint和角色证据闭合，且其他候选（acceptedBy名称不匹配，setMaxPapers端点冲突）均不适用。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "pc_members.id",
+      "task_type": "fk_obj",
+      "source": "pc_members.id",
+      "target": "conf_members.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "pc_members",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeMemberURI",
+          "source_distinct": 33,
+          "target_distinct": 774,
+          "intersection": 33,
+          "union": 774,
+          "manual_jaccard": 0.04263565891472868,
+          "source_in_target": 1.0,
+          "target_in_source": 0.04263565891472868,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "pc_members.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain和range均不能同时匹配外键关系（ProgramCommitteeMember→ConferenceMember）。等价列证据支持pc_members.id引用conf_members.id，但候选OP中：hasConferenceMember domain冲突（Conference），memberOfConference range冲突（Conference），memberOfProgramCommittee range冲突（ProgramCommittee），其余domain/range均明显冲突。无候选满足端点兼容性，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "pc_members.added",
+      "task_type": "fk_obj",
+      "source": "pc_members.added",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#addedBy",
+      "llm_selected_local_name": "addedBy",
+      "llm_selected_direction": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "pc_members",
+          "source_column": "added",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeMembera",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "pc_members.added"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#addedBy",
+        "selected_direction": null,
+        "selected_local_name": "addedBy",
+        "confidence": "medium",
+        "reason": "端点和方向精确匹配（domain=ProgramCommitteeMember, range=Administrator），列名'added'与OP角色'addedBy'一致；虽然等价列/IND证据弱（无数据交集），但schema匹配和约束名提示支持此选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_document.did",
+      "task_type": "fk_obj",
+      "source": "person_document.did",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "person_document",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKhasConflictOfInterestDo",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_document.did"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "两个候选的 domain/range 端点均与表类 Document 冲突或不完全匹配（hasConflictOfInterest domain 为 Person，markConflictOfInterest range 为 Paper）；等价列证据显示无交集（IND=0），FK 约束名仅部分匹配角色，缺乏强支撑；根据规则返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_document.pid",
+      "task_type": "fk_obj",
+      "source": "person_document.pid",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "person_document",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKhasConflictOfInterestPerson",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "person_document.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选均明显冲突：唯一与FK约束名'ConflictOfInterest'匹配的OP(hasConflictOfInterest)方向相反且无inverseOf，markConflictOfInterest的domain/range类不匹配；等价列证据显示无实际值重叠，因此无法选择任何候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chair_review.pid",
+      "task_type": "fk_obj",
+      "source": "program_committee_chair_review.pid",
+      "target": "program_committee_chairs.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chair_review",
+          "source_column": "pid",
+          "target_table": "program_committee_chairs",
+          "target_column": "id",
+          "constraint_name": "FKendReviewProgramCommitt",
+          "source_distinct": 0,
+          "target_distinct": 6,
+          "intersection": 0,
+          "union": 6,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "program_committee_chair_review.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain/range均未同时匹配ProgramCommitteeChair，且等价列证据极弱（Jaccard=0），因此无法选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chair_review.rid",
+      "task_type": "fk_obj",
+      "source": "program_committee_chair_review.rid",
+      "target": "reviews.id",
+      "llm_selected_uri": "http://cmt#endReview",
+      "llm_selected_local_name": "endReview",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chair_review",
+          "source_column": "rid",
+          "target_table": "reviews",
+          "target_column": "id",
+          "constraint_name": "FKendReviewReview",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "program_committee_chair_review.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#endReview",
+        "selected_direction": null,
+        "selected_local_name": "endReview",
+        "confidence": "high",
+        "reason": "endReview的domain和range分别精确匹配ProgramCommitteeChair和Review，且FK约束名FKendReviewReview与endReview语义一致，name/role tokens包含review，证据链闭合。其他候选要么端点冲突，要么仅通过subclass兼容但语义不直接。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chairs.id",
+      "task_type": "fk_obj",
+      "source": "program_committee_chairs.id",
+      "target": "chairmans.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chairs",
+          "source_column": "id",
+          "target_table": "chairmans",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeChairURI",
+          "source_distinct": 6,
+          "target_distinct": 6,
+          "intersection": 6,
+          "union": 6,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committee_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的range均与Chairman冲突，domain仅第三个兼容但range不匹配，且无inverseOf支持；等价列证据无法匹配任何候选端点。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chairs.id",
+      "task_type": "fk_obj",
+      "source": "program_committee_chairs.id",
+      "target": "pc_members.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chairs",
+          "source_column": "id",
+          "target_table": "pc_members",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeChairURI2",
+          "source_distinct": 6,
+          "target_distinct": 33,
+          "intersection": 6,
+          "union": 33,
+          "manual_jaccard": 0.18181818181818182,
+          "source_in_target": 1.0,
+          "target_in_source": 0.18181818181818182,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "program_committee_chairs.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的端点均不匹配：addProgramCommitteeMember domain冲突（Administrator vs ProgramCommitteeChair），hasProgramCommitteeMember domain冲突（ProgramCommittee vs ProgramCommitteeChair），memberOfProgramCommittee range冲突（ProgramCommittee vs ProgramCommitteeMember）。外键从Chair到Member指向的IND支持子类关系，但无OP直接对应。因此选null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_members.program_committee",
+      "task_type": "fk_obj",
+      "source": "program_committee_members.program_committee",
+      "target": "program_committees.id",
+      "llm_selected_uri": "http://cmt#memberOfProgramCommittee",
+      "llm_selected_local_name": "memberOfProgramCommittee",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_members",
+          "source_column": "program_committee",
+          "target_table": "program_committees",
+          "target_column": "id",
+          "constraint_name": "FKhasProgramCommitteeMemb",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committee_members.program_committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#memberOfProgramCommittee",
+        "selected_direction": "normal",
+        "selected_local_name": "memberOfProgramCommittee",
+        "confidence": "high",
+        "reason": "端点完全匹配：domain=ProgramCommitteeMember, range=ProgramCommittee；名称角色与表'program_committee_members'一致；等价列证据证明FK方向从ProgramCommitteeMember到ProgramCommittee。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "read_by_reviewer.pid",
+      "task_type": "fk_obj",
+      "source": "read_by_reviewer.pid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#readPaper",
+      "llm_selected_local_name": "readPaper",
+      "llm_selected_direction": "",
+      "candidate_count": 21,
+      "schema_matching": [
+        {
+          "source_table": "read_by_reviewer",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKreadByReviewerPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "read_by_reviewer.pid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#readPaper",
+        "selected_direction": null,
+        "selected_local_name": "readPaper",
+        "confidence": "high",
+        "reason": "domain和range精确匹配Reviewer和Paper；名称readPaper与表名read_by_reviewer语义对应（read角色），外键约束名FKreadByReviewerPaper也指向Paper；尽管等价列IND数据为空，但模式匹配充分，故选择readPaper。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "read_by_reviewer.rid",
+      "task_type": "fk_obj",
+      "source": "read_by_reviewer.rid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#assignExternalReviewer",
+      "llm_selected_local_name": "assignExternalReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "read_by_reviewer",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKreadByReviewerReviewer",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "read_by_reviewer.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignExternalReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignExternalReviewer",
+        "confidence": "high",
+        "reason": "端点完全匹配：domain=Reviewer, range=ExternalReviewer；名称包含ExternalReviewer，表角色token有reviewer，与FK约束一致。等价列证据虽然弱但不冲突，无其他候选兼容。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "rejections.id",
+      "task_type": "fk_obj",
+      "source": "rejections.id",
+      "target": "decisions.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "rejections",
+          "source_column": "id",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKRejectionURI",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "rejections.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewer_administrator.aid",
+      "task_type": "fk_obj",
+      "source": "reviewer_administrator.aid",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#assignReviewer",
+      "llm_selected_local_name": "assignReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "reviewer_administrator",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKassignReviewerAdministrator",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "reviewer_administrator.aid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignReviewer",
+        "confidence": "low",
+        "reason": "domain精确匹配Administrator，名称与FK约束名'assignReviewer'一致，但range为Reviewer而非Administrator，等价列证据弱，属于部分冲突但相对最合适。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewer_administrator.rid",
+      "task_type": "fk_obj",
+      "source": "reviewer_administrator.rid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "reviewer_administrator",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKassignReviewerReviewer",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "reviewer_administrator.rid"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain和range均不能同时匹配Administrator和ExternalReviewer；等价列/IND证据冲突且无支持；无合适映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewers.id",
+      "task_type": "fk_obj",
+      "source": "reviewers.id",
+      "target": "conf_members.id",
+      "llm_selected_uri": "http://cmt#assignedByReviewer",
+      "llm_selected_local_name": "assignedByReviewer",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "reviewers",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKReviewerURI",
+          "source_distinct": 477,
+          "target_distinct": 774,
+          "intersection": 477,
+          "union": 774,
+          "manual_jaccard": 0.6162790697674418,
+          "source_in_target": 1.0,
+          "target_in_source": 0.6162790697674418,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviewers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByReviewer",
+        "selected_direction": null,
+        "selected_local_name": "assignedByReviewer",
+        "confidence": "medium",
+        "reason": "候选 domain 精确匹配 ExternalReviewer，range 通过子类关系 (Reviewer→ConferenceMember) 兼容；等价列证据支持 source 到 target 的包含关系，方向正确。虽无名称/角色匹配，但唯一候选且 endpoint 闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewers.id",
+      "task_type": "fk_obj",
+      "source": "reviewers.id",
+      "target": "users.id",
+      "llm_selected_uri": "http://cmt#assignedByReviewer",
+      "llm_selected_local_name": "assignedByReviewer",
+      "llm_selected_direction": "normal",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "reviewers",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKReviewerURI2",
+          "source_distinct": 477,
+          "target_distinct": 774,
+          "intersection": 477,
+          "union": 774,
+          "manual_jaccard": 0.6162790697674418,
+          "source_in_target": 1.0,
+          "target_in_source": 0.6162790697674418,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviewers.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByReviewer",
+        "selected_direction": "normal",
+        "selected_local_name": "assignedByReviewer",
+        "confidence": "medium",
+        "reason": "domain 精确匹配 ExternalReviewer，range 通过父类兼容 User；等价列 IND 支持从 reviewers.id 到 users.id 的包含关系，方向一致；但 OP 的 range 是 Reviewer（User 的子类），名称和角色匹配较弱，故 medium 置信度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.id",
+      "task_type": "fk_obj",
+      "source": "reviews.id",
+      "target": "documents.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 0,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "reason": "No endpoint-compatible ontology ObjectProperty candidates."
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews.written",
+      "task_type": "fk_obj",
+      "source": "reviews.written",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#writtenBy",
+      "llm_selected_local_name": "writtenBy",
+      "llm_selected_direction": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "written",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKReviewwrittenBy",
+          "source_distinct": 477,
+          "target_distinct": 477,
+          "intersection": 477,
+          "union": 477,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "reviews.written"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#writtenBy",
+        "selected_direction": null,
+        "selected_local_name": "writtenBy",
+        "confidence": "high",
+        "reason": "domain 精确匹配 Review，range ExternalReviewer 是 range 超类 Reviewer 的子类，可兼容；name_hint 'written' 匹配列角色；等价列说明 reviews.written 与 reviewers.id 完全等价，IND 均为 1.0，支持该 OP 方向。综上，选择 writtenBy。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "set_max_papers.administrator",
+      "task_type": "fk_obj",
+      "source": "set_max_papers.administrator",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#acceptedBy",
+      "llm_selected_local_name": "acceptedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "set_max_papers",
+          "source_column": "administrator",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKsetMaxPapersAdministrator",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "set_max_papers.administrator"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "acceptedBy",
+        "confidence": "low",
+        "reason": "候选acceptedBy的domain和range均为精确匹配(Paper-Administrator)，而其他候选如assignedByAdministrator domain冲突、rejectedBy endpoint相同但无名称/角色优势、setMaxPapers endpoint双重冲突；等价列IND证据为空，且无名称匹配，故低置信度选择acceptedBy。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "users.id",
+      "task_type": "fk_obj",
+      "source": "users.id",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "users",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKUserURI",
+          "source_distinct": 774,
+          "target_distinct": 774,
+          "intersection": 774,
+          "union": 774,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "users.id"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain/range类均比数据库表类更具体，且缺乏名称、角色或构造匹配证据；等价列仅表明users.id与persons.id等价，未提供具体角色语义，因此无合适候选"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrator_conference",
+      "task_type": "sr_relation",
+      "source": "administrator_conference.aid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#enterReviewCriteria",
+      "llm_selected_local_name": "enterReviewCriteria",
+      "llm_selected_direction": "normal",
+      "candidate_count": 27,
+      "schema_matching": [
+        {
+          "source_table": "administrator_conference",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKenterReviewCriteriaAdmi",
+          "relation_key": "administrator_conference",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "administrator_conference",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKenterReviewCriteriaConf",
+          "relation_key": "administrator_conference",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#enterReviewCriteria",
+        "selected_direction": "normal",
+        "selected_local_name": "enterReviewCriteria",
+        "confidence": "high",
+        "reason": "FK约束名称'FKenterReviewCriteriaAdmi'和'FKenterReviewCriteriaConf'与OP名'enterReviewCriteria'高度匹配，且该OP的domain=Administrator、range=Conference与任务要求一致，declared_endpoint_match=true，name_pattern_match=true，证据链最闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "co_author_paper",
+      "task_type": "sr_relation",
+      "source": "co_author_paper.cid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#co-writePaper",
+      "llm_selected_local_name": "co-writePaper",
+      "llm_selected_direction": "normal",
+      "candidate_count": 29,
+      "schema_matching": [
+        {
+          "source_table": "co_author_paper",
+          "source_column": "cid",
+          "target_table": "co_authors",
+          "target_column": "id",
+          "constraint_name": "FKco-writePaperCo-author",
+          "relation_key": "co_author_paper",
+          "source_distinct": 402,
+          "target_distinct": 402,
+          "intersection": 402,
+          "union": 402,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        },
+        {
+          "source_table": "co_author_paper",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKco-writePaperPaper",
+          "relation_key": "co_author_paper",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#co-writePaper",
+        "selected_direction": "normal",
+        "selected_local_name": "co-writePaper",
+        "confidence": "high",
+        "reason": "co-writePaper的domain和range分别精确匹配Co-author和Paper，FK约束名FKco-writePaperCo-author/FKco-writePaperPaper直接支持该OP，等价列证据确认cid->co_authors.id和pid->papers.id，与domain=Co-author、range=Paper方向一致。名称包含co和paper，角色具体，优于其他候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "conference_administrator",
+      "task_type": "sr_relation",
+      "source": "conference_administrator.cid",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#reviewerBiddingStartedBy",
+      "llm_selected_local_name": "reviewerBiddingStartedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 33,
+      "schema_matching": [
+        {
+          "source_table": "conference_administrator",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKreviewerBiddingStartedB",
+          "relation_key": "conference_administrator",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "conference_administrator",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "reviewerBiddingStarted2FK",
+          "relation_key": "conference_administrator",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#reviewerBiddingStartedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "reviewerBiddingStartedBy",
+        "confidence": "high",
+        "reason": "候选OP中，reviewerBiddingStartedBy的domain和range完全匹配目标Conference和Administrator，且名称包含'reviewerBiddingStarted'，与FK约束名'reviewerBiddingStarted2FK'和'FKreviewerBiddingStartedB'高度相关，表名conference_administrator暗示此关系，等价列证据虽弱但FK名支持，其他OP如detailsEnteredBy缺乏具体角色匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "details_entered",
+      "task_type": "sr_relation",
+      "source": "details_entered.aid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#enterConferenceDetails",
+      "llm_selected_local_name": "enterConferenceDetails",
+      "llm_selected_direction": "normal",
+      "candidate_count": 21,
+      "schema_matching": [
+        {
+          "source_table": "details_entered",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKdetailsEnteredByAdminis",
+          "relation_key": "details_entered",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "details_entered",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKdetailsEnteredByConference",
+          "relation_key": "details_entered",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#enterConferenceDetails",
+        "selected_direction": "normal",
+        "selected_local_name": "enterConferenceDetails",
+        "confidence": "medium",
+        "reason": "endpoint exact匹配（domain Administrator, range Conference），name/role匹配（table_role_tokens包含'details'，constraint_role_tokens包含'conference'，与表名details_entered一致），且inverse_of detailsEnteredBy；等价列/IND证据弱（intersection=0），故中等置信。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "enable_virtual_meeting",
+      "task_type": "sr_relation",
+      "source": "enable_virtual_meeting.aid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#enableVirtualMeeting",
+      "llm_selected_local_name": "enableVirtualMeeting",
+      "llm_selected_direction": "normal",
+      "candidate_count": 16,
+      "schema_matching": [
+        {
+          "source_table": "enable_virtual_meeting",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKenableVirtualMeetingAdm",
+          "relation_key": "enable_virtual_meeting",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "enable_virtual_meeting",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKenableVirtualMeetingCon",
+          "relation_key": "enable_virtual_meeting",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#enableVirtualMeeting",
+        "selected_direction": "normal",
+        "selected_local_name": "enableVirtualMeeting",
+        "confidence": "high",
+        "reason": "表名与OP名高度匹配（enable_virtual_meeting），FK约束指向Administrator->Conference，endpoint完全匹配。尽管IND证据为0，但模式匹配强烈支持。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "finalize_paper_assignment",
+      "task_type": "sr_relation",
+      "source": "finalize_paper_assignment.aid",
+      "target": "conferences.id",
+      "llm_selected_uri": "http://cmt#finalizePaperAssignment",
+      "llm_selected_local_name": "finalizePaperAssignment",
+      "llm_selected_direction": "normal",
+      "candidate_count": 30,
+      "schema_matching": [
+        {
+          "source_table": "finalize_paper_assignment",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKfinalizePaperAssignment",
+          "relation_key": "finalize_paper_assignment",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "finalize_paper_assignment",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "finalizePaperAssignmen2FK",
+          "relation_key": "finalize_paper_assignment",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#finalizePaperAssignment",
+        "selected_direction": "normal",
+        "selected_local_name": "finalizePaperAssignment",
+        "confidence": "high",
+        "reason": "名称完全匹配（finalizePaperAssignment），domain 和 range 与声明一致（Administrator→Conference），表角色 token 包含 assignment、finalize、paper 精准对应关系语义；等价列证据虽弱但 FK 约束名也指向同一关系，无更合适的候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "hardcopy_mailing_manifests_p",
+      "task_type": "sr_relation",
+      "source": "hardcopy_mailing_manifests_p.cid",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#hardcopyMailingManifestsPrintedBy",
+      "llm_selected_local_name": "hardcopyMailingManifestsPrintedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 16,
+      "schema_matching": [
+        {
+          "source_table": "hardcopy_mailing_manifests_p",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKhardcopyMailingManifest",
+          "relation_key": "hardcopy_mailing_manifests_p",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "hardcopy_mailing_manifests_p",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "hardcopyMailingManifes2FK",
+          "relation_key": "hardcopy_mailing_manifests_p",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hardcopyMailingManifestsPrintedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "hardcopyMailingManifestsPrintedBy",
+        "confidence": "medium",
+        "reason": "域Conference和范围Administrator端点精确匹配；候选名称包含表名tokens 'hardcopy','mailing','manifests'，且约束名中也包含这些token，与关系表角色高度具体匹配；等价列证据虽无数据重叠，但外键名称支持方向；其他候选端点虽匹配但名称无关或方向矛盾。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_assignment_tools_run",
+      "task_type": "sr_relation",
+      "source": "paper_assignment_tools_run.cid",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#paperAssignmentToolsRunBy",
+      "llm_selected_local_name": "paperAssignmentToolsRunBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 30,
+      "schema_matching": [
+        {
+          "source_table": "paper_assignment_tools_run",
+          "source_column": "cid",
+          "target_table": "conferences",
+          "target_column": "id",
+          "constraint_name": "FKpaperAssignmentToolsRun",
+          "relation_key": "paper_assignment_tools_run",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "paper_assignment_tools_run",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "paperAssignmentToolsRu2FK",
+          "relation_key": "paper_assignment_tools_run",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#paperAssignmentToolsRunBy",
+        "selected_direction": "normal",
+        "selected_local_name": "paperAssignmentToolsRunBy",
+        "confidence": "high",
+        "reason": "端点精确匹配（domain Conference, range Administrator），OP名称包含表名所有关键token（paper, assignment, run, tools），FK约束名也包含相同token，等价列证据虽弱但FK存在，因此选择此候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_author",
+      "task_type": "sr_relation",
+      "source": "paper_author.aid",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#writePaper",
+      "llm_selected_local_name": "writePaper",
+      "llm_selected_direction": "normal",
+      "candidate_count": 27,
+      "schema_matching": [
+        {
+          "source_table": "paper_author",
+          "source_column": "aid",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaperAuthor",
+          "relation_key": "paper_author",
+          "source_distinct": 0,
+          "target_distinct": 564,
+          "intersection": 0,
+          "union": 564,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "paper_author",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKsubmitPaperPaper",
+          "relation_key": "paper_author",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#writePaper",
+        "selected_direction": "normal",
+        "selected_local_name": "writePaper",
+        "confidence": "high",
+        "reason": "domain/range均exact匹配Author和Paper，名称writePaper明确表示作者写论文，符合paper_author关系表的语义；FK约束名虽含submit但不足以推翻；无更强冲突候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_reviewer",
+      "task_type": "sr_relation",
+      "source": "paper_reviewer.pid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 40,
+      "schema_matching": [
+        {
+          "source_table": "paper_reviewer",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKassignedToPaper",
+          "relation_key": "paper_reviewer",
+          "source_distinct": 367,
+          "target_distinct": 734,
+          "intersection": 367,
+          "union": 734,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target"
+        },
+        {
+          "source_table": "paper_reviewer",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKassignedToReviewer",
+          "relation_key": "paper_reviewer",
+          "source_distinct": 477,
+          "target_distinct": 477,
+          "intersection": 477,
+          "union": 477,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选均未同时满足 endpoint、名称角色和等价列证据。唯一正常方向端点兼容的 hasAuthor 的 range 为 Author，而等价列 rid→reviewers.id 指向 Reviewer 类，语义冲突；reversed 方向候选（如 submitPaper、writePaper）虽然端点兼容但语义为作者提交论文，与 paper_reviewer 的审稿人分配关系不符；其他候选端点不兼容。故无合适 OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "paper_subject_area",
+      "task_type": "sr_relation",
+      "source": "paper_subject_area.pid",
+      "target": "subject_areas.id",
+      "llm_selected_uri": "http://cmt#hasSubjectArea",
+      "llm_selected_local_name": "hasSubjectArea",
+      "llm_selected_direction": "normal",
+      "candidate_count": 23,
+      "schema_matching": [
+        {
+          "source_table": "paper_subject_area",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKhasSubjectAreaPaper",
+          "relation_key": "paper_subject_area",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "paper_subject_area",
+          "source_column": "sid",
+          "target_table": "subject_areas",
+          "target_column": "id",
+          "constraint_name": "FKhasSubjectAreaSubjectArea",
+          "relation_key": "paper_subject_area",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasSubjectArea",
+        "selected_direction": "normal",
+        "selected_local_name": "hasSubjectArea",
+        "confidence": "high",
+        "reason": "endpoint exact匹配（domain=Paper, range=SubjectArea），名称角色（hasSubjectArea）与表名paper_subject_area高度吻合，且无其他候选满足endpoint闭合条件。等价列/IND证据弱但不冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "person_document",
+      "task_type": "sr_relation",
+      "source": "person_document.did",
+      "target": "persons.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 21,
+      "schema_matching": [
+        {
+          "source_table": "person_document",
+          "source_column": "did",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKhasConflictOfInterestDo",
+          "relation_key": "person_document",
+          "source_distinct": 0,
+          "target_distinct": 1468,
+          "intersection": 0,
+          "union": 1468,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "person_document",
+          "source_column": "pid",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKhasConflictOfInterestPerson",
+          "relation_key": "person_document",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选均明显冲突：唯一名称匹配的 hasConflictOfInterest 的 domain 实际是 Person 而非 Document，且无 inverseOf 支持方向反转；其他候选无名称或约束匹配，且等价列证据为零。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chair_review",
+      "task_type": "sr_relation",
+      "source": "program_committee_chair_review.pid",
+      "target": "reviews.id",
+      "llm_selected_uri": "http://cmt#endReview",
+      "llm_selected_local_name": "endReview",
+      "llm_selected_direction": "normal",
+      "candidate_count": 15,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chair_review",
+          "source_column": "pid",
+          "target_table": "program_committee_chairs",
+          "target_column": "id",
+          "constraint_name": "FKendReviewProgramCommitt",
+          "relation_key": "program_committee_chair_review",
+          "source_distinct": 0,
+          "target_distinct": 6,
+          "intersection": 0,
+          "union": 6,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "program_committee_chair_review",
+          "source_column": "rid",
+          "target_table": "reviews",
+          "target_column": "id",
+          "constraint_name": "FKendReviewReview",
+          "relation_key": "program_committee_chair_review",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#endReview",
+        "selected_direction": "normal",
+        "selected_local_name": "endReview",
+        "confidence": "high",
+        "reason": "候选 endReview 的 domain 精确匹配 ProgramCommitteeChair，range 兼容（Meta-Review 是 Review 的子类），name 和 table role tokens 包含 'review'，与外键约束（FKendReviewReview）角色一致；等价列证据弱（intersection 为 0），但外键关系明确指示连接，故选择 normal 方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "read_by_reviewer",
+      "task_type": "sr_relation",
+      "source": "read_by_reviewer.pid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#hasAuthor",
+      "llm_selected_local_name": "hasAuthor",
+      "llm_selected_direction": "normal",
+      "candidate_count": 38,
+      "schema_matching": [
+        {
+          "source_table": "read_by_reviewer",
+          "source_column": "pid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKreadByReviewerPaper",
+          "relation_key": "read_by_reviewer",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "read_by_reviewer",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKreadByReviewerReviewer",
+          "relation_key": "read_by_reviewer",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasAuthor",
+        "selected_direction": "normal",
+        "selected_local_name": "hasAuthor",
+        "confidence": "high",
+        "reason": "唯一endpoint完全兼容的OP：domain Paper精确匹配，range AuthorNotReviewer是Author的子类（兼容）。名称虽不匹配，但其他候选均存在endpoint冲突。等价列/IND证据弱（全部为0），无法提供额外支持，因此基于endpoint兼容性选择hasAuthor。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewer_administrator",
+      "task_type": "sr_relation",
+      "source": "reviewer_administrator.aid",
+      "target": "reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 16,
+      "schema_matching": [
+        {
+          "source_table": "reviewer_administrator",
+          "source_column": "aid",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKassignReviewerAdministrator",
+          "relation_key": "reviewer_administrator",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "reviewer_administrator",
+          "source_column": "rid",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKassignReviewerReviewer",
+          "relation_key": "reviewer_administrator",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的endpoint均不匹配：domain需为Administrator，range需为AuthorNotReviewer，但候选range均为Reviewer、ExternalReviewer、Administrator、Conference等，无一匹配AuthorNotReviewer；等价列证据极弱（IND为0），construction无匹配，因此明显冲突，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "administrators::id__accept_paper",
+      "task_type": "sr_relation_inferred",
+      "source": "administrators.id",
+      "target": "papers.id",
+      "llm_selected_uri": "http://cmt#acceptPaper",
+      "llm_selected_local_name": "acceptPaper",
+      "llm_selected_direction": "normal",
+      "candidate_count": 31,
+      "schema_matching": [
+        {
+          "source_table": "administrators",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKAdministratorURI",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrators"
+        },
+        {
+          "source_table": "administrators",
+          "source_column": "accept_paper",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKAdministratoracceptPaper",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "administrators"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptPaper",
+        "selected_direction": "normal",
+        "selected_local_name": "acceptPaper",
+        "confidence": "high",
+        "reason": "表administrators列accept_paper指向Paper，OP名acceptPaper匹配，domain端点Administrator是User子类，范围精确Paper，等价列证据弱但模式匹配强，因此选择acceptPaper。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "authors::id__id",
+      "task_type": "sr_relation_inferred",
+      "source": "authors.id",
+      "target": "users.id",
+      "llm_selected_uri": "http://cmt#addedBy",
+      "llm_selected_local_name": "addedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "authors",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKAuthorURI",
+          "source_distinct": 564,
+          "target_distinct": 774,
+          "intersection": 564,
+          "union": 774,
+          "manual_jaccard": 0.7286821705426356,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7286821705426356,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "authors"
+        },
+        {
+          "source_table": "authors",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKAuthorURI2",
+          "source_distinct": 564,
+          "target_distinct": 774,
+          "intersection": 564,
+          "union": 774,
+          "manual_jaccard": 0.7286821705426356,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7286821705426356,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "authors"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#addedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "addedBy",
+        "confidence": "medium",
+        "reason": "domain/range端点兼容（ConferenceMember和User的父类），且addedBy是normal方向；虽无直接名称匹配，但FK约束含有Author语义，addedBy在语境中可表示作者添加关系；候选assignedByAdministrator更特指管理员分配，与authors表角色不符。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "bids::adjusted__bid",
+      "task_type": "sr_relation_inferred",
+      "source": "bids.adjusted",
+      "target": "papers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "bids",
+          "source_column": "adjusted",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKBidadjustedBy",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "bids"
+        },
+        {
+          "source_table": "bids",
+          "source_column": "bid",
+          "target_table": "papers",
+          "target_column": "id",
+          "constraint_name": "FKBidhasBid_Inv",
+          "source_distinct": 0,
+          "target_distinct": 734,
+          "intersection": 0,
+          "union": 734,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "bids"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的endpoint均不匹配或仅有hasConflictOfInterest端点兼容但名称和角色完全无关，且等价列证据极弱，无法确认"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "external_reviewers::id__assigned_by_reviewer",
+      "task_type": "sr_relation_inferred",
+      "source": "external_reviewers.id",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#assignExternalReviewer",
+      "llm_selected_local_name": "assignExternalReviewer",
+      "llm_selected_direction": "normal",
+      "candidate_count": 17,
+      "schema_matching": [
+        {
+          "source_table": "external_reviewers",
+          "source_column": "id",
+          "target_table": "persons",
+          "target_column": "id",
+          "constraint_name": "FKExternalReviewerURI",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "external_reviewers"
+        },
+        {
+          "source_table": "external_reviewers",
+          "source_column": "assigned_by_reviewer",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKExternalReviewerassigne",
+          "source_distinct": 0,
+          "target_distinct": 477,
+          "intersection": 0,
+          "union": 477,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "external_reviewers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignExternalReviewer",
+        "selected_direction": "normal",
+        "selected_local_name": "assignExternalReviewer",
+        "confidence": "medium",
+        "reason": "端点匹配：domain Person通过父类Reviewer，range exact ExternalReviewer；名称‘assignExternalReviewer’与表名‘external_reviewers’和FK约束‘FKExternalReviewerassigne’中的‘assign’和‘reviewer’一致；虽然等价列证据弱（IND为0），但角色名和方向支持，且inverseOf明确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::id__accepted",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.id",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#acceptedBy",
+      "llm_selected_local_name": "acceptedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "acceptedBy",
+        "confidence": "high",
+        "reason": "端点匹配（domain Document, range Administrator），外键约束名 FKPaperacceptedBy 和列名 accepted 直接匹配 acceptedBy，关系表 papers 角色支持，等价列证据 papers.id→documents.id 确认 domain。虽然后者 IND 为零但约束存在，整体证据链闭合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::id__author",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.id",
+      "target": "authors.id",
+      "llm_selected_uri": "http://cmt#hasAuthor",
+      "llm_selected_local_name": "hasAuthor",
+      "llm_selected_direction": "normal",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasAuthor",
+        "selected_direction": "normal",
+        "selected_local_name": "hasAuthor",
+        "confidence": "high",
+        "reason": "外键约束FKPaperhasAuthor的列名author等价映射到authors.id，IND=1.0支持；OP的domain/range精确匹配（Document->Author），名称hasAuthor与column role tokens完全对应，且没有冲突的endpoint；虽然OP domain（Paper）比表类更具体，但name evidence强，因此选择hasAuthor。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::id__decision",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.id",
+      "target": "decisions.id",
+      "llm_selected_uri": "http://cmt#hasDecision",
+      "llm_selected_local_name": "hasDecision",
+      "llm_selected_direction": "normal",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#hasDecision",
+        "selected_direction": "normal",
+        "selected_local_name": "hasDecision",
+        "confidence": "medium",
+        "reason": "端点匹配：domain经父类兼容（Document←Paper），range精确匹配Decision；名称与列名'decision'及约束名FKPaperhasDecision相关；等价列证据：papers.id->documents.id强支持Document连接，但papers.decision->decisions.id无数据，证据弱；综合选择hasDecision（normal方向）。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::id__read_by_meta_reviewer",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.id",
+      "target": "meta_reviewers.id",
+      "llm_selected_uri": "http://cmt#readByMeta-Reviewer",
+      "llm_selected_local_name": "readByMeta-Reviewer",
+      "llm_selected_direction": "normal",
+      "candidate_count": 23,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#readByMeta-Reviewer",
+        "selected_direction": "normal",
+        "selected_local_name": "readByMeta-Reviewer",
+        "confidence": "high",
+        "reason": "OP名称与列名read_by_meta_reviewer高度匹配，range_class精确等于Meta-Reviewer，range端点完全匹配，domain端点为Paper（Document子类）虽不精确，但名称和约束角色token强支持，且等价列papers.id→documents.id作为外键证据间接支持Document端点，综合选择最具体且角色一致的候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::id__rejected",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.id",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#rejectedBy",
+      "llm_selected_local_name": "rejectedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKPaperURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#rejectedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "rejectedBy",
+        "confidence": "medium",
+        "reason": "endpoint匹配：domain Document via Paper父类，range exact Administrator；列名rejected匹配OP名rejectedBy；FK约束名FKPaperrejectedBy提供角色证据；但等价列IND证据弱（papers.rejected无包含关系），故中等置信。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::accepted__author",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.accepted",
+      "target": "authors.id",
+      "llm_selected_uri": "http://cmt#acceptedBy",
+      "llm_selected_local_name": "acceptedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#acceptedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "acceptedBy",
+        "confidence": "medium",
+        "reason": "虽然acceptedBy的原始domain/range为Paper/Administrator与要求冲突，但其候选端点完全匹配Administrator和Author，且名字与accepted列匹配，FK约束名acceptedBy支持。author列IND证据强，但对应的hasAuthor domain冲突。综合选择acceptedBy normal方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::accepted__decision",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.accepted",
+      "target": "decisions.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain/range端点均无法同时匹配Administrator(domain)和Decision(range);acceptedBy和hasDecision的端点冲突(domain为Paper),setMaxPapers的range冲突(ProgramCommitteeMember);等价列/IND证据为0,无支持;故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::accepted__read_by_meta_reviewer",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.accepted",
+      "target": "meta_reviewers.id",
+      "llm_selected_uri": "http://cmt#assignReviewer",
+      "llm_selected_local_name": "assignReviewer",
+      "llm_selected_direction": "normal",
+      "candidate_count": 20,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignReviewer",
+        "selected_direction": "normal",
+        "selected_local_name": "assignReviewer",
+        "confidence": "medium",
+        "reason": "domain exact Administrator，range兼容（Meta-Reviewer是Reviewer子类），端点匹配；但名称和角色token未直接对应papers表的accepted/read_by_meta_reviewer列，且等价列/IND证据弱，故信心中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::accepted__rejected",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.accepted",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "accepted",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperacceptedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的端点均不匹配（domain或range冲突），acceptedBy/rejectedBy的domain为Paper而非Administrator，setMaxPapers的range为ProgramCommitteeMember而非Administrator。等价列证据薄弱（Jaccard=0），无法逆转端点冲突。无候选满足domain和range同时为Administrator，因此返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::author__decision",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.author",
+      "target": "decisions.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain/range均与要求的Author(domain)和Decision(range)冲突：候选的domain多为Paper或Administrator，range多为Author或Co-author，没有直接连接Author到Decision的OP。等价列证据仅支持papers.author->authors.id强连接，但papers.decision->decisions.id无实际IND支持，无法支撑唯一候选。根据规则，所有候选明显冲突，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::author__read_by_meta_reviewer",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.author",
+      "target": "meta_reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 21,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain/range端点均与任务要求的Author→Meta-Reviewer冲突：readByMeta-Reviewer的domain为Paper而非Author，readByReviewer的domain也为Paper且range为Reviewer（虽Meta-Reviewer为其子类，但domain不兼容）；其他候选如hasAuthor、assignReviewer等端点均不匹配。等价列证据中author列有强IND支持Author，但read_by_meta_reviewer列无数据，且FK约束名仅匹配列名，无法弥补端点冲突。无任一候选的声明端点与任务domain/range同时兼容，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::author__rejected",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.author",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#rejectedBy",
+      "llm_selected_local_name": "rejectedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "author",
+          "target_table": "authors",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasAuthor",
+          "source_distinct": 162,
+          "target_distinct": 564,
+          "intersection": 162,
+          "union": 564,
+          "manual_jaccard": 0.2872340425531915,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2872340425531915,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#rejectedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "rejectedBy",
+        "confidence": "high",
+        "reason": "候选rejectedBy的range与Administrator精确匹配，且其inverseOf为rejectPaper，与FKPaperrejectedBy约束语义一致；虽然domain冲突（Paper vs Author），但SR关系表papers的列rejected通过FK指向administrators.id，实际连接Author与Administrator，且rejectedBy名称直接对应列名rejected，等价列证据弱但约束名和列名支持；其他候选如hasAuthor endpoint冲突或范围不匹配，故选择rejectedBy normal方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::decision__read_by_meta_reviewer",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.decision",
+      "target": "meta_reviewers.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 19,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 的 domain 和 range 端点均未同时匹配 Decision 和 Meta-Reviewer。normal 方向中 readByMeta-Reviewer 的 range 精确匹配但 domain 为 Paper 冲突；reversed 方向中 hasDecision 的 range 精确匹配但 domain 为 Paper 冲突；其余候选 endpoint 均冲突或无 inverseOf 支持。等价列 IND 证据弱且未提供有效连接。因此无法选择任何候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::decision__rejected",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.decision",
+      "target": "administrators.id",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "llm_selected_direction": "",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "decision",
+          "target_table": "decisions",
+          "target_column": "id",
+          "constraint_name": "FKPaperhasDecision",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_direction": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain/range与所需(Decision domain, Administrator range)均不匹配；rejectedBy normal range匹配但domain冲突(Paper)，其他候选endpoint冲突或方向相反且无inverseOf支持；等价列/IND证据为weak，无法弥补endpoint差异。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "papers::read_by_meta_reviewer__rejected",
+      "task_type": "sr_relation_inferred",
+      "source": "papers.read_by_meta_reviewer",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#assignedByAdministrator",
+      "llm_selected_local_name": "assignedByAdministrator",
+      "llm_selected_direction": "normal",
+      "candidate_count": 20,
+      "schema_matching": [
+        {
+          "source_table": "papers",
+          "source_column": "read_by_meta_reviewer",
+          "target_table": "meta_reviewers",
+          "target_column": "id",
+          "constraint_name": "FKPaperreadByMeta-Reviewer",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        },
+        {
+          "source_table": "papers",
+          "source_column": "rejected",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKPaperrejectedBy",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "papers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByAdministrator",
+        "selected_direction": "normal",
+        "selected_local_name": "assignedByAdministrator",
+        "confidence": "low",
+        "reason": "endpoint完全匹配（domain Meta-Reviewer 是 OP 类 Reviewer 的子类，range 精确为 Administrator），但名称角色与表列名 read_by_meta_reviewer 和 rejected 不直接对应，且等价列/IND 证据极弱，无数据支持。其他候选均不满足 endpoint 兼容性，故选择此候选，但置信度低。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "pc_members::id__added",
+      "task_type": "sr_relation_inferred",
+      "source": "pc_members.id",
+      "target": "administrators.id",
+      "llm_selected_uri": "http://cmt#addedBy",
+      "llm_selected_local_name": "addedBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 15,
+      "schema_matching": [
+        {
+          "source_table": "pc_members",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeMemberURI",
+          "source_distinct": 33,
+          "target_distinct": 774,
+          "intersection": 33,
+          "union": 774,
+          "manual_jaccard": 0.04263565891472868,
+          "source_in_target": 1.0,
+          "target_in_source": 0.04263565891472868,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "pc_members"
+        },
+        {
+          "source_table": "pc_members",
+          "source_column": "added",
+          "target_table": "administrators",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeMembera",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "pc_members"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#addedBy",
+        "selected_direction": "normal",
+        "selected_local_name": "addedBy",
+        "confidence": "high",
+        "reason": "端点上，domain 为 ProgramCommitteeMember（ConferenceMember 的子类），range 精确匹配 Administrator；列名 added 与 addedBy 强匹配（column_role_tokens 包含 'added'）；等价列证据 pc_members.id ⊆ conf_members.id 支持 domain 子类关系；表名 pc_members 暗示 ProgramCommitteeMember，与 OP domain 一致；且无冲突候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "program_committee_chairs::id__id",
+      "task_type": "sr_relation_inferred",
+      "source": "program_committee_chairs.id",
+      "target": "pc_members.id",
+      "llm_selected_uri": "http://cmt#addProgramCommitteeMember",
+      "llm_selected_local_name": "addProgramCommitteeMember",
+      "llm_selected_direction": "normal",
+      "candidate_count": 6,
+      "schema_matching": [
+        {
+          "source_table": "program_committee_chairs",
+          "source_column": "id",
+          "target_table": "chairmans",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeChairURI",
+          "source_distinct": 6,
+          "target_distinct": 6,
+          "intersection": 6,
+          "union": 6,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "program_committee_chairs"
+        },
+        {
+          "source_table": "program_committee_chairs",
+          "source_column": "id",
+          "target_table": "pc_members",
+          "target_column": "id",
+          "constraint_name": "FKProgramCommitteeChairURI2",
+          "source_distinct": 6,
+          "target_distinct": 33,
+          "intersection": 6,
+          "union": 33,
+          "manual_jaccard": 0.18181818181818182,
+          "source_in_target": 1.0,
+          "target_in_source": 0.18181818181818182,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "program_committee_chairs"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#addProgramCommitteeMember",
+        "selected_direction": "normal",
+        "selected_local_name": "addProgramCommitteeMember",
+        "confidence": "medium",
+        "reason": "range exact匹配ProgramCommitteeMember；domain虽冲突（Administrator），但Chairman是Administrator常见子类，且等价列证据支持Chairman为domain；名称模式匹配\"committee,program\"；FK名含\"ProgramCommitteeChair\"语义相关。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviewers::id__id",
+      "task_type": "sr_relation_inferred",
+      "source": "reviewers.id",
+      "target": "users.id",
+      "llm_selected_uri": "http://cmt#assignedByAdministrator",
+      "llm_selected_local_name": "assignedByAdministrator",
+      "llm_selected_direction": "normal",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "reviewers",
+          "source_column": "id",
+          "target_table": "conf_members",
+          "target_column": "id",
+          "constraint_name": "FKReviewerURI",
+          "source_distinct": 477,
+          "target_distinct": 774,
+          "intersection": 477,
+          "union": 774,
+          "manual_jaccard": 0.6162790697674418,
+          "source_in_target": 1.0,
+          "target_in_source": 0.6162790697674418,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviewers"
+        },
+        {
+          "source_table": "reviewers",
+          "source_column": "id",
+          "target_table": "users",
+          "target_column": "id",
+          "constraint_name": "FKReviewerURI2",
+          "source_distinct": 477,
+          "target_distinct": 774,
+          "intersection": 477,
+          "union": 774,
+          "manual_jaccard": 0.6162790697674418,
+          "source_in_target": 1.0,
+          "target_in_source": 0.6162790697674418,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviewers"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#assignedByAdministrator",
+        "selected_direction": "normal",
+        "selected_local_name": "assignedByAdministrator",
+        "confidence": "high",
+        "reason": "表名'reviewers'和FK约束名'FKReviewerURI/2'明确指向reviewer角色；domain为Reviewer(ConferenceMember子类)，range为Administrator(User子类)，与数据库关系domain ConferenceMember range User兼容；等价列证据(reviewers.id->conf_members.id和users.id)支持Reviewer被Administrator分配的多对多关系；名称'assignedByAdministrator'直接包含'assign'和'administrator'，与SR表语义吻合；其他候选如addedBy不匹配reviewer角色。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "reviews::id__written",
+      "task_type": "sr_relation_inferred",
+      "source": "reviews.id",
+      "target": "reviewers.id",
+      "llm_selected_uri": "http://cmt#writtenBy",
+      "llm_selected_local_name": "writtenBy",
+      "llm_selected_direction": "normal",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "reviews",
+          "source_column": "id",
+          "target_table": "documents",
+          "target_column": "id",
+          "constraint_name": "FKReviewURI",
+          "source_distinct": 734,
+          "target_distinct": 1468,
+          "intersection": 734,
+          "union": 1468,
+          "manual_jaccard": 0.5,
+          "source_in_target": 1.0,
+          "target_in_source": 0.5,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "reviews"
+        },
+        {
+          "source_table": "reviews",
+          "source_column": "written",
+          "target_table": "reviewers",
+          "target_column": "id",
+          "constraint_name": "FKReviewwrittenBy",
+          "source_distinct": 477,
+          "target_distinct": 477,
+          "intersection": 477,
+          "union": 477,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://cmt#writtenBy",
+        "selected_direction": "normal",
+        "selected_local_name": "writtenBy",
+        "confidence": "high",
+        "reason": "端点匹配（Document→ExternalReviewer）；列名written与OP名writtenBy强匹配；等价列reviews.written↔reviewers.id支持range端点；包含列reviews.id→documents.id支持domain端点；FK约束名FKReviewwrittenBy也包含writtenBy模式。虽然OP原始domain为Review，但Document是Review的超类，结合强名称/角色证据，选择writtenBy normal方向。"
+      },
+      "error": null
+    }
+  ]
+}

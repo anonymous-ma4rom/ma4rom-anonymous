@@ -1,0 +1,19 @@
+{
+  "isAblation": true,
+  "ABLATION_PRESET": "context_base",
+  "ABLATION_NAME": "context_base",
+  "CURRENT_DATABASE": "cmt_structured",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_REAL_VALUE_ENHANCEMENT": false,
+  "WO_OP_MAPPING_REASONING": false,
+  "WO_DP_MAPPING_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": false,
+  "WO_COLUMN_OP": false,
+  "REAL_VALUE_CONTEXT_MODE": "none",
+  "CONTEXT_EXPERIMENT_VERSION": 3,
+  "CONTEXT_PREPARE_ONLY": true,
+  "CONTEXT_CHECKPOINT_DIR": ""
+}

@@ -1,0 +1,295 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+conference:	http://www.semwebtech.org/mondial/10/meta#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--169174009
+target		<http://example.com/island/{name}> a conference:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'atoll'
+
+mappingId	mapping-743292464
+target		<http://example.com/sea/{name}> a conference:Sea ; conference:depth {depth}^^xsd:decimal ; conference:name {name}^^xsd:string . 
+source		SELECT "name" , "depth" FROM "sea"
+
+mappingId	mapping--489210605
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'dialogue member'
+
+mappingId	mapping--412229599
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'caldera'
+
+mappingId	mapping--1072355521
+target		<http://example.com/island/{name}> a conference:Island ; conference:elevation {elevation}^^xsd:decimal ; conference:area {area}^^xsd:decimal ; conference:name {name}^^xsd:string . 
+source		SELECT "name" , "islands" , "area" , "elevation" , "type" , "coordinates" FROM "island"
+
+mappingId	mapping--516394695
+target		<http://example.com/country/{country}> a conference:Country ; conference:inflation {inflation}^^xsd:decimal ; conference:gdpTotal {gdp}^^xsd:decimal ; conference:gdpAgri {agriculture}^^xsd:decimal ; conference:gdpServ {service}^^xsd:decimal ; conference:gdpInd {industry}^^xsd:decimal ; conference:unemployment {unemployment}^^xsd:decimal . 
+source		SELECT "country" , "gdp" , "agriculture" , "service" , "industry" , "inflation" , "unemployment" FROM "economy"
+
+mappingId	mapping-29070930
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'member'
+
+mappingId	mapping-1849241599
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership ; conference:ofMember <http://example.com/country/{country}> ; conference:inOrganization <http://example.com/organization/{organization}> . 
+source		SELECT "country" , "organization" , "type" FROM "ismember"
+
+mappingId	mapping--1333628311
+target		<http://example.com/borders/{country1}__{country2}> a conference:Border ; conference:bordering <http://example.com/country/{country1}> , <http://example.com/country/{country2}> ; conference:length {length}^^xsd:decimal . 
+source		SELECT "country1" , "country2" , "length" FROM "borders"
+
+mappingId	mapping-839680921
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'correspondent member'
+
+mappingId	mapping-222161051
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associated member'
+
+mappingId	mapping--832289393
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List A'
+
+mappingId	mapping-326669924
+target		<http://example.com/airport/{iatacode}> a conference:Location ; conference:isProvinceOf <http://example.com/city/{province}> ; conference:isCapitalOf <http://example.com/island/{island}> ; conference:elevation {elevation}^^xsd:decimal ; conference:cityIn <http://example.com/city/{country}> , <http://example.com/city/{city}> ; conference:longitude {gmtoffset}^^xsd:decimal , {longitude}^^xsd:decimal ; conference:name {name}^^xsd:string ; conference:latitude {latitude}^^xsd:decimal . 
+source		SELECT "iatacode" , "name" , "country" , "city" , "province" , "island" , "latitude" , "longitude" , "elevation" , "gmtoffset" FROM "airport"
+
+mappingId	mapping-1699822599
+target		<http://example.com/sea/{sea1}> conference:mergesWith <http://example.com/sea/{sea2}> . 
+source		SELECT "sea1" , "sea2" FROM "mergeswith"
+
+mappingId	mapping--486011459
+target		<http://example.com/island/{name}> a conference:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'coral'
+
+mappingId	mapping--53497801
+target		<http://example.com/island/{name}> a conference:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'lime'
+
+mappingId	mapping--225508069
+target		<http://example.com/lake/{name}> a conference:Lake ; conference:depth {depth}^^xsd:decimal ; conference:area {area}^^xsd:decimal ; conference:hasBorder <http://example.com/river/{river}> ; conference:elevation {elevation}^^xsd:decimal ; conference:name {name}^^xsd:string . 
+source		SELECT "name" , "area" , "depth" , "elevation" , "type" , "river" , "coordinates" FROM "lake"
+
+mappingId	mapping--886405667
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'National Olympic Committee'
+
+mappingId	mapping--849421631
+target		<http://example.com/island/{island}> conference:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "island" , "country" FROM "geo_island"
+
+mappingId	mapping-1081273023
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'candidate'
+
+mappingId	mapping--1856589764
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'accepting compulsory jurisdiction with reservations'
+
+mappingId	mapping-1513353679
+target		<http://example.com/country/{country}> a conference:PoliticalBody ; conference:government {government}^^xsd:string ; conference:independenceDate {independence}^^xsd:date ; conference:dependentOf <http://example.com/country/{dependent}> . 
+source		SELECT "country" , "independence" , "wasdependent" , "dependent" , "government" FROM "politics"
+
+mappingId	mapping-951078090
+target		<http://example.com/river/{river}> conference:hasSource <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_source"
+
+mappingId	mapping--1599643906
+target		<http://example.com/islandin/{sea}__{lake}__{river}> a conference:Island ; conference:isProvinceOf <http://example.com/river/{river}> ; conference:locatedInWater <http://example.com/lake/{lake}> , <http://example.com/sea/{sea}> . 
+source		SELECT "island" , "sea" , "lake" , "river" FROM "islandin"
+
+mappingId	mapping-1645446500
+target		<http://example.com/language/{name}__{country}> a conference:Language ; conference:cityIn <http://example.com/country/{country}> ; conference:name {name}^^xsd:string ; conference:percent {percentage}^^xsd:decimal . 
+source		SELECT "country" , "name" , "percentage" FROM "language"
+
+mappingId	mapping--1453471848
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'asphalt'
+
+mappingId	mapping-2095700756
+target		<http://example.com/city/{name}__{country}__{province}> a conference:City ; conference:longitude {longitude}^^xsd:decimal ; conference:name {name}^^xsd:string ; conference:elevation {elevation}^^xsd:decimal ; conference:latitude {latitude}^^xsd:decimal ; conference:isProvinceOf <http://example.com/province/{province}> ; conference:population {population}^^xsd:nonNegativeInteger ; conference:cityIn <http://example.com/province/{country}> . 
+source		SELECT "name" , "country" , "province" , "population" , "latitude" , "longitude" , "elevation" FROM "city"
+
+mappingId	mapping-436010198
+target		<http://example.com/organization/{abbreviation}> a conference:Organization ; conference:established {established}^^xsd:date ; conference:abbrev {province}^^xsd:string , {abbreviation}^^xsd:string , {country}^^xsd:string ; conference:name {name}^^xsd:string . 
+source		SELECT "abbreviation" , "name" , "city" , "country" , "province" , "established" FROM "organization"
+
+mappingId	mapping-726764438
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'impact'
+
+mappingId	mapping-503837918
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'salt'
+
+mappingId	mapping--1788769363
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List C'
+
+mappingId	mapping--247256261
+target		<http://example.com/city/{city}> conference:locatedAt <http://example.com/city/{country}> . 
+source		SELECT "city" , "country" FROM "locatedon"
+
+mappingId	mapping--1319060910
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'acid'
+
+mappingId	mapping-2091445674
+target		<http://example.com/province/{name}__{country}> a conference:Province ; conference:hasSource- <http://example.com/city/{capprov}> ; conference:capital <http://example.com/city/{capital}> ; conference:cityIn <http://example.com/city/{country}> ; conference:name {name}^^xsd:string ; conference:population {population}^^xsd:nonNegativeInteger ; conference:area {area}^^xsd:decimal . 
+source		SELECT "name" , "country" , "population" , "area" , "capital" , "capprov" FROM "province"
+
+mappingId	mapping-2115435532
+target		<http://example.com/cityothername/{country}__{province}__{city}__{othername}> a conference:City ; conference:othername {othername}^^xsd:string . 
+source		SELECT "city" , "country" , "province" , "othername" FROM "cityothername"
+
+mappingId	mapping-1378623153
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'naturaldam'
+
+mappingId	mapping--1313700017
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'dialogue partner'
+
+mappingId	mapping-1700773291
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'accepting compulsory jurisdiction without reservations'
+
+mappingId	mapping--1177299349
+target		<http://example.com/sea/{sea}> conference:mergesWith <http://example.com/province/{country}> . 
+source		SELECT "sea" , "country" FROM "geo_sea"
+
+mappingId	mapping-1094790303
+target		<http://example.com/river/{river}> conference:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_river"
+
+mappingId	mapping-1301128196
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List B'
+
+mappingId	mapping-420450939
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'cooperating state'
+
+mappingId	mapping-125828384
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'national committee'
+
+mappingId	mapping--1278842648
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'candidate countries'
+
+mappingId	mapping-458382728
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'dam'
+
+mappingId	mapping-519287148
+target		<http://example.com/lake/{lake}> conference:hasBorder <http://example.com/river/{river}> . 
+source		SELECT "lake" , "river" FROM "riverthrough"
+
+mappingId	mapping-44352442
+target		<http://example.com/continent/{name}> a conference:Continent ; conference:area {area}^^xsd:decimal ; conference:name {name}^^xsd:string . 
+source		SELECT "name" , "area" FROM "continent"
+
+mappingId	mapping--748159889
+target		<http://example.com/country/{country}> a conference:PopulationCount ; conference:infantMortality {infant_mortality}^^xsd:decimal ; conference:populationGrowth {population_growth}^^xsd:decimal . 
+source		SELECT "country" , "population_growth" , "infant_mortality" FROM "population"
+
+mappingId	mapping-398725033
+target		<http://example.com/religion/{name}__{country}> a conference:Religion ; conference:cityIn <http://example.com/country/{country}> ; conference:percent {percentage}^^xsd:decimal ; conference:name {name}^^xsd:string . 
+source		SELECT "country" , "name" , "percentage" FROM "religion"
+
+mappingId	mapping--1182971292
+target		<http://example.com/encompasses/{country}__{continent}> a conference:Encompassed ; conference:percent {percentage}^^xsd:decimal ; conference:encompassedBy <http://example.com/continent/{continent}> ; conference:cityIn <http://example.com/country/{country}> . 
+source		SELECT "country" , "continent" , "percentage" FROM "encompasses"
+
+mappingId	mapping-705959930
+target		<http://example.com/countryothername/{country}__{othername}> a conference:Country ; conference:government {othername}^^xsd:string ; conference:carCode {country}^^xsd:string . 
+source		SELECT "country" , "othername" FROM "countryothername"
+
+mappingId	mapping--1850978515
+target		<http://example.com/island/{name}> a conference:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'volcanic'
+
+mappingId	mapping-1802755952
+target		<http://example.com/country/{code}> a conference:Country ; conference:name {name}^^xsd:string ; conference:carCode {code}^^xsd:string ; conference:hasProvince <http://example.com/city/{province}> ; conference:capital <http://example.com/city/{capital}> ; conference:area {area}^^xsd:decimal ; conference:population {population}^^xsd:nonNegativeInteger . 
+source		SELECT "name" , "code" , "capital" , "province" , "area" , "population" FROM "country"
+
+mappingId	mapping--1906129405
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'compliant countries'
+
+mappingId	mapping--955080705
+target		<http://example.com/river/{river}> conference:hasEstuary <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_estuary"
+
+mappingId	mapping--82388107
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'having direct member'
+
+mappingId	mapping--787058794
+target		<http://example.com/mountain/{name}> a conference:Volcano . 
+source		SELECT "name" FROM "mountain" WHERE "type" = 'volcano'
+
+mappingId	mapping-1715991438
+target		<http://example.com/provinceothername/{country}__{province}__{othername}> a conference:Province ; conference:othername {othername}^^xsd:string . 
+source		SELECT "province" , "country" , "othername" FROM "provinceothername"
+
+mappingId	mapping-696217303
+target		<http://example.com/located/{city}__{province}__{country}__{river}__{lake}__{sea}> a conference:Location ; conference:cityIn <http://example.com/city/{country}> , <http://example.com/city/{city}> ; conference:haMember <http://example.com/lake/{lake}> ; conference:hasBorder <http://example.com/river/{river}> ; conference:isProvinceOf <http://example.com/city/{province}> ; conference:hasSource- <http://example.com/sea/{sea}> . 
+source		SELECT "city" , "province" , "country" , "river" , "lake" , "sea" FROM "located"
+
+mappingId	mapping-2006193174
+target		<http://example.com/river/{name}> a conference:River ; conference:flowsThrough <http://example.com/lake/{lake}> ; conference:hasBorder <http://example.com/river/{river}> ; conference:name {name}^^xsd:string ; conference:hasSource <http://example.com/sea/{sea}> ; conference:elevation {sourceelevation}^^xsd:decimal ; conference:length {length}^^xsd:decimal . 
+source		SELECT "name" , "river" , "lake" , "sea" , "length" , "source" , "mountains" , "sourceelevation" , "estuary" FROM "river"
+
+mappingId	mapping--529704867
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associate member'
+
+mappingId	mapping-840600579
+target		<http://example.com/mountain/{mountain}> conference:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "mountain" , "country" FROM "geo_mountain"
+
+mappingId	mapping-1392085198
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'nonpermanent member'
+
+mappingId	mapping--486476420
+target		<http://example.com/ismember/{country}__{organization}> a conference:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associate observer'
+
+mappingId	mapping--1091984605
+target		<http://example.com/lake/{lake}> conference:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "lake" , "country" FROM "geo_lake"
+
+mappingId	mapping--371918211
+target		<http://example.com/mountain/{name}> a conference:Mountain ; conference:name {name}^^xsd:string ; conference:elevation {elevation}^^xsd:decimal . 
+source		SELECT "name" , "mountains" , "elevation" , "type" , "coordinates" FROM "mountain"
+
+mappingId	mapping--654017570
+target		<http://example.com/ethnicgroup/{name}__{country}> a conference:EthnicGroup ; conference:percent {percentage}^^xsd:decimal ; conference:cityIn <http://example.com/country/{country}> ; conference:name {name}^^xsd:string . 
+source		SELECT "country" , "name" , "percentage" FROM "ethnicgroup"
+
+mappingId	mapping--1069903680
+target		<http://example.com/desert/{name}> a conference:Desert ; conference:name {name}^^xsd:string ; conference:area {area}^^xsd:decimal . 
+source		SELECT "name" , "area" , "coordinates" FROM "desert"
+
+mappingId	mapping-1924403419
+target		<http://example.com/desert/{desert}> conference:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "desert" , "country" FROM "geo_desert"
+
+mappingId	mapping-1869553148
+target		<http://example.com/lake/{name}> a conference:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'crater'
+
+mappingId	mapping--707597072
+target		<http://example.com/mountain/{mountain}> conference:locatedOnIsland <http://example.com/island/{island}> . 
+source		SELECT "mountain" , "island" FROM "mountainonisland"
+]]
+

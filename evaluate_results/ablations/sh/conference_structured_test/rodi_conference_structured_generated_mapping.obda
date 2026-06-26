@@ -1,0 +1,151 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+conferencestructured:	http://conference#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--1743658201
+target		<http://example.com/important_dates/{ID}> a conferencestructured:Important_dates ; conferencestructured:is_a_date_of_acceptance_announcement {is_a_date_of_acceptance_a}^^xsd:date ; conferencestructured:is_an_abstract_submission_date {is_an_abstract_submission}^^xsd:date ; conferencestructured:is_a_date_of_camera_ready_paper_submission {is_a_date_of_camera_ready}^^xsd:date ; conferencestructured:is_a_full_paper_submission_date {is_a_full_paper_submissio}^^xsd:date ; conferencestructured:is_an_ending_date {is_an_ending_date}^^xsd:date ; conferencestructured:is_a_starting_date {is_a_starting_date}^^xsd:date . 
+source		SELECT "ID" , "is_a_date_of_acceptance_a" , "is_a_full_paper_submissio" , "is_a_date_of_camera_ready" , "is_an_ending_date" , "is_a_starting_date" , "is_an_abstract_submission" FROM "Important_dates"
+
+mappingId	mapping-1123090586
+target		<http://example.com/conference_proceedings/{ID}> a conferencestructured:Conference_proceedings ; conferencestructured:has_a_volume {has_a_volume}^^xsd:int ; conferencestructured:has_an_ISBN {has_an_ISBN}^^xsd:string ; conferencestructured:has_a_name {has_a_name}^^xsd:string ; conferencestructured:has_a_publisher <http://example.com/publisher/{has_a_publisher}> . 
+source		SELECT "ID" , "has_a_publisher" , "has_a_volume" , "has_a_name" , "has_an_ISBN" FROM "Conference_proceedings"
+
+mappingId	mapping-223714901
+target		<http://example.com/conference_document/{ID}> a conferencestructured:Conference_document ; conferencestructured:has_a_URL {has_a_URL}^^xsd:string ; conferencestructured:has_a_date_of_issue {has_a_date_of_issue}^^xsd:date . 
+source		SELECT "ID" , "has_a_date_of_issue" , "has_a_URL" , "TYPE" FROM "Conference_document"
+
+mappingId	mapping-1536934482
+target		<http://example.com/organizer/{ID}> a conferencestructured:Organizer . 
+source		SELECT "ID" FROM "Organizer"
+
+mappingId	mapping--609027288
+target		<http://example.com/person/{ID}> a conferencestructured:Contribution_1th-author . 
+source		SELECT "ID" FROM "Person" WHERE "is_Contribution_1th-author" = true
+
+mappingId	mapping-250507652
+target		<http://example.com/person/{ID}> a conferencestructured:Person ; conferencestructured:has_the_last_name {has_the_last_name}^^xsd:string ; conferencestructured:has_the_first_name {has_the_first_name}^^xsd:string ; conferencestructured:has_gender {has_gender}^^xsd:string . 
+source		SELECT "ID" , "has_the_first_name" , "has_the_last_name" , "has_gender" , "is_Conference_contributor" , "is_Contribution_co-author" , "is_Committee_member" , "is_Chair" , "is_Contribution_1th-author" , "is_Reviewer" , "TYPE" FROM "Person"
+
+mappingId	mapping-1324055143
+target		<http://example.com/committee/{ID}> a conferencestructured:Program_committee . 
+source		SELECT "ID" FROM "Committee" WHERE "TYPE" = 1
+
+mappingId	mapping-1750342466
+target		<http://example.com/person/{ID}> a conferencestructured:Committee_member . 
+source		SELECT "ID" FROM "Person" WHERE "is_Committee_member" = true
+
+mappingId	mapping-229195680
+target		<http://example.com/conference_volume/{ID}> a conferencestructured:Conference_volume ; conferencestructured:has_a_location {has_a_location}^^xsd:string ; conferencestructured:has_an_organizing_committee <http://example.com/organizing_committee/{has_an_organizing_committ}> ; conferencestructured:has_important_dates <http://example.com/important_dates/{has_important_dates}> ; conferencestructured:has_a_steering_committee <http://example.com/steering_committee/{has_a_steering_committee}> ; conferencestructured:has_a_commtitee <http://example.com/committee/{has_a_program_committee}> ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_program_committee" , "has_an_organizing_committ" , "has_a_location" , "has_a_steering_committee" , "has_important_dates" , "has_a_name" FROM "Conference_volume"
+
+mappingId	mapping-410015310
+target		<http://example.com/committee/{Committee}> conferencestructured:has_members <http://example.com/person/{Committee_member}> . 
+source		SELECT "Committee" , "Committee_member" FROM "has_members"
+
+mappingId	mapping-434375095
+target		<http://example.com/topic/{ID}> a conferencestructured:Topic ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Topic"
+
+mappingId	mapping--648633778
+target		<http://example.com/person/{ID}> a conferencestructured:Chair . 
+source		SELECT "ID" FROM "Person" WHERE "is_Chair" = true
+
+mappingId	mapping--759812142
+target		<http://example.com/person/{ID}> a conferencestructured:Contribution_co-author . 
+source		SELECT "ID" FROM "Person" WHERE "is_Contribution_co-author" = true
+
+mappingId	mapping--634511069
+target		<http://example.com/conference_fees/{ID}> a conferencestructured:Conference_fees ; conferencestructured:amount {amount}^^xsd:string . 
+source		SELECT "ID" , "amount" FROM "Conference_fees"
+
+mappingId	mapping-1398264750
+target		<http://example.com/person/{ID}> a conferencestructured:Committee_member . 
+source		SELECT "ID" FROM "Person" WHERE "TYPE" = 0
+
+mappingId	mapping--2052131777
+target		<http://example.com/person/{Reviewer}> conferencestructured:belongs_to_reviewers <http://example.com/person/{Entity}> . 
+source		SELECT "Reviewer" , "Entity" FROM "belongs_to_reviewers"
+
+mappingId	mapping--963384958
+target		<http://example.com/conference_document/{ID}> a conferencestructured:Presentation . 
+source		SELECT "ID" FROM "Conference_document" WHERE "TYPE" = 0
+
+mappingId	mapping--337869517
+target		<http://example.com/conference_document/{Conference_document}> conferencestructured:has_authors <http://example.com/person/{Person}> . 
+source		SELECT "Conference_document" , "Person" FROM "contributes"
+
+mappingId	mapping-94807005
+target		<http://example.com/person/{Person}> conferencestructured:has_an_email {VALUE}^^xsd:string . 
+source		SELECT "Person" , "VALUE" FROM "has_an_email"
+
+mappingId	mapping--807958545
+target		<http://example.com/workshop/{ID}> a conferencestructured:Workshop ; conferencestructured:has_authors <http://example.com/person/{has_a_track-workshop-tuto}> ; conferencestructured:is_part_of_conference_volumes <http://example.com/conference_volume/{is_part_of_conference_vol}> , <http://example.com/conference_volume/{has_workshops_Inv}> ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_track-workshop-tuto" , "has_workshops_Inv" , "is_part_of_conference_vol" , "has_a_name" FROM "Workshop"
+
+mappingId	mapping--68618822
+target		<http://example.com/track/{ID}> a conferencestructured:Track ; conferencestructured:has_authors <http://example.com/person/{has_a_track-workshop-tuto}> ; conferencestructured:is_part_of_conference_volumes <http://example.com/conference_volume/{is_part_of_conference_vol}> ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_tracks_Inv" , "has_a_track-workshop-tuto" , "is_part_of_conference_vol" , "has_a_name" FROM "Track"
+
+mappingId	mapping--1334446545
+target		<http://example.com/publisher/{ID}> a conferencestructured:Publisher ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Publisher"
+
+mappingId	mapping--899437328
+target		<http://example.com/person/{ID}> a conferencestructured:Reviewer . 
+source		SELECT "ID" FROM "Person" WHERE "is_Reviewer" = true
+
+mappingId	mapping--820525722
+target		<http://example.com/organization/{ID}> a conferencestructured:Organization ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_a_name" FROM "Organization"
+
+mappingId	mapping-796858050
+target		<http://example.com/person/{ID}> a conferencestructured:Conference_contributor . 
+source		SELECT "ID" FROM "Person" WHERE "is_Conference_contributor" = true
+
+mappingId	mapping--643534900
+target		<http://example.com/committee/{ID}> a conferencestructured:Committee ; conferencestructured:has_a_committee_chair <http://example.com/person/{has_a_committee_chair}> ; conferencestructured:has_a_name {has_a_name}^^xsd:string ; conferencestructured:was_a_committee_of <http://example.com/conference_volume/{was_a_program_committee_of}> . 
+source		SELECT "ID" , "has_a_name" , "has_a_committee_chair" , "was_a_program_committee_of" , "TYPE" FROM "Committee"
+
+mappingId	mapping-1146282763
+target		<http://example.com/review_preference/{ID}> a conferencestructured:Review_preference ; conferencestructured:has_a_degree {has_a_degree}^^xsd:int , {has_a_topic_or_a_submissi}^^xsd:int ; conferencestructured:has_a_topic_or_a_submission_contribution <http://example.com/topic/{belongs_to_a_review_refer}> . 
+source		SELECT "ID" , "belongs_to_a_review_refer" , "has_a_degree" , "has_a_topic_or_a_submissi" FROM "Review_preference"
+
+mappingId	mapping--905731603
+target		<http://example.com/person/{ID}> a conferencestructured:Conference_applicant . 
+source		SELECT "ID" FROM "Person" WHERE "TYPE" = 1
+
+mappingId	mapping-1564625561
+target		<http://example.com/tutorial/{ID}> a conferencestructured:Tutorial ; conferencestructured:is_part_of_conference_volumes <http://example.com/conference_volume/{is_part_of_conference_vol}> ; conferencestructured:has_a_name {has_a_name}^^xsd:string . 
+source		SELECT "ID" , "has_tutorials_Inv" , "is_part_of_conference_vol" , "has_a_name" FROM "Tutorial"
+
+mappingId	mapping--1067525852
+target		<http://example.com/person/{Reviewer1}> conferencestructured:invited_by <http://example.com/person/{Reviewer2}> . 
+source		SELECT "Reviewer1" , "Reviewer2" FROM "invited_by"
+
+mappingId	mapping-1343689695
+target		<http://example.com/tutorial/{Conference_part}> conferencestructured:has_a_track-workshop-tutorial_topic <http://example.com/topic/{Topic}> . 
+source		SELECT "Conference_part" , "Topic" FROM "has_a_track-workshop-tuto"
+
+mappingId	mapping-892379278
+target		<http://example.com/review_expertise/{ID}> a conferencestructured:Review_expertise ; conferencestructured:has_an_expertise {has_an_expertise}^^xsd:string ; conferencestructured:has_a_submitted_contribution <http://example.com/paper/{has_a_submitted_contribut}> . 
+source		SELECT "ID" , "has_an_expertise" , "has_a_submitted_contribut" FROM "Review_expertise"
+
+mappingId	mapping--1318140121
+target		<http://example.com/conference_document/{ID}> a conferencestructured:Conference_announcement . 
+source		SELECT "ID" FROM "Conference_document" WHERE "TYPE" = 2
+
+mappingId	mapping-1858535791
+target		<http://example.com/person/{ID}> a conferencestructured:Conference_contributor . 
+source		SELECT "ID" FROM "Person" WHERE "TYPE" = 5
+
+mappingId	mapping--492975188
+target		<http://example.com/committee/{Committee}> conferencestructured:has_a_committee_co-chair <http://example.com/person/{Co-chair}> . 
+source		SELECT "Committee" , "Co-chair" FROM "has_a_committee_co-chair"
+]]
+

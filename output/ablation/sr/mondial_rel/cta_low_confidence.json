@@ -1,0 +1,102 @@
+{
+  "airport": {
+    "table_low": true,
+    "columns_low": [
+      "country",
+      "island"
+    ]
+  },
+  "country": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "countryothername": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "economy": {
+    "table_low": true,
+    "columns_low": [
+      "gdp",
+      "agriculture",
+      "service",
+      "industry"
+    ]
+  },
+  "encompasses": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "ethnicgroup": {
+    "table_low": true,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "island": {
+    "table_low": true,
+    "columns_low": [
+      "islands"
+    ]
+  },
+  "islandin": {
+    "table_low": false,
+    "columns_low": [
+      "island"
+    ]
+  },
+  "ismember": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "lake": {
+    "table_low": false,
+    "columns_low": []
+  },
+  "language": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "located": {
+    "table_low": true,
+    "columns_low": []
+  },
+  "mountain": {
+    "table_low": true,
+    "columns_low": [
+      "mountains",
+      "coordinates"
+    ]
+  },
+  "organization": {
+    "table_low": false,
+    "columns_low": [
+      "city",
+      "country"
+    ]
+  },
+  "politics": {
+    "table_low": true,
+    "columns_low": [
+      "independence",
+      "dependent"
+    ]
+  },
+  "religion": {
+    "table_low": false,
+    "columns_low": [
+      "percentage"
+    ]
+  },
+  "river": {
+    "table_low": false,
+    "columns_low": [
+      "sourceelevation",
+      "estuary"
+    ]
+  }
+}

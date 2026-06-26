@@ -1,0 +1,2723 @@
+{
+  "abstracts.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.7375,
+    "peer_implicit_score": null,
+    "domain_table": "abstracts",
+    "domain_rows": 367,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "domain_class_uri": "http://sigkdd#Abstract",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "abstracts",
+      "source_column": "id",
+      "target_table": "documents",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1468,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.25,
+      "jaccard": 0.25,
+      "evidence_score": 0.7375,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "author_deadline_author_notificat": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "authors",
+    "domain_rows": 564,
+    "range_table": "deadline_author_notificats",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Author",
+    "range_class_uri": "http://sigkdd#Deadline_Author_notification",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "score": 0.759,
+        "name_score": 0.517,
+        "syntax_score": 0.517,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Deadline_Author_notification"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.385,
+        "name_score": 0.345,
+        "syntax_score": 0.345,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.19,
+        "name_score": 0.379,
+        "syntax_score": 0.379,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "score": 0.336,
+        "name_score": 0.172,
+        "syntax_score": 0.172,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 14,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#submit",
+        "local_name": "submit",
+        "score": 0.302,
+        "name_score": 0.103,
+        "syntax_score": 0.103,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Paper"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 19,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "author_paper_students.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.790869,
+    "peer_implicit_score": null,
+    "domain_table": "author_paper_students",
+    "domain_rows": 227,
+    "range_table": "authors",
+    "range_rows": 564,
+    "domain_class_uri": "http://sigkdd#Author_of_paper_student",
+    "range_class_uri": "http://sigkdd#Author",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "author_paper_students",
+      "source_column": "id",
+      "target_table": "authors",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 227,
+      "target_distinct": 564,
+      "intersection": 227,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.402482,
+      "jaccard": 0.402482,
+      "evidence_score": 0.790869,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "author_papers.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "author_papers",
+    "domain_rows": 0,
+    "range_table": "authors",
+    "range_rows": 564,
+    "domain_class_uri": "http://sigkdd#Author_of_paper",
+    "range_class_uri": "http://sigkdd#Author",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "authors.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "authors",
+    "domain_rows": 564,
+    "range_table": "speakers",
+    "range_rows": 564,
+    "domain_class_uri": "http://sigkdd#Author",
+    "range_class_uri": "http://sigkdd#Speaker",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "authors",
+      "source_column": "id",
+      "target_table": "speakers",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 564,
+      "target_distinct": 564,
+      "intersection": 564,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "award_author": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "authors",
+    "domain_rows": 564,
+    "range_table": "awards",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Author",
+    "range_class_uri": "http://sigkdd#Award",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "score": 0.5,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "score": 0.636,
+        "name_score": 0.273,
+        "syntax_score": 0.273,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 8,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.379,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 5,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#awarded_by",
+        "local_name": "awarded_by",
+        "score": 0.227,
+        "name_score": 0.455,
+        "syntax_score": 0.455,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Award"
+        ],
+        "range": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "score": 0.368,
+        "name_score": 0.235,
+        "syntax_score": 0.235,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Deadline_Author_notification"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 14,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "best_applications_paper_as.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_applications_paper_as",
+    "domain_rows": 0,
+    "range_table": "awards",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Best_Applications_Paper_Award",
+    "range_class_uri": "http://sigkdd#Award",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "best_paper_awards_committs.award": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_paper_awards_committs",
+    "domain_rows": 0,
+    "range_table": "awards",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Best_Paper_Awards_Committee",
+    "range_class_uri": "http://sigkdd#Award",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#awarded_by",
+        "local_name": "awarded_by",
+        "score": 0.278,
+        "name_score": 0.556,
+        "syntax_score": 0.556,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Award"
+        ],
+        "range": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.167,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "score": 0.333,
+        "name_score": 0.167,
+        "syntax_score": 0.167,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 12,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "score": 0.212,
+        "name_score": 0.0,
+        "syntax_score": 0.0,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Committee"
+        ],
+        "range": [
+          "http://sigkdd#Conference"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 19,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "best_paper_awards_committs.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_paper_awards_committs",
+    "domain_rows": 0,
+    "range_table": "committees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Best_Paper_Awards_Committee",
+    "range_class_uri": "http://sigkdd#Committee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "best_research_paper_awards.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_research_paper_awards",
+    "domain_rows": 0,
+    "range_table": "awards",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Best_Research_Paper_Award",
+    "range_class_uri": "http://sigkdd#Award",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "best_student_paper_awards.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_student_paper_awards",
+    "domain_rows": 0,
+    "range_table": "awards",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Best_Student_Paper_Award",
+    "range_class_uri": "http://sigkdd#Award",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "best_student_paper_suppors.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "best_student_paper_suppors",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Best_Student_Paper_Supporter",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "bronze_supporters.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "bronze_supporters",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Bronze_Supporter",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "committees.committee": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "peer_implicit_score": 1.0,
+    "domain_table": "committees",
+    "domain_rows": 7,
+    "range_table": "conferences",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "score": 0.375,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "score": 0.809,
+        "name_score": 0.692,
+        "syntax_score": 0.692,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://sigkdd#Committee"
+        ],
+        "range": [
+          "http://sigkdd#Conference"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "score": 0.25,
+        "name_score": 0.0,
+        "syntax_score": 0.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 20,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#hold",
+        "local_name": "hold",
+        "score": 0.306,
+        "name_score": 0.111,
+        "syntax_score": 0.111,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 17,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "committees",
+      "source_column": "committee",
+      "target_table": "conferences",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ref",
+        "target_column": "id",
+        "evidence_score": 1.0,
+        "inclusion_score": 1.0,
+        "intersection": 7
+      }
+    ]
+  },
+  "committees.ref": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "peer_implicit_score": 1.0,
+    "domain_table": "committees",
+    "domain_rows": 7,
+    "range_table": "conferences",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Committee",
+    "range_class_uri": "http://sigkdd#Conference",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "score": 0.167,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Sponzor"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#isCommitteeOf",
+        "local_name": "isCommitteeOf",
+        "score": 0.539,
+        "name_score": 0.154,
+        "syntax_score": 0.154,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://sigkdd#Committee"
+        ],
+        "range": [
+          "http://sigkdd#Conference"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 9,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "score": 0.35,
+        "name_score": 0.2,
+        "syntax_score": 0.2,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 5,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "score": 0.15,
+        "name_score": 0.3,
+        "syntax_score": 0.3,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Review"
+        ],
+        "range": [
+          "nec8b837c6e05462085a931c3fa182d51b1"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#awarded_by",
+        "local_name": "awarded_by",
+        "score": 0.111,
+        "name_score": 0.222,
+        "syntax_score": 0.222,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Award"
+        ],
+        "range": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "committees",
+      "source_column": "ref",
+      "target_table": "conferences",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "committee",
+        "target_column": "id",
+        "evidence_score": 1.0,
+        "inclusion_score": 1.0,
+        "intersection": 7
+      }
+    ]
+  },
+  "conference_halls.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "conference_halls",
+    "domain_rows": 0,
+    "range_table": "places",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Conference_hall",
+    "range_class_uri": "http://sigkdd#Place",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "conferences.holded": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "conferences",
+    "domain_rows": 7,
+    "range_table": "acm_sigkdds",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Conference",
+    "range_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#holded_by",
+        "local_name": "holded_by",
+        "score": 0.875,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#hold",
+        "local_name": "hold",
+        "score": 0.333,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Conference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "score": 0.375,
+        "name_score": 0.25,
+        "syntax_score": 0.25,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#Committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 9,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#designed_by",
+        "local_name": "designed_by",
+        "score": 0.4,
+        "name_score": 0.3,
+        "syntax_score": 0.3,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Deadline"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 6,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#awarded_by",
+        "local_name": "awarded_by",
+        "score": 0.167,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Award"
+        ],
+        "range": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "deadline_abstract_submiss.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "deadline_abstract_submiss",
+    "domain_rows": 0,
+    "range_table": "deadlines",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Deadline_Abstract_Submission",
+    "range_class_uri": "http://sigkdd#Deadline",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "deadline_author_notificats.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "deadline_author_notificats",
+    "domain_rows": 0,
+    "range_table": "deadlines",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Deadline_Author_notification",
+    "range_class_uri": "http://sigkdd#Deadline",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "deadline_document": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "deadlines",
+    "domain_rows": 0,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Deadline",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.312,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#designed_by",
+        "local_name": "designed_by",
+        "score": 0.438,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Deadline"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 6,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.5,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 3,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "score": 0.265,
+        "name_score": 0.529,
+        "syntax_score": 0.529,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Deadline_Author_notification"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.338,
+        "name_score": 0.25,
+        "syntax_score": 0.25,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 12,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "deadline_paper_submissions.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "deadline_paper_submissions",
+    "domain_rows": 0,
+    "range_table": "deadlines",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Deadline_Paper_Submission",
+    "range_class_uri": "http://sigkdd#Deadline",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "deadlines.designed": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "deadlines",
+    "domain_rows": 0,
+    "range_table": "acm_sigkdds",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Deadline",
+    "range_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#designed_by",
+        "local_name": "designed_by",
+        "score": 0.9,
+        "name_score": 0.8,
+        "syntax_score": 0.8,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Deadline"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#design",
+        "local_name": "design",
+        "score": 0.375,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Deadline"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#searched_by",
+        "local_name": "searched_by",
+        "score": 0.45,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Sponzor"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 5,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.222,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#holded_by",
+        "local_name": "holded_by",
+        "score": 0.438,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "exhibitors.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "exhibitors",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Exhibitor",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "general_chairs.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "general_chairs",
+    "domain_rows": 0,
+    "range_table": "organizators",
+    "range_rows": 33,
+    "domain_class_uri": "http://sigkdd#General_Chair",
+    "range_class_uri": "http://sigkdd#Organizator",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "gold_supporters.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "gold_supporters",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Gold_Supporter",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "hotels.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "hotels",
+    "domain_rows": 0,
+    "range_table": "places",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Hotel",
+    "range_class_uri": "http://sigkdd#Place",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "invited_speakers.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "invited_speakers",
+    "domain_rows": 0,
+    "range_table": "speakers",
+    "range_rows": 564,
+    "domain_class_uri": "http://sigkdd#Invited_Speaker",
+    "range_class_uri": "http://sigkdd#Speaker",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "listeners.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.736442,
+    "peer_implicit_score": null,
+    "domain_table": "listeners",
+    "domain_rows": 143,
+    "range_table": "persons",
+    "range_rows": 579,
+    "domain_class_uri": "http://sigkdd#Listener",
+    "range_class_uri": "http://sigkdd#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "listeners",
+      "source_column": "id",
+      "target_table": "persons",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 143,
+      "target_distinct": 579,
+      "intersection": 143,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.246978,
+      "jaccard": 0.246978,
+      "evidence_score": 0.736442,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "main_offices.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "main_offices",
+    "domain_rows": 0,
+    "range_table": "places",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Main_office",
+    "range_class_uri": "http://sigkdd#Place",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "organizators.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.669948,
+    "peer_implicit_score": null,
+    "domain_table": "organizators",
+    "domain_rows": 33,
+    "range_table": "persons",
+    "range_rows": 579,
+    "domain_class_uri": "http://sigkdd#Organizator",
+    "range_class_uri": "http://sigkdd#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "organizators",
+      "source_column": "id",
+      "target_table": "persons",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 33,
+      "target_distinct": 579,
+      "intersection": 33,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.056995,
+      "jaccard": 0.056995,
+      "evidence_score": 0.669948,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "organizing_committee_membs.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "organizing_committee_membs",
+    "domain_rows": 0,
+    "range_table": "organizators",
+    "range_rows": 33,
+    "domain_class_uri": "http://sigkdd#Organizing_Committee_member",
+    "range_class_uri": "http://sigkdd#Organizator",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "organizing_committees.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "organizing_committees",
+    "domain_rows": 0,
+    "range_table": "committees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Organizing_Committee",
+    "range_class_uri": "http://sigkdd#Committee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "paper_author": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "domain_table": "authors",
+    "domain_rows": 564,
+    "range_table": "papers",
+    "range_rows": 367,
+    "self_rows": 979,
+    "domain_class_uri": "http://sigkdd#Author",
+    "range_class_uri": "http://sigkdd#Author_of_paper",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.463,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#obtain",
+        "local_name": "obtain",
+        "score": 0.386,
+        "name_score": 0.273,
+        "syntax_score": 0.273,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 8,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "score": 0.208,
+        "name_score": 0.417,
+        "syntax_score": 0.417,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "score": 0.368,
+        "name_score": 0.235,
+        "syntax_score": 0.235,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Deadline_Author_notification"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 14,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.4,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 3,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": {
+      "source_table": "paper_author",
+      "source_column": "aid",
+      "target_table": "authors",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 564,
+      "target_distinct": 564,
+      "intersection": 564,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    },
+    "fk2_evidence": {
+      "source_table": "paper_author",
+      "source_column": "pid",
+      "target_table": "papers",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 367,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    }
+  },
+  "papers.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.7375,
+    "peer_implicit_score": null,
+    "domain_table": "papers",
+    "domain_rows": 367,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "domain_class_uri": "http://sigkdd#Author_of_paper",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "papers",
+      "source_column": "id",
+      "target_table": "documents",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1468,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.25,
+      "jaccard": 0.25,
+      "evidence_score": 0.7375,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "place_person": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "persons",
+    "domain_rows": 579,
+    "range_table": "places",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Place",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.546,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#can_stay_in",
+        "local_name": "can_stay_in",
+        "score": 0.682,
+        "name_score": 0.364,
+        "syntax_score": 0.364,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Person"
+        ],
+        "range": [
+          "http://sigkdd#Place"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 9,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#searched_by",
+        "local_name": "searched_by",
+        "score": 0.398,
+        "name_score": 0.545,
+        "syntax_score": 0.545,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://sigkdd#Sponzor"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#pay",
+        "local_name": "pay",
+        "score": 0.341,
+        "name_score": 0.182,
+        "syntax_score": 0.182,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Person"
+        ],
+        "range": [
+          "http://sigkdd#Registration_fee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 18,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "platinum_supporters.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "platinum_supporters",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Platinum_Supporter",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "program_chairs.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.713636,
+    "peer_implicit_score": null,
+    "domain_table": "program_chairs",
+    "domain_rows": 6,
+    "range_table": "organizators",
+    "range_rows": 33,
+    "domain_class_uri": "http://sigkdd#Program_Chair",
+    "range_class_uri": "http://sigkdd#Organizator",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "program_chairs",
+      "source_column": "id",
+      "target_table": "organizators",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 6,
+      "target_distinct": 33,
+      "intersection": 6,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.181818,
+      "jaccard": 0.181818,
+      "evidence_score": 0.713636,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "program_committee_members.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "program_committee_members",
+    "domain_rows": 33,
+    "range_table": "organizators",
+    "range_rows": 33,
+    "domain_class_uri": "http://sigkdd#Program_Committee_member",
+    "range_class_uri": "http://sigkdd#Organizator",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "program_committee_members",
+      "source_column": "id",
+      "target_table": "organizators",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 33,
+      "target_distinct": 33,
+      "intersection": 33,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "program_committees.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "program_committees",
+    "domain_rows": 7,
+    "range_table": "committees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Program_Committee",
+    "range_class_uri": "http://sigkdd#Committee",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "program_committees",
+      "source_column": "id",
+      "target_table": "committees",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "registration_fee_person": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "persons",
+    "domain_rows": 579,
+    "range_table": "registration_fees",
+    "range_rows": 7,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Person",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.31,
+        "name_score": 0.619,
+        "syntax_score": 0.619,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#pay",
+        "local_name": "pay",
+        "score": 0.548,
+        "name_score": 0.095,
+        "syntax_score": 0.095,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#Person"
+        ],
+        "range": [
+          "http://sigkdd#Registration_fee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 18,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.498,
+        "name_score": 0.571,
+        "syntax_score": 0.571,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#notification_until",
+        "local_name": "notification_until",
+        "score": 0.451,
+        "name_score": 0.476,
+        "syntax_score": 0.476,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Author"
+        ],
+        "range": [
+          "http://sigkdd#Deadline_Author_notification"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#can_stay_in",
+        "local_name": "can_stay_in",
+        "score": 0.393,
+        "name_score": 0.286,
+        "syntax_score": 0.286,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Person"
+        ],
+        "range": [
+          "http://sigkdd#Place"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "registration_fees.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.825,
+    "peer_implicit_score": null,
+    "domain_table": "registration_fees",
+    "domain_rows": 7,
+    "range_table": "fees",
+    "range_rows": 14,
+    "domain_class_uri": "http://sigkdd#Registration_fee",
+    "range_class_uri": "http://sigkdd#Fee",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "registration_fees",
+      "source_column": "id",
+      "target_table": "fees",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 14,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.5,
+      "jaccard": 0.5,
+      "evidence_score": 0.825,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "registration_non_members.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "registration_non_members",
+    "domain_rows": 0,
+    "range_table": "registration_fees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Registration_Non-Member",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "registration_sigkdd_members.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "registration_sigkdd_members",
+    "domain_rows": 0,
+    "range_table": "registration_fees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Registration_SIGKDD_Member",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "registration_sigmod_members.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "registration_sigmod_members",
+    "domain_rows": 0,
+    "range_table": "registration_fees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Registration_SIGMOD_Member",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "registration_students.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "registration_students",
+    "domain_rows": 0,
+    "range_table": "registration_fees",
+    "range_rows": 7,
+    "domain_class_uri": "http://sigkdd#Registration_Student",
+    "range_class_uri": "http://sigkdd#Registration_fee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "reviews.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.825,
+    "peer_implicit_score": 0.7375,
+    "domain_table": "reviews",
+    "domain_rows": 734,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "reviews",
+      "source_column": "id",
+      "target_table": "documents",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 734,
+      "target_distinct": 1468,
+      "intersection": 734,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.5,
+      "jaccard": 0.5,
+      "evidence_score": 0.825,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ref",
+        "target_column": "id",
+        "evidence_score": 0.7375,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      },
+      {
+        "source_column": "review",
+        "target_column": "id",
+        "evidence_score": 0.7375,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "reviews.ref": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.7375,
+    "peer_implicit_score": 0.825,
+    "domain_table": "reviews",
+    "domain_rows": 734,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "score": 0.167,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Sponzor"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "score": 0.613,
+        "name_score": 0.3,
+        "syntax_score": 0.3,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://sigkdd#Review"
+        ],
+        "range": [
+          "nec8b837c6e05462085a931c3fa182d51b1"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.324,
+        "name_score": 0.222,
+        "syntax_score": 0.222,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.333,
+        "name_score": 0.167,
+        "syntax_score": 0.167,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.275,
+        "name_score": 0.125,
+        "syntax_score": 0.125,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 11,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "reviews",
+      "source_column": "ref",
+      "target_table": "documents",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1468,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.25,
+      "jaccard": 0.25,
+      "evidence_score": 0.7375,
+      "cardinality_pattern": "n-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "id",
+        "target_column": "id",
+        "evidence_score": 0.825,
+        "inclusion_score": 1.0,
+        "intersection": 734
+      },
+      {
+        "source_column": "review",
+        "target_column": "id",
+        "evidence_score": 0.7375,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "reviews.review": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.7375,
+    "peer_implicit_score": 0.825,
+    "domain_table": "reviews",
+    "domain_rows": 734,
+    "range_table": "documents",
+    "range_rows": 1468,
+    "domain_class_uri": "http://sigkdd#Review",
+    "range_class_uri": "http://sigkdd#Document",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.546,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 1,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#isReviewOf",
+        "local_name": "isReviewOf",
+        "score": 0.762,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://sigkdd#Review"
+        ],
+        "range": [
+          "nec8b837c6e05462085a931c3fa182d51b1"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.417,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 3,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.338,
+        "name_score": 0.25,
+        "syntax_score": 0.25,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 10,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#award",
+        "local_name": "award",
+        "score": 0.167,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Best_Paper_Awards_Committee"
+        ],
+        "range": [
+          "http://sigkdd#Award"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "reviews",
+      "source_column": "review",
+      "target_table": "documents",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1468,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.25,
+      "jaccard": 0.25,
+      "evidence_score": 0.7375,
+      "cardinality_pattern": "n-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "id",
+        "target_column": "id",
+        "evidence_score": 0.825,
+        "inclusion_score": 1.0,
+        "intersection": 734
+      },
+      {
+        "source_column": "ref",
+        "target_column": "id",
+        "evidence_score": 0.7375,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "silver_supporters.id": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "silver_supporters",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "domain_class_uri": "http://sigkdd#Silver_Supporter",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "speaker_document": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "documents",
+    "domain_rows": 1468,
+    "range_table": "speakers",
+    "range_rows": 564,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#Document",
+    "range_class_uri": "http://sigkdd#Invited_Speaker",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.806,
+        "name_score": 0.688,
+        "syntax_score": 0.688,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#submit_until",
+        "local_name": "submit_until",
+        "score": 0.417,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Deadline"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.3,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#hasReview",
+        "local_name": "hasReview",
+        "score": 0.379,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://sigkdd#Paper"
+        ],
+        "range": [
+          "http://sigkdd#Review"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 8,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#hasCommittee",
+        "local_name": "hasCommittee",
+        "score": 0.267,
+        "name_score": 0.533,
+        "syntax_score": 0.533,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Conference"
+        ],
+        "range": [
+          "http://sigkdd#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "speakers.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.990933,
+    "peer_implicit_score": null,
+    "domain_table": "speakers",
+    "domain_rows": 564,
+    "range_table": "persons",
+    "range_rows": 579,
+    "domain_class_uri": "http://sigkdd#Speaker",
+    "range_class_uri": "http://sigkdd#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "speakers",
+      "source_column": "id",
+      "target_table": "persons",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 564,
+      "target_distinct": 579,
+      "intersection": 564,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.974093,
+      "jaccard": 0.974093,
+      "evidence_score": 0.990933,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "sponzor_acm_sigkdd": {
+    "scenario": "SMD",
+    "type": "SR",
+    "fk_source": "fk1=physical, fk2=physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "acm_sigkdds",
+    "domain_rows": 0,
+    "range_table": "sponzors",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://sigkdd#ACM_SIGKDD",
+    "range_class_uri": "http://sigkdd#Sponzor",
+    "op_candidates": [
+      {
+        "uri": "http://sigkdd#presentationed_by",
+        "local_name": "presentationed_by",
+        "score": 0.25,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Document"
+        ],
+        "range": [
+          "http://sigkdd#Speaker"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://sigkdd#search",
+        "local_name": "search",
+        "score": 0.625,
+        "name_score": 0.25,
+        "syntax_score": 0.25,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Sponzor"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 10,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#presentation",
+        "local_name": "presentation",
+        "score": 0.219,
+        "name_score": 0.438,
+        "syntax_score": 0.438,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Speaker"
+        ],
+        "range": [
+          "http://sigkdd#Document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://sigkdd#design",
+        "local_name": "design",
+        "score": 0.406,
+        "name_score": 0.312,
+        "syntax_score": 0.312,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "range": [
+          "http://sigkdd#Deadline"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://sigkdd#designed_by",
+        "local_name": "designed_by",
+        "score": 0.188,
+        "name_score": 0.375,
+        "syntax_score": 0.375,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://sigkdd#Deadline"
+        ],
+        "range": [
+          "http://sigkdd#ACM_SIGKDD"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "sponzor_fees.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": 0.825,
+    "peer_implicit_score": null,
+    "domain_table": "sponzor_fees",
+    "domain_rows": 7,
+    "range_table": "fees",
+    "range_rows": 14,
+    "domain_class_uri": "http://sigkdd#Sponzor_fee",
+    "range_class_uri": "http://sigkdd#Fee",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "sponzor_fees",
+      "source_column": "id",
+      "target_table": "fees",
+      "target_column": "id",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 14,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.5,
+      "jaccard": 0.5,
+      "evidence_score": 0.825,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "sponzors.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "sponzors",
+    "domain_rows": 0,
+    "range_table": "persons",
+    "range_rows": 579,
+    "domain_class_uri": "http://sigkdd#Sponzor",
+    "range_class_uri": "http://sigkdd#Person",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "webmasters.id": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "physical",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "webmasters",
+    "domain_rows": 0,
+    "range_table": "organizators",
+    "range_rows": 33,
+    "domain_class_uri": "http://sigkdd#Webmaster",
+    "range_class_uri": "http://sigkdd#Organizator",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  }
+}

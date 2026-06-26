@@ -1,0 +1,326 @@
+%% references.bib -- unified related-work bibliography for MAMG
+%% Local PDFs are stored under:
+%% /Users/douer_lucky/Documents/科研/MAMG文献/
+
+%% ---------------------------------------------------------------------------
+%% Core VKG / OBDA / RDB2RDF mapping
+%% ---------------------------------------------------------------------------
+
+@inproceedings{llm4vkg,
+  title     = {{LLM4VKG}: Leveraging Large Language Models for Virtual Knowledge Graph Construction},
+  author    = {Xiao, Guohui and Ren, Lin and Qi, Guilin and Xue, Haohan and Di Panfilo, Marco and Lanti, Davide},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI-25)},
+  editor    = {Kwok, James},
+  pages     = {4715--4723},
+  year      = {2025},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  doi       = {10.24963/ijcai.2025/525}
+}
+
+@article{pinkel2018rodi,
+  title   = {{RODI}: Benchmarking Relational-to-Ontology Mapping Generation Quality},
+  author  = {Pinkel, Christoph and Binnig, Carsten and Jim{\'e}nez-Ruiz, Ernesto and Kharlamov, Evgeny and May, Wolfgang and Nikolov, Andriy and Sasa Bastinos, Ana and Skj{\ae}veland, Martin G. and Solimando, Alessandro and Taheriyan, Mohsen and Heupel, Christian and Horrocks, Ian},
+  journal = {Semantic Web},
+  volume  = {9},
+  number  = {1},
+  pages   = {25--52},
+  year    = {2018},
+  doi     = {10.3233/SW-170268}
+}
+
+@inproceedings{xiao2018obda,
+  title     = {Ontology-Based Data Access: A Survey},
+  author    = {Xiao, Guohui and Calvanese, Diego and Kontchakov, Roman and Lembo, Domenico and Poggi, Antonella and Rosati, Riccardo and Zakharyaschev, Michael},
+  booktitle = {Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence (IJCAI-18)},
+  pages     = {5511--5519},
+  year      = {2018},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  doi       = {10.24963/ijcai.2018/777}
+}
+
+@article{calvanese2017ontop,
+  title   = {Ontop: Answering {SPARQL} Queries over Relational Databases},
+  author  = {Calvanese, Diego and Cogrel, Benjamin and Komla-Ebri, Sarah and Kontchakov, Roman and Lanti, Davide and Rezk, Martin and Rodriguez-Muro, Mariano and Xiao, Guohui},
+  journal = {Semantic Web},
+  volume  = {8},
+  number  = {3},
+  pages   = {471--487},
+  year    = {2017},
+  doi     = {10.3233/SW-160217}
+}
+
+@inproceedings{jimenez2015bootox,
+  title     = {{BootOX}: Practical Mapping of {RDBs} to Ontologies},
+  author    = {Jim{\'e}nez-Ruiz, Ernesto and Kharlamov, Evgeny and Zheleznyakov, Dmitriy and Horrocks, Ian and Pinkel, Christoph and Skj{\ae}veland, Martin G. and Thorstensen, Evgenij and Mora, Jos{\'e} Luis Rodriguez},
+  booktitle = {The Semantic Web -- ISWC 2015},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9366},
+  pages     = {113--132},
+  year      = {2015},
+  publisher = {Springer},
+  doi       = {10.1007/978-3-319-25007-6_7}
+}
+
+@misc{r2rml,
+  title        = {{R2RML}: {RDB} to {RDF} Mapping Language},
+  author       = {{W3C RDB2RDF Working Group}},
+  year         = {2012},
+  howpublished = {W3C Recommendation},
+  url          = {https://www.w3.org/TR/r2rml/}
+}
+
+@misc{directmapping2012,
+  title        = {A Direct Mapping of Relational Data to {RDF}},
+  author       = {{W3C RDB2RDF Working Group}},
+  year         = {2012},
+  howpublished = {W3C Recommendation},
+  url          = {https://www.w3.org/TR/rdb-direct-mapping/}
+}
+
+@inproceedings{bizer2004d2rq,
+  title     = {{D2RQ}: Treating Non-{RDF} Databases as Virtual {RDF} Graphs},
+  author    = {Bizer, Christian and Seaborne, Andy},
+  booktitle = {Proceedings of the Third International Semantic Web Conference (ISWC 2004)},
+  year      = {2004},
+  url       = {https://www.wiwiss.fu-berlin.de/bizer/pub/Bizer-D2RQ-ISWC2004.pdf}
+}
+
+@article{calvanese2023mapping,
+  title   = {Conceptually-Grounded Mapping Patterns for Virtual Knowledge Graphs},
+  author  = {Calvanese, Diego and Gal, Avigdor and Lanti, Davide and Montali, Marco and Mosca, Alessandro and Shraga, Roee},
+  journal = {Data \& Knowledge Engineering},
+  volume  = {145},
+  pages   = {102157},
+  year    = {2023},
+  doi     = {10.1016/j.datak.2023.102157}
+}
+
+@article{vanassche2023declarative,
+  title   = {Declarative {RDF} Graph Generation from Heterogeneous (Semi-)Structured Data: A Systematic Literature Review},
+  author  = {Van Assche, Dylan and Delva, Thomas and Haesendonck, Gerald and Heyvaert, Pieter and De Meester, Ben and Dimou, Anastasia},
+  journal = {Journal of Web Semantics},
+  volume  = {75},
+  pages   = {100753},
+  year    = {2023},
+  doi     = {10.1016/j.websem.2022.100753}
+}
+
+%% ---------------------------------------------------------------------------
+%% Benchmarks, schema/ontology matching, and semantic table interpretation
+%% ---------------------------------------------------------------------------
+
+@inproceedings{semtab2019,
+  title     = {{SemTab} 2019: Resources to Benchmark Tabular Data to Knowledge Graph Matching Systems},
+  author    = {Jim{\'e}nez-Ruiz, Ernesto and Hassanzadeh, Oktie and Efthymiou, Vasilis and Chen, Jiaoyan and Srinivas, Kavitha},
+  booktitle = {The Semantic Web},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12123},
+  pages     = {514--530},
+  year      = {2020},
+  publisher = {Springer},
+  doi       = {10.1007/978-3-030-49461-2_30}
+}
+
+@article{nguyen2024mtab4d,
+  title   = {{MTab4D}: Semantic Annotation of Tabular Data with {DBpedia}},
+  author  = {Nguyen, Phuc and Kertkeidkachorn, Natthawut and Ichise, Ryutaro and Takeda, Hideaki},
+  journal = {Semantic Web},
+  volume  = {15},
+  number  = {6},
+  pages   = {2613--2637},
+  year    = {2024},
+  doi     = {10.3233/SW-223098}
+}
+
+@article{liu2023stiSurvey,
+  title   = {From Tabular Data to Knowledge Graphs: A Survey of Semantic Table Interpretation Tasks and Methods},
+  author  = {Liu, Jixiong and Chabot, Yoan and Troncy, Rapha{\"e}l and Huynh, Viet-Phi and Labb{\'e}, Thomas and Monnin, Pierre},
+  journal = {Journal of Web Semantics},
+  volume  = {76},
+  pages   = {100761},
+  year    = {2023},
+  doi     = {10.1016/j.websem.2022.100761}
+}
+
+@article{cremaschi2020mantistable,
+  title   = {A Fully Automated Approach to a Complete Semantic Table Interpretation},
+  author  = {Cremaschi, Marco and De Paoli, Flavio and Rula, Anisa and Spahiu, Blerina},
+  journal = {Future Generation Computer Systems},
+  volume  = {112},
+  pages   = {478--500},
+  year    = {2020},
+  doi     = {10.1016/j.future.2020.05.019}
+}
+
+@inproceedings{chabot2019dagobah,
+  title     = {{DAGOBAH}: An End-to-End Context-Free Tabular Data Semantic Annotation System},
+  author    = {Chabot, Yoan and Labb{\'e}, Thomas and Liu, Jixiong and Troncy, Rapha{\"e}l},
+  booktitle = {SemTab 2019, Semantic Web Challenge on Tabular Data to Knowledge Graph Matching},
+  series    = {CEUR Workshop Proceedings},
+  volume    = {2553},
+  pages     = {41--48},
+  year      = {2019},
+  publisher = {CEUR-WS.org},
+  url       = {https://ceur-ws.org/Vol-2553/paper6.pdf}
+}
+
+@inproceedings{chen2020linkingpark,
+  title     = {{LinkingPark}: An Integrated Approach for Semantic Table Interpretation},
+  author    = {Chen, Shuang and Karaoglu, Alperen and Negreanu, Carina and Ma, Tingting and Yao, Jin-Ge and Williams, Jack and Gordon, Andy and Lin, Chin-Yew},
+  booktitle = {SemTab 2020, Semantic Web Challenge on Tabular Data to Knowledge Graph Matching},
+  series    = {CEUR Workshop Proceedings},
+  volume    = {2775},
+  year      = {2020},
+  publisher = {CEUR-WS.org},
+  url       = {https://ceur-ws.org/Vol-2775/paper7.pdf}
+}
+
+@inproceedings{aumueller2005comapp,
+  title     = {Schema and Ontology Matching with {COMA++}},
+  author    = {Aumueller, David and Do, Hong-Hai and Massmann, Sabine and Rahm, Erhard},
+  booktitle = {Proceedings of the 2005 ACM SIGMOD International Conference on Management of Data},
+  pages     = {906--908},
+  year      = {2005},
+  publisher = {ACM},
+  doi       = {10.1145/1066157.1066283}
+}
+
+@misc{oaei2024,
+  title        = {Ontology Alignment Evaluation Initiative 2024 Results},
+  author       = {{Ontology Alignment Evaluation Initiative}},
+  year         = {2024},
+  howpublished = {Evaluation campaign results},
+  url          = {https://oaei.ontologymatching.org/2024/results/}
+}
+
+%% ---------------------------------------------------------------------------
+%% LLM / agent-based KG construction, semantic mapping, and annotation
+%% ---------------------------------------------------------------------------
+
+@article{qiang2024agentom,
+  title   = {{Agent-OM}: Leveraging {LLM} Agents for Ontology Matching},
+  author  = {Qiang, Zhangcheng and Wang, Weiqing and Taylor, Kerry},
+  journal = {Proceedings of the VLDB Endowment},
+  volume  = {18},
+  number  = {3},
+  pages   = {516--529},
+  year    = {2024},
+  doi     = {10.14778/3712221.3712222}
+}
+
+@inproceedings{geng2026llmsta,
+  title     = {An {LLM} Agent-Based Complex Semantic Table Annotation Approach},
+  author    = {Geng, Yilin and Wang, Shujing and Wang, Chuan and He, Keqing and Lv, Yanfei and Wang, Ying and Feng, Zaiwen and Bai, Xiaoying},
+  booktitle = {Advanced Data Mining and Applications},
+  series    = {Lecture Notes in Artificial Intelligence},
+  pages     = {1--16},
+  year      = {2026},
+  publisher = {Springer Nature Singapore},
+  doi       = {10.1007/978-981-95-3456-2_16}
+}
+
+@inproceedings{gao2025schemaMatchingLLM,
+  title     = {A Unified Multi-Scenario Framework for Schema Matching Based on {LLM}},
+  author    = {Gao, Qiang and Xiao, Yunhao and Hu, Yuren and Zhao, Ruifang and Liu, Baoqi and Feng, Zaiwen and Wang, Ying and Li, Xiaoxia},
+  booktitle = {Proceedings of the International Joint Conference on Neural Networks (IJCNN)},
+  year      = {2025},
+  url       = {https://www.researchgate.net/publication/397634020_A_Unified_Multi-Scenario_Framework_for_Schema_Matching_based_on_LLM}
+}
+
+@inproceedings{trajanoska2025multiagentSemanticMapping,
+  title     = {A Multi-Agent System for Semantic Mapping of Relational Data to Knowledge Graphs},
+  author    = {Trajanoska, Milena and Stojanov, Riste and Trajanov, Dimitar},
+  booktitle = {Proceedings of the International Conference on Web Engineering},
+  year      = {2025},
+  url       = {https://www.researchgate.net/publication/397480682_A_Multi-Agent_System_for_Semantic_Mapping_of_Relational_Data_to_Knowledge_Graphs}
+}
+
+@misc{lu2025karma,
+  title         = {{KARMA}: Leveraging Multi-Agent {LLMs} for Automated Knowledge Graph Enrichment},
+  author        = {Lu, Yuxing and Wu, Wei and Zhao, Xukai and Peng, Rui and Wang, Jinzhuo},
+  year          = {2025},
+  eprint        = {2502.06472},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2502.06472}
+}
+
+
+@inproceedings{pinkel2015rodi,
+  title     = {{RODI}: A Benchmark for Automatic Mapping Generation in Relational-to-Ontology Data Integration},
+  author    = {Pinkel, Christoph and Binnig, Carsten and Jim{\'e}nez-Ruiz, Ernesto and May, Wolfgang and Ritze, Dominique and Skj{\ae}veland, Martin G. and Solimando, Alessandro and Kharlamov, Evgeny},
+  booktitle = {The Semantic Web. Latest Advances and New Domains (ESWC 2015)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9088},
+  pages     = {21--37},
+  year      = {2015},
+  publisher = {Springer},
+  doi       = {10.1007/978-3-319-18818-8_2}
+}
+
+@article{rahm2001schemaMatchingSurvey,
+  title   = {A Survey of Approaches to Automatic Schema Matching},
+  author  = {Rahm, Erhard and Bernstein, Philip A.},
+  journal = {The VLDB Journal},
+  volume  = {10},
+  number  = {4},
+  pages   = {334--350},
+  year    = {2001},
+  doi     = {10.1007/s007780100057}
+}
+
+@inproceedings{zhang2024schemaMatchingPLM,
+  title     = {Schema Matching Using Pre-Trained Language Models},
+  author    = {Zhang, Yunjia and Floratou, Avrilia and Cahoon, Joyce and Krishnan, Subru and M{\"u}ller, Andreas C. and Banda, Dalitso and Psallidas, Fotis and Patel, Jignesh M.},
+  booktitle = {Proceedings of the 2024 IEEE International Conference on Data Engineering (ICDE)},
+  year      = {2024},
+  publisher = {IEEE}
+}
+
+@inproceedings{sui2024tableMeetsLLM,
+  title     = {Table Meets {LLM}: Can Large Language Models Understand Structured Table Data? A Benchmark and Empirical Study},
+  author    = {Sui, Yuan and Zhou, Mengyu and Zhou, Mingjie and Han, Shi and Zhang, Dongmei},
+  booktitle = {Proceedings of the 17th ACM International Conference on Web Search and Data Mining (WSDM)},
+  pages     = {645--654},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3616855.3635752}
+}
+
+@article{su2024approximateIND,
+  title   = {Discovering Approximate Inclusion Dependencies},
+  author  = {Su, Qingdong and Wang, Zhikang and Tan, Zijing and Ma, Shuai},
+  journal = {Proceedings of the VLDB Endowment},
+  volume  = {18},
+  number  = {4},
+  pages   = {1210--1222},
+  year    = {2024},
+  doi     = {10.14778/3717755.3717777}
+}
+
+@inproceedings{bauckmann2007spider,
+  title     = {Efficiently Detecting Inclusion Dependencies},
+  author    = {Bauckmann, Jana and Leser, Ulf and Naumann, Felix and Tietz, Veronique},
+  booktitle = {Proceedings of the 2007 IEEE International Conference on Data Engineering (ICDE)},
+  pages     = {1448--1450},
+  year      = {2007},
+  publisher = {IEEE}
+}
+
+@article{demarchi2009indDiscovery,
+  title   = {Unary and n-ary Inclusion Dependency Discovery in Relational Databases},
+  author  = {De Marchi, Fabien and Lopes, St{\'e}phane and Petit, Jean-Marc},
+  journal = {Journal of Intelligent Information Systems},
+  volume  = {32},
+  number  = {1},
+  pages   = {53--73},
+  year    = {2009}
+}
+
+@misc{rdfschema2014,
+  title        = {{RDF} Schema 1.1},
+  author       = {{W3C RDF Working Group}},
+  year         = {2014},
+  howpublished = {W3C Recommendation},
+  url          = {https://www.w3.org/TR/rdf-schema/}
+}

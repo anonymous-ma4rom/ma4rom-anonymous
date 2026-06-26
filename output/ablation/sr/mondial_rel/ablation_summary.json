@@ -1,0 +1,36 @@
+{
+  "ABLATION_PRESET": "sr",
+  "ABLATION_NAME": "sr",
+  "CURRENT_DATABASE": "mondial_rel",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_CEA_ENHANCEMENT": false,
+  "WO_CPA_REASONING": false,
+  "WO_CTA_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": true,
+  "WO_SE_PATTERN": false,
+  "WO_MV_PATTERN": false,
+  "ablation_root_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/sr",
+  "output_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/sr/mondial_rel",
+  "output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/sr/mondial_rel/rodi_mondial_rel_generated_mapping.ttl",
+  "root_output_mapping": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/sr/rodi_mondial_rel_generated_mapping.ttl",
+  "num_tables": 38,
+  "num_patterns": 38,
+  "pattern_counts": {
+    "SE": 23,
+    "SH": 3,
+    "SR": 12,
+    "MV": 0,
+    "OTHER": 0
+  },
+  "disabled_pattern_components": [
+    "SR"
+  ],
+  "num_disabled_pattern_tables": 12,
+  "num_discovered_fks": 4,
+  "num_low_conf_tables": 17,
+  "num_cpa_step1_relations": 42,
+  "elapsed_seconds": 266.09,
+  "status": "completed"
+}

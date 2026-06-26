@@ -1,0 +1,1034 @@
+{
+  "acceptances": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAcceptanceURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "decisions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "administrator_conference": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKenterReviewCriteriaAdmi",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKenterReviewCriteriaConf",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ]
+  },
+  "administrators": {
+    "columns": {
+      "id": "integer",
+      "accept_paper": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAdministratorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKAdministratoracceptPaper",
+        "fk_arity": 1,
+        "column": "accept_paper",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "associated_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAssociatedChairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      }
+    ]
+  },
+  "author_not_reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAuthorNotReviewerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKAuthorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKAuthorURI2",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      }
+    ]
+  },
+  "bids": {
+    "columns": {
+      "id": "integer",
+      "adjusted": "integer",
+      "bid": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKBidadjustedBy",
+        "fk_arity": 1,
+        "column": "adjusted",
+        "references_table": "reviewers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKBidhasBid_Inv",
+        "fk_arity": 1,
+        "column": "bid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "chairmans": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKChairmanURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      }
+    ]
+  },
+  "co_author_paper": {
+    "columns": {
+      "cid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "pid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKco-writePaperCo-author",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "co_authors",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKco-writePaperPaper",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "co_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKCo-authorURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conf_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConferenceMemberURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_administrator": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKreviewerBiddingStartedB",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "reviewerBiddingStarted2FK",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKConferenceChairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      }
+    ]
+  },
+  "conference_members": {
+    "columns": {
+      "conference": "integer",
+      "conference_member": "integer"
+    },
+    "primary_key": [
+      "conference",
+      "conference_member"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasConferenceMemberConf",
+        "fk_arity": 1,
+        "column": "conference",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "conference_member",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0
+      }
+    ]
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "site_url": "character varying(22)",
+      "accepts_hardcopy_submissions": "character varying(199)",
+      "logo_url": "character varying(199)",
+      "date": "date",
+      "name": "character varying(6)",
+      "reviews_per_paper": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "decisions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "details_entered": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKdetailsEnteredByAdminis",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKdetailsEnteredByConference",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ]
+  },
+  "documents": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "enable_virtual_meeting": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKenableVirtualMeetingAdm",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKenableVirtualMeetingCon",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ]
+  },
+  "external_reviewers": {
+    "columns": {
+      "id": "integer",
+      "assigned_by_reviewer": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKExternalReviewerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKExternalReviewerassigne",
+        "fk_arity": 1,
+        "column": "assigned_by_reviewer",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "finalize_paper_assignment": {
+    "columns": {
+      "aid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "cid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKfinalizePaperAssignment",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "finalizePaperAssignmen2FK",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ]
+  },
+  "hardcopy_mailing_manifests_p": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhardcopyMailingManifest",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "hardcopyMailingManifes2FK",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "mark_conflict_interests": {
+    "columns": {
+      "conference_member": "integer",
+      "paper": "integer"
+    },
+    "primary_key": [
+      "conference_member",
+      "paper"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKmarkConflictOfInterestPaper",
+        "fk_arity": 1,
+        "column": "paper",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "meta_reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKMeta-ReviewerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "meta_reviews": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKMeta-ReviewURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "reviews",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_abstracts": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaperAbstractURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_assignment_tools_run": {
+    "columns": {
+      "cid": "integer",
+      "aid": "integer"
+    },
+    "primary_key": [
+      "cid",
+      "aid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKpaperAssignmentToolsRun",
+        "fk_arity": 1,
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "paperAssignmentToolsRu2FK",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_author": {
+    "columns": {
+      "aid": "integer",
+      "pid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "pid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKsubmitPaperAuthor",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKsubmitPaperPaper",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_full_versions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaperFullVersionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_reviewer": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKassignedToPaper",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKassignedToReviewer",
+        "fk_arity": 1,
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "paper_subject_area": {
+    "columns": {
+      "pid": "integer",
+      "sid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "sid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasSubjectAreaPaper",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKhasSubjectAreaSubjectArea",
+        "fk_arity": 1,
+        "column": "sid",
+        "references_table": "subject_areas",
+        "references_column": "id"
+      }
+    ]
+  },
+  "papers": {
+    "columns": {
+      "id": "integer",
+      "paper_id": "integer",
+      "rejected": "integer",
+      "read_by_meta_reviewer": "integer",
+      "author": "integer",
+      "title": "character varying(101)",
+      "decision": "integer",
+      "accepted": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKPaperURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperacceptedBy",
+        "fk_arity": 1,
+        "column": "accepted",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperhasAuthor",
+        "fk_arity": 1,
+        "column": "author",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperhasDecision",
+        "fk_arity": 1,
+        "column": "decision",
+        "references_table": "decisions",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperreadByMeta-Reviewer",
+        "fk_arity": 1,
+        "column": "read_by_meta_reviewer",
+        "references_table": "meta_reviewers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKPaperrejectedBy",
+        "fk_arity": 1,
+        "column": "rejected",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "pc_members": {
+    "columns": {
+      "id": "integer",
+      "max_papers": "integer",
+      "added": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKProgramCommitteeMemberURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKProgramCommitteeMembera",
+        "fk_arity": 1,
+        "column": "added",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "person_document": {
+    "columns": {
+      "pid": "integer",
+      "did": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "did"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasConflictOfInterestDo",
+        "fk_arity": 1,
+        "column": "did",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKhasConflictOfInterestPerson",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(24)",
+      "email": "character varying(43)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "preferences": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "program_committee_chair_review": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKendReviewProgramCommitt",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "program_committee_chairs",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKendReviewReview",
+        "fk_arity": 1,
+        "column": "rid",
+        "references_table": "reviews",
+        "references_column": "id"
+      }
+    ]
+  },
+  "program_committee_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKProgramCommitteeChairURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKProgramCommitteeChairURI2",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "pc_members",
+        "references_column": "id"
+      }
+    ]
+  },
+  "program_committee_members": {
+    "columns": {
+      "program_committee": "integer",
+      "program_committee_member": "integer"
+    },
+    "primary_key": [
+      "program_committee",
+      "program_committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKhasProgramCommitteeMemb",
+        "fk_arity": 1,
+        "column": "program_committee",
+        "references_table": "program_committees",
+        "references_column": "id"
+      },
+      {
+        "column": "program_committee_member",
+        "ref_table": "pc_members",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0
+      }
+    ]
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "label": "character varying(29)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "read_by_reviewer": {
+    "columns": {
+      "pid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKreadByReviewerPaper",
+        "fk_arity": 1,
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKreadByReviewerReviewer",
+        "fk_arity": 1,
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "rejections": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKRejectionURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "decisions",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviewer_administrator": {
+    "columns": {
+      "aid": "integer",
+      "rid": "integer"
+    },
+    "primary_key": [
+      "aid",
+      "rid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKassignReviewerAdministrator",
+        "fk_arity": 1,
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKassignReviewerReviewer",
+        "fk_arity": 1,
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewerURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKReviewerURI2",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      }
+    ]
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "written": "integer",
+      "comment": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKReviewURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "constraint_name": "FKReviewwrittenBy",
+        "fk_arity": 1,
+        "column": "written",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ]
+  },
+  "set_max_papers": {
+    "columns": {
+      "administrator": "integer",
+      "program_committee_member": "integer"
+    },
+    "primary_key": [
+      "administrator",
+      "program_committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKsetMaxPapersAdministrator",
+        "fk_arity": 1,
+        "column": "administrator",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ]
+  },
+  "subject_areas": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "users": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "FKUserURI",
+        "fk_arity": 1,
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ]
+  }
+}

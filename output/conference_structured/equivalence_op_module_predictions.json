@@ -1,0 +1,1607 @@
+{
+  "generated_at": "2026-06-05 01:04:42",
+  "setting": "clean OP module: class/DP/FK + equivalence/inclusion column evidence + ontology endpoint candidates + LLM",
+  "top_k": 12,
+  "min_endpoint_score": 0.5,
+  "summary": {
+    "total": 46,
+    "answered": 34,
+    "no_answer": 12
+  },
+  "results": [
+    {
+      "relation_key": "Abstract.ID",
+      "task_type": "fk_obj",
+      "source": "Abstract.ID",
+      "target": "Conference_document.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Abstract",
+          "source_column": "ID",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "source_distinct": 367,
+          "target_distinct": 1475,
+          "intersection": 367,
+          "union": 1475,
+          "manual_jaccard": 0.2488135593220339,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2488135593220339,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "Abstract.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选 OP 的 domain/range 均未同时匹配 Abstract 和 Conference_document，且无名称/角色证据支持逆关系或子属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Abstract.is_submitted_at",
+      "task_type": "fk_obj",
+      "source": "Abstract.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Abstract",
+          "source_column": "is_submitted_at",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Abstract.is_submitted_at"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "high",
+        "reason": "候选OP中只有is_submitted_at的domain（Conference_contribution）通过子类关系兼容Abstract，range精确匹配Conference_volume；名称完全匹配'is_submitted_at'，且column_role_score为1.0，表明确实对应此列；等价列证据虽弱但不影响OP选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Committee.was_a_program_committee_of",
+      "task_type": "fk_obj",
+      "source": "Committee.was_a_program_committee_of",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#was_a_program_committee_of",
+      "llm_selected_local_name": "was_a_program_committee_of",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "Committee",
+          "source_column": "was_a_program_committee_of",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "Committee.was_a_program_committee_of"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#was_a_program_committee_of",
+        "selected_local_name": "was_a_program_committee_of",
+        "confidence": "high",
+        "reason": "端点：domain 为 Committee（表类）兼容 Program_committee（OP 类更具体），range 完全匹配 Conference_volume；名称完全匹配且 OP 是 was_a_committee_of 的子属性，角色更具体；等价列证据显示两列完全一致（Jaccard=1.0, IND 双向），有力支持该关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Committee.has_a_committee_chair",
+      "task_type": "fk_obj",
+      "source": "Committee.has_a_committee_chair",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_a_committee_chair",
+      "llm_selected_local_name": "has_a_committee_chair",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Committee",
+          "source_column": "has_a_committee_chair",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Committee.has_a_committee_chair"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_committee_chair",
+        "selected_local_name": "has_a_committee_chair",
+        "confidence": "high",
+        "reason": "关系名'has_a_committee_chair'与OP名完全一致，domain精确匹配Committee，range类Chair是Person的子类（端点兼容）；虽等价列证据弱，但名称和角色支持更强，且该OP是has_members的子属性，更具体。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_proceedings.has_a_publisher",
+      "task_type": "fk_obj",
+      "source": "Conference_proceedings.has_a_publisher",
+      "target": "Publisher.ID",
+      "llm_selected_uri": "http://conference#has_a_publisher",
+      "llm_selected_local_name": "has_a_publisher",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "Conference_proceedings",
+          "source_column": "has_a_publisher",
+          "target_table": "Publisher",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Conference_proceedings.has_a_publisher"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_publisher",
+        "selected_local_name": "has_a_publisher",
+        "confidence": "high",
+        "reason": "候选OP的domain和range分别与关系的domain_class和range_class完全匹配，local_name也与name_hint完全一致；虽然等价列/IND证据弱且无交集，但方向明确无冲突，因此选择该候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_a_program_committee",
+      "task_type": "fk_obj",
+      "source": "Conference_volume.has_a_program_committee",
+      "target": "Committee.ID",
+      "llm_selected_uri": "http://conference#has_a_program_committee",
+      "llm_selected_local_name": "has_a_program_committee",
+      "candidate_count": 12,
+      "schema_matching": [
+        {
+          "source_table": "Conference_volume",
+          "source_column": "has_a_program_committee",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Conference_volume.has_a_program_committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_program_committee",
+        "selected_local_name": "has_a_program_committee",
+        "confidence": "high",
+        "reason": "关系名完全匹配，domain精确，range语义兼容（表类Committee是Program_committee的父类），且该OP是更具体的子属性，名称和角色证据强，符合name_hint。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_a_steering_committee",
+      "task_type": "fk_obj",
+      "source": "Conference_volume.has_a_steering_committee",
+      "target": "Steering_committee.ID",
+      "llm_selected_uri": "http://conference#has_a_steering_committee",
+      "llm_selected_local_name": "has_a_steering_committee",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "Conference_volume",
+          "source_column": "has_a_steering_committee",
+          "target_table": "Steering_committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Conference_volume.has_a_steering_committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_steering_committee",
+        "selected_local_name": "has_a_steering_committee",
+        "confidence": "high",
+        "reason": "domain（Conference_volume）和range（Steering_committee）完全匹配，名称与关系表名完全一致，且为has_a_commtitee的子属性，更具体；等价列证据虽弱但不冲突，支持方向"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_an_organizing_committ",
+      "task_type": "fk_obj",
+      "source": "Conference_volume.has_an_organizing_committ",
+      "target": "Organizing_committee.ID",
+      "llm_selected_uri": "http://conference#has_an_organizing_committee",
+      "llm_selected_local_name": "has_an_organizing_committee",
+      "candidate_count": 11,
+      "schema_matching": [
+        {
+          "source_table": "Conference_volume",
+          "source_column": "has_an_organizing_committ",
+          "target_table": "Organizing_committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Conference_volume.has_an_organizing_committ"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_an_organizing_committee",
+        "selected_local_name": "has_an_organizing_committee",
+        "confidence": "high",
+        "reason": "候选OP名称与关系名高度匹配，domain和range均精确对应Conference_volume和Organizing_committee；虽然等价列/IND证据弱，但endpoint和名称一致性足够强，且该OP是更具体的子属性（subPropertyOf has_a_commtitee）"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Conference_volume.has_important_dates",
+      "task_type": "fk_obj",
+      "source": "Conference_volume.has_important_dates",
+      "target": "Important_dates.ID",
+      "llm_selected_uri": "http://conference#has_important_dates",
+      "llm_selected_local_name": "has_important_dates",
+      "candidate_count": 10,
+      "schema_matching": [
+        {
+          "source_table": "Conference_volume",
+          "source_column": "has_important_dates",
+          "target_table": "Important_dates",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Conference_volume.has_important_dates"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_important_dates",
+        "selected_local_name": "has_important_dates",
+        "confidence": "high",
+        "reason": "候选 OP 中只有 has_important_dates 的 domain 和 range 与当前关系完全匹配（domain: Conference_volume, range: Important_dates），且 local_name 一致。虽然等价列/IND 证据较弱（无实际交集），但基于端点精确匹配和角色名称高度吻合，决定选择该属性。其他候选 range 冲突，故排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Invited_talk.ID",
+      "task_type": "fk_obj",
+      "source": "Invited_talk.ID",
+      "target": "Conference_document.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Invited_talk",
+          "source_column": "ID",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 1475,
+          "intersection": 0,
+          "union": 1475,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Invited_talk.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain/range均未同时兼容Invited_talk和Conference_document：has_an_abstract的range为Abstract；is_submitted_at的range为Conference_volume；contributes的domain为Person。等价列/IND证据无交集，不支持有效映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Invited_talk.has_an_abstract",
+      "task_type": "fk_obj",
+      "source": "Invited_talk.has_an_abstract",
+      "target": "Abstract.ID",
+      "llm_selected_uri": "http://conference#has_an_abstract",
+      "llm_selected_local_name": "has_an_abstract",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "Invited_talk",
+          "source_column": "has_an_abstract",
+          "target_table": "Abstract",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 367,
+          "intersection": 0,
+          "union": 367,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Invited_talk.has_an_abstract"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_an_abstract",
+        "selected_local_name": "has_an_abstract",
+        "confidence": "high",
+        "reason": "唯一候选OP的域名兼容(Invited_talk是其子类)，范围精确匹配Abstract，名称完全一致，且无冲突候选，故选此OP。等价列证据虽弱但不影响FK关系方向。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Invited_talk.is_given_by",
+      "task_type": "fk_obj",
+      "source": "Invited_talk.is_given_by",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#is_given_by",
+      "llm_selected_local_name": "is_given_by",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Invited_talk",
+          "source_column": "is_given_by",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Invited_talk.is_given_by"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_given_by",
+        "selected_local_name": "is_given_by",
+        "confidence": "medium",
+        "reason": "端點相容：Invited_talk 是 Presentation 子類，Person 是 Active_conference_participant 父類；名稱完全匹配 name_hint，column_role_score 高；等價列/IND 證據為弱或衝突，無直接支持但名稱強烈匹配"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Invited_talk.is_submitted_at",
+      "task_type": "fk_obj",
+      "source": "Invited_talk.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "candidate_count": 7,
+      "schema_matching": [
+        {
+          "source_table": "Invited_talk",
+          "source_column": "is_submitted_at",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Invited_talk.is_submitted_at"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "high",
+        "reason": "唯一domain兼容候选（Invited_talk是Conference_contribution的子类），range精确匹配Conference_volume，名称与列提示完全一致，等价列证据虽弱但方向正确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Organizing_committee.ID",
+      "task_type": "fk_obj",
+      "source": "Organizing_committee.ID",
+      "target": "Committee.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "Organizing_committee",
+          "source_column": "ID",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Organizing_committee.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选 ObjectProperty 均无法同时满足 domain 为 Organizing_committee 且 range 为 Committee。唯一 domain 精确的 was_an_organizing_committee_of 其 range 为 Conference_volume，方向相反且其 inverseOf 不在候选列表中，无法按规则选用。其他候选 domain 均冲突（如 Chair/Co-chair/Committee_member/Conference_volume），等价列证据无支持，故返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Organizing_committee.was_an_organizing_committ",
+      "task_type": "fk_obj",
+      "source": "Organizing_committee.was_an_organizing_committ",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#was_an_organizing_committee_of",
+      "llm_selected_local_name": "was_an_organizing_committee_of",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Organizing_committee",
+          "source_column": "was_an_organizing_committ",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Organizing_committee.was_an_organizing_committ"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#was_an_organizing_committee_of",
+        "selected_local_name": "was_an_organizing_committee_of",
+        "confidence": "high",
+        "reason": "domain和range完全精确匹配Organizing_committee和Conference_volume，名称高度相似（was_an_organizing_committ vs was_an_organizing_committee_of），且是更具体的子属性，虽然等价列/IND无支持，但端点证据充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.has_an_abstract",
+      "task_type": "fk_obj",
+      "source": "Paper.has_an_abstract",
+      "target": "Abstract.ID",
+      "llm_selected_uri": "http://conference#has_an_abstract",
+      "llm_selected_local_name": "has_an_abstract",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "Paper",
+          "source_column": "has_an_abstract",
+          "target_table": "Abstract",
+          "target_column": "ID",
+          "source_distinct": 367,
+          "target_distinct": 367,
+          "intersection": 367,
+          "union": 367,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "Paper.has_an_abstract"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_an_abstract",
+        "selected_local_name": "has_an_abstract",
+        "confidence": "high",
+        "reason": "候选OP的domain和range分别与relation的domain class Paper和range class Abstract完全匹配，且endpoint评分均为1.0；名称has_an_abstract与name_hint一致；等价列证据证明Paper.has_an_abstract与Abstract.ID完全等价，支持该OP指向。无其他冲突候选，选择唯一最佳。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.ID",
+      "task_type": "fk_obj",
+      "source": "Paper.ID",
+      "target": "Conference_document.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Paper",
+          "source_column": "ID",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "source_distinct": 367,
+          "target_distinct": 1475,
+          "intersection": 367,
+          "union": 1475,
+          "manual_jaccard": 0.2488135593220339,
+          "source_in_target": 1.0,
+          "target_in_source": 0.2488135593220339,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "Paper.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选OP中，has_an_abstract的domain确切Paper但range是Abstract（Conference_document的子类），等价列证据要求range为Conference_document，且名称无支持；is_submitted_at的range冲突Conference_volume；contributes的domain冲突Person。无合适OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Paper.is_submitted_at",
+      "task_type": "fk_obj",
+      "source": "Paper.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Paper",
+          "source_column": "is_submitted_at",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "Paper.is_submitted_at"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "high",
+        "reason": "当前关系Paper.is_submitted_at的domain Paper是OP domain Conference_contribution的子类，range精确匹配Conference_volume，且名称完全匹配，等价列证据完全支持外键连接，因此选择此OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Poster.has_an_abstract",
+      "task_type": "fk_obj",
+      "source": "Poster.has_an_abstract",
+      "target": "Abstract.ID",
+      "llm_selected_uri": "http://conference#has_an_abstract",
+      "llm_selected_local_name": "has_an_abstract",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "Poster",
+          "source_column": "has_an_abstract",
+          "target_table": "Abstract",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 367,
+          "intersection": 0,
+          "union": 367,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Poster.has_an_abstract"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_an_abstract",
+        "selected_local_name": "has_an_abstract",
+        "confidence": "high",
+        "reason": "候选OP的domain和range与关系Poster和Abstract完全匹配，名称完全一致，等价列证据虽弱但端点精确匹配，无冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Poster.ID",
+      "task_type": "fk_obj",
+      "source": "Poster.ID",
+      "target": "Conference_document.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Poster",
+          "source_column": "ID",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 1475,
+          "intersection": 0,
+          "union": 1475,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Poster.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain或range均不匹配：has_an_abstract的range是Abstract而非Conference_document；contributes的domain是Person而非Poster及其子类；is_submitted_at的range是Conference_volume而非Conference_document。列等价证据显示Poster.ID与Conference_document.ID无交集和IND支持，无法建立外键映射。故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Poster.is_submitted_at",
+      "task_type": "fk_obj",
+      "source": "Poster.is_submitted_at",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_submitted_at",
+      "llm_selected_local_name": "is_submitted_at",
+      "candidate_count": 9,
+      "schema_matching": [
+        {
+          "source_table": "Poster",
+          "source_column": "is_submitted_at",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Poster.is_submitted_at"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_submitted_at",
+        "selected_local_name": "is_submitted_at",
+        "confidence": "high",
+        "reason": "候选 is_submitted_at 的 domain 通过子类兼容 Poster，range 精确匹配 Conference_volume，名称与列名完全一致，endpoint 评分最高。其他候选 domain 均冲突或无匹配，等价列证据弱但不影响方向匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Review.ID",
+      "task_type": "fk_obj",
+      "source": "Review.ID",
+      "target": "Conference_document.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "Review",
+          "source_column": "ID",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "source_distinct": 734,
+          "target_distinct": 1475,
+          "intersection": 734,
+          "union": 1475,
+          "manual_jaccard": 0.4976271186440678,
+          "source_in_target": 1.0,
+          "target_in_source": 0.4976271186440678,
+          "evidence_type": "inclusion_column_source_to_target",
+          "relation_key": "Review.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选reviews的range为Reviewed_contribution，与目标Conference_document不匹配；候选contributes的domain为Person，与Review冲突且方向为Person→Conference_document，其逆has_authors为Conference_document→Person，均无法对应Review→Conference_document。等价列/IND证据显示Review.ID完全包含于Conference_document.ID，支持此方向，但没有候选OP同时满足domain和range，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Review.reviews",
+      "task_type": "fk_obj",
+      "source": "Review.reviews",
+      "target": "Paper.ID",
+      "llm_selected_uri": "http://conference#reviews",
+      "llm_selected_local_name": "reviews",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "Review",
+          "source_column": "reviews",
+          "target_table": "Paper",
+          "target_column": "ID",
+          "source_distinct": 367,
+          "target_distinct": 367,
+          "intersection": 367,
+          "union": 367,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "Review.reviews"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#reviews",
+        "selected_local_name": "reviews",
+        "confidence": "medium",
+        "reason": "LLM returned null, but exact/near OP name, strong equivalence/IND evidence, and at least one strong endpoint support this ObjectProperty.",
+        "rescue_rule": "exact_name_plus_equivalence_column_plus_one_endpoint"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Review_expertise.has_a_submitted_contribut",
+      "task_type": "fk_obj",
+      "source": "Review_expertise.has_a_submitted_contribut",
+      "target": "Paper.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Review_expertise",
+          "source_column": "has_a_submitted_contribut",
+          "target_table": "Paper",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 367,
+          "intersection": 0,
+          "union": 367,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Review_expertise.has_a_submitted_contribut"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选均未同时匹配domain和range：候选1 domain精确但range为Submitted_contribution而非Paper；候选2 domain为Abstract不匹配；候选3 range为Reviewer不匹配。等价列证据为弱，无法确认端点兼容，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Review_preference.belongs_to_a_review_refer",
+      "task_type": "fk_obj",
+      "source": "Review_preference.belongs_to_a_review_refer",
+      "target": "Topic.ID",
+      "llm_selected_uri": "http://conference#has_a_topic_or_a_submission_contribution",
+      "llm_selected_local_name": "has_a_topic_or_a_submission_contribution",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "Review_preference",
+          "source_column": "belongs_to_a_review_refer",
+          "target_table": "Topic",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Review_preference.belongs_to_a_review_refer"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_topic_or_a_submission_contribution",
+        "selected_local_name": "has_a_topic_or_a_submission_contribution",
+        "confidence": "high",
+        "reason": "候选1的domain和range均精确匹配Review_preference和Topic，端点完全符合FK方向；其他候选要么range冲突（候选2）、domain冲突（候选3）要么端点颠倒且无inverseOf（候选4）。等价列IND证据为0（弱），但无冲突，因此选择端点精确匹配的候选1。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Steering_committee.ID",
+      "task_type": "fk_obj",
+      "source": "Steering_committee.ID",
+      "target": "Committee.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "Steering_committee",
+          "source_column": "ID",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Steering_committee.ID"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain和range均未同时匹配Steering_committee和Committee：唯一domain精确匹配的was_a_steering_committee_of的range为Conference_volume，与目标Committee冲突；其余候选domain均冲突。等价列证据显示无交集，不支持任何连接方向。无合适OP，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Steering_committee.was_a_steering_committee_",
+      "task_type": "fk_obj",
+      "source": "Steering_committee.was_a_steering_committee_",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#was_a_steering_committee_of",
+      "llm_selected_local_name": "was_a_steering_committee_of",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Steering_committee",
+          "source_column": "was_a_steering_committee_",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Steering_committee.was_a_steering_committee_"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#was_a_steering_committee_of",
+        "selected_local_name": "was_a_steering_committee_of",
+        "confidence": "high",
+        "reason": "domain和range精确匹配(Steering_committee/Conference_volume)，名称高度吻合(was_a_steering_committee_)，该属性是was_a_committee_of的子属性，更具体；等价列证据弱但无冲突，符合外键方向"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Track.has_tracks_Inv",
+      "task_type": "fk_obj",
+      "source": "Track.has_tracks_Inv",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Track",
+          "source_column": "has_tracks_Inv",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Track.has_tracks_Inv"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "medium",
+        "reason": "唯一端点兼容的OP：domain通过Track是Conference_part的子类兼容，range精确匹配Conference_volume；名称'is_part_of_conference_volumes'与反向关系语义一致，而其他OP domain冲突。等价列证据弱，但基于端点兼容性和名称支持选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Track.has_a_track-workshop-tuto",
+      "task_type": "fk_obj",
+      "source": "Track.has_a_track-workshop-tuto",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_a_track-workshop-tutorial_chair",
+      "llm_selected_local_name": "has_a_track-workshop-tutorial_chair",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Track",
+          "source_column": "has_a_track-workshop-tuto",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Track.has_a_track-workshop-tuto"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_track-workshop-tutorial_chair",
+        "selected_local_name": "has_a_track-workshop-tutorial_chair",
+        "confidence": "medium",
+        "reason": "domain兼容（Track是Conference_part子类），range需要具体化但名称'has_a_track-workshop-tutorial_chair'与关系名高度匹配；等价列证据无交集，故中等置信。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Track.is_part_of_conference_vol",
+      "task_type": "fk_obj",
+      "source": "Track.is_part_of_conference_vol",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Track",
+          "source_column": "is_part_of_conference_vol",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Track.is_part_of_conference_vol"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "high",
+        "reason": "数据库关系Track.is_part_of_conference_vol为外键，domain类Track是候选OP的domain类Conference_part的子类（domain_match_kind: subclass），range类精确匹配Conference_volume，且名称高度相似（is_part_of_conference_volumes），虽然等价列证据弱，但端点和名称均强力支持。其他候选OP的domain均冲突，故选择此OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Tutorial.has_tutorials_Inv",
+      "task_type": "fk_obj",
+      "source": "Tutorial.has_tutorials_Inv",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 9,
+      "schema_matching": [
+        {
+          "source_table": "Tutorial",
+          "source_column": "has_tutorials_Inv",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Tutorial.has_tutorials_Inv"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "high",
+        "reason": "domain 兼容：Tutorial 是 Conference_part 的子类；range 精确匹配 Conference_volume；名称 hint 'has_tutorials_Inv' 含义与 'is part of conference volumes' 一致。等价列证据无支持，但 endpoint 充分。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Tutorial.is_part_of_conference_vol",
+      "task_type": "fk_obj",
+      "source": "Tutorial.is_part_of_conference_vol",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Tutorial",
+          "source_column": "is_part_of_conference_vol",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Tutorial.is_part_of_conference_vol"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "high",
+        "reason": "该候选的domain与Tutorial兼容（Tutorial是Conference_part的子类），range精确匹配Conference_volume，且名称高度相似（is_part_of_conference_volumes），而其他候选的domain均冲突。等价列证据虽弱但方向一致，故选择此OP。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Workshop.has_workshops_Inv",
+      "task_type": "fk_obj",
+      "source": "Workshop.has_workshops_Inv",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Workshop",
+          "source_column": "has_workshops_Inv",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Workshop.has_workshops_Inv"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "high",
+        "reason": "域端Workshop是Conference_part的子类，兼容；范围端精确匹配Conference_volume；名称hint（has_workshops_Inv）与is_part_of_conference_volumes语义相近；其他候选域冲突或方向相反。等价列IND证据弱但不影响本体兼容性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Workshop.has_a_track-workshop-tuto",
+      "task_type": "fk_obj",
+      "source": "Workshop.has_a_track-workshop-tuto",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_a_track-workshop-tutorial_chair",
+      "llm_selected_local_name": "has_a_track-workshop-tutorial_chair",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "Workshop",
+          "source_column": "has_a_track-workshop-tuto",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Workshop.has_a_track-workshop-tuto"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_track-workshop-tutorial_chair",
+        "selected_local_name": "has_a_track-workshop-tutorial_chair",
+        "confidence": "medium",
+        "reason": "端点兼容：domain Workshop 是 Conference_part 的子类，range Person 是 Track-workshop_chair 的超类；名称高度匹配 'has_a_track-workshop-tuto' 与 'has_a_track-workshop-tutorial_chair'；但 range 不完全精确且等价列/IND 证据弱 (intersection=0)，故中等置信度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "Workshop.is_part_of_conference_vol",
+      "task_type": "fk_obj",
+      "source": "Workshop.is_part_of_conference_vol",
+      "target": "Conference_volume.ID",
+      "llm_selected_uri": "http://conference#is_part_of_conference_volumes",
+      "llm_selected_local_name": "is_part_of_conference_volumes",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "Workshop",
+          "source_column": "is_part_of_conference_vol",
+          "target_table": "Conference_volume",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "Workshop.is_part_of_conference_vol"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#is_part_of_conference_volumes",
+        "selected_local_name": "is_part_of_conference_volumes",
+        "confidence": "high",
+        "reason": "端点兼容：Domain Workshop 是 OP 域 Conference_part 的子类，Range 精确匹配 Conference_volume；名称高度相似（is_part_of_conference_volumes 与列名 is_part_of_conference_vol）；其他候选 domain 均冲突，因此唯一合适。等价列证据虽弱但不影响选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "belongs_to_reviewers.Reviewer",
+      "task_type": "fk_obj",
+      "source": "belongs_to_reviewers.Reviewer",
+      "target": "Person.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "belongs_to_reviewers",
+          "source_column": "Reviewer",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "belongs_to_reviewers.Reviewer"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选的domain或range均不匹配所需端点(Reviewer→Person)；候选1和2的range为Reviewer(子类)，但无强名称/角色证据且等价列无交；候选3的range不匹配Person且逆属名称匹配但方向不符；候选4 domain冲突；故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_committee_co-chair.Committee",
+      "task_type": "fk_obj",
+      "source": "has_a_committee_co-chair.Committee",
+      "target": "Committee.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "has_a_committee_co-chair",
+          "source_column": "Committee",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "has_a_committee_co-chair.Committee"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "无候选 ObjectProperty 的 domain 和 range 同时为 Committee；所有候选的端点至少有一个冲突（例如 domain 匹配但 range 为 Chair 或 Conference_volume，反之亦然），且等价列证据无交集，故无法匹配。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_committee_co-chair.Co-chair",
+      "task_type": "fk_obj",
+      "source": "has_a_committee_co-chair.Co-chair",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_a_committee_co-chair",
+      "llm_selected_local_name": "has_a_committee_co-chair",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "has_a_committee_co-chair",
+          "source_column": "Co-chair",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "has_a_committee_co-chair.Co-chair"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_committee_co-chair",
+        "selected_local_name": "has_a_committee_co-chair",
+        "confidence": "high",
+        "reason": "domain完全匹配Committee，range通过子类（Co-chair是Person的子类）兼容Person；名称与列名'Co-chair'高度匹配，table_role_score和column_role_score最高；等价列/IND证据虽弱但未产生冲突，且无更优候选"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_track-workshop-tuto.Conference_part",
+      "task_type": "fk_obj",
+      "source": "has_a_track-workshop-tuto.Conference_part",
+      "target": "Tutorial.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 1,
+      "schema_matching": [
+        {
+          "source_table": "has_a_track-workshop-tuto",
+          "source_column": "Conference_part",
+          "target_table": "Tutorial",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "has_a_track-workshop-tuto.Conference_part"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "候选 has_tutorials 的 domain 是 Conference_volume，与所需 domain Workshop 冲突；虽然 range 匹配 Tutorial，但 endpoint 方向不匹配，等价列证据显示无支持，因此不选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_track-workshop-tuto.Topic",
+      "task_type": "fk_obj",
+      "source": "has_a_track-workshop-tuto.Topic",
+      "target": "Topic.ID",
+      "llm_selected_uri": "http://conference#has_a_track-workshop-tutorial_topic",
+      "llm_selected_local_name": "has_a_track-workshop-tutorial_topic",
+      "candidate_count": 2,
+      "schema_matching": [
+        {
+          "source_table": "has_a_track-workshop-tuto",
+          "source_column": "Topic",
+          "target_table": "Topic",
+          "target_column": "ID",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting",
+          "relation_key": "has_a_track-workshop-tuto.Topic"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_track-workshop-tutorial_topic",
+        "selected_local_name": "has_a_track-workshop-tutorial_topic",
+        "confidence": "medium",
+        "reason": "唯一兼容候选：domain Workshop 是 Conference_part 子类，range 精确匹配 Topic，OP名称含'topic'且方向正确；等价列证据弱但无冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_an_email.Person",
+      "task_type": "fk_obj",
+      "source": "has_an_email.Person",
+      "target": "Person.ID",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "candidate_count": 4,
+      "schema_matching": [
+        {
+          "source_table": "has_an_email",
+          "source_column": "Person",
+          "target_table": "Person",
+          "target_column": "ID",
+          "source_distinct": 774,
+          "target_distinct": 774,
+          "intersection": 774,
+          "union": 774,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column",
+          "relation_key": "has_an_email.Person"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "所有候选OP的domain/range均未精确匹配Person，且名称与“has_an_email”无关，等价列证据仅支持列值等价，无法映射到任何OP语义"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "contributes",
+      "task_type": "sr_relation",
+      "source": "contributes.Conference_document",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_authors",
+      "llm_selected_local_name": "has_authors",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "contributes",
+          "source_column": "Conference_document",
+          "target_table": "Conference_document",
+          "target_column": "ID",
+          "relation_key": "contributes",
+          "source_distinct": 1101,
+          "target_distinct": 1475,
+          "intersection": 1101,
+          "union": 1475,
+          "manual_jaccard": 0.7464406779661017,
+          "source_in_target": 1.0,
+          "target_in_source": 0.7464406779661017,
+          "evidence_type": "inclusion_column_source_to_target"
+        },
+        {
+          "source_table": "contributes",
+          "source_column": "Person",
+          "target_table": "Person",
+          "target_column": "ID",
+          "relation_key": "contributes",
+          "source_distinct": 774,
+          "target_distinct": 774,
+          "intersection": 774,
+          "union": 774,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_authors",
+        "selected_local_name": "has_authors",
+        "confidence": "high",
+        "reason": "端点完全匹配：domain=Conference_document，range=Person，与SR关系表contributes的两条FK等价列/包含列证据（contributes.Conference_document→Conference_document.ID和contributes.Person→Person.ID）一致。名称has_authors比name_hint更具体，且是contributes的逆属性，方向正确。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_committee_co-chair",
+      "task_type": "sr_relation",
+      "source": "has_a_committee_co-chair.Committee",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_a_committee_co-chair",
+      "llm_selected_local_name": "has_a_committee_co-chair",
+      "candidate_count": 8,
+      "schema_matching": [
+        {
+          "source_table": "has_a_committee_co-chair",
+          "source_column": "Committee",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "relation_key": "has_a_committee_co-chair",
+          "source_distinct": 0,
+          "target_distinct": 7,
+          "intersection": 0,
+          "union": 7,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "has_a_committee_co-chair",
+          "source_column": "Co-chair",
+          "target_table": "Person",
+          "target_column": "ID",
+          "relation_key": "has_a_committee_co-chair",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_committee_co-chair",
+        "selected_local_name": "has_a_committee_co-chair",
+        "confidence": "medium",
+        "reason": "domain 精确匹配 Committee，range 的 Co-chair 是 Person 的子类，且 OP 名称与 relation key 完全一致，table_role_score 最高 (1.0)；但等价列/IND 证据为弱冲突，无实际数据支持，因此中等置信度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_a_track-workshop-tuto",
+      "task_type": "sr_relation",
+      "source": "has_a_track-workshop-tuto.Conference_part",
+      "target": "Topic.ID",
+      "llm_selected_uri": "http://conference#has_a_track-workshop-tutorial_topic",
+      "llm_selected_local_name": "has_a_track-workshop-tutorial_topic",
+      "candidate_count": 3,
+      "schema_matching": [
+        {
+          "source_table": "has_a_track-workshop-tuto",
+          "source_column": "Conference_part",
+          "target_table": "Tutorial",
+          "target_column": "ID",
+          "relation_key": "has_a_track-workshop-tuto",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "has_a_track-workshop-tuto",
+          "source_column": "Topic",
+          "target_table": "Topic",
+          "target_column": "ID",
+          "relation_key": "has_a_track-workshop-tuto",
+          "source_distinct": 0,
+          "target_distinct": 0,
+          "intersection": 0,
+          "union": 0,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_a_track-workshop-tutorial_topic",
+        "selected_local_name": "has_a_track-workshop-tutorial_topic",
+        "confidence": "high",
+        "reason": "候选1的domain通过Tutorial是Conference_part的子类兼容，range精确匹配Topic，且名称与关系表名高度相似，方向正确；等价列证据虽弱但不冲突，综合评分最高。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "has_members",
+      "task_type": "sr_relation",
+      "source": "has_members.Committee",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#has_members",
+      "llm_selected_local_name": "has_members",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "has_members",
+          "source_column": "Committee",
+          "target_table": "Committee",
+          "target_column": "ID",
+          "relation_key": "has_members",
+          "source_distinct": 7,
+          "target_distinct": 7,
+          "intersection": 7,
+          "union": 7,
+          "manual_jaccard": 1.0,
+          "source_in_target": 1.0,
+          "target_in_source": 1.0,
+          "evidence_type": "equivalence_column"
+        },
+        {
+          "source_table": "has_members",
+          "source_column": "Committee_member",
+          "target_table": "Person",
+          "target_column": "ID",
+          "relation_key": "has_members",
+          "source_distinct": 33,
+          "target_distinct": 774,
+          "intersection": 33,
+          "union": 774,
+          "manual_jaccard": 0.04263565891472868,
+          "source_in_target": 1.0,
+          "target_in_source": 0.04263565891472868,
+          "evidence_type": "inclusion_column_source_to_target"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#has_members",
+        "selected_local_name": "has_members",
+        "confidence": "high",
+        "reason": "name完全匹配，domain exact Committee，range类Committee_member虽更具体但通过包含证据（has_members.Committee_member ⊆ Person.ID）可映射到Person；其他候选名称不匹配或端点冲突"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "invited_by",
+      "task_type": "sr_relation",
+      "source": "invited_by.Reviewer1",
+      "target": "Person.ID",
+      "llm_selected_uri": "http://conference#invited_by",
+      "llm_selected_local_name": "invited_by",
+      "candidate_count": 5,
+      "schema_matching": [
+        {
+          "source_table": "invited_by",
+          "source_column": "Reviewer1",
+          "target_table": "Person",
+          "target_column": "ID",
+          "relation_key": "invited_by",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        },
+        {
+          "source_table": "invited_by",
+          "source_column": "Reviewer2",
+          "target_table": "Person",
+          "target_column": "ID",
+          "relation_key": "invited_by",
+          "source_distinct": 0,
+          "target_distinct": 774,
+          "intersection": 0,
+          "union": 774,
+          "manual_jaccard": 0.0,
+          "source_in_target": 0.0,
+          "target_in_source": 0.0,
+          "evidence_type": "weak_or_conflicting"
+        }
+      ],
+      "llm_response": {
+        "selected_uri": "http://conference#invited_by",
+        "selected_local_name": "invited_by",
+        "confidence": "medium",
+        "reason": "端点兼容：domain/range 的 OP 类 (Reviewer) 是表类 (Person) 的子类，但 name_hint 完全匹配 'invited_by'，且 role 更具体（table_role_score=1），无数据冲突；等价列证据极弱（无交集），故仅凭名称和角色支持选择，置信度为中等。"
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+database	full_system	se	sh	sr	mv
+cmt_renamed	0.9655	0.7586	0.4483	0.8621	0.9655
+conference_renamed	0.9231	0.6667	0.2308	0.7949	0.8718
+sigkdd_renamed	0.9651	0.6552	0.3099	0.8959	0.8614
+cmt_structured	0.8276	0.5517	0.2757	0.7586	0.6895
+conference_structured	0.8718	0.2821	0.5385	0.7436	0.7692
+sigkdd_structured	0.9306	0.3103	0.8959	0.8269	0.9306
+sigkdd_mixed	0.8271	0.1034	0.7580	0.8269	0.7924
+conference_nofks	0.7179	0.0769	0.6923	0.6923	0.6667
+cmt_denormalized	0.6000	0.3600	0.5600	0.4800	0.5600
+mondial_rel	0.3273	0.0200	0.3181	0.2959	0.3366
+npd_atomic_tests	0.3404	0.1273	0.2596	0.3490	0.3477

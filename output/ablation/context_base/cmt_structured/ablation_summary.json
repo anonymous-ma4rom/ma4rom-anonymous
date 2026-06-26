@@ -1,0 +1,58 @@
+{
+  "isAblation": true,
+  "ABLATION_PRESET": "context_base",
+  "ABLATION_NAME": "context_base",
+  "CURRENT_DATABASE": "cmt_structured",
+  "WO_PATTERN_RECOGNITION": false,
+  "WO_FK_IMPLICIT_RELATION_COMPLETION": false,
+  "WO_REAL_VALUE_ENHANCEMENT": false,
+  "WO_OP_MAPPING_REASONING": false,
+  "WO_DP_MAPPING_LLM_MATCHING": false,
+  "WO_SH_PATTERN": false,
+  "WO_SR_PATTERN": false,
+  "WO_SE_PATTERN": false,
+  "WO_COLUMN_OP": false,
+  "REAL_VALUE_CONTEXT_MODE": "none",
+  "CONTEXT_EXPERIMENT_VERSION": 3,
+  "CONTEXT_PREPARE_ONLY": true,
+  "CONTEXT_CHECKPOINT_DIR": "",
+  "output_dir": "/Users/douer_lucky/Documents/科研/MAMG/output/ablation/context_base/cmt_structured",
+  "num_tables": 32,
+  "num_patterns": 32,
+  "pattern_counts": {
+    "SE": 8,
+    "SH": 5,
+    "SR": 19,
+    "OTHER": 0
+  },
+  "disabled_pattern_components": [],
+  "num_disabled_pattern_tables": 0,
+  "num_discovered_fks": 2,
+  "num_low_conf_tables": 16,
+  "prefix_llm_metrics": {
+    "api_attempts": 20,
+    "llm_calls": 20,
+    "failed_attempts": 0,
+    "input_tokens": 14835,
+    "output_tokens": 11645,
+    "total_tokens": 26480,
+    "estimated_input_token_calls": 0,
+    "models": {
+      "deepseek-v4-flash": {
+        "llm_calls": 10,
+        "input_tokens": 10093,
+        "output_tokens": 11129,
+        "total_tokens": 21222
+      },
+      "deepseek-chat": {
+        "llm_calls": 10,
+        "input_tokens": 4742,
+        "output_tokens": 516,
+        "total_tokens": 5258
+      }
+    }
+  },
+  "prefix_elapsed_seconds": 125.9,
+  "context_checkpoint_id": "a16b1859244c5479494d69565a8ded20aeaff88bb24d2116fbf18adb03f5edd4",
+  "status": "prepared"
+}

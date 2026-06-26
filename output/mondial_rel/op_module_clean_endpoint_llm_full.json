@@ -1,0 +1,1346 @@
+{
+  "database": "mondial_rel",
+  "setting": "LLM sees schema-matching evidence plus ontology construction/restriction/inverse/subPropertyOf evidence",
+  "warning": "Exact sql:construction evidence is strong ontology supervision for NPD; do not report as unsupervised.",
+  "include_no_gold": true,
+  "op_module_only": true,
+  "candidate_source": "ontology-endpoint",
+  "candidate_top_k": 12,
+  "evaluated_at": "2026-06-05 00:08:03",
+  "summary": {
+    "prediction_total": 49,
+    "prediction_no_answer": 34,
+    "changed_from_current": 15,
+    "total_with_construction_gold": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "llm_correct": 0,
+    "llm_accuracy": null,
+    "no_answer": 0
+  },
+  "results": [
+    {
+      "relation_key": "borders.country1",
+      "source": "borders.country1",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "llm_selected_local_name": "bordering",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.48770491803278687,
+        "source_in_target": 1.0,
+        "target_in_source": 0.48770491803278687,
+        "valentine_coma_score": 0.38555347091932457,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "selected_local_name": "bordering",
+        "confidence": "high",
+        "reason": "领域和范围均为精确匹配，表类Border与对象属性领域Border完全一致，表类Country与范围Country完全一致；名称相似度高（bordering与borders），且bordering的领域和范围分数均为1.0，候选得分最高（0.65），无冲突。其他候选者（neighbor、dependentOf、ofMember）均存在领域冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "borders.country2",
+      "source": "borders.country2",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+      "llm_selected_local_name": "bordering",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5286885245901639,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5286885245901639,
+        "valentine_coma_score": 0.4007285974499089,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#bordering",
+        "selected_local_name": "bordering",
+        "confidence": "high",
+        "reason": "唯一候选同时精确匹配领域(Border)和范围(Country)，名称语义贴合“接壤”，且无领域冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "city.country",
+      "source": "city.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedIn",
+      "llm_selected_local_name": "locatedIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.8741319444444444,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedIn",
+        "selected_local_name": "locatedIn",
+        "confidence": "high",
+        "reason": "唯一兼容候选：domain（City是GeographicalThing子类）和range（Province是Area子类）均通过类层次兼容；restriction支持City的locatedIn值包括Province；schema匹配显示city.country与province.country列完全等价（Jaccard=1，交集244），语义上城市位于省份内。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "city.province",
+      "source": "city.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedIn",
+      "llm_selected_local_name": "locatedIn",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.993020304568528,
+        "source_in_target": 1.0,
+        "target_in_source": 0.993020304568528,
+        "valentine_coma_score": 0.39218843430504313,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedIn",
+        "selected_local_name": "locatedIn",
+        "confidence": "high",
+        "reason": "domain City 为 GeographicalThing 子类，range Province 为 Area 子类，均兼容；存在 restriction 支持 City 对象指向 Province；名称得分与 IND 证据匹配，其他候选因 domain/range 冲突被排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.capital",
+      "source": "country.capital",
+      "target": "city.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "llm_selected_local_name": "capital",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.07304557802595835,
+        "source_in_target": 1.0,
+        "target_in_source": 0.07304557802595835,
+        "valentine_coma_score": 0.056557595441882734,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 12,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "selected_local_name": "capital",
+        "confidence": "medium",
+        "reason": "列名'country.capital'和'city.name'明确指示首都关系，名称匹配得分最高(1.0)，范围类City完全匹配，域类Country与OP域AdministrativeArea不匹配，但若Country是AdministrativeArea的子类则可兼容，综合考虑为最佳选择"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.code",
+      "source": "country.code",
+      "target": "city.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.4094412331406551,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 12,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性均存在领域或范围冲突：领域精确匹配的候选者范围均不兼容City（如ethnicInfo范围EthnicProportion），范围精确匹配的候选者领域均不兼容Country（如hasCity领域AdministrativeArea且未通过子类兼容）。无候选者同时满足领域和范围兼容，因此返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "country.province",
+      "source": "country.province",
+      "target": "city.province",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+      "llm_selected_local_name": "hasCity",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.15335463258785942,
+        "source_in_target": 1.0,
+        "target_in_source": 0.15335463258785942,
+        "valentine_coma_score": 0.5841122578922434,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 12,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasCity",
+        "selected_local_name": "hasCity",
+        "confidence": "medium",
+        "reason": "hasCity的域为AdministrativeArea，国家可能为其子类，偏域兼容；范围City精确匹配城市类；名称hasCity符合国家与城市的关系；IND证据支持国家省份包含于城市省份。其他候选均存在域或范围冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "ethnicgroup.country",
+      "source": "ethnicgroup.country",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.8073770491803278,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8073770491803278,
+        "valentine_coma_score": 0.4738095238095238,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性的域类（Country、Border、Membership）均与EthnicGroup不兼容，且无子类关系或逆属性可解决，因此全部冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_desert.country",
+      "source": "geo_desert.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.1598360655737705,
+        "source_in_target": 1.0,
+        "target_in_source": 0.1598360655737705,
+        "valentine_coma_score": 0.6939615736505031,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "候选属性 hasProvince 定义域为 Country，而源表类 Desert 不是其子类，域冲突；且无其他候选属性，返回 null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_desert.desert",
+      "source": "geo_desert.desert",
+      "target": "desert.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 0,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "没有候选对象属性，无法匹配该外键关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_desert.province",
+      "source": "geo_desert.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.07106598984771574,
+        "source_in_target": 1.0,
+        "target_in_source": 0.07106598984771574,
+        "valentine_coma_score": 0.07767240736219617,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "唯一候选hasProvince的domain为Country，而源表类Desert与其无继承关系，导致domain冲突，无法使用。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_estuary.country",
+      "source": "geo_estuary.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.3319672131147541,
+        "source_in_target": 1.0,
+        "target_in_source": 0.3319672131147541,
+        "valentine_coma_score": 0.8704641350210971,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "high",
+        "reason": "唯一候选hasProvince的domain为Country, 而源类Estuary不是其子类, 造成domain冲突, 且无其他候选ObjectProperty, 故选择null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_estuary.province",
+      "source": "geo_estuary.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.12944162436548223,
+        "source_in_target": 1.0,
+        "target_in_source": 0.12944162436548223,
+        "valentine_coma_score": 0.14357435100841667,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "候选对象属性hasProvince的域为Country，而表类Estuary不是Country的子类，域不兼容，无其他候选属性可选，因此无法映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_estuary.river",
+      "source": "geo_estuary.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 0,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": "",
+        "confidence": "low",
+        "reason": "无候选对象属性"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_island.country",
+      "source": "geo_island.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.4959016393442623,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4959016393442623,
+        "valentine_coma_score": 0.8052995391705069,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty均与表类Island或Province存在端点冲突：hasProvince域冲突(Island不是Country的子类)，locatedInWater和belongsToIslands范围冲突(Province不是Water或Islands的子类)。无合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_island.island",
+      "source": "geo_island.island",
+      "target": "island.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain或range存在不可调和的冲突：belongsToIslands的range为'Islands'（非Island子类），locatedOnIsland的domain不兼容，locatedInWater的range为'Water'（不兼容）。无有效端点闭包兼容项，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_island.province",
+      "source": "geo_island.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.17449238578680204,
+        "source_in_target": 1.0,
+        "target_in_source": 0.17449238578680204,
+        "valentine_coma_score": 0.18209960157774796,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选均存在domain或range冲突：hasProvince的domain为Country，Island不是其子类；locatedInWater和belongsToIslands的range分别为Water和Islands，Province不是其子类。无完全兼容的属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_lake.country",
+      "source": "geo_lake.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2827868852459016,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2827868852459016,
+        "valentine_coma_score": 0.8097457627118644,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选ObjectProperty均存在域或范围冲突：hasProvince的域为Country，与Lake不兼容；flowsInto的范围为Water，与Province不兼容。且名称与关系'country'不匹配，无构造或限制证据支持，故无合适选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_lake.lake",
+      "source": "geo_lake.lake",
+      "target": "lake.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选ObjectProperty均与自引用关系不兼容：flowsInto的range为Water（冲突），flowsThrough的domain为River（冲突），且无语义匹配关系；无合适ObjectProperty。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_lake.province",
+      "source": "geo_lake.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.14213197969543148,
+        "source_in_target": 1.0,
+        "target_in_source": 0.14213197969543148,
+        "valentine_coma_score": 0.13150716050762998,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选均存在域或范围冲突：hasProvince的域为Country，与Lake不兼容（非子类）；flowsInto的范围为Water，与Province不兼容。无其他匹配属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_mountain.country",
+      "source": "geo_mountain.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.39344262295081966,
+        "source_in_target": 1.0,
+        "target_in_source": 0.39344262295081966,
+        "valentine_coma_score": 0.8831544178364987,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty均存在领域或范围冲突: hasProvince领域Country与Mountain不兼容, inMountains范围Mountains与Province不兼容, locatedOnIsland范围Island与Province不兼容。无满足领域-范围闭合的候选, 返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_mountain.mountain",
+      "source": "geo_mountain.mountain",
+      "target": "mountain.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选对象属性（inMountains和locatedOnIsland）的范围都与表类Mountain不兼容，无法建立自引用关系，因此返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_mountain.province",
+      "source": "geo_mountain.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.13769035532994925,
+        "source_in_target": 1.0,
+        "target_in_source": 0.13769035532994925,
+        "valentine_coma_score": 0.15133268484827428,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选均存在域或范围冲突：hasProvince域冲突（Mountain非Country子类），locatedOnIsland范围冲突（Province非Island子类），inMountains范围冲突（Province非Mountains子类），无兼容ObjectProperty。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_river.country",
+      "source": "geo_river.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.45081967213114754,
+        "source_in_target": 1.0,
+        "target_in_source": 0.45081967213114754,
+        "valentine_coma_score": 0.8736842105263158,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 5,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain或range与表类不兼容，未找到匹配的关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_river.province",
+      "source": "geo_river.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.4098984771573604,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4098984771573604,
+        "valentine_coma_score": 0.2865564873877992,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 5,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性均存在域或范围冲突。hasProvince域冲突（River不是Country的子类），其他候选范围冲突（Province不是Source/Water/Estuary/Lake的子类）。无任一候选同时满足域和范围兼容性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_river.river",
+      "source": "geo_river.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsInto",
+      "llm_selected_local_name": "flowsInto",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsInto",
+        "selected_local_name": "flowsInto",
+        "confidence": "medium",
+        "reason": "关系为River自引用，flowsInto的domain是River精确匹配，range是Water，而River是Water的子类，因此兼容；其他候选的range（Source、Estuary、Lake）与River无子类关系，完全冲突。名称得分虽低但语义最吻合。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_sea.country",
+      "source": "geo_sea.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#borders",
+      "llm_selected_local_name": "borders",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.8114754098360656,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8114754098360656,
+        "valentine_coma_score": 0.8832762557077626,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#borders",
+        "selected_local_name": "borders",
+        "confidence": "high",
+        "reason": "源表Sea和目标表Province都是LargeArea的子类，borders属性兼容；IND证据强（source_in_target_IND=1.0）；其他候选均存在域或范围冲突。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_sea.province",
+      "source": "geo_sea.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#borders",
+      "llm_selected_local_name": "borders",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.4447969543147208,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4447969543147208,
+        "valentine_coma_score": 0.27898483276367186,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#borders",
+        "selected_local_name": "borders",
+        "confidence": "high",
+        "reason": "仅 borders 的域和范围与 Sea 和 Province 的父类 LargeArea 兼容（Sea 和 Province 均为 LargeArea 的子类），其他候选（hasProvince 域冲突、mergesWith 范围冲突）均不兼容。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_sea.sea",
+      "source": "geo_sea.sea",
+      "target": "sea.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+      "llm_selected_local_name": "mergesWith",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#mergesWith",
+        "selected_local_name": "mergesWith",
+        "confidence": "high",
+        "reason": "表自引用，列等价性证据强，mergesWith具有精确的域和范围匹配，且是borders的子属性，更具体。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_source.country",
+      "source": "geo_source.country",
+      "target": "province.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+      "llm_selected_local_name": "hasProvince",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2540983606557377,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2540983606557377,
+        "valentine_coma_score": 0.8142981691368788,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#hasProvince",
+        "selected_local_name": "hasProvince",
+        "confidence": "medium",
+        "reason": "范围精确匹配省份，属性名与目标表一致，IND表明源值全部存在于目标；但领域冲突（源表类与Country不兼容）降低了匹配度。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_source.province",
+      "source": "geo_source.province",
+      "target": "province.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.10723350253807107,
+        "source_in_target": 1.0,
+        "target_in_source": 0.10723350253807107,
+        "valentine_coma_score": 0.131072828235232,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选属性均存在端点冲突：hasProvince的域为Country，与Source不兼容；inMountains的范围为Mountains，与Province不兼容。根据硬规则，当所有候选真正冲突时返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "geo_source.river",
+      "source": "geo_source.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "唯一候选inMountains的range为Mountains，与关系range类River冲突，无其他合适候选。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.lake",
+      "source": "islandin.lake",
+      "target": "lake.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.03496503496503497,
+        "source_in_target": 1.0,
+        "target_in_source": 0.03496503496503497,
+        "valentine_coma_score": 0.044833911431802285,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain或range与数据库表类不兼容：locatedInWater的range为Water而非Lake，belongsToIslands的range为Islands，flowsThrough的domain为River而非Island。无法通过端点闭包验证兼容性，且无子属性关系可用。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.river",
+      "source": "islandin.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.020161290322580645,
+        "source_in_target": 1.0,
+        "target_in_source": 0.020161290322580645,
+        "valentine_coma_score": 0.025490196078431372,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的range均与目标类River不兼容（locatedInWater范围Water，belongsToIslands范围Islands），且无子类关系或其他证据支持，故无法选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "islandin.sea",
+      "source": "islandin.sea",
+      "target": "sea.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.8292682926829268,
+        "source_in_target": 1.0,
+        "target_in_source": 0.8292682926829268,
+        "valentine_coma_score": 0.49180077702166086,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty均存在域或范围冲突：mergesWith域为Sea，不兼容Island；belongsToIslands范围为Islands，不兼容Sea；locatedInWater范围为Water，不兼容Sea。无候选满足域和范围兼容性，故返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "lake.river",
+      "source": "lake.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2862903225806452,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2862903225806452,
+        "valentine_coma_score": 0.23980664339932528,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 1,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "唯一候选 flowsInto 的 range (Water) 与目标类 River 不兼容，且没有子类关系或名称证据支持该映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "language.country",
+      "source": "language.country",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.5163934426229508,
+        "source_in_target": 1.0,
+        "target_in_source": 0.5163934426229508,
+        "valentine_coma_score": 0.3821138211382114,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的域都与Language类不兼容（Language不是Country、Border、Membership的子类），且名称与语言-国家关系不符，因此无合适属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "mountainonisland.island",
+      "source": "mountainonisland.island",
+      "target": "island.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+      "llm_selected_local_name": "locatedOnIsland",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.19463087248322147,
+        "source_in_target": 1.0,
+        "target_in_source": 0.19463087248322147,
+        "valentine_coma_score": 0.18730696387912915,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#locatedOnIsland",
+        "selected_local_name": "locatedOnIsland",
+        "confidence": "high",
+        "reason": "源表Mountain和目标表Island分别精确匹配OP locatedOnIsland的domain和range，列名相似度高，且存在从Mountain到Island的包含依赖，因此选择该OP。另一个候选inMountains的range不匹配，排除。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "mountainonisland.mountain",
+      "source": "mountainonisland.mountain",
+      "target": "mountain.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.2788844621513944,
+        "source_in_target": 1.0,
+        "target_in_source": 0.2788844621513944,
+        "valentine_coma_score": 0.2378349898388824,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 2,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "两个候选OP的range均与目标表类Mountain不兼容（inMountains的range为Mountains类，locatedOnIsland的range为Island类），且无子属性或逆属性可解决冲突，故无合适选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "population.country",
+      "source": "population.country",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.5,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性的domain均与表类PopulationCount不兼容（非子类），且无endpoint闭包兼容，因此无合适对象属性，返回null。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.capital",
+      "source": "province.capital",
+      "target": "city.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.4711741623905826,
+        "source_in_target": 1.0,
+        "target_in_source": 0.4711741623905826,
+        "valentine_coma_score": 0.2862259231888138,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "high",
+        "reason": "所有候选ObjectProperty的domain都与源表类Province不兼容，且未发现子类关系，因此无法映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.capprov",
+      "source": "province.capprov",
+      "target": "city.province",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+      "llm_selected_local_name": "capital",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9936102236421726,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9936102236421726,
+        "valentine_coma_score": 0.5702182229031774,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#capital",
+        "selected_local_name": "capital",
+        "confidence": "medium",
+        "reason": "关系 province.capprov 表示省份的首都城市，'capital' 对象属性语义匹配，名称得分最高（0.429），且范围完全匹配 City。但领域不匹配（Province 与 AdministrativeArea 冲突），因此置信度为中等。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "province.country",
+      "source": "province.country",
+      "target": "city.country",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 1.0,
+        "source_in_target": 1.0,
+        "target_in_source": 1.0,
+        "valentine_coma_score": 0.8741319444444444,
+        "evidence_type": "equivalence_column"
+      },
+      "candidate_count": 3,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选OP的domain均与Province冲突，且Province不是AdministrativeArea或Organization的子类，无合适映射"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "religion.country",
+      "source": "religion.country",
+      "target": "country.code",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.9139344262295082,
+        "source_in_target": 1.0,
+        "target_in_source": 0.9139344262295082,
+        "valentine_coma_score": 0.4861294583883752,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的domain均与表类Religion不兼容（Religion不是Country/Border/Membership的子类），因此全部冲突，无合适映射。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.lake",
+      "source": "river.lake",
+      "target": "lake.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "llm_selected_local_name": "flowsThrough",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.16783216783216784,
+        "source_in_target": 1.0,
+        "target_in_source": 0.16783216783216784,
+        "valentine_coma_score": 0.16653912642906452,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "selected_local_name": "flowsThrough",
+        "confidence": "high",
+        "reason": "唯一候选属性flowsThrough的域和范围均精确匹配River和Lake，其他候选属性范围冲突（Lake不是Source/Estuary/Water的子类），且flowsThrough无逆属性或子属性，结合IND证据中源表24条记录全部出现在目标表，关系名语义合理，因此选用该属性。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.river",
+      "source": "river.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.25,
+        "source_in_target": 1.0,
+        "target_in_source": 0.25,
+        "valentine_coma_score": 0.2647367292834866,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性的范围类均与表类'River'不兼容（非相同或超类），且无子属性关系可匹配自引用外键关系。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "river.sea",
+      "source": "river.sea",
+      "target": "sea.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.7073170731707317,
+        "source_in_target": 1.0,
+        "target_in_source": 0.7073170731707317,
+        "valentine_coma_score": 0.4576132153019761,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 5,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选ObjectProperty的域或范围均与表格类不兼容，根据端点闭包检查存在冲突，因此无法选择。"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "riverthrough.lake",
+      "source": "riverthrough.lake",
+      "target": "lake.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+      "llm_selected_local_name": "flowsThrough",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.3146853146853147,
+        "source_in_target": 1.0,
+        "target_in_source": 0.3146853146853147,
+        "valentine_coma_score": 0.2553583307469145,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": "http://www.semwebtech.org/mondial/10/meta#flowsThrough",
+        "selected_local_name": "flowsThrough",
+        "confidence": "high",
+        "reason": "唯一同时匹配域类River和范围类Lake的属性，语义符合河流穿越湖泊，且无其他候选兼容范围类"
+      },
+      "error": null
+    },
+    {
+      "relation_key": "riverthrough.river",
+      "source": "riverthrough.river",
+      "target": "river.name",
+      "current_uri": "",
+      "current_local_name": "",
+      "llm_selected_uri": "",
+      "llm_selected_local_name": "",
+      "gold_uris": [],
+      "gold_local_names": [],
+      "schema_matching": {
+        "manual_jaccard": 0.14516129032258066,
+        "source_in_target": 1.0,
+        "target_in_source": 0.14516129032258066,
+        "valentine_coma_score": 0.14781508380419586,
+        "evidence_type": "inclusion_column_source_to_target"
+      },
+      "candidate_count": 4,
+      "candidate_source": "ontology-endpoint",
+      "llm_response": {
+        "selected_uri": null,
+        "selected_local_name": null,
+        "confidence": "low",
+        "reason": "所有候选对象属性的定义域均兼容River，但值域均非River（分别为Source、Estuary、Water、Lake），与目标类River冲突。该关系为River到River的自引用，但无候选属性满足此值域要求，故返回null。"
+      },
+      "error": null
+    }
+  ]
+}

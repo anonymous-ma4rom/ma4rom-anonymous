@@ -1,0 +1,491 @@
+{
+  "ACM_SIGKDD": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Best_Paper_Awards_Committ": {
+    "columns": {
+      "ID": "integer",
+      "award": "integer",
+      "hasCommittee_Inv": "integer",
+      "isCommitteeOf": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "award",
+        "ref_table": "Best_Research_Paper_Award",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名award语义上应引用最佳研究论文奖表的主键，且name_score最高(0.75)"
+      }
+    ]
+  },
+  "Best_Research_Paper_Award": {
+    "columns": {
+      "ID": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Best_Paper_Awards_Committ",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "Best_Research_Paper_Award 的 ID 语义上可能引用 Best_Paper_Awards_Committ 的主键，因为奖项通常由对应委员会管理，且名称匹配度最高（0.76）。"
+      }
+    ]
+  },
+  "Conference": {
+    "columns": {
+      "ID": "integer",
+      "holded_by": "integer",
+      "Start_of_conference": "date",
+      "City_of_conference": "character varying(16)",
+      "Name_of_conference": "character varying(6)",
+      "End_of_conference": "date"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "holded_by",
+        "ref_table": "ACM_SIGKDD",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性holded_by一致，domain/range约束支持Conference引用ACM_SIGKDD"
+      }
+    ]
+  },
+  "Deadline_Abstract_Submiss": {
+    "columns": {
+      "ID": "integer",
+      "designed_by": "integer",
+      "Date": "date",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Document": {
+    "columns": {
+      "ID": "integer",
+      "hasTitle": "character varying(101)",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "E-mail": {
+    "columns": {
+      "Person": "integer",
+      "VALUE": "character varying(43)"
+    },
+    "primary_key": [
+      "Person",
+      "VALUE"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Main_office": {
+    "columns": {
+      "ID": "integer",
+      "lat": "integer",
+      "long": "integer",
+      "hasStreet": "character varying(199)",
+      "hasPostalCode": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Organizing_Committee": {
+    "columns": {
+      "ID": "integer",
+      "hasCommittee_Inv": "integer",
+      "isCommitteeOf": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "isCommitteeOf",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 isCommitteeOf 直接匹配对象属性 isCommitteeOf，其 range 为 Conference 表，domain 得分 0.85，语义得分 0.95，强外键证据。"
+      }
+    ]
+  },
+  "Person": {
+    "columns": {
+      "ID": "integer",
+      "Nation": "character varying(199)",
+      "Name": "character varying(24)",
+      "Name_of_sponsor": "character varying(199)",
+      "is_Organizator": "boolean",
+      "is_Program_Chair": "boolean",
+      "is_Listener": "boolean",
+      "is_Author_of_paper_student": "boolean",
+      "is_Program_Committee_member": "boolean",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Program_Committee": {
+    "columns": {
+      "ID": "integer",
+      "label": "character varying(29)",
+      "hasCommittee_Inv": "integer",
+      "isCommitteeOf": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "hasCommittee_Inv",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "isCommitteeOf",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Registration_fee": {
+    "columns": {
+      "ID": "integer",
+      "Currency": "character varying(199)",
+      "Price": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Review": {
+    "columns": {
+      "ID": "integer",
+      "hasReview_Inv": "integer",
+      "isReviewOf": "integer",
+      "hasID": "integer",
+      "hasText": "character varying(191)"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "hasReview_Inv",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "isReviewOf",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Sponzor_fee": {
+    "columns": {
+      "ID": "integer",
+      "Currency": "character varying(199)",
+      "Price": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "can_stay_in": {
+    "columns": {
+      "Person": "integer",
+      "Place": "integer"
+    },
+    "primary_key": [
+      "Person",
+      "Place"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 Person 直接对应实体表 Person，语义明确，name_score 最高。"
+      },
+      {
+        "column": "Place",
+        "ref_table": "Main_office",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP 'can_stay_in' 的 range 为 Place 类，与列名匹配，且表名与 OP 一致，语义评分达 0.95"
+      }
+    ]
+  },
+  "notification_until": {
+    "columns": {
+      "Author": "integer",
+      "Deadline_Author_notificat": "integer"
+    },
+    "primary_key": [
+      "Author",
+      "Deadline_Author_notificat"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Author",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "OP notification_until的Domain类Author映射到Person表ID，列名与类名一致"
+      }
+    ]
+  },
+  "obtain": {
+    "columns": {
+      "Author": "integer",
+      "Award": "integer"
+    },
+    "primary_key": [
+      "Author",
+      "Award"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Author",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "OP 'obtain' domain 为 Author 类，列名与类名匹配，表名 Person 符合域约束"
+      },
+      {
+        "column": "Award",
+        "ref_table": "Best_Research_Paper_Award",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "OP 'obtain' range 为 Award 类，列名与类名匹配，目标表为具体子类且语义得分高"
+      }
+    ]
+  },
+  "pay": {
+    "columns": {
+      "Person": "integer",
+      "Registration_fee": "integer"
+    },
+    "primary_key": [
+      "Person",
+      "Registration_fee"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名直接对应实体表Person，表示支付由某人完成。"
+      },
+      {
+        "column": "Registration_fee",
+        "ref_table": "Registration_fee",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与表Registration_fee同名，表示支付是针对特定注册费。"
+      }
+    ]
+  },
+  "presentation": {
+    "columns": {
+      "Speaker": "integer",
+      "Document": "integer"
+    },
+    "primary_key": [
+      "Speaker",
+      "Document"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Document",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全一致，典型的外键引用本表。"
+      },
+      {
+        "column": "Speaker",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体ObjectProperty 'presentation' 的domain为Speaker类，与列名Speaker及表Person一致"
+      }
+    ]
+  },
+  "search": {
+    "columns": {
+      "ACM_SIGKDD": "integer",
+      "Sponzor": "integer"
+    },
+    "primary_key": [
+      "ACM_SIGKDD",
+      "Sponzor"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ACM_SIGKDD",
+        "ref_table": "ACM_SIGKDD",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与表名完全一致，语义上代表 ACM_SIGKDD 实体，作为外键引用其 ID 合理。"
+      },
+      {
+        "column": "Sponzor",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名语义指向赞助商实体，Person 表是最匹配的实体表，常见设计中赞助商为个人或组织，Person 可代表。"
+      }
+    ]
+  },
+  "submit": {
+    "columns": {
+      "Author": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "Author",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Author",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Paper",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "submit_until": {
+    "columns": {
+      "Document": "integer",
+      "Deadline": "integer"
+    },
+    "primary_key": [
+      "Document",
+      "Deadline"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Document",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'Document' 直接对应 Document 表，语义上提交截止日期与文档关联，且类型匹配。"
+      }
+    ]
+  }
+}

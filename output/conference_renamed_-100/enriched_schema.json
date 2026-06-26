@@ -1,0 +1,1434 @@
+{
+  "abstracts": {
+    "columns": {
+      "id": "integer",
+      "th_part": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "extended_abstracts",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "regular_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "th_part",
+        "ref_table": "papers",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "accepted_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "submitted_contributions",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "accepted_contributions 是 submitted_contributions 的子集，id 应引用 submitted_contributions 的主键"
+      }
+    ]
+  },
+  "active_conference_particis": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "belongs_to_reviewers": {
+    "columns": {
+      "entity": "integer",
+      "reviewer": "integer"
+    },
+    "primary_key": [
+      "entity",
+      "reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "column": "entity",
+        "ref_table": "reviewed_contributions",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名belongs_to_reviewers暗示实体-审稿人关系，entity列引用被审稿的贡献，reviewed_contributions语义最匹配且name_score最高(0.72)"
+      },
+      {
+        "column": "reviewer",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名reviewer直接对应审稿人实体，reviewers表名和列名高度一致(name_score 0.8889)"
+      }
+    ]
+  },
+  "call_for_papers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "call_for_participations": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "camera_ready_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "accepted_contributions",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "camera_ready_contributions 通常是被接受的贡献的最终版本，因此其 id 应引用 accepted_contributions 的主键"
+      }
+    ]
+  },
+  "chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "committee_members",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "co_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "committee_co_chair": {
+    "columns": {
+      "committee": "integer",
+      "co_chair": "integer"
+    },
+    "primary_key": [
+      "committee",
+      "co_chair"
+    ],
+    "foreign_keys": [
+      {
+        "column": "committee",
+        "ref_table": "committees",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名'committee'明确表示委员会，且表'committee_co_chair'是委员会与联合主席的关系表，committees表为最直接关联的实体表。"
+      },
+      {
+        "column": "co_chair",
+        "ref_table": "co_chairs",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名'co_chair'直接引用联合主席角色，候选目标co_chairs表与之语义完全匹配，且name_score最高。"
+      }
+    ]
+  },
+  "committee_committee_member": {
+    "columns": {
+      "committee": "integer",
+      "committee_member": "integer"
+    },
+    "primary_key": [
+      "committee",
+      "committee_member"
+    ],
+    "foreign_keys": [
+      {
+        "column": "committee",
+        "ref_table": "committees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "committee_member",
+        "ref_table": "committee_members",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "committee_members": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "committees": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(29)",
+      "committee_chair": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_announcements": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_contributions": {
+    "columns": {
+      "id": "integer",
+      "submitted_at": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "submitted_at",
+        "ref_table": "conference_volumes",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conference_contributors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conference_documents": {
+    "columns": {
+      "id": "integer",
+      "date_issue": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_fees": {
+    "columns": {
+      "id": "integer",
+      "amount": "character varying(3)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_participants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "conference_parts": {
+    "columns": {
+      "id": "integer",
+      "part_conference_vol": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "part_conference_vol",
+        "ref_table": "conference_volumes",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'part_conference_vol' 语义指向会议卷，候选目标 conference_volumes.id 名称匹配度高 (0.7647)，且类型一致。"
+      }
+    ]
+  },
+  "conference_proceedings": {
+    "columns": {
+      "id": "integer",
+      "publisher": "integer",
+      "volume": "integer",
+      "name": "character varying(26)",
+      "isbn": "character varying(13)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "conference_volumes": {
+    "columns": {
+      "id": "integer",
+      "program_committee": "integer",
+      "organizing_committ": "integer",
+      "location": "character varying(16)",
+      "steering_committee": "integer",
+      "important_dates": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conferences",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "program_committee",
+        "ref_table": "program_committees",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与表名匹配，且本体 ObjectProperty 'has_a_program_committee' 的 domain/range 支持"
+      },
+      {
+        "column": "steering_committee",
+        "ref_table": "steering_committees",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与表名匹配，且本体 ObjectProperty 'has_a_steering_committee' 的 domain/range 支持"
+      },
+      {
+        "column": "important_dates",
+        "ref_table": "important_dates",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与表名一致，且本体 ObjectProperty 'has_important_dates' 的 domain/range 支持"
+      }
+    ]
+  },
+  "conferences": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(6)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "contribution_1th_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "regular_authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "contribution_co_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "regular_authors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "early_paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "paid_applicants",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "early_paid_applicants 是 paid_applicants 的细分，id 作为主键且类型匹配，语义上引用 paid_applicants 的主键。"
+      }
+    ]
+  },
+  "emails": {
+    "columns": {
+      "person": "integer",
+      "value": "character varying(43)"
+    },
+    "primary_key": [
+      "person",
+      "value"
+    ],
+    "foreign_keys": [
+      {
+        "column": "person",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "extended_abstracts": {
+    "columns": {
+      "id": "integer",
+      "text": "character varying(305)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "regular_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "important_dates": {
+    "columns": {
+      "id": "integer",
+      "date_acceptance_a": "date",
+      "full_paper_submissio": "date",
+      "date_camera_ready": "date",
+      "ending_date": "date",
+      "starting_date": "date",
+      "abstract_submission": "date"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "information_for_participas": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_participants",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名 information_for_participas 语义上为参与者信息，id 应引用 conference_participants 的主键"
+      }
+    ]
+  },
+  "invited_speakers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "invited_talks",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "受邀演讲者通常与受邀讲座（invited_talks）直接关联，表名语义匹配度高。"
+      }
+    ]
+  },
+  "invited_talks": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "invited_speakers",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "invited_talks 中的演讲通常由受邀演讲者进行，语义上应引用 invited_speakers 表的主键。"
+      }
+    ]
+  },
+  "late_paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "paid_applicants",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "late_paid_applicants 是 paid_applicants 的子类型，id 应引用 paid_applicants 的主键"
+      }
+    ]
+  },
+  "organizations": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "organizing_committees": {
+    "columns": {
+      "id": "integer",
+      "was_an_organizing_committ": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "was_an_organizing_committ",
+        "ref_table": "conference_volumes",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名匹配对象属性was_an_organizing_committee_of，且domain/range完全符合"
+      }
+    ]
+  },
+  "paid_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "papers": {
+    "columns": {
+      "id": "integer",
+      "abstract": "integer",
+      "paper_title": "character varying(200)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "regular_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "abstract",
+        "ref_table": "abstracts",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "passive_conference_partics": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "person_conference_document": {
+    "columns": {
+      "pid": "integer",
+      "cid": "integer"
+    },
+    "primary_key": [
+      "pid",
+      "cid"
+    ],
+    "foreign_keys": [
+      {
+        "column": "pid",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "cid",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "persons": {
+    "columns": {
+      "id": "integer",
+      "first_name": "character varying(14)",
+      "last_name": "character varying(13)",
+      "gender": "character varying(1)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "posters": {
+    "columns": {
+      "id": "integer",
+      "abstract": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "abstract",
+        "ref_table": "abstracts",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名abstract与abstracts表语义匹配，海报通常关联摘要"
+      }
+    ]
+  },
+  "presentations": {
+    "columns": {
+      "id": "integer",
+      "given": "integer",
+      "abstract": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "abstract",
+        "ref_table": "abstracts",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名abstract直接对应目标表abstracts的主键id，语义明确表示每篇演讲引用对应的摘要。"
+      }
+    ]
+  },
+  "program_committees": {
+    "columns": {
+      "id": "integer",
+      "was_program_committee": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "committees",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "was_program_committee",
+        "ref_table": "conference_volumes",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "publishers": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "registeered_applicants": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_applicants",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表名'registeered_applicants'语义为注册申请人，通常与'conference_applicants'（会议申请人）构成父子关系，且id类型一致"
+      }
+    ]
+  },
+  "regular_authors": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributors",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "regular_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "rejected_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "submitted_contributions",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "rejected_contributions 是被拒绝的贡献，通常从提交的贡献中筛选出来，其 id 应引用 submitted_contributions 的主键。"
+      }
+    ]
+  },
+  "review_expertises": {
+    "columns": {
+      "id": "integer",
+      "expertise": "character varying(199)",
+      "submitted_contribut": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "submitted_contribut",
+        "ref_table": "submitted_contributions",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与 submitted_contributions 表语义匹配，应引用其主键 id"
+      }
+    ]
+  },
+  "review_preferences": {
+    "columns": {
+      "id": "integer",
+      "belongs_to_review_refer": "integer",
+      "degree": "integer",
+      "topic_or_submissi": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "belongs_to_review_refer",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体OP 'belongs_to_reviewers' 的domain/range完全匹配，语义得分0.95"
+      }
+    ]
+  },
+  "reviewed_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "submitted_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "reviewer_reviewer": {
+    "columns": {
+      "reviewer1": "integer",
+      "reviewer2": "integer"
+    },
+    "primary_key": [
+      "reviewer1",
+      "reviewer2"
+    ],
+    "foreign_keys": [
+      {
+        "column": "reviewer1",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表 reviewer_reviewer 是二元关系表，列 reviewer1 表示审稿人角色，语义指向 reviewers 表的主键 id。"
+      },
+      {
+        "column": "reviewer2",
+        "ref_table": "reviewers",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "表 reviewer_reviewer 是二元关系表，列 reviewer2 表示另一审稿人角色，语义指向 reviewers 表的主键 id。"
+      }
+    ]
+  },
+  "reviewers": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "persons",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "reviews": {
+    "columns": {
+      "id": "integer",
+      "reviews": "integer",
+      "detailed_comments": "character varying(191)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "reviews",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "steering_committees": {
+    "columns": {
+      "id": "integer",
+      "was_steering_committee_": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "was_steering_committee_",
+        "ref_table": "conference_volumes",
+        "ref_col": "id",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与ObjectProperty 'was_a_steering_committee_of' 匹配，domain/range得分均为1.0，且语义得分0.9565"
+      }
+    ]
+  },
+  "submitted_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "written_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "topic_tutorial": {
+    "columns": {
+      "conference_part": "integer",
+      "topic": "integer"
+    },
+    "primary_key": [
+      "conference_part",
+      "topic"
+    ],
+    "foreign_keys": [
+      {
+        "column": "conference_part",
+        "ref_table": "conference_parts",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'conference_part' 与表 'conference_parts' 语义一致，且名称得分最高 (0.9333)，类型匹配。"
+      },
+      {
+        "column": "topic",
+        "ref_table": "topics",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名 'topic' 与表 'topics' 语义直接对应，名称得分最高 (0.8333)，类型匹配。"
+      }
+    ]
+  },
+  "topics": {
+    "columns": {
+      "id": "integer",
+      "name": "character varying(199)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "track_workshop_chairs": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "tracks": {
+    "columns": {
+      "id": "integer",
+      "tracks": "integer",
+      "track_workshop_tuto": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "track_workshop_tuto",
+        "ref_table": "track_workshop_chairs",
+        "ref_col": "id",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名包含 track_workshop，语义高度匹配 track_workshop_chairs 表，且 name_score 最高。"
+      }
+    ]
+  },
+  "tutorials": {
+    "columns": {
+      "id": "integer",
+      "tutorials": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "websites": {
+    "columns": {
+      "id": "integer",
+      "url": "character varying(22)"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "workshops": {
+    "columns": {
+      "id": "integer",
+      "track_workshop_tuto": "integer",
+      "workshops": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  "written_contributions": {
+    "columns": {
+      "id": "integer"
+    },
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "id",
+        "ref_table": "conference_contributions",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "id",
+        "ref_table": "conference_documents",
+        "ref_col": "id",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,283 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+mondialrel:	http://www.semwebtech.org/mondial/10/meta#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--581966744
+target		<http://example.com/sea/{name}> a mondialrel:Sea ; mondialrel:name {name}^^xsd:string ; mondialrel:depth {depth}^^xsd:decimal . 
+source		SELECT "name" , "depth" FROM "sea"
+
+mappingId	mapping--907363280
+target		<http://example.com/island/{name}> a mondialrel:Island ; mondialrel:name {name}^^xsd:string ; mondialrel:elevation {elevation}^^xsd:decimal ; mondialrel:area {area}^^xsd:decimal . 
+source		SELECT "name" , "islands" , "area" , "elevation" , "type" , "coordinates" FROM "island"
+
+mappingId	mapping--205662846
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership ; mondialrel:inOrganization <http://example.com/organization/{organization}> ; mondialrel:ofMember <http://example.com/country/{country}> . 
+source		SELECT "country" , "organization" , "type" FROM "ismember"
+
+mappingId	mapping-1130671484
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'having direct member'
+
+mappingId	mapping--1020482799
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'candidate countries'
+
+mappingId	mapping-152267331
+target		<http://example.com/borders/{country1}__{country2}> a mondialrel:Border ; mondialrel:length {length}^^xsd:decimal ; mondialrel:bordering <http://example.com/country/{country1}> , <http://example.com/country/{country2}> . 
+source		SELECT "country1" , "country2" , "length" FROM "borders"
+
+mappingId	mapping-143849202
+target		<http://example.com/airport/{iatacode}> a mondialrel:Location ; mondialrel:locatedOnIsland <http://example.com/island/{island}> ; mondialrel:latitude {latitude}^^xsd:decimal ; mondialrel:elevation {elevation}^^xsd:decimal ; mondialrel:hasCity <http://example.com/city/{city}> ; mondialrel:longitude {gmtoffset}^^xsd:decimal , {longitude}^^xsd:decimal ; mondialrel:isProvinceOf <http://example.com/city/{province}> ; mondialrel:name {name}^^xsd:string . 
+source		SELECT "iatacode" , "name" , "country" , "city" , "province" , "island" , "latitude" , "longitude" , "elevation" , "gmtoffset" FROM "airport"
+
+mappingId	mapping-1365712245
+target		<http://example.com/sea/{sea1}> mondialrel:mergesWith <http://example.com/sea/{sea2}> . 
+source		SELECT "sea1" , "sea2" FROM "mergeswith"
+
+mappingId	mapping-1992434717
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associate member'
+
+mappingId	mapping-420832606
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'cooperating state'
+
+mappingId	mapping--994800887
+target		<http://example.com/lake/{name}> a mondialrel:Lake ; mondialrel:depth {depth}^^xsd:decimal ; mondialrel:area {area}^^xsd:decimal ; mondialrel:hasBorder <http://example.com/river/{river}> ; mondialrel:elevation {elevation}^^xsd:decimal ; mondialrel:name {name}^^xsd:string . 
+source		SELECT "name" , "area" , "depth" , "elevation" , "type" , "river" , "coordinates" FROM "lake"
+
+mappingId	mapping--1816311083
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List C'
+
+mappingId	mapping-1956259965
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'dialogue member'
+
+mappingId	mapping--1544898595
+target		<http://example.com/island/{island}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "island" , "country" FROM "geo_island"
+
+mappingId	mapping-389254689
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'member'
+
+mappingId	mapping--338210772
+target		<http://example.com/river/{river}> mondialrel:hasSource <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_source"
+
+mappingId	mapping--686202057
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'asphalt'
+
+mappingId	mapping-1793340470
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'salt'
+
+mappingId	mapping--1104916130
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'crater'
+
+mappingId	mapping--949126071
+target		<http://example.com/islandin/{island}__{sea}__{lake}__{river}> a mondialrel:Island ; mondialrel:locatedInWater <http://example.com/river/{river}> , <http://example.com/lake/{lake}> ; mondialrel:belongsToIslands <http://example.com/island/{island}> ; mondialrel:mergesWith <http://example.com/sea/{sea}> . 
+source		SELECT "island" , "sea" , "lake" , "river" FROM "islandin"
+
+mappingId	mapping--834270246
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'impact'
+
+mappingId	mapping--1660946898
+target		<http://example.com/language/{name}__{country}> a mondialrel:Language ; mondialrel:neighbor <http://example.com/country/{country}> ; mondialrel:percent {percentage}^^xsd:decimal ; mondialrel:name {name}^^xsd:string . 
+source		SELECT "country" , "name" , "percentage" FROM "language"
+
+mappingId	mapping--1645685863
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'naturaldam'
+
+mappingId	mapping--1964173232
+target		<http://example.com/city/{name}__{country}__{province}> a mondialrel:City ; mondialrel:hasProvince <http://example.com/province/{province}> ; mondialrel:latitude {latitude}^^xsd:decimal ; mondialrel:name {name}^^xsd:string ; mondialrel:cityIn <http://example.com/province/{country}> ; mondialrel:population {population}^^xsd:nonNegativeInteger ; mondialrel:longitude {longitude}^^xsd:decimal ; mondialrel:elevation {elevation}^^xsd:decimal . 
+source		SELECT "name" , "country" , "province" , "population" , "latitude" , "longitude" , "elevation" FROM "city"
+
+mappingId	mapping--169971377
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List A'
+
+mappingId	mapping--1345317236
+target		<http://example.com/organization/{abbreviation}> a mondialrel:Organization ; mondialrel:name {name}^^xsd:string ; mondialrel:neighbor <http://example.com/country/{country}> ; mondialrel:established {established}^^xsd:date ; mondialrel:abbrev {province}^^xsd:string , {abbreviation}^^xsd:string . 
+source		SELECT "abbreviation" , "name" , "city" , "country" , "province" , "established" FROM "organization"
+
+mappingId	mapping--678316385
+target		<http://example.com/city/{city}> mondialrel:locatedAt <http://example.com/city/{country}> . 
+source		SELECT "city" , "country" FROM "locatedon"
+
+mappingId	mapping-635765196
+target		<http://example.com/province/{name}__{country}> a mondialrel:Province ; mondialrel:population {population}^^xsd:nonNegativeInteger ; mondialrel:cityIn <http://example.com/city/{country}> ; mondialrel:capital <http://example.com/city/{capital}> ; mondialrel:area {area}^^xsd:decimal ; mondialrel:name {name}^^xsd:string ; mondialrel:hasCity <http://example.com/city/{capprov}> . 
+source		SELECT "name" , "country" , "population" , "area" , "capital" , "capprov" FROM "province"
+
+mappingId	mapping--1848054934
+target		<http://example.com/cityothername/{country}__{province}__{city}__{othername}> a mondialrel:City ; mondialrel:cityIn <http://example.com/country/{country}> ; mondialrel:othername {othername}^^xsd:string . 
+source		SELECT "city" , "country" , "province" , "othername" FROM "cityothername"
+
+mappingId	mapping-88568249
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'nonpermanent member'
+
+mappingId	mapping--923638433
+target		<http://example.com/sea/{sea}> mondialrel:mergesWith <http://example.com/province/{country}> . 
+source		SELECT "sea" , "country" FROM "geo_sea"
+
+mappingId	mapping-1949663390
+target		<http://example.com/river/{river}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_river"
+
+mappingId	mapping--1554532411
+target		<http://example.com/island/{name}> a mondialrel:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'atoll'
+
+mappingId	mapping--1629522036
+target		<http://example.com/lake/{lake}> mondialrel:hasBorder <http://example.com/river/{river}> . 
+source		SELECT "lake" , "river" FROM "riverthrough"
+
+mappingId	mapping--137273736
+target		<http://example.com/continent/{name}> a mondialrel:Continent ; mondialrel:name {name}^^xsd:string ; mondialrel:area {area}^^xsd:decimal . 
+source		SELECT "name" , "area" FROM "continent"
+
+mappingId	mapping--838829212
+target		<http://example.com/lake/{name}> a mondialrel:Area . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'acid'
+
+mappingId	mapping--601818147
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'caldera'
+
+mappingId	mapping-1768748468
+target		<http://example.com/religion/{name}__{country}> a mondialrel:Religion ; mondialrel:cityIn <http://example.com/country/{country}> ; mondialrel:percent {percentage}^^xsd:decimal ; mondialrel:name {name}^^xsd:string . 
+source		SELECT "country" , "name" , "percentage" FROM "religion"
+
+mappingId	mapping--808468767
+target		<http://example.com/countryothername/{country}__{othername}> a mondialrel:Country ; mondialrel:government {othername}^^xsd:string ; mondialrel:carCode {country}^^xsd:string . 
+source		SELECT "country" , "othername" FROM "countryothername"
+
+mappingId	mapping--1579109747
+target		<http://example.com/encompasses/{country}__{continent}> a mondialrel:Encompassed ; mondialrel:cityIn <http://example.com/country/{country}> ; mondialrel:percent {percentage}^^xsd:decimal ; mondialrel:encompassedBy <http://example.com/continent/{continent}> . 
+source		SELECT "country" , "continent" , "percentage" FROM "encompasses"
+
+mappingId	mapping-762945439
+target		<http://example.com/island/{name}> a mondialrel:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'lime'
+
+mappingId	mapping--1095423230
+target		<http://example.com/country/{code}> a mondialrel:Country ; mondialrel:area {area}^^xsd:decimal ; mondialrel:carCode {code}^^xsd:string ; mondialrel:name {name}^^xsd:string ; mondialrel:population {population}^^xsd:nonNegativeInteger ; mondialrel:hasProvince <http://example.com/city/{province}> ; mondialrel:capital <http://example.com/city/{capital}> . 
+source		SELECT "name" , "code" , "capital" , "province" , "area" , "population" FROM "country"
+
+mappingId	mapping--632549344
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'compliant countries'
+
+mappingId	mapping-595945375
+target		<http://example.com/river/{river}> mondialrel:hasEstuary <http://example.com/province/{country}> . 
+source		SELECT "river" , "country" FROM "geo_estuary"
+
+mappingId	mapping--1348013175
+target		<http://example.com/provinceothername/{country}__{province}__{othername}> a mondialrel:Province ; mondialrel:othername {othername}^^xsd:string ; mondialrel:neighbor <http://example.com/country/{country}> . 
+source		SELECT "province" , "country" , "othername" FROM "provinceothername"
+
+mappingId	mapping-751113916
+target		<http://example.com/located/{city}__{province}__{country}__{river}__{lake}__{sea}> a mondialrel:Location ; mondialrel:hasCity <http://example.com/city/{country}> , <http://example.com/city/{city}> ; mondialrel:isProvinceOf <http://example.com/city/{province}> ; mondialrel:mergesWith <http://example.com/sea/{sea}> ; mondialrel:flowsThrough <http://example.com/lake/{lake}> . 
+source		SELECT "city" , "province" , "country" , "river" , "lake" , "sea" FROM "located"
+
+mappingId	mapping-1995273039
+target		<http://example.com/river/{name}> a mondialrel:River ; mondialrel:length {length}^^xsd:decimal ; mondialrel:name {name}^^xsd:string ; mondialrel:elevation {sourceelevation}^^xsd:decimal ; mondialrel:flowsThrough <http://example.com/lake/{lake}> . 
+source		SELECT "name" , "river" , "lake" , "sea" , "length" , "source" , "mountains" , "sourceelevation" , "estuary" FROM "river"
+
+mappingId	mapping-263791435
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associate observer'
+
+mappingId	mapping-793371735
+target		<http://example.com/island/{name}> a mondialrel:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'volcanic'
+
+mappingId	mapping--358342971
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'correspondent member'
+
+mappingId	mapping-29092763
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'accepting compulsory jurisdiction with reservations'
+
+mappingId	mapping--1381109684
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'dialogue partner'
+
+mappingId	mapping--345187788
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'associated member'
+
+mappingId	mapping--273948914
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'accepting compulsory jurisdiction without reservations'
+
+mappingId	mapping-31235006
+target		<http://example.com/mountain/{mountain}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "mountain" , "country" FROM "geo_mountain"
+
+mappingId	mapping--1984229513
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'candidate'
+
+mappingId	mapping--354784461
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'national committee'
+
+mappingId	mapping--2125640847
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'National Olympic Committee'
+
+mappingId	mapping--1358211265
+target		<http://example.com/mountain/{name}> a mondialrel:Volcano . 
+source		SELECT "name" FROM "mountain" WHERE "type" = 'volcano'
+
+mappingId	mapping-1182537973
+target		<http://example.com/ismember/{country}__{organization}> a mondialrel:Membership . 
+source		SELECT "country" , "organization" FROM "ismember" WHERE "type" = 'List B'
+
+mappingId	mapping--1740637589
+target		<http://example.com/lake/{lake}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "lake" , "country" FROM "geo_lake"
+
+mappingId	mapping-565631637
+target		<http://example.com/lake/{name}> a mondialrel:Lake . 
+source		SELECT "name" FROM "lake" WHERE "type" = 'dam'
+
+mappingId	mapping-1950013510
+target		<http://example.com/mountain/{name}> a mondialrel:Mountain ; mondialrel:elevation {elevation}^^xsd:decimal ; mondialrel:name {name}^^xsd:string . 
+source		SELECT "name" , "mountains" , "elevation" , "type" , "coordinates" FROM "mountain"
+
+mappingId	mapping-1474903004
+target		<http://example.com/island/{name}> a mondialrel:Island . 
+source		SELECT "name" FROM "island" WHERE "type" = 'coral'
+
+mappingId	mapping-1440006585
+target		<http://example.com/ethnicgroup/{name}__{country}> a mondialrel:EthnicGroup ; mondialrel:cityIn <http://example.com/country/{country}> ; mondialrel:name {name}^^xsd:string ; mondialrel:percent {percentage}^^xsd:decimal . 
+source		SELECT "country" , "name" , "percentage" FROM "ethnicgroup"
+
+mappingId	mapping-680618403
+target		<http://example.com/desert/{desert}> mondialrel:hasProvince <http://example.com/province/{country}> . 
+source		SELECT "desert" , "country" FROM "geo_desert"
+
+mappingId	mapping-49104637
+target		<http://example.com/desert/{name}> a mondialrel:Desert ; mondialrel:name {name}^^xsd:string ; mondialrel:area {area}^^xsd:decimal . 
+source		SELECT "name" , "area" , "coordinates" FROM "desert"
+
+mappingId	mapping--669150432
+target		<http://example.com/mountain/{mountain}> mondialrel:locatedOnIsland <http://example.com/island/{island}> . 
+source		SELECT "mountain" , "island" FROM "mountainonisland"
+]]
+

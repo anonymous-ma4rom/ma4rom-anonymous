@@ -1,0 +1,2216 @@
+{
+  "apaareagross": {
+    "columns": {
+      "apamap_no": "integer",
+      "apaareageometry_kml_wgs84": "text",
+      "apaareagross_id": "integer"
+    },
+    "primary_key": [
+      "apaareagross_id"
+    ],
+    "foreign_keys": []
+  },
+  "apaareanet": {
+    "columns": {
+      "blkid": "integer",
+      "blklabel": "character varying(40)",
+      "qdrname": "character varying(40)",
+      "blkname": "character varying(40)",
+      "prvname": "character varying(2)",
+      "apaareatype": "character varying(40)",
+      "urlnpd": "character varying(200)",
+      "apaareanet_id": "integer"
+    },
+    "primary_key": [
+      "apaareanet_id",
+      "qdrname",
+      "blkname",
+      "prvname",
+      "blkid"
+    ],
+    "foreign_keys": []
+  },
+  "baaarea": {
+    "columns": {
+      "baanpdidbsnsarrarea": "integer",
+      "baanpdidbsnsarrareapoly": "integer",
+      "baaname": "character varying(40)",
+      "baakind": "character varying(40)",
+      "baaareapolydatevalidfrom": "date",
+      "baaareapolydatevalidto": "date",
+      "baaareapolyactive": "character varying(40)",
+      "baadateapproved": "date",
+      "baadatevalidfrom": "date",
+      "baadatevalidto": "date",
+      "baaactive": "character varying(20)",
+      "baafactpageurl": "character varying(200)",
+      "baafactmapurl": "character varying(200)"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea",
+      "baanpdidbsnsarrareapoly"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "baaArea_ibfk_1",
+        "fk_arity": 1,
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      }
+    ]
+  },
+  "bsns_arr_area": {
+    "columns": {
+      "baaname": "character varying(40)",
+      "baakind": "character varying(40)",
+      "baadateapproved": "date",
+      "baadatevalidfrom": "date",
+      "baadatevalidto": "date",
+      "baafactpageurl": "character varying(200)",
+      "baafactmapurl": "character varying(200)",
+      "baanpdidbsnsarrarea": "integer",
+      "baadateupdated": "date",
+      "baadateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea"
+    ],
+    "foreign_keys": []
+  },
+  "bsns_arr_area_area_poly_hst": {
+    "columns": {
+      "baaname": "character varying(40)",
+      "baaareapolydatevalidfrom": "date",
+      "baaareapolydatevalidto": "date",
+      "baaareapolynationcode2": "character varying(2)",
+      "baaareapolyblockname": "character varying(40)",
+      "baaareapolyno": "integer",
+      "baaareapolyarea": "numeric(13,6)",
+      "baanpdidbsnsarrarea": "integer",
+      "baaareapolydateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea",
+      "baaareapolyblockname",
+      "baaareapolyno",
+      "baaareapolydatevalidfrom",
+      "baaareapolydatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "bsns_arr_area_area_poly_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      }
+    ]
+  },
+  "bsns_arr_area_licensee_hst": {
+    "columns": {
+      "baaname": "character varying(40)",
+      "baalicenseedatevalidfrom": "date",
+      "baalicenseedatevalidto": "date",
+      "cmplongname": "character varying(200)",
+      "baalicenseeinterest": "numeric(13,6)",
+      "baalicenseesdfi": "numeric(13,6)",
+      "baanpdidbsnsarrarea": "integer",
+      "cmpnpdidcompany": "integer",
+      "baalicenseedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea",
+      "cmpnpdidcompany",
+      "baalicenseedatevalidfrom",
+      "baalicenseedatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "bsns_arr_area_licensee_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "constraint_name": "bsns_arr_area_licensee_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "bsns_arr_area_operator": {
+    "columns": {
+      "baaname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "baanpdidbsnsarrarea": "integer",
+      "cmpnpdidcompany": "integer",
+      "baaoperatordateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "bsns_arr_area_operator_ibfk_1",
+        "fk_arity": 1,
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "constraint_name": "bsns_arr_area_operator_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "bsns_arr_area_transfer_hst": {
+    "columns": {
+      "baaname": "character varying(40)",
+      "baatransferdatevalidfrom": "date",
+      "baatransferdirection": "character varying(4)",
+      "baatransferkind": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "baatransferredinterest": "numeric(13,6)",
+      "baatransfersdfi": "numeric(13,6)",
+      "baanpdidbsnsarrarea": "integer",
+      "cmpnpdidcompany": "integer",
+      "baatransferdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "baanpdidbsnsarrarea",
+      "baatransferdirection",
+      "cmpnpdidcompany",
+      "baatransferdatevalidfrom"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "bsns_arr_area_transfer_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "baanpdidbsnsarrarea",
+        "references_table": "bsns_arr_area",
+        "references_column": "baanpdidbsnsarrarea"
+      },
+      {
+        "constraint_name": "bsns_arr_area_transfer_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "company": {
+    "columns": {
+      "cmplongname": "character varying(200)",
+      "cmporgnumberbrreg": "character varying(100)",
+      "cmpgroup": "character varying(100)",
+      "cmpshortname": "character varying(40)",
+      "cmpnpdidcompany": "integer",
+      "cmplicenceopercurrent": "character varying(1)",
+      "cmplicenceoperformer": "character varying(1)",
+      "cmplicencelicenseecurrent": "character varying(1)",
+      "cmplicencelicenseeformer": "character varying(1)",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "cmpnpdidcompany"
+    ],
+    "foreign_keys": []
+  },
+  "company_reserves": {
+    "columns": {
+      "cmplongname": "character varying(200)",
+      "fldname": "character varying(40)",
+      "cmprecoverableoil": "numeric(13,6)",
+      "cmprecoverablegas": "numeric(13,6)",
+      "cmprecoverablengl": "numeric(13,6)",
+      "cmprecoverablecondensate": "numeric(13,6)",
+      "cmprecoverableoe": "numeric(13,6)",
+      "cmpremainingoil": "numeric(13,6)",
+      "cmpremaininggas": "numeric(13,6)",
+      "cmpremainingngl": "numeric(13,6)",
+      "cmpremainingcondensate": "numeric(13,6)",
+      "cmpremainingoe": "numeric(13,6)",
+      "cmpdateoffresestdisplay": "date",
+      "cmpshare": "numeric(13,6)",
+      "fldnpdidfield": "integer",
+      "cmpnpdidcompany": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "cmpnpdidcompany",
+      "fldnpdidfield"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "company_reserves_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "company_reserves_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "discovery": {
+    "columns": {
+      "dscname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "dsccurrentactivitystatus": "character varying(40)",
+      "dschctype": "character varying(40)",
+      "wlbname": "character varying(60)",
+      "nmaname": "character varying(40)",
+      "fldname": "character varying(40)",
+      "dscdatefrominclinfield": "date",
+      "dscdiscoveryyear": "integer",
+      "dscresinclindiscoveryname": "character varying(40)",
+      "dscownerkind": "character varying(40)",
+      "dscownername": "character varying(40)",
+      "dscnpdiddiscovery": "integer",
+      "fldnpdidfield": "integer",
+      "wlbnpdidwellbore": "integer",
+      "dscfactpageurl": "character varying(200)",
+      "dscfactmapurl": "character varying(200)",
+      "dscdateupdated": "date",
+      "dscdateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "dscnpdiddiscovery"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "discovery_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "discovery_reserves": {
+    "columns": {
+      "dscname": "character varying(40)",
+      "dscreservesrc": "character varying(40)",
+      "dscrecoverableoil": "numeric(13,6)",
+      "dscrecoverablegas": "numeric(13,6)",
+      "dscrecoverablengl": "numeric(13,6)",
+      "dscrecoverablecondensate": "numeric(13,6)",
+      "dscdateoffresestdisplay": "date",
+      "dscnpdiddiscovery": "integer",
+      "dscreservesdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "dscnpdiddiscovery",
+      "dscreservesrc"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "discovery_reserves_ibfk_1",
+        "fk_arity": 1,
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ]
+  },
+  "dscarea": {
+    "columns": {
+      "fldnpdidfield": "integer",
+      "fldname": "character varying(40)",
+      "dscnpdiddiscovery": "integer",
+      "dscname": "character varying(40)",
+      "dscresinclindiscoveryname": "character varying(40)",
+      "dscnpdidresinclindiscovery": "integer",
+      "dscincludedinfld": "character varying(3)",
+      "dschctype": "character varying(40)",
+      "fldhctype": "character varying(40)",
+      "dsccurrentactivitystatus": "character varying(40)",
+      "fldcurrentactivitystatus": "character varying(40)",
+      "flddsclabel": "character varying(40)",
+      "dscfacturl": "character varying(200)",
+      "fldfacturl": "character varying(200)"
+    },
+    "primary_key": [
+      "dscnpdiddiscovery",
+      "dschctype"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "dscArea_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "dscArea_ibfk_2",
+        "fk_arity": 1,
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "constraint_name": "dscArea_ibfk_3",
+        "fk_arity": 1,
+        "column": "dscnpdidresinclindiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ]
+  },
+  "facility_fixed": {
+    "columns": {
+      "fclname": "character varying(40)",
+      "fclphase": "character varying(40)",
+      "fclsurface": "character varying(1)",
+      "fclcurrentoperatorname": "character varying(100)",
+      "fclkind": "character varying(40)",
+      "fclbelongstoname": "character varying(41)",
+      "fclbelongstokind": "character varying(40)",
+      "fclbelongstos": "integer",
+      "fclstartupdate": "date",
+      "fclgeodeticdatum": "character varying(10)",
+      "fclnsdeg": "integer",
+      "fclnsmin": "integer",
+      "fclnssec": "numeric(13,6)",
+      "fclnscode": "character varying(1)",
+      "fclewdeg": "integer",
+      "fclewmin": "integer",
+      "fclewsec": "numeric(13,6)",
+      "fclewcode": "character varying(1)",
+      "fclwaterdepth": "numeric(13,6)",
+      "fclfunctions": "character varying(400)",
+      "fcldesignlifetime": "integer",
+      "fclfactpageurl": "character varying(200)",
+      "fclfactmapurl": "character varying(200)",
+      "fclnpdidfacility": "integer",
+      "fcldateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fclnpdidfacility"
+    ],
+    "foreign_keys": []
+  },
+  "facility_moveable": {
+    "columns": {
+      "fclname": "character varying(40)",
+      "fclcurrentrespcompanyname": "character varying(100)",
+      "fclkind": "character varying(40)",
+      "fclfunctions": "character varying(400)",
+      "fclnationname": "character varying(40)",
+      "fclfactpageurl": "character varying(200)",
+      "fclnpdidfacility": "integer",
+      "fclnpdidcurrentrespcompany": "integer",
+      "fcldateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fclnpdidfacility"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "facility_moveable_ibfk_1",
+        "fk_arity": 1,
+        "column": "fclnpdidcurrentrespcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "fclpoint": {
+    "columns": {
+      "fclnpdidfacility": "integer",
+      "fclsurface": "character varying(1)",
+      "fclcurrentoperatorname": "character varying(100)",
+      "fclname": "character varying(40)",
+      "fclkind": "character varying(40)",
+      "fclbelongstoname": "character varying(41)",
+      "fclbelongstokind": "character varying(40)",
+      "fclbelongstos": "integer",
+      "fclstartupdate": "date",
+      "fclwaterdepth": "numeric(13,6)",
+      "fclfunctions": "character varying(400)",
+      "fcldesignlifetime": "integer",
+      "fclfactpageurl": "character varying(200)",
+      "fclfactmapurl": "character varying(200)"
+    },
+    "primary_key": [
+      "fclnpdidfacility"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "fclPoint_ibfk_1",
+        "fk_arity": 1,
+        "column": "fclnpdidfacility",
+        "references_table": "facility_fixed",
+        "references_column": "fclnpdidfacility"
+      }
+    ]
+  },
+  "field": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "fldcurrentactivitysatus": "character varying(40)",
+      "wlbname": "character varying(60)",
+      "wlbcompletiondate": "date",
+      "fldownerkind": "character varying(40)",
+      "fldownername": "character varying(40)",
+      "fldnpdidowner": "integer",
+      "fldnpdidfield": "integer",
+      "wlbnpdidwellbore": "integer",
+      "cmpnpdidcompany": "integer",
+      "fldfactpageurl": "character varying(200)",
+      "fldfactmapurl": "character varying(200)",
+      "flddateupdated": "date",
+      "flddateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_ibfk_3",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "field_activity_status_hst": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "fldstatusfromdate": "date",
+      "fldstatustodate": "date",
+      "fldstatus": "character varying(40)",
+      "fldnpdidfield": "integer",
+      "fldstatusdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield",
+      "fldstatus",
+      "fldstatusfromdate",
+      "fldstatustodate"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_activity_status_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "field_description": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "flddescriptionheading": "character varying(255)",
+      "flddescriptiontext": "text",
+      "fldnpdidfield": "integer",
+      "flddescriptiondateupdated": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield",
+      "flddescriptionheading"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_description_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "field_investment_yearly": {
+    "columns": {
+      "prfinformationcarrier": "character varying(40)",
+      "prfyear": "integer",
+      "prfinvestmentsmillnok": "numeric(13,6)",
+      "prfnpdidinformationcarrier": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prfnpdidinformationcarrier",
+      "prfyear"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_investment_yearly_ibfk_1",
+        "fk_arity": 1,
+        "column": "prfnpdidinformationcarrier",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "field_licensee_hst": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "fldownername": "character varying(40)",
+      "fldownerkind": "character varying(40)",
+      "fldownerfrom": "date",
+      "fldownerto": "date",
+      "fldlicenseefrom": "date",
+      "fldlicenseeto": "date",
+      "cmplongname": "character varying(200)",
+      "fldcompanyshare": "numeric(13,6)",
+      "fldsdfishare": "numeric(13,6)",
+      "fldnpdidfield": "integer",
+      "cmpnpdidcompany": "integer",
+      "fldlicenseedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield",
+      "cmpnpdidcompany",
+      "fldlicenseefrom",
+      "fldlicenseeto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_licensee_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "field_licensee_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "field_operator_hst": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "fldoperatorfrom": "date",
+      "fldoperatorto": "date",
+      "fldnpdidfield": "integer",
+      "cmpnpdidcompany": "integer",
+      "fldoperatordateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield",
+      "cmpnpdidcompany",
+      "fldoperatorfrom",
+      "fldoperatorto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_operator_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "field_operator_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "field_owner_hst": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "fldownerkind": "character varying(40)",
+      "fldownername": "character varying(40)",
+      "fldownershipfromdate": "date",
+      "fldownershiptodate": "date",
+      "fldnpdidfield": "integer",
+      "fldnpdidowner": "integer",
+      "fldownerdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield",
+      "fldnpdidowner",
+      "fldownershipfromdate",
+      "fldownershiptodate"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_owner_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "field_production_monthly": {
+    "columns": {
+      "prfinformationcarrier": "character varying(40)",
+      "prfyear": "integer",
+      "prfmonth": "integer",
+      "prfprdoilnetmillsm3": "numeric(13,6)",
+      "prfprdgasnetbillsm3": "numeric(13,6)",
+      "prfprdnglnetmillsm3": "numeric(13,6)",
+      "prfprdcondensatenetmillsm3": "numeric(13,6)",
+      "prfprdoenetmillsm3": "numeric(13,6)",
+      "prfprdproducedwaterinfieldmillsm3": "numeric(13,6)",
+      "prfnpdidinformationcarrier": "integer"
+    },
+    "primary_key": [
+      "prfnpdidinformationcarrier",
+      "prfyear",
+      "prfmonth"
+    ],
+    "foreign_keys": []
+  },
+  "field_production_totalt_ncs_month": {
+    "columns": {
+      "prfyear": "integer",
+      "prfmonth": "integer",
+      "prfprdoilnetmillsm3": "numeric(13,6)",
+      "prfprdgasnetbillsm3": "numeric(13,6)",
+      "prfprdnglnetmillsm3": "numeric(13,6)",
+      "prfprdcondensatenetmillsm3": "numeric(13,6)",
+      "prfprdoenetmillsm3": "numeric(13,6)",
+      "prfprdproducedwaterinfieldmillsm3": "numeric(13,6)"
+    },
+    "primary_key": [
+      "prfyear",
+      "prfmonth"
+    ],
+    "foreign_keys": []
+  },
+  "field_production_totalt_ncs_year": {
+    "columns": {
+      "prfyear": "integer",
+      "prfprdoilnetmillsm": "numeric(13,6)",
+      "prfprdgasnetbillsm": "numeric(13,6)",
+      "prfprdcondensatenetmillsm3": "numeric(13,6)",
+      "prfprdnglnetmillsm3": "numeric(13,6)",
+      "prfprdoenetmillsm3": "numeric(13,6)",
+      "prfprdproducedwaterinfieldmillsm3": "numeric(13,6)"
+    },
+    "primary_key": [
+      "prfyear"
+    ],
+    "foreign_keys": []
+  },
+  "field_production_yearly": {
+    "columns": {
+      "prfinformationcarrier": "character varying(40)",
+      "prfyear": "integer",
+      "prfprdoilnetmillsm3": "numeric(13,6)",
+      "prfprdgasnetbillsm3": "numeric(13,6)",
+      "prfprdnglnetmillsm3": "numeric(13,6)",
+      "prfprdcondensatenetmillsm3": "numeric(13,6)",
+      "prfprdoenetmillsm3": "numeric(13,6)",
+      "prfprdproducedwaterinfieldmillsm3": "numeric(13,6)",
+      "prfnpdidinformationcarrier": "integer"
+    },
+    "primary_key": [
+      "prfnpdidinformationcarrier",
+      "prfyear"
+    ],
+    "foreign_keys": []
+  },
+  "field_reserves": {
+    "columns": {
+      "fldname": "character varying(40)",
+      "fldrecoverableoil": "numeric(13,6)",
+      "fldrecoverablegas": "numeric(13,6)",
+      "fldrecoverablengl": "numeric(13,6)",
+      "fldrecoverablecondensate": "numeric(13,6)",
+      "fldrecoverableoe": "numeric(13,6)",
+      "fldremainingoil": "numeric(13,6)",
+      "fldremaininggas": "numeric(13,6)",
+      "fldremainingngl": "numeric(13,6)",
+      "fldremainingcondensate": "numeric(13,6)",
+      "fldremainingoe": "numeric(13,6)",
+      "flddateoffresestdisplay": "date",
+      "fldnpdidfield": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "fldnpdidfield"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "field_reserves_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      }
+    ]
+  },
+  "fldarea": {
+    "columns": {
+      "fldnpdidfield": "integer",
+      "fldname": "character varying(40)",
+      "dscnpdiddiscovery": "integer",
+      "dscname": "character varying(40)",
+      "dscresinclindiscoveryname": "character varying(40)",
+      "dscnpdidresinclindiscovery": "integer",
+      "dscincludedinfld": "character varying(3)",
+      "dschctype": "character varying(40)",
+      "fldhctype": "character varying(40)",
+      "dsccurrentactivitystatus": "character varying(40)",
+      "fldcurrentactivitystatus": "character varying(40)",
+      "flddsclabel": "character varying(40)",
+      "dscfacturl": "character varying(200)",
+      "fldfacturl": "character varying(200)"
+    },
+    "primary_key": [
+      "dscnpdiddiscovery",
+      "dschctype"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "fldArea_ibfk_1",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "fldArea_ibfk_2",
+        "fk_arity": 1,
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "constraint_name": "fldArea_ibfk_3",
+        "fk_arity": 1,
+        "column": "dscnpdidresinclindiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      }
+    ]
+  },
+  "licence": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prllicensingactivityname": "character varying(40)",
+      "prlmainarea": "character varying(40)",
+      "prlstatus": "character varying(40)",
+      "prldategranted": "date",
+      "prldatevalidto": "date",
+      "prloriginalarea": "numeric(13,6)",
+      "prlcurrentarea": "character varying(20)",
+      "prlphasecurrent": "character varying(40)",
+      "prlnpdidlicence": "integer",
+      "prlfactpageurl": "character varying(200)",
+      "prlfactmapurl": "character varying(200)",
+      "prldateupdated": "date",
+      "prldateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence"
+    ],
+    "foreign_keys": []
+  },
+  "licence_area_poly_hst": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prlareapolydatevalidfrom": "date",
+      "prlareapolydatevalidto": "date",
+      "prlareapolynationcode": "character varying(2)",
+      "prlareapolyblockname": "character varying(40)",
+      "prlareapolystratigraphical": "character varying(4)",
+      "prlareapolypolyno": "integer",
+      "prlareapolypolyarea": "numeric(13,6)",
+      "prlnpdidlicence": "integer",
+      "prlareadateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "prlareapolyblockname",
+      "prlareapolypolyno",
+      "prlareapolydatevalidfrom",
+      "prlareapolydatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_area_poly_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "licence_licensee_hst": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prllicenseedatevalidfrom": "date",
+      "prllicenseedatevalidto": "date",
+      "cmplongname": "character varying(200)",
+      "prllicenseeinterest": "numeric(13,6)",
+      "prllicenseesdfi": "numeric(13,6)",
+      "prloperdatevalidfrom": "date",
+      "prloperdatevalidto": "date",
+      "prlnpdidlicence": "integer",
+      "cmpnpdidcompany": "integer",
+      "prllicenseedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "cmpnpdidcompany",
+      "prllicenseedatevalidfrom",
+      "prllicenseedatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_licensee_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "licence_licensee_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "licence_oper_hst": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prloperdatevalidfrom": "date",
+      "prloperdatevalidto": "date",
+      "cmplongname": "character varying(200)",
+      "prlnpdidlicence": "integer",
+      "cmpnpdidcompany": "integer",
+      "prloperdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "cmpnpdidcompany",
+      "prloperdatevalidfrom",
+      "prloperdatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_oper_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "licence_oper_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "licence_petreg_licence": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "ptldateawarded": "date",
+      "ptldatevalidfrom": "date",
+      "ptldatevalidto": "date",
+      "prlnpdidlicence": "integer",
+      "ptldateupdated": "date",
+      "ptldateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_petreg_licence_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "licence_petreg_licence_licencee": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "ptllicenseeinterest": "numeric(13,6)",
+      "prlnpdidlicence": "integer",
+      "cmpnpdidcompany": "integer",
+      "ptllicenseedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "cmpnpdidcompany"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_petreg_licence_licencee_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "licence_petreg_licence_licencee_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "licence_petreg_licence_oper": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "prlnpdidlicence": "integer",
+      "cmpnpdidcompany": "integer",
+      "ptloperdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_petreg_licence_oper_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "licence_petreg_licence_oper_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "licence_petreg_message": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "ptlmessagedocumentno": "integer",
+      "ptlmessage": "text",
+      "ptlmessageregistereddate": "date",
+      "ptlmessagekinddesc": "character varying(100)",
+      "ptlmessagedateupdated": "date",
+      "prlnpdidlicence": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "ptlmessagedocumentno"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_petreg_message_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "licence_phase_hst": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prldatephasevalidfrom": "date",
+      "prldatephasevalidto": "date",
+      "prlphase": "character varying(40)",
+      "prldategranted": "date",
+      "prldatevalidto": "date",
+      "prldateinitialperiodexpires": "date",
+      "prlactivestatusindicator": "character varying(40)",
+      "prlnpdidlicence": "integer",
+      "prlphasedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "prlphase",
+      "prldatephasevalidfrom",
+      "prldatephasevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_phase_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "licence_task": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prltaskname": "character varying(40)",
+      "prltasktypeno": "character varying(100)",
+      "prltasktypeen": "character varying(200)",
+      "prltaskstatusno": "character varying(100)",
+      "prltaskstatusen": "character varying(40)",
+      "prltaskexpirydate": "date",
+      "wlbname": "character varying(60)",
+      "prldatevalidto": "date",
+      "prllicensingactivityname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "cmpnpdidcompany": "integer",
+      "prlnpdidlicence": "integer",
+      "prltaskid": "integer",
+      "prltaskrefid": "integer",
+      "prltaskdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "prltaskid"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_task_ibfk_1",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "constraint_name": "licence_task_ibfk_2",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "licence_transfer_hst": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prltransferdatevalidfrom": "date",
+      "prltransferdirection": "character varying(4)",
+      "prltransferkind": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "prltransferredinterest": "numeric(13,6)",
+      "prltransfersdfi": "numeric(13,6)",
+      "prlnpdidlicence": "integer",
+      "cmpnpdidcompany": "integer",
+      "prltransferdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "prltransferdirection",
+      "cmpnpdidcompany",
+      "prltransferdatevalidfrom"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "licence_transfer_hst_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "licence_transfer_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "pipline": {
+    "columns": {
+      "pipnpdidpipe": "integer",
+      "pipnpdidfromfacility": "integer",
+      "pipnpdidtofacility": "integer",
+      "pipnpdidoperator": "integer",
+      "pipname": "character varying(50)",
+      "pipnamefromfacility": "character varying(50)",
+      "pipnametofacility": "character varying(50)",
+      "pipnamecurrentoperator": "character varying(100)",
+      "pipcurrentphase": "character varying(40)",
+      "pipmedium": "character varying(20)",
+      "pipmaingrouping": "character varying(20)",
+      "pipdimension": "numeric(13,6)"
+    },
+    "primary_key": [
+      "pipnpdidpipe"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "pipLine_ibfk_1",
+        "fk_arity": 1,
+        "column": "pipnpdidoperator",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "prlarea": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prlactive": "character varying(20)",
+      "prlcurrentarea": "character varying(20)",
+      "prldategranted": "date",
+      "prldatevalidto": "date",
+      "prlareapolydatevalidfrom": "date",
+      "prlareapolydatevalidto": "date",
+      "prlareapolyfromzvalue": "integer",
+      "prlareapolytozvalue": "integer",
+      "prlareapolyvertlimen": "text",
+      "prlareapolyvertlimno": "text",
+      "prlstratigraphical": "character varying(3)",
+      "prlareapolystratigraphical": "character varying(4)",
+      "prlnpdidlicence": "integer",
+      "prllastoperatornameshort": "character varying(40)",
+      "prllastoperatornamelong": "character varying(200)",
+      "prllicensingactivityname": "character varying(40)",
+      "prllastoperatornpdidcompany": "integer",
+      "prlfacturl": "character varying(200)",
+      "prlarea_id": "integer"
+    },
+    "primary_key": [
+      "prlarea_id",
+      "prlnpdidlicence",
+      "prlareapolydatevalidfrom",
+      "prlareapolydatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "prlArea_ibfk_1",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      },
+      {
+        "constraint_name": "prlArea_ibfk_2",
+        "fk_arity": 1,
+        "column": "prllastoperatornpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "prlareasplitbyblock": {
+    "columns": {
+      "prlname": "character varying(50)",
+      "prlactive": "character varying(20)",
+      "prlcurrentarea": "character varying(20)",
+      "prldategranted": "date",
+      "prldatevalidto": "date",
+      "prlareapolydatevalidfrom": "date",
+      "prlareapolydatevalidto": "date",
+      "prlareapolypolyno": "integer",
+      "prlareapolypolyarea": "numeric(13,6)",
+      "blcname": "character varying(40)",
+      "prlareapolyfromzvalue": "integer",
+      "prlareapolytozvalue": "integer",
+      "prlareapolyvertlimen": "text",
+      "prlareapolyvertlimno": "text",
+      "prlstratigraphical": "character varying(3)",
+      "prllastoperatornpdidcompany": "integer",
+      "prllastoperatornameshort": "character varying(40)",
+      "prllastoperatornamelong": "character varying(200)",
+      "prllicensingactivityname": "character varying(40)",
+      "prlfacturl": "character varying(200)",
+      "prlareapolystratigraphical": "character varying(4)",
+      "prlnpdidlicence": "integer"
+    },
+    "primary_key": [
+      "prlnpdidlicence",
+      "blcname",
+      "prlareapolypolyno",
+      "prlareapolydatevalidfrom",
+      "prlareapolydatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "prlAreaSplitByBlock_ibfk_1",
+        "fk_arity": 1,
+        "column": "prllastoperatornpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      },
+      {
+        "constraint_name": "prlAreaSplitByBlock_ibfk_2",
+        "fk_arity": 1,
+        "column": "prlnpdidlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "seaarea": {
+    "columns": {
+      "seasurveyname": "character varying(100)",
+      "seanpdidsurvey": "integer",
+      "seafactmapurl": "character varying(260)",
+      "seafactpageurl": "character varying(200)",
+      "seastatus": "character varying(100)",
+      "seageographicalarea": "character varying(100)",
+      "seamarketavailable": "character varying(20)",
+      "seasurveytypemain": "character varying(100)",
+      "seasurveytypepart": "character varying(100)",
+      "seacompanyreported": "character varying(100)",
+      "seasourcetype": "character varying(100)",
+      "seasourcenumber": "character varying(100)",
+      "seasourcesize": "character varying(100)",
+      "seasourcepressure": "character varying(100)",
+      "seasensortype": "character varying(100)",
+      "seasensornumbers": "character varying(40)",
+      "seasensorlength": "character varying(100)",
+      "seaplanfromdate": "date",
+      "seadatestarting": "date",
+      "seaplantodate": "date",
+      "seadatefinalized": "date",
+      "seaplancdpkm": "integer",
+      "seacdptotalkm": "integer",
+      "seaplanboatkm": "integer",
+      "seaboattotalkm": "integer",
+      "sea3dkm2": "numeric(13,6)",
+      "seapolygonkind": "character varying(100)",
+      "seaarea_id": "integer"
+    },
+    "primary_key": [
+      "seaarea_id",
+      "seasurveyname"
+    ],
+    "foreign_keys": []
+  },
+  "seamultiline": {
+    "columns": {
+      "seasurveyname": "character varying(100)",
+      "seafactmapurl": "character varying(260)",
+      "seafactpageurl": "character varying(200)",
+      "seastatus": "character varying(100)",
+      "seamarketavailable": "character varying(20)",
+      "seasurveytypemain": "character varying(100)",
+      "seasurveytypepart": "character varying(100)",
+      "seacompanyreported": "character varying(100)",
+      "seasourcetype": "character varying(100)",
+      "seasourcenumber": "character varying(100)",
+      "seasourcesize": "character varying(100)",
+      "seasourcepressure": "character varying(100)",
+      "seasensortype": "character varying(100)",
+      "seasensornumbers": "character varying(40)",
+      "seasensorlength": "character varying(100)",
+      "seaplanfromdate": "date",
+      "seadatestarting": "date",
+      "seaplantodate": "date",
+      "seadatefinalized": "date",
+      "seaplancdpkm": "integer",
+      "seacdptotalkm": "integer",
+      "seaplanboatkm": "integer",
+      "seaboattotalkm": "integer"
+    },
+    "primary_key": [
+      "seasurveyname"
+    ],
+    "foreign_keys": []
+  },
+  "seis_acquisition": {
+    "columns": {
+      "seaname": "character varying(100)",
+      "seaplanfromdate": "date",
+      "seanpdidsurvey": "integer",
+      "seastatus": "character varying(100)",
+      "seageographicalarea": "character varying(100)",
+      "seasurveytypemain": "character varying(100)",
+      "seasurveytypepart": "character varying(100)",
+      "seacompanyreported": "character varying(100)",
+      "seaplantodate": "date",
+      "seadatestarting": "date",
+      "seadatefinalized": "date",
+      "seacdptotalkm": "integer",
+      "seaboattotalkm": "integer",
+      "sea3dkm2": "numeric(13,6)",
+      "seasampling": "character varying(20)",
+      "seashallowdrilling": "character varying(20)",
+      "seageotechnical": "character varying(20)",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "seanpdidsurvey",
+      "seaname"
+    ],
+    "foreign_keys": []
+  },
+  "seis_acquisition_coordinates_inc_turnarea": {
+    "columns": {
+      "seasurveyname": "character varying(100)",
+      "seanpdidsurvey": "integer",
+      "seapolygonpointnumber": "integer",
+      "seapolygonnsdeg": "integer",
+      "seapolygonnsmin": "integer",
+      "seapolygonnssec": "numeric(13,6)",
+      "seapolygonewdeg": "integer",
+      "seapolygonewmin": "integer",
+      "seapolygonewsec": "numeric(13,6)",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "seasurveyname",
+      "seapolygonpointnumber"
+    ],
+    "foreign_keys": []
+  },
+  "seis_acquisition_progress": {
+    "columns": {
+      "seaprogressdate": "date",
+      "seaprogresstext2": "character varying(40)",
+      "seaprogresstext": "text",
+      "seaprogressdescription": "text",
+      "seanpdidsurvey": "integer",
+      "seis_acquisition_progress_id": "integer"
+    },
+    "primary_key": [
+      "seis_acquisition_progress_id",
+      "seaprogresstext2"
+    ],
+    "foreign_keys": []
+  },
+  "strat_litho_wellbore": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "lsutopdepth": "numeric(13,6)",
+      "lsubottomdepth": "numeric(13,6)",
+      "lsuname": "character varying(20)",
+      "lsulevel": "character varying(9)",
+      "lsunpdidlithostrat": "integer",
+      "wlbcompletiondate": "date",
+      "wlbnpdidwellbore": "integer",
+      "lsuwellboreupdateddate": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore",
+      "lsunpdidlithostrat",
+      "lsutopdepth",
+      "lsubottomdepth"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "strat_litho_wellbore_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "strat_litho_wellbore_core": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "lsucorelenght": "numeric(13,6)",
+      "lsuname": "character varying(20)",
+      "lsulevel": "character varying(9)",
+      "wlbcompletiondate": "date",
+      "lsunpdidlithostrat": "integer",
+      "wlbnpdidwellbore": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore",
+      "lsunpdidlithostrat"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "strat_litho_wellbore_core_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "tuf_operator_hst": {
+    "columns": {
+      "tufname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "tufoperdatevalidfrom": "date",
+      "tufoperdatevalidto": "date",
+      "tufnpdidtuf": "integer",
+      "cmpnpdidcompany": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf",
+      "cmpnpdidcompany",
+      "tufoperdatevalidfrom",
+      "tufoperdatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "tuf_operator_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "tuf_owner_hst": {
+    "columns": {
+      "tufname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "tufownerdatevalidfrom": "date",
+      "tufownerdatevalidto": "date",
+      "tufownershare": "numeric(13,6)",
+      "tufnpdidtuf": "integer",
+      "cmpnpdidcompany": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf",
+      "cmpnpdidcompany",
+      "tufownerdatevalidfrom",
+      "tufownerdatevalidto"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "tuf_owner_hst_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "tuf_petreg_licence": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "tufname": "character varying(40)",
+      "ptldatevalidfrom": "date",
+      "ptldatevalidto": "date",
+      "tufnpdidtuf": "integer",
+      "ptldateupdated": "date",
+      "ptldateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf"
+    ],
+    "foreign_keys": []
+  },
+  "tuf_petreg_licence_licencee": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "ptllicenseeinterest": "numeric(13,6)",
+      "tufname": "character varying(40)",
+      "tufnpdidtuf": "integer",
+      "cmpnpdidcompany": "integer",
+      "ptllicenseedateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf",
+      "cmpnpdidcompany"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "tuf_petreg_licence_licencee_ibfk_1",
+        "fk_arity": 1,
+        "column": "tufnpdidtuf",
+        "references_table": "tuf_petreg_licence",
+        "references_column": "tufnpdidtuf"
+      },
+      {
+        "constraint_name": "tuf_petreg_licence_licencee_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "tuf_petreg_licence_oper": {
+    "columns": {
+      "textbox42": "character varying(20)",
+      "textbox2": "character varying(20)",
+      "ptlname": "character varying(40)",
+      "cmplongname": "character varying(200)",
+      "tufname": "character varying(40)",
+      "tufnpdidtuf": "integer",
+      "cmpnpdidcompany": "integer",
+      "ptloperdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "tuf_petreg_licence_oper_ibfk_1",
+        "fk_arity": 1,
+        "column": "tufnpdidtuf",
+        "references_table": "tuf_petreg_licence",
+        "references_column": "tufnpdidtuf"
+      },
+      {
+        "constraint_name": "tuf_petreg_licence_oper_ibfk_2",
+        "fk_arity": 1,
+        "column": "cmpnpdidcompany",
+        "references_table": "company",
+        "references_column": "cmpnpdidcompany"
+      }
+    ]
+  },
+  "tuf_petreg_message": {
+    "columns": {
+      "ptlname": "character varying(40)",
+      "ptlmessagedocumentno": "integer",
+      "ptlmessage": "text",
+      "ptlmessageregistereddate": "date",
+      "ptlmessagekinddesc": "character varying(100)",
+      "tufname": "character varying(40)",
+      "ptlmessagedateupdated": "date",
+      "tufnpdidtuf": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "tufnpdidtuf",
+      "ptlmessagedocumentno"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "tuf_petreg_message_ibfk_1",
+        "fk_arity": 1,
+        "column": "tufnpdidtuf",
+        "references_table": "tuf_petreg_licence",
+        "references_column": "tufnpdidtuf"
+      }
+    ]
+  },
+  "wellbore_casing_and_lot": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbcasingtype": "character varying(10)",
+      "wlbcasingdiameter": "character varying(6)",
+      "wlbcasingdepth": "numeric(13,6)",
+      "wlbholediameter": "character varying(6)",
+      "wlbholedepth": "numeric(13,6)",
+      "wlblotmuddencity": "numeric(13,6)",
+      "wlbnpdidwellbore": "integer",
+      "wlbcasingdateupdated": "date",
+      "datesyncnpd": "date",
+      "wellbore_casing_and_lot_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_casing_and_lot_id",
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_casing_and_lot_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_coordinates": {
+    "columns": {
+      "wlbwellborename": "character varying(40)",
+      "wlbdrillingoperator": "character varying(60)",
+      "wlbproductionlicence": "character varying(40)",
+      "wlbwelltype": "character varying(20)",
+      "wlbpurposeplanned": "character varying(40)",
+      "wlbcontent": "character varying(40)",
+      "wlbentrydate": "date",
+      "wlbcompletiondate": "date",
+      "wlbfield": "character varying(40)",
+      "wlbmainarea": "character varying(40)",
+      "wlbgeodeticdatum": "character varying(6)",
+      "wlbnsdeg": "integer",
+      "wlbnsmin": "integer",
+      "wlbnssec": "numeric(6,2)",
+      "wlbnscode": "character varying(1)",
+      "wlbewdeg": "integer",
+      "wlbewmin": "integer",
+      "wlbewsec": "numeric(6,2)",
+      "wlbewcode": "character varying(1)",
+      "wlbnsdecdeg": "numeric(13,6)",
+      "wlbewdesdeg": "numeric(13,6)",
+      "wlbnsutm": "numeric(13,6)",
+      "wlbewutm": "numeric(13,6)",
+      "wlbutmzone": "integer",
+      "wlbnpdidwellbore": "integer",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_coordinates_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_core": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbcorenumber": "integer",
+      "wlbcoreintervaltop": "numeric(13,6)",
+      "wlbcoreintervalbottom": "numeric(13,6)",
+      "wlbcoreintervaluom": "character varying(6)",
+      "wlbtotalcorelength": "numeric(13,6)",
+      "wlbnumberofcores": "integer",
+      "wlbcoresampleavailable": "character varying(3)",
+      "wlbnpdidwellbore": "integer",
+      "wlbcoredateupdated": "date",
+      "datesyncnpd": "date",
+      "wellbore_core_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_core_id",
+      "wlbnpdidwellbore",
+      "wlbcorenumber"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_core_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_core_photo": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbcorenumber": "integer",
+      "wlbcorephototitle": "character varying(200)",
+      "wlbcorephotoimgurl": "character varying(200)",
+      "wlbnpdidwellbore": "integer",
+      "wlbcorephotodateupdated": "date",
+      "wellbore_core_photo_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_core_photo_id",
+      "wlbnpdidwellbore",
+      "wlbcorenumber",
+      "wlbcorephototitle"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_core_photo_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_development_all": {
+    "columns": {
+      "wlbwellborename": "character varying(40)",
+      "wlbwell": "character varying(40)",
+      "wlbdrillingoperator": "character varying(60)",
+      "wlbdrillingoperatorgroup": "character varying(20)",
+      "wlbproductionlicence": "character varying(40)",
+      "wlbpurposeplanned": "character varying(40)",
+      "wlbcontent": "character varying(40)",
+      "wlbwelltype": "character varying(20)",
+      "wlbentrydate": "date",
+      "wlbcompletiondate": "date",
+      "wlbfield": "character varying(40)",
+      "wlbdrillpermit": "character varying(10)",
+      "wlbdiscovery": "character varying(40)",
+      "wlbdiscoverywellbore": "character varying(3)",
+      "wlbkellybushelevation": "numeric(13,6)",
+      "wlbfinalverticaldepth": "numeric(6,2)",
+      "wlbtotaldepth": "numeric(13,6)",
+      "wlbwaterdepth": "numeric(13,6)",
+      "wlbmainarea": "character varying(40)",
+      "wlbdrillingfacility": "character varying(50)",
+      "wlbfacilitytypedrilling": "character varying(40)",
+      "wlbproductionfacility": "character varying(50)",
+      "wlblicensingactivity": "character varying(40)",
+      "wlbmultilateral": "character varying(3)",
+      "wlbcontentplanned": "character varying(40)",
+      "wlbentryyear": "integer",
+      "wlbcompletionyear": "integer",
+      "wlbreclassfromwellbore": "character varying(40)",
+      "wlbplotsymbol": "integer",
+      "wlbgeodeticdatum": "character varying(6)",
+      "wlbnsdeg": "integer",
+      "wlbnsmin": "integer",
+      "wlbnssec": "numeric(6,2)",
+      "wlbnscode": "character varying(1)",
+      "wlbewdeg": "integer",
+      "wlbewmin": "integer",
+      "wlbewsec": "numeric(6,2)",
+      "wlbewcode": "character varying(1)",
+      "wlbnsdecdeg": "numeric(13,6)",
+      "wlbewdesdeg": "numeric(13,6)",
+      "wlbnsutm": "numeric(13,6)",
+      "wlbewutm": "numeric(13,6)",
+      "wlbutmzone": "integer",
+      "wlbnamepart1": "integer",
+      "wlbnamepart2": "integer",
+      "wlbnamepart3": "character varying(1)",
+      "wlbnamepart4": "integer",
+      "wlbnamepart5": "character varying(2)",
+      "wlbnamepart6": "character varying(2)",
+      "wlbfactpageurl": "character varying(200)",
+      "wlbfactmapurl": "character varying(200)",
+      "wlbdiskoswellboretype": "character varying(20)",
+      "wlbdiskoswellboreparent": "character varying(40)",
+      "wlbnpdidwellbore": "integer",
+      "dscnpdiddiscovery": "integer",
+      "fldnpdidfield": "integer",
+      "wlbwdssqcdate": "date",
+      "prlnpdidproductionlicence": "integer",
+      "fclnpdidfacilitydrilling": "integer",
+      "fclnpdidfacilityproducing": "integer",
+      "wlbnpdidwellborereclass": "integer",
+      "wlbdiskoswelloperator": "character varying(40)",
+      "wlbdateupdated": "date",
+      "wlbdateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_development_all_ibfk_2",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "constraint_name": "wellbore_development_all_ibfk_3",
+        "fk_arity": 1,
+        "column": "dscnpdiddiscovery",
+        "references_table": "discovery",
+        "references_column": "dscnpdiddiscovery"
+      },
+      {
+        "constraint_name": "wellbore_development_all_ibfk_4",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "wellbore_development_all_ibfk_5",
+        "fk_arity": 1,
+        "column": "prlnpdidproductionlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "wellbore_document": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbdocumenttype": "character varying(40)",
+      "wlbdocumentname": "character varying(200)",
+      "wlbdocumenturl": "character varying(200)",
+      "wlbdocumentformat": "character varying(40)",
+      "wlbdocumentsize": "numeric(13,6)",
+      "wlbnpdidwellbore": "integer",
+      "wlbdocumentdateupdated": "date",
+      "datesyncnpd": "date",
+      "wellbore_document_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_document_id",
+      "wlbnpdidwellbore",
+      "wlbdocumentname"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_document_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_dst": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbdsttestnumber": "numeric(13,6)",
+      "wlbdstfromdepth": "numeric(13,6)",
+      "wlbdsttodepth": "numeric(13,6)",
+      "wlbdstchokesize": "numeric(13,6)",
+      "wlbdstfinshutinpress": "numeric(13,6)",
+      "wlbdstfinflowpress": "numeric(13,6)",
+      "wlbdstbottomholepress": "numeric(13,6)",
+      "wlbdstoilprod": "integer",
+      "wlbdstgasprod": "integer",
+      "wlbdstoildensity": "numeric(13,6)",
+      "wlbdstgasdensity": "numeric(13,6)",
+      "wlbdstgasoilrelation": "integer",
+      "wlbnpdidwellbore": "integer",
+      "wlbdstdateupdated": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore",
+      "wlbdsttestnumber"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_dst_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_exploration_all": {
+    "columns": {
+      "wlbwellborename": "character varying(40)",
+      "wlbwell": "character varying(40)",
+      "wlbdrillingoperator": "character varying(60)",
+      "wlbdrillingoperatorgroup": "character varying(20)",
+      "wlbproductionlicence": "character varying(40)",
+      "wlbpurpose": "character varying(40)",
+      "wlbstatus": "character varying(40)",
+      "wlbcontent": "character varying(40)",
+      "wlbwelltype": "character varying(20)",
+      "wlbentrydate": "date",
+      "wlbcompletiondate": "date",
+      "wlbfield": "character varying(40)",
+      "wlbdrillpermit": "character varying(10)",
+      "wlbdiscovery": "character varying(40)",
+      "wlbdiscoverywellbore": "character varying(3)",
+      "wlbbottomholetemperature": "integer",
+      "wlbseismiclocation": "character varying(200)",
+      "wlbmaxinclation": "numeric(6,2)",
+      "wlbkellybushelevation": "numeric(13,6)",
+      "wlbfinalverticaldepth": "numeric(6,2)",
+      "wlbtotaldepth": "numeric(13,6)",
+      "wlbwaterdepth": "numeric(13,6)",
+      "wlbageattd": "character varying(40)",
+      "wlbformationattd": "character varying(40)",
+      "wlbmainarea": "character varying(40)",
+      "wlbdrillingfacility": "character varying(50)",
+      "wlbfacilitytypedrilling": "character varying(40)",
+      "wlblicensingactivity": "character varying(40)",
+      "wlbmultilateral": "character varying(3)",
+      "wlbpurposeplanned": "character varying(40)",
+      "wlbentryyear": "integer",
+      "wlbcompletionyear": "integer",
+      "wlbreclassfromwellbore": "character varying(40)",
+      "wlbreentryexplorationactivity": "character varying(40)",
+      "wlbplotsymbol": "integer",
+      "wlbformationwithhc1": "character varying(20)",
+      "wlbagewithhc1": "character varying(20)",
+      "wlbformationwithhc2": "character varying(20)",
+      "wlbagewithhc2": "character varying(20)",
+      "wlbformationwithhc3": "character varying(20)",
+      "wlbagewithhc3": "character(20)",
+      "wlbdrillingdays": "integer",
+      "wlbreentry": "character varying(3)",
+      "wlbgeodeticdatum": "character varying(6)",
+      "wlbnsdeg": "integer",
+      "wlbnsmin": "integer",
+      "wlbnssec": "numeric(6,2)",
+      "wlbnscode": "character varying(1)",
+      "wlbewdeg": "integer",
+      "wlbewmin": "integer",
+      "wlbewsec": "numeric(6,2)",
+      "wlbewcode": "character varying(1)",
+      "wlbnsdecdeg": "numeric(13,6)",
+      "wlbewdesdeg": "numeric(13,6)",
+      "wlbnsutm": "numeric(13,6)",
+      "wlbewutm": "numeric(13,6)",
+      "wlbutmzone": "integer",
+      "wlbnamepart1": "integer",
+      "wlbnamepart2": "integer",
+      "wlbnamepart3": "character varying(1)",
+      "wlbnamepart4": "integer",
+      "wlbnamepart5": "character varying(2)",
+      "wlbnamepart6": "character varying(2)",
+      "wlbpressreleaseurl": "character varying(200)",
+      "wlbfactpageurl": "character varying(200)",
+      "wlbfactmapurl": "character varying(200)",
+      "wlbdiskoswellboretype": "character varying(20)",
+      "wlbdiskoswellboreparent": "character varying(40)",
+      "wlbwdssqcdate": "date",
+      "wlbnpdidwellbore": "integer",
+      "dscnpdiddiscovery": "integer",
+      "fldnpdidfield": "integer",
+      "fclnpdidfacilitydrilling": "integer",
+      "wlbnpdidwellborereclass": "integer",
+      "prlnpdidproductionlicence": "integer",
+      "wlbdiskoswelloperator": "character varying(40)",
+      "wlbdateupdated": "date",
+      "wlbdateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_exploration_all_ibfk_2",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      },
+      {
+        "constraint_name": "wellbore_exploration_all_ibfk_4",
+        "fk_arity": 1,
+        "column": "fldnpdidfield",
+        "references_table": "field",
+        "references_column": "fldnpdidfield"
+      },
+      {
+        "constraint_name": "wellbore_exploration_all_ibfk_6",
+        "fk_arity": 1,
+        "column": "prlnpdidproductionlicence",
+        "references_table": "licence",
+        "references_column": "prlnpdidlicence"
+      }
+    ]
+  },
+  "wellbore_formation_top": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "lsutopdepth": "numeric(13,6)",
+      "lsubottomdepth": "numeric(13,6)",
+      "lsuname": "character varying(20)",
+      "lsulevel": "character varying(9)",
+      "lsunameparent": "character varying(20)",
+      "wlbnpdidwellbore": "integer",
+      "lsunpdidlithostrat": "integer",
+      "lsunpdidlithostratparent": "integer",
+      "lsuwellboreupdateddate": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore",
+      "lsunpdidlithostrat",
+      "lsutopdepth",
+      "lsubottomdepth"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_formation_top_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_mud": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlbmd": "numeric(13,6)",
+      "wlbmudweightatmd": "numeric(13,6)",
+      "wlbmudviscosityatmd": "numeric(13,6)",
+      "wlbyieldpointatmd": "numeric(13,6)",
+      "wlbmudtype": "character varying(40)",
+      "wlbmuddatemeasured": "date",
+      "wlbnpdidwellbore": "integer",
+      "wlbmuddateupdated": "date",
+      "datesyncnpd": "date",
+      "wellbore_mud_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_mud_id",
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_mud_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_npdid_overview": {
+    "columns": {
+      "wlbwellborename": "character varying(40)",
+      "wlbnpdidwellbore": "integer",
+      "wlbwell": "character varying(40)",
+      "wlbwelltype": "character varying(20)",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": []
+  },
+  "wellbore_oil_sample": {
+    "columns": {
+      "wlbname": "character varying(60)",
+      "wlboilsampletesttype": "character varying(4)",
+      "wlboilsampletestnumber": "character varying(10)",
+      "wlboilsampletopdepth": "numeric(13,6)",
+      "wlboilsamplebottomdepth": "numeric(13,6)",
+      "wlboilsamplefluidtype": "character varying(20)",
+      "wlboilsampletestdate": "date",
+      "wlboilsampledatereceiveddate": "date",
+      "wlbnpdidwellbore": "integer",
+      "wlboilsampledateupdated": "date",
+      "datesyncnpd": "date",
+      "wellbore_oil_sample_id": "integer"
+    },
+    "primary_key": [
+      "wellbore_oil_sample_id",
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_oil_sample_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wellbore_shallow_all": {
+    "columns": {
+      "wlbwellborename": "character varying(40)",
+      "wlbnpdidwellbore": "integer",
+      "wlbwell": "character varying(40)",
+      "wlbdrillingoperator": "character varying(60)",
+      "wlbproductionlicence": "character varying(40)",
+      "wlbdrillingfacility": "character varying(50)",
+      "wlbentrydate": "date",
+      "wlbcompletiondate": "date",
+      "wlbdrillpermit": "character varying(10)",
+      "wlbtotaldepth": "numeric(13,6)",
+      "wlbwaterdepth": "numeric(13,6)",
+      "wlbmainarea": "character varying(40)",
+      "wlbentryyear": "integer",
+      "wlbcompletionyear": "integer",
+      "wlbseismiclocation": "character varying(200)",
+      "wlbgeodeticdatum": "character varying(6)",
+      "wlbnsdeg": "integer",
+      "wlbnsmin": "integer",
+      "wlbnssec": "numeric(6,2)",
+      "wlbnscode": "character varying(1)",
+      "wlbewdeg": "integer",
+      "wlbewmin": "integer",
+      "wlbewsec": "numeric(6,2)",
+      "wlbewcode": "character varying(1)",
+      "wlbnsdecdeg": "numeric(13,6)",
+      "wlbewdesdeg": "numeric(13,6)",
+      "wlbnsutm": "numeric(13,6)",
+      "wlbewutm": "numeric(13,6)",
+      "wlbutmzone": "integer",
+      "wlbnamepart1": "integer",
+      "wlbnamepart2": "integer",
+      "wlbnamepart3": "character varying(1)",
+      "wlbnamepart4": "integer",
+      "wlbnamepart5": "character varying(2)",
+      "wlbnamepart6": "character varying(2)",
+      "wlbdateupdated": "date",
+      "wlbdateupdatedmax": "date",
+      "datesyncnpd": "date"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wellbore_shallow_all_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  },
+  "wlbpoint": {
+    "columns": {
+      "wlbnpdidwellbore": "integer",
+      "wlbwellname": "character varying(40)",
+      "wlbwellborename": "character varying(40)",
+      "wlbfield": "character varying(40)",
+      "wlbproductionlicence": "character varying(40)",
+      "wlbwelltype": "character varying(20)",
+      "wlbdrillingoperator": "character varying(60)",
+      "wlbmultilateral": "character varying(3)",
+      "wlbdrillingfacility": "character varying(50)",
+      "wlbproductionfacility": "character varying(50)",
+      "wlbentrydate": "date",
+      "wlbcompletiondate": "date",
+      "wlbcontent": "character varying(40)",
+      "wlbstatus": "character varying(40)",
+      "wlbsymbol": "integer",
+      "wlbpurpose": "character varying(40)",
+      "wlbwaterdepth": "numeric(13,6)",
+      "wlbfactpageurl": "character varying(200)",
+      "wlbfactmapurl": "character varying(200)",
+      "wlbdiscoverywellbore": "character varying(3)"
+    },
+    "primary_key": [
+      "wlbnpdidwellbore"
+    ],
+    "foreign_keys": [
+      {
+        "constraint_name": "wlbPoint_ibfk_1",
+        "fk_arity": 1,
+        "column": "wlbnpdidwellbore",
+        "references_table": "wellbore_npdid_overview",
+        "references_column": "wlbnpdidwellbore"
+      }
+    ]
+  }
+}

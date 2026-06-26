@@ -1,0 +1,1158 @@
+{
+  "Author": {
+    "pattern": "SH",
+    "columns": {
+      "ID": {
+        "role": "sh_inherited_pk"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "sub_class_uri": "http://cmt#Author",
+    "parent_class_uri": "http://cmt#User",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://cmt#Co-author",
+          "2": "http://cmt#AuthorNotReviewer"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://cmt#Author",
+            "local_name": "Author",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#AuthorNotReviewer",
+            "local_name": "AuthorNotReviewer",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#Co-author",
+            "local_name": "Co-author",
+            "score": 1.0
+          }
+        ],
+        "confidence": "high",
+        "unmapped_values": [],
+        "reason": "规则映射 2 个取值"
+      }
+    ]
+  },
+  "Bid": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "adjustedBy": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      },
+      "hasBid_Inv": {
+        "role": "data_attr",
+        "prop_uri": null,
+        "confidence": "low"
+      }
+    },
+    "class_uri": "http://cmt#Bid",
+    "class_confidence": "high"
+  },
+  "Conference": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "siteURL": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#siteURL",
+        "confidence": "high"
+      },
+      "acceptsHardcopySubmissions": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#acceptsHardcopySubmissions",
+        "confidence": "high"
+      },
+      "logoURL": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#logoURL",
+        "confidence": "high"
+      },
+      "date": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#date",
+        "confidence": "high"
+      },
+      "name": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#name",
+        "confidence": "high"
+      },
+      "reviewsPerPaper": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#reviewsPerPaper",
+        "confidence": "high"
+      }
+    },
+    "class_uri": "http://cmt#Conference",
+    "class_confidence": "high"
+  },
+  "Document": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "writtenBy": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#Document",
+        "range_class_uri": "http://cmt#Person",
+        "ref_table": "Person",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#writtenBy",
+            "local_name": "writtenBy",
+            "score": 0.925,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.85,
+            "domain": [
+              "http://cmt#Review"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.85,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#rejectedBy",
+            "local_name": "rejectedBy",
+            "score": 0.675,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.85,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.85,
+            "syntax_rank": 3,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#endReview",
+            "local_name": "endReview",
+            "score": 0.278,
+            "name_score": 0.556,
+            "syntax_score": 0.556,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#ProgramCommitteeChair"
+            ],
+            "range": [
+              "http://cmt#Review"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 29,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://cmt#readByReviewer",
+            "local_name": "readByReviewer",
+            "score": 0.639,
+            "name_score": 0.429,
+            "syntax_score": 0.429,
+            "semantic_score": 0.85,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.85,
+            "syntax_rank": 8,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://cmt#acceptedBy",
+            "local_name": "acceptedBy",
+            "score": 0.625,
+            "name_score": 0.4,
+            "syntax_score": 0.4,
+            "semantic_score": 0.85,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 0.85,
+            "range_score": 0.85,
+            "syntax_rank": 10,
+            "semantic_rank": 4,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://cmt#Document",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://cmt#Paper",
+          "1": "http://cmt#Review"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://cmt#Document",
+            "local_name": "Document",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#Paper",
+            "local_name": "Paper",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Review",
+            "local_name": "Review",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#PaperAbstract",
+            "local_name": "PaperAbstract",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#PaperFullVersion",
+            "local_name": "PaperFullVersion",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Meta-Review",
+            "local_name": "Meta-Review",
+            "score": 0.55
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "其余取值由 LLM 兜底判断；TYPE=0的样本writtenBy均为null，且Paper.ID和co-writePaper.Paper的覆盖率为0.5，表明这些文档是Paper；TYPE=1的样本writtenBy非null，且无Paper链接，结合规则先验中Review得分相同但FK上下文更匹配Review（writtenBy指向Person，Review通常由人撰写），因此映射为Review。"
+      }
+    ]
+  },
+  "Paper": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "paperID": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#paperID",
+        "confidence": "high"
+      },
+      "rejectedBy": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#Paper",
+        "range_class_uri": "http://cmt#User",
+        "ref_table": "User",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#rejectedBy",
+            "local_name": "rejectedBy",
+            "score": 0.963,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#acceptedBy",
+            "local_name": "acceptedBy",
+            "score": 0.812,
+            "name_score": 0.7,
+            "syntax_score": 0.7,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 2,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#readByReviewer",
+            "local_name": "readByReviewer",
+            "score": 0.713,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 5,
+            "semantic_rank": 3,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#rejectPaper",
+            "local_name": "rejectPaper",
+            "score": 0.318,
+            "name_score": 0.636,
+            "syntax_score": 0.636,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#Administrator"
+            ],
+            "range": [
+              "http://cmt#Paper"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 24,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://cmt#adjustedBy",
+            "local_name": "adjustedBy",
+            "score": 0.512,
+            "name_score": 0.6,
+            "syntax_score": 0.6,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://cmt#Bid"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 4,
+            "semantic_rank": 11,
+            "track_source": "syntax"
+          }
+        ],
+        "confidence": "high"
+      },
+      "readByMeta-Reviewer": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#paperID",
+        "confidence": "medium"
+      },
+      "hasAuthor": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#Paper",
+        "range_class_uri": "http://cmt#Author",
+        "ref_table": "Author",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#hasAuthor",
+            "local_name": "hasAuthor",
+            "score": 1.0,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 1.0,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Author"
+            ],
+            "domain_score": 1.0,
+            "range_score": 1.0,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#hasCo-author",
+            "local_name": "hasCo-author",
+            "score": 0.872,
+            "name_score": 0.818,
+            "syntax_score": 0.818,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Co-author"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 2,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#hasSubjectArea",
+            "local_name": "hasSubjectArea",
+            "score": 0.5,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#SubjectArea"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 3,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#assignedTo",
+            "local_name": "assignedTo",
+            "score": 0.45,
+            "name_score": 0.4,
+            "syntax_score": 0.4,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 7,
+            "semantic_rank": 4,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://cmt#submitPaper",
+            "local_name": "submitPaper",
+            "score": 0.227,
+            "name_score": 0.455,
+            "syntax_score": 0.455,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#Author"
+            ],
+            "range": [
+              "http://cmt#Paper"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 4,
+            "semantic_rank": 12,
+            "track_source": "syntax"
+          }
+        ],
+        "confidence": "high"
+      },
+      "title": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#title",
+        "confidence": "high"
+      },
+      "hasDecision": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#Paper",
+        "range_class_uri": "http://cmt#Rejection",
+        "ref_table": "Rejection",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#hasDecision",
+            "local_name": "hasDecision",
+            "score": 0.963,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Decision"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#assignedTo",
+            "local_name": "assignedTo",
+            "score": 0.614,
+            "name_score": 0.727,
+            "syntax_score": 0.727,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 2,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#hasBid",
+            "local_name": "hasBid",
+            "score": 0.477,
+            "name_score": 0.455,
+            "syntax_score": 0.455,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Bid"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 6,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://cmt#hasBeenAssigned",
+            "local_name": "hasBeenAssigned",
+            "score": 0.267,
+            "name_score": 0.533,
+            "syntax_score": 0.533,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#Reviewer"
+            ],
+            "range": [
+              "http://cmt#Paper"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 11,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://cmt#hasCo-author",
+            "local_name": "hasCo-author",
+            "score": 0.477,
+            "name_score": 0.455,
+            "syntax_score": 0.455,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Co-author"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 7,
+            "semantic_rank": 4,
+            "track_source": "semantic"
+          }
+        ],
+        "confidence": "high"
+      },
+      "acceptedBy": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#Paper",
+        "range_class_uri": "http://cmt#User",
+        "ref_table": "User",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#acceptedBy",
+            "local_name": "acceptedBy",
+            "score": 0.963,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#rejectedBy",
+            "local_name": "rejectedBy",
+            "score": 0.812,
+            "name_score": 0.7,
+            "syntax_score": 0.7,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 2,
+            "semantic_rank": 2,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#readByReviewer",
+            "local_name": "readByReviewer",
+            "score": 0.677,
+            "name_score": 0.429,
+            "syntax_score": 0.429,
+            "semantic_score": 0.925,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.85,
+            "syntax_rank": 12,
+            "semantic_rank": 3,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://cmt#acceptPaper",
+            "local_name": "acceptPaper",
+            "score": 0.318,
+            "name_score": 0.636,
+            "syntax_score": 0.636,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#Administrator"
+            ],
+            "range": [
+              "http://cmt#Paper"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 3,
+            "semantic_rank": 24,
+            "track_source": "syntax"
+          },
+          {
+            "uri": "http://cmt#adjustedBy",
+            "local_name": "adjustedBy",
+            "score": 0.512,
+            "name_score": 0.6,
+            "syntax_score": 0.6,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://cmt#Bid"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 4,
+            "semantic_rank": 11,
+            "track_source": "syntax"
+          }
+        ],
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      },
+      "Reviewer": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#Paper",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "2": "http://cmt#Paper"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://cmt#Paper",
+            "local_name": "Paper",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#PaperAbstract",
+            "local_name": "PaperAbstract",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#PaperFullVersion",
+            "local_name": "PaperFullVersion",
+            "score": 1.0
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "该列未触发规则轨道，采用 LLM 主判；其余取值由 LLM 兜底判断；TYPE=2 的样本均包含 Reviewer 外键，且 title 字段存在，符合 Paper 类的特征；其他候选类（PaperAbstract、PaperFullVersion）无对应结构证据。"
+      }
+    ]
+  },
+  "Person": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      },
+      "name": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#name",
+        "confidence": "high"
+      },
+      "email": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#email",
+        "confidence": "high"
+      },
+      "assignedByReviewer": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#email",
+        "confidence": "high"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "class_uri": "http://cmt#Person",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "2": "http://cmt#User"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://cmt#Person",
+            "local_name": "Person",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#User",
+            "local_name": "User",
+            "score": 0.5
+          },
+          {
+            "uri": "http://cmt#Chairman",
+            "local_name": "Chairman",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#ConferenceMember",
+            "local_name": "ConferenceMember",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#ExternalReviewer",
+            "local_name": "ExternalReviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#ProgramCommitteeMember",
+            "local_name": "ProgramCommitteeMember",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#AssociatedChair",
+            "local_name": "AssociatedChair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Author",
+            "local_name": "Author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#ConferenceChair",
+            "local_name": "ConferenceChair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Reviewer",
+            "local_name": "Reviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#ProgramCommitteeChair",
+            "local_name": "ProgramCommitteeChair",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Administrator",
+            "local_name": "Administrator",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#AuthorNotReviewer",
+            "local_name": "AuthorNotReviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Co-author",
+            "local_name": "Co-author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Meta-Reviewer",
+            "local_name": "Meta-Reviewer",
+            "score": 0.55
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "该列未触发规则轨道，采用 LLM 主判；其余取值由 LLM 兜底判断；TYPE=2 的样本全部被 User.ID 外键覆盖（ratio=1.0），且 User 是 Person 的直接子类，符合候选列表中的最高分。"
+      }
+    ]
+  },
+  "Preference": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#Preference",
+    "class_confidence": "high"
+  },
+  "ProgramCommittee": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#ProgramCommittee",
+    "class_confidence": "high"
+  },
+  "ProgramCommitteeChair": {
+    "pattern": "SH",
+    "columns": {
+      "ID": {
+        "role": "sh_inherited_pk"
+      }
+    },
+    "sub_class_uri": "http://cmt#ProgramCommitteeChair",
+    "parent_class_uri": "http://cmt#ProgramCommitteeMember",
+    "class_confidence": "high"
+  },
+  "ProgramCommitteeMember": {
+    "pattern": "SH",
+    "columns": {
+      "ID": {
+        "role": "sh_inherited_pk"
+      },
+      "maxPapers": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#maxPapers",
+        "confidence": "high"
+      },
+      "addedBy": {
+        "role": "fk_obj",
+        "domain_class_uri": "http://cmt#ProgramCommitteeMember",
+        "range_class_uri": "http://cmt#User",
+        "ref_table": "User",
+        "op_candidates": [
+          {
+            "uri": "http://cmt#addedBy",
+            "local_name": "addedBy",
+            "score": 0.838,
+            "name_score": 1.0,
+            "syntax_score": 1.0,
+            "semantic_score": 0.675,
+            "domain": [
+              "http://cmt#ProgramCommitteeMember"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 0.5,
+            "range_score": 0.85,
+            "syntax_rank": 1,
+            "semantic_rank": 1,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#adjustedBy",
+            "local_name": "adjustedBy",
+            "score": 0.512,
+            "name_score": 0.6,
+            "syntax_score": 0.6,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://cmt#Bid"
+            ],
+            "range": [
+              "http://cmt#Reviewer"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 2,
+            "semantic_rank": 3,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#acceptedBy",
+            "local_name": "acceptedBy",
+            "score": 0.463,
+            "name_score": 0.5,
+            "syntax_score": 0.5,
+            "semantic_score": 0.425,
+            "domain": [
+              "http://cmt#Paper"
+            ],
+            "range": [
+              "http://cmt#Administrator"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.85,
+            "syntax_rank": 3,
+            "semantic_rank": 4,
+            "track_source": "both"
+          },
+          {
+            "uri": "http://cmt#hasProgramCommitteeMember",
+            "local_name": "hasProgramCommitteeMember",
+            "score": 0.31,
+            "name_score": 0.12,
+            "syntax_score": 0.12,
+            "semantic_score": 0.5,
+            "domain": [
+              "http://cmt#ProgramCommittee"
+            ],
+            "range": [
+              "http://cmt#ProgramCommitteeMember"
+            ],
+            "domain_score": 1.0,
+            "range_score": 0.0,
+            "syntax_rank": 39,
+            "semantic_rank": 2,
+            "track_source": "semantic"
+          },
+          {
+            "uri": "http://cmt#adjustBid",
+            "local_name": "adjustBid",
+            "score": 0.222,
+            "name_score": 0.444,
+            "syntax_score": 0.444,
+            "semantic_score": 0.0,
+            "domain": [
+              "http://cmt#Reviewer"
+            ],
+            "range": [
+              "http://cmt#Bid"
+            ],
+            "domain_score": 0.0,
+            "range_score": 0.0,
+            "syntax_rank": 4,
+            "semantic_rank": 24,
+            "track_source": "syntax"
+          }
+        ],
+        "confidence": "high"
+      }
+    },
+    "sub_class_uri": "http://cmt#ProgramCommitteeMember",
+    "parent_class_uri": "http://cmt#Person",
+    "class_confidence": "high"
+  },
+  "Rejection": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#Rejection",
+    "class_confidence": "high"
+  },
+  "SubjectArea": {
+    "pattern": "SE",
+    "columns": {
+      "ID": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#SubjectArea",
+    "class_confidence": "high"
+  },
+  "User": {
+    "pattern": "SH",
+    "columns": {
+      "ID": {
+        "role": "sh_inherited_pk"
+      },
+      "acceptPaper": {
+        "role": "data_attr",
+        "prop_uri": "http://cmt#acceptsHardcopySubmissions",
+        "confidence": "low"
+      },
+      "TYPE": {
+        "role": "discriminator",
+        "prop_uri": null
+      }
+    },
+    "sub_class_uri": "http://cmt#User",
+    "parent_class_uri": "http://cmt#Person",
+    "class_confidence": "high",
+    "type_assertions": [
+      {
+        "column": "TYPE",
+        "kind": "enum",
+        "value_to_class": {
+          "0": "http://cmt#Author"
+        },
+        "class_candidates": [
+          {
+            "uri": "http://cmt#User",
+            "local_name": "User",
+            "score": 1.0
+          },
+          {
+            "uri": "http://cmt#Author",
+            "local_name": "Author",
+            "score": 0.333
+          },
+          {
+            "uri": "http://cmt#Administrator",
+            "local_name": "Administrator",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Reviewer",
+            "local_name": "Reviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#AuthorNotReviewer",
+            "local_name": "AuthorNotReviewer",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Co-author",
+            "local_name": "Co-author",
+            "score": 0.55
+          },
+          {
+            "uri": "http://cmt#Meta-Reviewer",
+            "local_name": "Meta-Reviewer",
+            "score": 0.55
+          }
+        ],
+        "confidence": "medium",
+        "unmapped_values": [],
+        "reason": "该列未触发规则轨道，采用 LLM 主判；其余取值由 LLM 兜底判断；TYPE=0 的样本中 acceptPaper 均为 null，且 FK 覆盖显示 57% 关联到 Author，无其他角色证据，因此映射为 Author。"
+      }
+    ]
+  },
+  "assignReviewer": {
+    "pattern": "MV",
+    "owner_table": "User",
+    "owner_class_uri": "http://cmt#User",
+    "prop_uri": "http://cmt#assignReviewer",
+    "prop_type": "ObjectProperty",
+    "fk_col": "Administrator",
+    "value_col": "Reviewer",
+    "confidence": "medium"
+  },
+  "hasSubjectArea": {
+    "pattern": "MV",
+    "owner_table": "SubjectArea",
+    "owner_class_uri": "http://cmt#SubjectArea",
+    "prop_uri": "http://cmt#hasSubjectArea",
+    "prop_type": "ObjectProperty",
+    "fk_col": "SubjectArea",
+    "value_col": "Paper",
+    "confidence": "medium"
+  },
+  "markConflictOfInterest": {
+    "pattern": "SE",
+    "columns": {
+      "ConferenceMember": {
+        "role": "pk"
+      },
+      "Paper": {
+        "role": "pk"
+      }
+    },
+    "class_uri": "http://cmt#ProgramCommitteeChair",
+    "class_confidence": "low"
+  },
+  "setMaxPapers": {
+    "pattern": "MV",
+    "owner_table": "User",
+    "owner_class_uri": "http://cmt#User",
+    "prop_uri": "http://cmt#setMaxPapers",
+    "prop_type": "ObjectProperty",
+    "fk_col": "Administrator",
+    "value_col": "ProgramCommitteeMember",
+    "confidence": "medium"
+  },
+  "submitPaper": {
+    "pattern": "MV",
+    "owner_table": "Author",
+    "owner_class_uri": "http://cmt#Author",
+    "prop_uri": "http://cmt#submitPaper",
+    "prop_type": "ObjectProperty",
+    "fk_col": "Author",
+    "value_col": "Paper",
+    "confidence": "low"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "ACM_SIGKDD": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，无外键"
+  },
+  "Best_Paper_Awards_Committ": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "award",
+        "references_table": "Best_Research_Paper_Award",
+        "references_column": "ID"
+      },
+      {
+        "column": "hasCommittee_Inv",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "column": "isCommitteeOf",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键为ID，非全FK，非二元关系"
+  },
+  "Best_Research_Paper_Award": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，无外键"
+  },
+  "Conference": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "holded_by",
+        "references_table": "ACM_SIGKDD",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键为ID，非全FK，非二元关系"
+  },
+  "Deadline_Abstract_Submiss": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "designed_by",
+        "references_table": "ACM_SIGKDD",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键为ID，非全FK，非二元关系"
+  },
+  "Document": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，无外键"
+  },
+  "E-mail": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键包含非FK列VALUE，非SH非SR"
+  },
+  "Main_office": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，无外键"
+  },
+  "Organizing_Committee": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "hasCommittee_Inv",
+        "references_table": "Conference",
+        "references_column": "ID"
+      },
+      {
+        "column": "isCommitteeOf",
+        "references_table": "Conference",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "主键为ID，非全FK，非二元关系"
+  },
+  "Person": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，无外键"
+  },
+  "Program_Committee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "包含非外键列label，是主实体表"
+  },
+  "Registration_fee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，包含非键属性列Currency、Price、TYPE"
+  },
+  "Review": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "包含非外键列hasText，是主实体表"
+  },
+  "Sponzor_fee": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "无外键，包含非键属性列Currency、Price"
+  },
+  "can_stay_in": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Place",
+        "references_table": "Main_office",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，且主键为两列组合，无额外属性"
+  },
+  "notification_until": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Author",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Deadline_Author_notificat",
+        "references_table": "Deadline_Abstract_Submiss",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，主键为两列组合，无额外属性"
+  },
+  "obtain": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Author",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Award",
+        "references_table": "Best_Research_Paper_Award",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，主键为两列组合，无额外属性"
+  },
+  "pay": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Person",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Registration_fee",
+        "references_table": "Registration_fee",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，主键为两列组合，无额外属性"
+  },
+  "presentation": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Speaker",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Document",
+        "references_table": "Document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，主键为两列组合，无额外属性"
+  },
+  "search": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "ACM_SIGKDD",
+        "references_table": "ACM_SIGKDD",
+        "references_column": "ID"
+      },
+      {
+        "column": "Sponzor",
+        "references_table": "Person",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键，主键为两列组合，无额外属性"
+  },
+  "submit": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Author",
+        "references_table": "Person",
+        "references_column": "ID"
+      },
+      {
+        "column": "Paper",
+        "references_table": "Document",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键且无额外属性，主键由两个外键组成，为二元关系表。"
+  },
+  "submit_until": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "Document",
+        "references_table": "Document",
+        "references_column": "ID"
+      },
+      {
+        "column": "Deadline",
+        "references_table": "Deadline_Abstract_Submiss",
+        "references_column": "ID"
+      }
+    ],
+    "reason": "所有列均为外键且无额外属性，主键由两个外键组成，为二元关系表。"
+  }
+}

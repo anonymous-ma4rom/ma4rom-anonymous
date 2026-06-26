@@ -1,0 +1,139 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+sigkddmixed:	http://sigkdd#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping--787608827
+target		<http://example.com/main_offices/{id}> a sigkddmixed:Main_office ; <http://www.w3.org/2003/01/geo/wgs84_pos#lat> {lat}^^xsd:float ; <http://www.w3.org/2003/01/geo/wgs84_pos#long> {long}^^xsd:float ; sigkddmixed:hasPostalCode {postal_code}^^xsd:int ; sigkddmixed:hasStreet {street}^^xsd:string . 
+source		SELECT "id" , "lat" , "long" , "street" , "postal_code" , "type" FROM "main_offices"
+
+mappingId	mapping--1740655053
+target		<http://example.com/persons/{pid}> sigkddmixed:pay <http://example.com/registration_fees/{rid}> . 
+source		SELECT "pid" , "rid" FROM "registration_fee_person"
+
+mappingId	mapping-1131364106
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/best_research_paper_awards/{bid}> . 
+source		SELECT "pid" , "bid" FROM "person_best_research_paper_award"
+
+mappingId	mapping--844901116
+target		<http://example.com/registration_fees/{id}> a sigkddmixed:Registration_fee ; sigkddmixed:Price {price}^^xsd:int ; sigkddmixed:Currency {currency}^^xsd:string . 
+source		SELECT "id" , "currency" , "price" , "type" FROM "registration_fees"
+
+mappingId	mapping-1742261461
+target		<http://example.com/persons/{id}> a sigkddmixed:Speaker . 
+source		SELECT "id" FROM "persons" WHERE "type" = 2
+
+mappingId	mapping-333276420
+target		<http://example.com/best_paper_awards_committs/{id}> a sigkddmixed:Best_Paper_Awards_Committee ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{cid}> ; sigkddmixed:award <http://example.com/best_research_paper_awards/{award}> . 
+source		SELECT "id" , "award" , "committee" , "cid" FROM "best_paper_awards_committs"
+
+mappingId	mapping-584115183
+target		<http://example.com/documents/{id}> a sigkddmixed:Review . 
+source		SELECT "id" FROM "documents" WHERE "type" = 3
+
+mappingId	mapping-1915567239
+target		<http://example.com/documents/{document}> sigkddmixed:submit_until <http://example.com/deadline_abstract_submiss/{deadline}> . 
+source		SELECT "document" , "deadline" FROM "document_deadline_abstract_submiss"
+
+mappingId	mapping-1165735261
+target		<http://example.com/persons/{pid}> sigkddmixed:presentation <http://example.com/documents/{did}> . 
+source		SELECT "pid" , "did" FROM "document_person"
+
+mappingId	mapping--448868096
+target		<http://example.com/conferences/{id}> a sigkddmixed:Conference ; sigkddmixed:Start_of_conference {start_conference}^^xsd:dateTime ; sigkddmixed:holded_by <http://example.com/acm_sigkdds/{holded}> ; sigkddmixed:Name_of_conference {name_conference}^^xsd:string ; sigkddmixed:City_of_conference {city_conference}^^xsd:string ; sigkddmixed:End_of_conference {end_conference}^^xsd:dateTime . 
+source		SELECT "id" , "holded" , "start_conference" , "city_conference" , "name_conference" , "end_conference" FROM "conferences"
+
+mappingId	mapping--74616916
+target		<http://example.com/deadline_abstract_submiss/{id}> a sigkddmixed:Deadline_Abstract_Submission ; sigkddmixed:designed_by <http://example.com/acm_sigkdds/{designed}> ; sigkddmixed:Date {date}^^xsd:dateTime . 
+source		SELECT "id" , "designed" , "date" , "type" FROM "deadline_abstract_submiss"
+
+mappingId	mapping--1965641736
+target		<http://example.com/acm_sigkdds/{aid}> sigkddmixed:payed_by <http://example.com/persons/{pid}> . 
+source		SELECT "aid" , "pid" FROM "acm_sigkdd_person"
+
+mappingId	mapping--215729983
+target		<http://example.com/persons/{id}> a sigkddmixed:Program_Chair . 
+source		SELECT "id" FROM "persons" WHERE "program_chair" = true
+
+mappingId	mapping-255836520
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/main_offices/{mid}> . 
+source		SELECT "pid" , "mid" FROM "main_office_person"
+
+mappingId	mapping--2045582482
+target		<http://example.com/persons/{pid}> sigkddmixed:can_stay_in <http://example.com/deadline_abstract_submiss/{did}> . 
+source		SELECT "pid" , "did" FROM "person_deadline_abstract_submiss"
+
+mappingId	mapping-795297262
+target		<http://example.com/registration_fees/{id}> a sigkddmixed:Registration_fee . 
+source		SELECT "id" FROM "registration_fees" WHERE "type" = 0
+
+mappingId	mapping--153222687
+target		<http://example.com/persons/{id}> a sigkddmixed:Organizator . 
+source		SELECT "id" FROM "persons" WHERE "type" = 0
+
+mappingId	mapping-420045708
+target		<http://example.com/documents/{id}> a sigkddmixed:Paper . 
+source		SELECT "id" FROM "documents" WHERE "type" = 1
+
+mappingId	mapping--553670885
+target		<http://example.com/persons/{id}> a sigkddmixed:Author_of_paper_student . 
+source		SELECT "id" FROM "persons" WHERE "author_paper_student" = true
+
+mappingId	mapping--1597584554
+target		<http://example.com/documents/{did}> sigkddmixed:presentationed_by <http://example.com/persons/{pid}> . 
+source		SELECT "did" , "pid" FROM "presentation"
+
+mappingId	mapping--1493691310
+target		<http://example.com/persons/{id}> a sigkddmixed:Listener . 
+source		SELECT "id" FROM "persons" WHERE "listener" = true
+
+mappingId	mapping--316741746
+target		<http://example.com/best_research_paper_awards/{id}> a sigkddmixed:Best_Research_Paper_Award . 
+source		SELECT "id" , "type" FROM "best_research_paper_awards"
+
+mappingId	mapping-1134119777
+target		<http://example.com/organizing_committees/{id}> a sigkddmixed:Organizing_Committee ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{cid}> . 
+source		SELECT "id" , "cid" , "committee" FROM "organizing_committees"
+
+mappingId	mapping-1651379518
+target		<http://example.com/persons/{id}> a sigkddmixed:Organizator . 
+source		SELECT "id" FROM "persons" WHERE "organizator" = true
+
+mappingId	mapping--1768642359
+target		<http://example.com/persons/{id}> a sigkddmixed:Person ; sigkddmixed:Nation {nation}^^xsd:string ; sigkddmixed:Name_of_sponsor {name_sponsor}^^xsd:string ; sigkddmixed:Name {name}^^xsd:string . 
+source		SELECT "id" , "nation" , "name" , "name_sponsor" , "organizator" , "program_chair" , "listener" , "author_paper_student" , "program_committee_member" , "type" FROM "persons"
+
+mappingId	mapping-30964512
+target		<http://example.com/documents/{id}> a sigkddmixed:Review ; sigkddmixed:isReviewOf <http://example.com/documents/{ref}> , <http://example.com/documents/{review}> ; sigkddmixed:hasID {internal_id}^^xsd:int ; sigkddmixed:hasText {text}^^xsd:string . 
+source		SELECT "id" , "ref" , "review" , "internal_id" , "text" FROM "reviews"
+
+mappingId	mapping-1004332936
+target		<http://example.com/sponzor_fees/{id}> a sigkddmixed:Sponzor_fee ; sigkddmixed:Price {price}^^xsd:int ; sigkddmixed:Currency {currency}^^xsd:string . 
+source		SELECT "id" , "currency" , "price" FROM "sponzor_fees"
+
+mappingId	mapping-1645337063
+target		<http://example.com/acm_sigkdds/{id}> a sigkddmixed:ACM_SIGKDD . 
+source		SELECT "id" FROM "acm_sigkdds"
+
+mappingId	mapping-1231142965
+target		<http://example.com/program_committees/{id}> a sigkddmixed:Program_Committee ; sigkddmixed:Name {label}^^xsd:string ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{cid}> ; rdfs:label {label}^^xsd:string . 
+source		SELECT "id" , "label" , "committee" , "cid" FROM "program_committees"
+
+mappingId	mapping--901888187
+target		<http://example.com/documents/{id}> a sigkddmixed:Abstract . 
+source		SELECT "id" FROM "documents" WHERE "type" = 2
+
+mappingId	mapping--111039280
+target		<http://example.com/persons/{id}> a sigkddmixed:Program_Committee_member . 
+source		SELECT "id" FROM "persons" WHERE "program_committee_member" = true
+
+mappingId	mapping-1192447092
+target		<http://example.com/documents/{id}> a sigkddmixed:Document ; sigkddmixed:hasTitle {title}^^xsd:string . 
+source		SELECT "id" , "title" , "type" FROM "documents"
+]]
+

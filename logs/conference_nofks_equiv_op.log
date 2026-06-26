@@ -1,0 +1,69 @@
+============================================================
+Resume from OP mapping
+============================================================
+  database: conference_nofks
+  output:   /Users/douer_lucky/Documents/科研/MAMG/output/conference_nofks
+  input:    final_alignment.json + enriched_schema.json
+  CPA:      disabled
+  R2RML old OP fallback: disabled
+  等价列 OP 模块任务数: FK=31, SR=21, total=52
+  [1/52] EquivOP selecting Abstract.ID candidates=5
+  [2/52] EquivOP selecting Abstract.is_the_1th_part_of candidates=3
+  [3/52] EquivOP selecting Abstract.is_submitted_at candidates=6
+  [4/52] EquivOP selecting Committee.was_a_program_committee_of candidates=16
+  [5/52] EquivOP selecting Committee.has_a_committee_chair candidates=14
+  [6/52] EquivOP selecting Conference_proceedings.has_a_publisher candidates=4
+  [7/52] EquivOP selecting Conference_volume.has_an_organizing_committ candidates=14
+  [8/52] EquivOP selecting Conference_volume.has_a_steering_committee candidates=14
+  [9/52] EquivOP selecting Conference_volume.has_important_dates candidates=4
+  [10/52] EquivOP selecting Invited_talk.is_given_by candidates=3
+  [11/52] EquivOP selecting Invited_talk.has_an_abstract candidates=2
+  [12/52] EquivOP selecting Invited_talk.is_submitted_at candidates=6
+  [13/52] EquivOP selecting Organizing_committee.ID candidates=10
+  [14/52] EquivOP selecting Organizing_committee.was_an_organizing_committ candidates=16
+  [15/52] EquivOP selecting Paper.ID candidates=4
+  [16/52] EquivOP selecting Paper.has_an_abstract candidates=1
+  [17/52] EquivOP selecting Paper.is_submitted_at candidates=5
+  [18/52] EquivOP selecting Poster.has_an_abstract candidates=1
+  [19/52] EquivOP selecting Poster.is_submitted_at candidates=5
+  [20/52] EquivOP selecting Review.ID candidates=9
+  [21/52] EquivOP selecting Review.reviews candidates=9
+  [22/52] EquivOP selecting Steering_committee.ID candidates=10
+  [23/52] EquivOP selecting Steering_committee.was_a_steering_committee_ candidates=16
+  [24/52] EquivOP selecting Track.is_part_of_conference_vol candidates=7
+  [25/52] EquivOP selecting Tutorial.is_part_of_conference_vol candidates=6
+  [26/52] EquivOP selecting Workshop.is_part_of_conference_vol candidates=7
+  [27/52] EquivOP selecting belongs_to_reviewers.Reviewer candidates=4
+  [28/52] EquivOP selecting has_a_committee_co-chair.Committee candidates=14
+  [29/52] EquivOP selecting has_a_committee_co-chair.Co-chair candidates=15
+  [30/52] EquivOP selecting has_a_track-workshop-tuto.Topic candidates=4
+  [31/52] EquivOP selecting has_an_email.Person candidates=2
+  [32/52] EquivOP selecting contributes candidates=11
+  [33/52] EquivOP selecting has_a_committee_co-chair candidates=30
+  [34/52] EquivOP selecting has_members candidates=24
+  [35/52] EquivOP selecting invited_by candidates=4
+  [36/52] EquivOP selecting Abstract::ID__is_the_1th_part_of candidates=7
+  [37/52] EquivOP selecting Abstract::ID__is_submitted_at candidates=12
+  [38/52] EquivOP selecting Abstract::is_the_1th_part_of__is_submitted_at candidates=10
+  [39/52] EquivOP selecting Committee::was_a_program_committee_of__has_a_committee_chair candidates=29
+  [40/52] EquivOP selecting Conference_volume::has_an_organizing_committ__has_a_steering_committee candidates=26
+  [41/52] EquivOP selecting Conference_volume::has_an_organizing_committ__has_important_dates candidates=20
+  [42/52] EquivOP selecting Conference_volume::has_a_steering_committee__has_important_dates candidates=28
+  [43/52] EquivOP selecting Invited_talk::is_given_by__has_an_abstract candidates=7
+  [44/52] EquivOP selecting Invited_talk::is_given_by__is_submitted_at candidates=8
+  [45/52] EquivOP selecting Invited_talk::has_an_abstract__is_submitted_at candidates=11
+  [46/52] EquivOP selecting Organizing_committee::ID__was_an_organizing_committ candidates=27
+  [47/52] EquivOP selecting Paper::ID__has_an_abstract candidates=6
+  [48/52] EquivOP selecting Paper::ID__is_submitted_at candidates=10
+  [49/52] EquivOP selecting Paper::has_an_abstract__is_submitted_at candidates=9
+  [50/52] EquivOP selecting Poster::has_an_abstract__is_submitted_at candidates=9
+  [51/52] EquivOP selecting Review::ID__reviews candidates=22
+  [52/52] EquivOP selecting Steering_committee::ID__was_a_steering_committee_ candidates=27
+
+R2RML 生成完成: SE=19, SH=5, SR=6
+
+Done.
+  OP results: /Users/douer_lucky/Documents/科研/MAMG/output/conference_nofks/equivalence_op_module_predictions.json
+  CPA shape:  /Users/douer_lucky/Documents/科研/MAMG/output/conference_nofks/cpa_step1_result.json
+  TTL:        /Users/douer_lucky/Documents/科研/MAMG/output/conference_nofks/rodi_conference_nofks_generated_mapping.ttl
+  TTL chars:  25405

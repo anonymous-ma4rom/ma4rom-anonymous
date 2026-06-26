@@ -1,0 +1,195 @@
+
+=== 错误时间: rodi_conf - conference_naive - gpt-4o-mini ===
+错误类型: AttributeError
+错误信息: 'NoneType' object has no attribute 'url'
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 109, in <module>
+    modules = Modules(strategy, prompts, set_all_api_id=api_name)
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/langchain_utils.py", line 58, in __init__
+    self.build_modules()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/langchain_utils.py", line 84, in build_modules
+    cur_op_object = CustomLLM(api_id=api_id, response_format=curr_op['response_format'])
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/langchain_utils.py", line 30, in __init__
+    self.api_url = self._api_tool.url
+                   ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'url'
+
+==================================================
+
+=== 错误时间: rodi_conf - conference_naive - gpt_4o_mini ===
+错误类型: AssertionError
+错误信息: Torch not compiled with CUDA enabled
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 114, in <module>
+    OC = OntologyCompletion(modules=modules, db_schema=db_schema)
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 23, in __init__
+    self.retriver = SentenceTransformer('BAAI/bge-m3', device="cuda")
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/sentence_transformers/SentenceTransformer.py", line 367, in __init__
+    self.to(device)
+    ~~~~~~~^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1371, in to
+    return self._apply(convert)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+    ~~~~~~~~~~~~~^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+    ~~~~~~~~~~~~~^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+    ~~~~~~~~~~~~~^^^^
+  [Previous line repeated 1 more time]
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 957, in _apply
+    param_applied = fn(param)
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1357, in convert
+    return t.to(
+           ~~~~^
+        device,
+        ^^^^^^^
+        dtype if t.is_floating_point() or t.is_complex() else None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        non_blocking,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/torch/cuda/__init__.py", line 403, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+==================================================
+
+=== 错误时间: rodi_conf - conference_naive - gpt_4o_mini ===
+错误类型: RuntimeError
+错误信息: size mismatch, got input (125), mat (125x1024), vec (0)
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 116, in <module>
+    ontology, db2o = OC.run_ontology_completion(ontologyDataset, tableDataset)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 156, in run_ontology_completion
+    data_retrived_idxes, data_retrived_values = self._retrive_topk(col_names, data_names, retrive_num)
+                                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 34, in _retrive_topk
+    retrived_idxes = (source_embs @ target_embs.T).topk(retrive_target_num, dim=1)
+                      ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+RuntimeError: size mismatch, got input (125), mat (125x1024), vec (0)
+
+==================================================
+
+=== 错误时间: rodi_conf - conference_naive - gpt_4o_mini ===
+错误类型: TypeError
+错误信息: string indices must be integers, not 'str'
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 147, in <module>
+    MG.run_mapping_generation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        table=tableDataset,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        original_ontology=original_ontology
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 864, in run_mapping_generation
+    self.mapping_handle_function[mapping_pattern](table, db2o, ontology, patterns, original_ontology)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 599, in _handle_SR
+    obj_12_iri = default[r[rel_12]]
+                 ~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+==================================================
+
+=== 错误时间: rodi_conf - conference_naive - gpt_4o_mini ===
+错误类型: TypeError
+错误信息: string indices must be integers, not 'str'
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 147, in <module>
+    MG.run_mapping_generation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        table=tableDataset,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        original_ontology=original_ontology
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 864, in run_mapping_generation
+    self.mapping_handle_function[mapping_pattern](table, db2o, ontology, patterns, original_ontology)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 599, in _handle_SR
+    obj_12_iri = default[r[rel_12]]
+                 ~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+==================================================
+
+=== 错误时间: rodi_conf - conference_naive - gpt_4o_mini ===
+错误类型: InternalServerError
+错误信息: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+详细堆栈信息:
+Traceback (most recent call last):
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/OC_MG.py", line 116, in <module>
+    ontology, db2o = OC.run_ontology_completion(ontologyDataset, tableDataset)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 163, in run_ontology_completion
+    class_pair_match = self._predict_matching_label_v2(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/vkg_generation/ontology_completion_mapping_generation.py", line 109, in _predict_matching_label_v2
+    r = chain_match.invoke({"source_concept": DB_name, "target_concepts": target_concepts})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/language_models/llms.py", line 390, in invoke
+    self.generate_prompt(
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/language_models/llms.py", line 789, in generate_prompt
+    return self.generate(prompt_strings, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/language_models/llms.py", line 1000, in generate
+    return self._generate_helper(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/language_models/llms.py", line 815, in _generate_helper
+    self._generate(
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/langchain_core/language_models/llms.py", line 1580, in _generate
+    else self._call(prompt, stop=stop, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/langchain_utils.py", line 35, in _call
+    response = self._api_tool.chat_without_history(prompt, response_format=self.response_format)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/gpt_utils.py", line 126, in chat_without_history
+    result = self.send_messages(message, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/src/llm/utils/gpt_utils.py", line 100, in send_messages
+    return self.client.beta.chat.completions.parse(model=self.model, messages=messages,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 183, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/douer_lucky/Documents/科研/LLM4VKG-main/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.InternalServerError: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+==================================================

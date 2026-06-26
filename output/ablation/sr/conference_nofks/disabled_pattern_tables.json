@@ -1,0 +1,8 @@
+{
+  "belongs_to_reviewers": "SR",
+  "contributes": "SR",
+  "has_a_committee_co-chair": "SR",
+  "has_a_track-workshop-tuto": "SR",
+  "has_members": "SR",
+  "invited_by": "SR"
+}

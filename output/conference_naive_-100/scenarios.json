@@ -1,0 +1,3924 @@
+{
+  "Abstract.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": 0.737085,
+    "domain_table": "Abstract",
+    "domain_rows": 367,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Abstract",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Abstract",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "is_the_1th_part_of",
+        "target_column": "ID",
+        "evidence_score": 0.737085,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "Abstract.is_the_1th_part_of": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": 1.0,
+    "domain_table": "Abstract",
+    "domain_rows": 367,
+    "range_table": "Paper",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Abstract",
+    "range_class_uri": "http://conference#Paper",
+    "op_candidates": [
+      {
+        "uri": "http://conference#is_the_1th_part_of",
+        "local_name": "is_the_1th_part_of",
+        "score": 0.75,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Abstract"
+        ],
+        "range": [
+          "n80070697b96c48f98a1267f3e13cfd23b17"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_important_dates",
+        "local_name": "has_important_dates",
+        "score": 0.324,
+        "name_score": 0.647,
+        "syntax_score": 0.647,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Important_dates"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.463,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 9,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_a_commtitee",
+        "local_name": "has_a_commtitee",
+        "score": 0.286,
+        "name_score": 0.571,
+        "syntax_score": 0.571,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#is_submitted_at",
+        "local_name": "is_submitted_at",
+        "score": 0.463,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_contribution"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 10,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "Abstract",
+      "source_column": "is_the_1th_part_of",
+      "target_table": "Paper",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 367,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ID",
+        "target_column": "has_an_abstract",
+        "evidence_score": 1.0,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "Accepted_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Accepted_contribution",
+    "domain_rows": 0,
+    "range_table": "Conference_contribution",
+    "range_rows": 734,
+    "domain_class_uri": "http://conference#Accepted_contribution",
+    "range_class_uri": "http://conference#Conference_contribution",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Camera_ready_contribution.ID": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Camera_ready_contribution",
+    "domain_rows": 0,
+    "range_table": "Accepted_contribution",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Camera_ready_contribution",
+    "range_class_uri": "http://conference#Accepted_contribution",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Chair.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.652713,
+    "peer_implicit_score": null,
+    "domain_table": "Chair",
+    "domain_rows": 6,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Chair",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Chair",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 6,
+      "target_distinct": 774,
+      "intersection": 6,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.007752,
+      "jaccard": 0.007752,
+      "evidence_score": 0.652713,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Co-chair.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Co-chair",
+    "domain_rows": 0,
+    "range_table": "Chair",
+    "range_rows": 6,
+    "domain_class_uri": "http://conference#Co-chair",
+    "range_class_uri": "http://conference#Chair",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Committee.has_a_committee_chair": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Committee",
+    "domain_rows": 7,
+    "range_table": "Chair",
+    "range_rows": 6,
+    "domain_class_uri": "http://conference#Committee",
+    "range_class_uri": "http://conference#Chair",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_committee_chair",
+        "local_name": "has_a_committee_chair",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_committee_co-chair",
+        "local_name": "has_a_committee_co-chair",
+        "score": 0.825,
+        "name_score": 0.9,
+        "syntax_score": 0.9,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Co-chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_members",
+        "local_name": "has_members",
+        "score": 0.685,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Committee_member"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 27,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_committee_chair_of",
+        "local_name": "was_a_committee_chair_of",
+        "score": 0.425,
+        "name_score": 0.85,
+        "syntax_score": 0.85,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Chair"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#was_a_committee_of",
+        "local_name": "was_a_committee_of",
+        "score": 0.583,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 8,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Committee_member.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.664922,
+    "peer_implicit_score": null,
+    "domain_table": "Committee_member",
+    "domain_rows": 33,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Committee_member",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Committee_member",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 33,
+      "target_distinct": 774,
+      "intersection": 33,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.042636,
+      "jaccard": 0.042636,
+      "evidence_score": 0.664922,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.824169,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_contribution",
+    "domain_rows": 734,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Conference_contribution",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Conference_contribution",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 734,
+      "target_distinct": 1475,
+      "intersection": 734,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.497627,
+      "jaccard": 0.497627,
+      "evidence_score": 0.824169,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_contribution.is_submitted_at": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_contribution",
+    "domain_rows": 734,
+    "range_table": "Conference",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Conference_contribution",
+    "range_class_uri": "http://conference#Conference",
+    "op_candidates": [
+      {
+        "uri": "http://conference#is_submitted_at",
+        "local_name": "is_submitted_at",
+        "score": 0.75,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_contribution"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_given_by",
+        "local_name": "is_given_by",
+        "score": 0.655,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Presentation"
+        ],
+        "range": [
+          "http://conference#Active_conference_participant"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 20,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_important_dates",
+        "local_name": "has_important_dates",
+        "score": 0.294,
+        "name_score": 0.588,
+        "syntax_score": 0.588,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Important_dates"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 12,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.617,
+        "name_score": 0.385,
+        "syntax_score": 0.385,
+        "semantic_score": 0.85,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.85,
+        "syntax_rank": 21,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.406,
+        "name_score": 0.562,
+        "syntax_score": 0.562,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.5,
+        "syntax_rank": 3,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "Conference_contribution",
+      "source_column": "is_submitted_at",
+      "target_table": "Conference",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_contributor.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.905039,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_contributor",
+    "domain_rows": 564,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Conference_contributor",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Conference_contributor",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 564,
+      "target_distinct": 774,
+      "intersection": 564,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.728682,
+      "jaccard": 0.728682,
+      "evidence_score": 0.905039,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_part.is_part_of_conference_vol": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_part",
+    "domain_rows": 0,
+    "range_table": "Conference_volume",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Conference_part",
+    "range_class_uri": "http://conference#Conference_volume",
+    "op_candidates": [
+      {
+        "uri": "http://conference#is_part_of_conference_volumes",
+        "local_name": "is_part_of_conference_volumes",
+        "score": 0.67,
+        "name_score": 0.84,
+        "syntax_score": 0.84,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_submitted_at",
+        "local_name": "is_submitted_at",
+        "score": 0.494,
+        "name_score": 0.238,
+        "syntax_score": 0.238,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_contribution"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 39,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#belong_to_a_conference_volume",
+        "local_name": "belong_to_a_conference_volume",
+        "score": 0.57,
+        "name_score": 0.64,
+        "syntax_score": 0.64,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Important_dates"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 4,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_a_topis_of_conference_parts",
+        "local_name": "is_a_topis_of_conference_parts",
+        "score": 0.505,
+        "name_score": 0.76,
+        "syntax_score": 0.76,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://conference#Topic"
+        ],
+        "range": [
+          "http://conference#Conference_part"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.5,
+        "syntax_rank": 2,
+        "semantic_rank": 10,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 0.528,
+        "name_score": 0.381,
+        "syntax_score": 0.381,
+        "semantic_score": 0.675,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.5,
+        "syntax_rank": 30,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Conference_participant.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.809625,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_participant",
+    "domain_rows": 353,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Conference_participant",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Conference_participant",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 353,
+      "target_distinct": 774,
+      "intersection": 353,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.456072,
+      "jaccard": 0.456072,
+      "evidence_score": 0.809625,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_proceedings.has_a_publisher": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_proceedings",
+    "domain_rows": 7,
+    "range_table": "Publisher",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Conference_proceedings",
+    "range_class_uri": "http://conference#Publisher",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_publisher",
+        "local_name": "has_a_publisher",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Conference_proceedings"
+        ],
+        "range": [
+          "http://conference#Publisher"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.433,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_tutorials",
+        "local_name": "has_tutorials",
+        "score": 0.346,
+        "name_score": 0.692,
+        "syntax_score": 0.692,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Tutorial"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_submitted_at",
+        "local_name": "is_submitted_at",
+        "score": 0.394,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.25,
+        "domain": [
+          "http://conference#Conference_contribution"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.0,
+        "syntax_rank": 5,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_the_1th_part_of",
+        "local_name": "is_the_1th_part_of",
+        "score": 0.286,
+        "name_score": 0.571,
+        "syntax_score": 0.571,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Abstract"
+        ],
+        "range": [
+          "n80070697b96c48f98a1267f3e13cfd23b17"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 5,
+        "track_source": "both"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Conference_volume.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_volume",
+    "domain_rows": 7,
+    "range_table": "Conference",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Conference_volume",
+    "range_class_uri": "http://conference#Conference",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Conference_volume",
+      "source_column": "ID",
+      "target_table": "Conference",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Conference_volume.has_a_program_committee": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": 1.0,
+    "domain_table": "Conference_volume",
+    "domain_rows": 7,
+    "range_table": "Program_committee",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Conference_volume",
+    "range_class_uri": "http://conference#Program_committee",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_program_committee",
+        "local_name": "has_a_program_committee",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Program_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_commtitee",
+        "local_name": "has_a_commtitee",
+        "score": 0.788,
+        "name_score": 0.65,
+        "syntax_score": 0.65,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 10,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.432,
+        "name_score": 0.864,
+        "syntax_score": 0.864,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 19,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 0.732,
+        "name_score": 0.714,
+        "syntax_score": 0.714,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 6,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_committee_chair_of",
+        "local_name": "was_a_committee_chair_of",
+        "score": 0.613,
+        "name_score": 0.8,
+        "syntax_score": 0.8,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Chair"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 3,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ID",
+        "target_column": "was_a_program_committee_of",
+        "evidence_score": 1.0,
+        "inclusion_score": 1.0,
+        "intersection": 7
+      }
+    ]
+  },
+  "Conference_volume.has_a_steering_committee": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_volume",
+    "domain_rows": 7,
+    "range_table": "Steering_committee",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Conference_volume",
+    "range_class_uri": "http://conference#Steering_committee",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_program_committee",
+        "local_name": "has_a_program_committee",
+        "score": 0.732,
+        "name_score": 0.714,
+        "syntax_score": 0.714,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Program_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_commtitee",
+        "local_name": "has_a_commtitee",
+        "score": 0.772,
+        "name_score": 0.619,
+        "syntax_score": 0.619,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 13,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_steering_committee_of",
+        "local_name": "was_a_steering_committee_of",
+        "score": 0.435,
+        "name_score": 0.87,
+        "syntax_score": 0.87,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Steering_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 19,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_an_organizing_committee",
+        "local_name": "has_an_organizing_committee",
+        "score": 0.729,
+        "name_score": 0.708,
+        "syntax_score": 0.708,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Organizing_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 7,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Conference_volume.has_an_organizing_committ": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_volume",
+    "domain_rows": 7,
+    "range_table": "Organizing_committee",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Conference_volume",
+    "range_class_uri": "http://conference#Organizing_committee",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_an_organizing_committee",
+        "local_name": "has_an_organizing_committee",
+        "score": 0.958,
+        "name_score": 0.917,
+        "syntax_score": 0.917,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Organizing_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_program_committee",
+        "local_name": "has_a_program_committee",
+        "score": 0.716,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Program_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 0.716,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 4,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_commtitee",
+        "local_name": "has_a_commtitee",
+        "score": 0.713,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 16,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_an_organizing_committee_of",
+        "local_name": "was_an_organizing_committee_of",
+        "score": 0.404,
+        "name_score": 0.808,
+        "syntax_score": 0.808,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Organizing_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 21,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Conference_volume.has_important_dates": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_volume",
+    "domain_rows": 7,
+    "range_table": "Important_dates",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Conference_volume",
+    "range_class_uri": "http://conference#Important_dates",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_important_dates",
+        "local_name": "has_important_dates",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Important_dates"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 0.583,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_program_committee",
+        "local_name": "has_a_program_committee",
+        "score": 0.575,
+        "name_score": 0.65,
+        "syntax_score": 0.65,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Program_committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_committee_chair",
+        "local_name": "has_a_committee_chair",
+        "score": 0.333,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Chair"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 17,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_commtitee",
+        "local_name": "has_a_commtitee",
+        "score": 0.544,
+        "name_score": 0.588,
+        "syntax_score": 0.588,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 10,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Conference_www.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.651661,
+    "peer_implicit_score": null,
+    "domain_table": "Conference_www",
+    "domain_rows": 7,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Conference_www",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Conference_www",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 1475,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.004746,
+      "jaccard": 0.004746,
+      "evidence_score": 0.651661,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Contribution_1th-author.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.723256,
+    "peer_implicit_score": null,
+    "domain_table": "Contribution_1th-author",
+    "domain_rows": 162,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Contribution_1th-author",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Contribution_1th-author",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 162,
+      "target_distinct": 774,
+      "intersection": 162,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.209302,
+      "jaccard": 0.209302,
+      "evidence_score": 0.723256,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Contribution_co-author.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.831783,
+    "peer_implicit_score": null,
+    "domain_table": "Contribution_co-author",
+    "domain_rows": 402,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Contribution_co-author",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Contribution_co-author",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 402,
+      "target_distinct": 774,
+      "intersection": 402,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.51938,
+      "jaccard": 0.51938,
+      "evidence_score": 0.831783,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Early_paid_applicant.ID": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Early_paid_applicant",
+    "domain_rows": 0,
+    "range_table": "Paid_applicant",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Early_paid_applicant",
+    "range_class_uri": "http://conference#Paid_applicant",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Extended_abstract.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": null,
+    "domain_table": "Extended_abstract",
+    "domain_rows": 367,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Extended_abstract",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Extended_abstract",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Information_for_participa.ID": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Information_for_participa",
+    "domain_rows": 0,
+    "range_table": "Call_for_participation",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Information_for_participants",
+    "range_class_uri": "http://conference#Call_for_participation",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Invited_talk.ID": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Invited_talk",
+    "domain_rows": 0,
+    "range_table": "Invited_speaker",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Invited_talk",
+    "range_class_uri": "http://conference#Invited_speaker",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Late_paid_applicant.ID": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Late_paid_applicant",
+    "domain_rows": 0,
+    "range_table": "Paid_applicant",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Late_paid_applicant",
+    "range_class_uri": "http://conference#Paid_applicant",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Organizing_committee.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Organizing_committee",
+    "domain_rows": 0,
+    "range_table": "Committee",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Organizing_committee",
+    "range_class_uri": "http://conference#Committee",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Organizing_committee.was_an_organizing_committ": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Organizing_committee",
+    "domain_rows": 0,
+    "range_table": "Conference_volume",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Organizing_committee",
+    "range_class_uri": "http://conference#Conference_volume",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_an_organizing_committee",
+        "local_name": "has_an_organizing_committee",
+        "score": 0.438,
+        "name_score": 0.875,
+        "syntax_score": 0.875,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Organizing_committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 18,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#was_an_organizing_committee_of",
+        "local_name": "was_an_organizing_committee_of",
+        "score": 0.923,
+        "name_score": 0.846,
+        "syntax_score": 0.846,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Organizing_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_steering_committee_of",
+        "local_name": "was_a_steering_committee_of",
+        "score": 0.723,
+        "name_score": 0.696,
+        "syntax_score": 0.696,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Steering_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.716,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 4,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_committee_of",
+        "local_name": "was_a_committee_of",
+        "score": 0.735,
+        "name_score": 0.545,
+        "syntax_score": 0.545,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 12,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Paper.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": 0.737085,
+    "domain_table": "Paper",
+    "domain_rows": 367,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Paper",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Paper",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "has_an_abstract",
+        "target_column": "ID",
+        "evidence_score": 0.737085,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "Paper.has_an_abstract": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": 1.0,
+    "domain_table": "Paper",
+    "domain_rows": 367,
+    "range_table": "Abstract",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Paper",
+    "range_class_uri": "http://conference#Abstract",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_an_abstract",
+        "local_name": "has_an_abstract",
+        "score": 0.75,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b10"
+        ],
+        "range": [
+          "http://conference#Abstract"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.525,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_tracks",
+        "local_name": "has_tracks",
+        "score": 0.308,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Track"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.482,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 0.482,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 6,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "Paper",
+      "source_column": "has_an_abstract",
+      "target_table": "Abstract",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 367,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ID",
+        "target_column": "is_the_1th_part_of",
+        "evidence_score": 1.0,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "Poster.has_an_abstract": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Poster",
+    "domain_rows": 0,
+    "range_table": "Abstract",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Poster",
+    "range_class_uri": "http://conference#Abstract",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_an_abstract",
+        "local_name": "has_an_abstract",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b10"
+        ],
+        "range": [
+          "http://conference#Abstract"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.525,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 0.607,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.675,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.85,
+        "syntax_rank": 6,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_tracks",
+        "local_name": "has_tracks",
+        "score": 0.308,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Track"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.482,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Presentation.has_an_abstract": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Presentation",
+    "domain_rows": 0,
+    "range_table": "Abstract",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Presentation",
+    "range_class_uri": "http://conference#Abstract",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_an_abstract",
+        "local_name": "has_an_abstract",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b10"
+        ],
+        "range": [
+          "http://conference#Abstract"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.525,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_given_by",
+        "local_name": "is_given_by",
+        "score": 0.365,
+        "name_score": 0.231,
+        "syntax_score": 0.231,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Presentation"
+        ],
+        "range": [
+          "http://conference#Active_conference_participant"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 43,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.482,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 7,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_tracks",
+        "local_name": "has_tracks",
+        "score": 0.308,
+        "name_score": 0.615,
+        "syntax_score": 0.615,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Track"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Program_committee.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "Program_committee",
+    "domain_rows": 7,
+    "range_table": "Committee",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Program_committee",
+    "range_class_uri": "http://conference#Committee",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Program_committee",
+      "source_column": "ID",
+      "target_table": "Committee",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Program_committee.was_a_program_committee_of": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "peer_implicit_score": null,
+    "domain_table": "Program_committee",
+    "domain_rows": 7,
+    "range_table": "Conference",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Program_committee",
+    "range_class_uri": "http://conference#Conference",
+    "op_candidates": [
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.75,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_committee_of",
+        "local_name": "was_a_committee_of",
+        "score": 0.613,
+        "name_score": 0.8,
+        "syntax_score": 0.8,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_program_committee",
+        "local_name": "has_a_program_committee",
+        "score": 0.432,
+        "name_score": 0.864,
+        "syntax_score": 0.864,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Program_committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 12,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#is_given_by",
+        "local_name": "is_given_by",
+        "score": 0.341,
+        "name_score": 0.182,
+        "syntax_score": 0.182,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Presentation"
+        ],
+        "range": [
+          "http://conference#Active_conference_participant"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 44,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_a_committee_co-chair",
+        "local_name": "has_a_committee_co-chair",
+        "score": 0.553,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Co-chair"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 8,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "Program_committee",
+      "source_column": "was_a_program_committee_of",
+      "target_table": "Conference",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Regular_author.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.905039,
+    "peer_implicit_score": null,
+    "domain_table": "Regular_author",
+    "domain_rows": 564,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Regular_author",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Regular_author",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 564,
+      "target_distinct": 774,
+      "intersection": 564,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.728682,
+      "jaccard": 0.728682,
+      "evidence_score": 0.905039,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Regular_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.824169,
+    "peer_implicit_score": null,
+    "domain_table": "Regular_contribution",
+    "domain_rows": 734,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Regular_contribution",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Regular_contribution",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 734,
+      "target_distinct": 1475,
+      "intersection": 734,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.497627,
+      "jaccard": 0.497627,
+      "evidence_score": 0.824169,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Rejected_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Rejected_contribution",
+    "domain_rows": 0,
+    "range_table": "Reviewed_contribution",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Rejected_contribution",
+    "range_class_uri": "http://conference#Reviewed_contribution",
+    "op_candidates": [],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Review.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.824169,
+    "peer_implicit_score": 0.737085,
+    "domain_table": "Review",
+    "domain_rows": 734,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Review",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Review",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 734,
+      "target_distinct": 1475,
+      "intersection": 734,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.497627,
+      "jaccard": 0.497627,
+      "evidence_score": 0.824169,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "reviews",
+        "target_column": "ID",
+        "evidence_score": 0.737085,
+        "inclusion_score": 1.0,
+        "intersection": 367
+      }
+    ]
+  },
+  "Review.reviews": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": 0.824169,
+    "domain_table": "Review",
+    "domain_rows": 734,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Review",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [
+      {
+        "uri": "http://conference#reviews",
+        "local_name": "reviews",
+        "score": 0.963,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Review"
+        ],
+        "range": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_review",
+        "local_name": "has_a_review",
+        "score": 0.562,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "range": [
+          "http://conference#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 0.432,
+        "name_score": 0.364,
+        "syntax_score": 0.364,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 10,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#is_given_by",
+        "local_name": "is_given_by",
+        "score": 0.222,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Presentation"
+        ],
+        "range": [
+          "http://conference#Active_conference_participant"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 25,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.312,
+        "name_score": 0.2,
+        "syntax_score": 0.2,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 37,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": {
+      "source_table": "Review",
+      "source_column": "reviews",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "n-1"
+    },
+    "peer_implicit_evidence": [
+      {
+        "source_column": "ID",
+        "target_column": "ID",
+        "evidence_score": 0.824169,
+        "inclusion_score": 1.0,
+        "intersection": 734
+      }
+    ]
+  },
+  "Review_expertise.has_a_submitted_contribut": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Review_expertise",
+    "domain_rows": 0,
+    "range_table": "Submitted_contribution",
+    "range_rows": 367,
+    "domain_class_uri": "http://conference#Review_expertise",
+    "range_class_uri": "http://conference#Submitted_contribution",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_submitted_contribution",
+        "local_name": "has_a_submitted_contribution",
+        "score": 0.94,
+        "name_score": 0.88,
+        "syntax_score": 0.88,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Review_expertise"
+        ],
+        "range": [
+          "http://conference#Submitted_contribution"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.531,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 5,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 0.364,
+        "name_score": 0.727,
+        "syntax_score": 0.727,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_topic_or_a_submission_contribution",
+        "local_name": "has_a_topic_or_a_submission_contribution",
+        "score": 0.654,
+        "name_score": 0.559,
+        "syntax_score": 0.559,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Review_preference"
+        ],
+        "range": [
+          "n80070697b96c48f98a1267f3e13cfd23b7"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 12,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_important_dates",
+        "local_name": "has_important_dates",
+        "score": 0.341,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Important_dates"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Review_preference.belongs_to_a_review_refer": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Review_preference",
+    "domain_rows": 0,
+    "range_table": "Reviewer",
+    "range_rows": 477,
+    "domain_class_uri": "http://conference#Review_preference",
+    "range_class_uri": "http://conference#Review",
+    "op_candidates": [
+      {
+        "uri": "http://conference#belongs_to_a_review_reference",
+        "local_name": "belongs_to_a_review_reference",
+        "score": 0.42,
+        "name_score": 0.84,
+        "syntax_score": 0.84,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Topic"
+        ],
+        "range": [
+          "http://conference#Review_preference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 8,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#belongs_to_reviewers",
+        "local_name": "belongs_to_reviewers",
+        "score": 0.78,
+        "name_score": 0.81,
+        "syntax_score": 0.81,
+        "semantic_score": 0.75,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b1"
+        ],
+        "range": [
+          "http://conference#Reviewer"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_topic_or_a_submission_contribution",
+        "local_name": "has_a_topic_or_a_submission_contribution",
+        "score": 0.397,
+        "name_score": 0.294,
+        "syntax_score": 0.294,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Review_preference"
+        ],
+        "range": [
+          "n80070697b96c48f98a1267f3e13cfd23b7"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 37,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_steering_committee_of",
+        "local_name": "was_a_steering_committee_of",
+        "score": 0.326,
+        "name_score": 0.652,
+        "syntax_score": 0.652,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Steering_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_review",
+        "local_name": "has_a_review",
+        "score": 0.44,
+        "name_score": 0.381,
+        "syntax_score": 0.381,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "range": [
+          "http://conference#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 25,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Reviewed_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": null,
+    "domain_table": "Reviewed_contribution",
+    "domain_rows": 367,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Reviewed_contribution",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Reviewed_contribution",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Reviewer.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.865698,
+    "peer_implicit_score": null,
+    "domain_table": "Reviewer",
+    "domain_rows": 477,
+    "range_table": "Person",
+    "range_rows": 774,
+    "domain_class_uri": "http://conference#Reviewer",
+    "range_class_uri": "http://conference#Person",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Reviewer",
+      "source_column": "ID",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 477,
+      "target_distinct": 774,
+      "intersection": 477,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.616279,
+      "jaccard": 0.616279,
+      "evidence_score": 0.865698,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Steering_committee.was_a_steering_committee_": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "LLM_ONTOLOGY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Steering_committee",
+    "domain_rows": 0,
+    "range_table": "Conference_volume",
+    "range_rows": 7,
+    "domain_class_uri": "http://conference#Steering_committee",
+    "range_class_uri": "http://conference#Conference_volume",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_steering_committee",
+        "local_name": "has_a_steering_committee",
+        "score": 0.476,
+        "name_score": 0.952,
+        "syntax_score": 0.952,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Steering_committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 16,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#was_a_steering_committee_of",
+        "local_name": "was_a_steering_committee_of",
+        "score": 0.957,
+        "name_score": 0.913,
+        "syntax_score": 0.913,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Steering_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.716,
+        "name_score": 0.682,
+        "syntax_score": 0.682,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.5,
+        "range_score": 1.0,
+        "syntax_rank": 4,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#was_a_committee_of",
+        "local_name": "was_a_committee_of",
+        "score": 0.772,
+        "name_score": 0.619,
+        "syntax_score": 0.619,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 13,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_committee_chair_of",
+        "local_name": "was_a_committee_chair_of",
+        "score": 0.357,
+        "name_score": 0.714,
+        "syntax_score": 0.714,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Chair"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 17,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Submitted_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.737085,
+    "peer_implicit_score": null,
+    "domain_table": "Submitted_contribution",
+    "domain_rows": 367,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Submitted_contribution",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Submitted_contribution",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 367,
+      "target_distinct": 1475,
+      "intersection": 367,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.248814,
+      "jaccard": 0.248814,
+      "evidence_score": 0.737085,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "Track.has_a_track-workshop-tuto": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Track",
+    "domain_rows": 0,
+    "range_table": "Track-workshop_chair",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Track",
+    "range_class_uri": "http://conference#Track-workshop_chair",
+    "op_candidates": [
+      {
+        "uri": "http://conference#was_a_track-workshop_chair_of",
+        "local_name": "was_a_track-workshop_chair_of",
+        "score": 0.375,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "range": [
+          "http://conference#Conference_part"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_chair",
+        "local_name": "has_a_track-workshop-tutorial_chair",
+        "score": 0.812,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "domain_score": 0.85,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_topic",
+        "local_name": "has_a_track-workshop-tutorial_topic",
+        "score": 0.562,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Topic"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_part_of_conference_volumes",
+        "local_name": "is_part_of_conference_volumes",
+        "score": 0.453,
+        "name_score": 0.48,
+        "syntax_score": 0.48,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 18,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.318,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Workshop.has_a_track-workshop-tuto": {
+    "scenario": "SMD",
+    "type": "fk_obj",
+    "fk_source": "LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "peer_implicit_score": null,
+    "domain_table": "Workshop",
+    "domain_rows": 0,
+    "range_table": "Track-workshop_chair",
+    "range_rows": 0,
+    "domain_class_uri": "http://conference#Workshop",
+    "range_class_uri": "http://conference#Track-workshop_chair",
+    "op_candidates": [
+      {
+        "uri": "http://conference#was_a_track-workshop_chair_of",
+        "local_name": "was_a_track-workshop_chair_of",
+        "score": 0.625,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "range": [
+          "http://conference#Conference_part"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_chair",
+        "local_name": "has_a_track-workshop-tutorial_chair",
+        "score": 0.6,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_topic",
+        "local_name": "has_a_track-workshop-tutorial_topic",
+        "score": 0.35,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Topic"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 5,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 0.379,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.0,
+        "syntax_rank": 36,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_program_committee_of",
+        "local_name": "was_a_program_committee_of",
+        "score": 0.318,
+        "name_score": 0.636,
+        "syntax_score": 0.636,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Program_committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 4,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      }
+    ],
+    "fk_evidence": null,
+    "peer_implicit_evidence": []
+  },
+  "Written_contribution.ID": {
+    "scenario": "SLD",
+    "type": "fk_obj",
+    "fk_source": "IND",
+    "ind_score": 1.0,
+    "implicit_score": 0.824169,
+    "peer_implicit_score": null,
+    "domain_table": "Written_contribution",
+    "domain_rows": 734,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "domain_class_uri": "http://conference#Written_contribution",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [],
+    "fk_evidence": {
+      "source_table": "Written_contribution",
+      "source_column": "ID",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 734,
+      "target_distinct": 1475,
+      "intersection": 734,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.497627,
+      "jaccard": 0.497627,
+      "evidence_score": 0.824169,
+      "cardinality_pattern": "1-1"
+    },
+    "peer_implicit_evidence": []
+  },
+  "belongs_to_reviewers": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=LLM_EMPTY, fk2=unknown",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "Reviewer",
+    "domain_rows": 477,
+    "range_table": null,
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://conference#Review",
+    "range_class_uri": "http://conference#Reviewer",
+    "op_candidates": [
+      {
+        "uri": "http://conference#belongs_to_reviewers",
+        "local_name": "belongs_to_reviewers",
+        "score": 0.575,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.15,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b1"
+        ],
+        "range": [
+          "http://conference#Reviewer"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 1,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#reviews",
+        "local_name": "reviews",
+        "score": 0.519,
+        "name_score": 0.389,
+        "syntax_score": 0.389,
+        "semantic_score": 0.65,
+        "domain": [
+          "http://conference#Review"
+        ],
+        "range": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.3,
+        "syntax_rank": 24,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#invites_co-reviewers",
+        "local_name": "invites_co-reviewers",
+        "score": 0.589,
+        "name_score": 0.778,
+        "syntax_score": 0.778,
+        "semantic_score": 0.4,
+        "domain": [
+          "http://conference#Reviewer"
+        ],
+        "range": [
+          "http://conference#Reviewer"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.3,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_authors",
+        "local_name": "has_authors",
+        "score": 0.426,
+        "name_score": 0.278,
+        "syntax_score": 0.278,
+        "semantic_score": 0.575,
+        "domain": [
+          "http://conference#Conference_document"
+        ],
+        "range": [
+          "http://conference#Person"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.3,
+        "syntax_rank": 43,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#belongs_to_a_review_reference",
+        "local_name": "belongs_to_a_review_reference",
+        "score": 0.415,
+        "name_score": 0.68,
+        "syntax_score": 0.68,
+        "semantic_score": 0.15,
+        "domain": [
+          "http://conference#Topic"
+        ],
+        "range": [
+          "http://conference#Review_preference"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.3,
+        "syntax_rank": 3,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "contributes": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=IND, fk2=IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "domain_table": "Person",
+    "domain_rows": 774,
+    "range_table": "Conference_document",
+    "range_rows": 1475,
+    "self_rows": 1713,
+    "domain_class_uri": "http://conference#Person",
+    "range_class_uri": "http://conference#Conference_document",
+    "op_candidates": [
+      {
+        "uri": "http://conference#contributes",
+        "local_name": "contributes",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Person"
+        ],
+        "range": [
+          "http://conference#Conference_document"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_an_abstract",
+        "local_name": "has_an_abstract",
+        "score": 0.607,
+        "name_score": 0.538,
+        "syntax_score": 0.538,
+        "semantic_score": 0.675,
+        "domain": [
+          "n80070697b96c48f98a1267f3e13cfd23b10"
+        ],
+        "range": [
+          "http://conference#Abstract"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.85,
+        "syntax_rank": 4,
+        "semantic_rank": 4,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_contributions",
+        "local_name": "has_contributions",
+        "score": 0.525,
+        "name_score": 0.625,
+        "syntax_score": 0.625,
+        "semantic_score": 0.425,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Conference_contribution"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.85,
+        "syntax_rank": 2,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#gives_presentations",
+        "local_name": "gives_presentations",
+        "score": 0.647,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.85,
+        "domain": [
+          "http://conference#Active_conference_participant"
+        ],
+        "range": [
+          "http://conference#Presentation"
+        ],
+        "domain_score": 0.85,
+        "range_score": 0.85,
+        "syntax_rank": 14,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_tutorials",
+        "local_name": "has_tutorials",
+        "score": 0.292,
+        "name_score": 0.583,
+        "syntax_score": 0.583,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_volume"
+        ],
+        "range": [
+          "http://conference#Tutorial"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 27,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": {
+      "source_table": "contributes",
+      "source_column": "Person",
+      "target_table": "Person",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 774,
+      "target_distinct": 774,
+      "intersection": 774,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    },
+    "fk2_evidence": {
+      "source_table": "contributes",
+      "source_column": "Conference_document",
+      "target_table": "Conference_document",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 1101,
+      "target_distinct": 1475,
+      "intersection": 1101,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 0.746441,
+      "jaccard": 0.746441,
+      "evidence_score": 0.911254,
+      "cardinality_pattern": "n-1"
+    }
+  },
+  "has_a_committee_co-chair": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=LLM_EMPTY, fk2=LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "Committee",
+    "domain_rows": 7,
+    "range_table": "Co-chair",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://conference#Committee",
+    "range_class_uri": "http://conference#Co-chair",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_a_committee_co-chair",
+        "local_name": "has_a_committee_co-chair",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Co-chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_committee_chair",
+        "local_name": "has_a_committee_chair",
+        "score": 0.825,
+        "name_score": 0.9,
+        "syntax_score": 0.9,
+        "semantic_score": 0.75,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.5,
+        "syntax_rank": 2,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_members",
+        "local_name": "has_members",
+        "score": 0.663,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Committee_member"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 29,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_committee_chair_of",
+        "local_name": "was_a_committee_chair_of",
+        "score": 0.45,
+        "name_score": 0.9,
+        "syntax_score": 0.9,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Chair"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#was_a_committee_of",
+        "local_name": "was_a_committee_of",
+        "score": 0.575,
+        "name_score": 0.65,
+        "syntax_score": 0.65,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 10,
+        "semantic_rank": 4,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "has_a_track-workshop-tuto": {
+    "scenario": "SMD",
+    "type": "SR",
+    "fk_source": "fk1=LLM_EMPTY, fk2=LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "Conference_part",
+    "domain_rows": 0,
+    "range_table": "Topic",
+    "range_rows": 0,
+    "self_rows": 0,
+    "domain_class_uri": "http://conference#Active_conference_participant",
+    "range_class_uri": "http://conference#Topic",
+    "op_candidates": [
+      {
+        "uri": "http://conference#was_a_track-workshop_chair_of",
+        "local_name": "was_a_track-workshop_chair_of",
+        "score": 0.375,
+        "name_score": 0.75,
+        "syntax_score": 0.75,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "range": [
+          "http://conference#Conference_part"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 1,
+        "semantic_rank": 6,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#gives_presentations",
+        "local_name": "gives_presentations",
+        "score": 0.44,
+        "name_score": 0.381,
+        "syntax_score": 0.381,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Active_conference_participant"
+        ],
+        "range": [
+          "http://conference#Presentation"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 30,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_topic",
+        "local_name": "has_a_track-workshop-tutorial_topic",
+        "score": 0.6,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Topic"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 2,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_track-workshop-tutorial_chair",
+        "local_name": "has_a_track-workshop-tutorial_chair",
+        "score": 0.35,
+        "name_score": 0.7,
+        "syntax_score": 0.7,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_part"
+        ],
+        "range": [
+          "http://conference#Track-workshop_chair"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 7,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_topic_or_a_submission_contribution",
+        "local_name": "has_a_topic_or_a_submission_contribution",
+        "score": 0.5,
+        "name_score": 0.5,
+        "syntax_score": 0.5,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Review_preference"
+        ],
+        "range": [
+          "n80070697b96c48f98a1267f3e13cfd23b7"
+        ],
+        "domain_score": 0.0,
+        "range_score": 1.0,
+        "syntax_rank": 17,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  },
+  "has_members": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=IND, fk2=IND",
+    "ind_score": 1.0,
+    "implicit_score": 1.0,
+    "domain_table": "Committee",
+    "domain_rows": 7,
+    "range_table": "Committee_member",
+    "range_rows": 33,
+    "self_rows": 38,
+    "domain_class_uri": "http://conference#Committee",
+    "range_class_uri": "http://conference#Committee_member",
+    "op_candidates": [
+      {
+        "uri": "http://conference#has_members",
+        "local_name": "has_members",
+        "score": 1.0,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 1.0,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Committee_member"
+        ],
+        "domain_score": 1.0,
+        "range_score": 1.0,
+        "syntax_rank": 1,
+        "semantic_rank": 1,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#has_a_committee_chair",
+        "local_name": "has_a_committee_chair",
+        "score": 0.685,
+        "name_score": 0.444,
+        "syntax_score": 0.444,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 11,
+        "semantic_rank": 2,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#was_a_member_of",
+        "local_name": "was_a_member_of",
+        "score": 0.333,
+        "name_score": 0.667,
+        "syntax_score": 0.667,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Committee_member"
+        ],
+        "range": [
+          "http://conference#Committee"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 11,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_review",
+        "local_name": "has_a_review",
+        "score": 0.3,
+        "name_score": 0.6,
+        "syntax_score": 0.6,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "range": [
+          "http://conference#Review"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 12,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#has_a_committee_co-chair",
+        "local_name": "has_a_committee_co-chair",
+        "score": 0.663,
+        "name_score": 0.4,
+        "syntax_score": 0.4,
+        "semantic_score": 0.925,
+        "domain": [
+          "http://conference#Committee"
+        ],
+        "range": [
+          "http://conference#Co-chair"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.85,
+        "syntax_rank": 16,
+        "semantic_rank": 3,
+        "track_source": "semantic"
+      }
+    ],
+    "fk1_evidence": {
+      "source_table": "has_members",
+      "source_column": "Committee",
+      "target_table": "Committee",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 7,
+      "target_distinct": 7,
+      "intersection": 7,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    },
+    "fk2_evidence": {
+      "source_table": "has_members",
+      "source_column": "Committee_member",
+      "target_table": "Committee_member",
+      "target_column": "ID",
+      "source_type": "integer",
+      "target_type": "integer",
+      "source_distinct": 33,
+      "target_distinct": 33,
+      "intersection": 33,
+      "inclusion_score": 1.0,
+      "reverse_inclusion": 1.0,
+      "jaccard": 1.0,
+      "evidence_score": 1.0,
+      "cardinality_pattern": "n-1"
+    }
+  },
+  "invited_by": {
+    "scenario": "SLD",
+    "type": "SR",
+    "fk_source": "fk1=LLM_EMPTY, fk2=LLM_EMPTY",
+    "ind_score": null,
+    "implicit_score": null,
+    "domain_table": "Reviewer",
+    "domain_rows": 477,
+    "range_table": "Reviewer",
+    "range_rows": 477,
+    "self_rows": 0,
+    "domain_class_uri": "http://conference#Review",
+    "range_class_uri": "http://conference#Review",
+    "op_candidates": [
+      {
+        "uri": "http://conference#invited_by",
+        "local_name": "invited_by",
+        "score": 0.75,
+        "name_score": 1.0,
+        "syntax_score": 1.0,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Reviewer"
+        ],
+        "range": [
+          "http://conference#Reviewer"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.5,
+        "syntax_rank": 1,
+        "semantic_rank": 2,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#reviews",
+        "local_name": "reviews",
+        "score": 0.417,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Review"
+        ],
+        "range": [
+          "http://conference#Reviewed_contribution"
+        ],
+        "domain_score": 1.0,
+        "range_score": 0.0,
+        "syntax_rank": 6,
+        "semantic_rank": 1,
+        "track_source": "semantic"
+      },
+      {
+        "uri": "http://conference#invites_co-reviewers",
+        "local_name": "invites_co-reviewers",
+        "score": 0.417,
+        "name_score": 0.333,
+        "syntax_score": 0.333,
+        "semantic_score": 0.5,
+        "domain": [
+          "http://conference#Reviewer"
+        ],
+        "range": [
+          "http://conference#Reviewer"
+        ],
+        "domain_score": 0.5,
+        "range_score": 0.5,
+        "syntax_rank": 5,
+        "semantic_rank": 3,
+        "track_source": "both"
+      },
+      {
+        "uri": "http://conference#is_given_by",
+        "local_name": "is_given_by",
+        "score": 0.389,
+        "name_score": 0.778,
+        "syntax_score": 0.778,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Presentation"
+        ],
+        "range": [
+          "http://conference#Active_conference_participant"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 2,
+        "semantic_rank": 9,
+        "track_source": "syntax"
+      },
+      {
+        "uri": "http://conference#is_submitted_at",
+        "local_name": "is_submitted_at",
+        "score": 0.231,
+        "name_score": 0.462,
+        "syntax_score": 0.462,
+        "semantic_score": 0.0,
+        "domain": [
+          "http://conference#Conference_contribution"
+        ],
+        "range": [
+          "http://conference#Conference_volume"
+        ],
+        "domain_score": 0.0,
+        "range_score": 0.0,
+        "syntax_rank": 3,
+        "semantic_rank": 10,
+        "track_source": "syntax"
+      }
+    ],
+    "fk1_evidence": null,
+    "fk2_evidence": null
+  }
+}

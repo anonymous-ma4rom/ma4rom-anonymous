@@ -1,0 +1,764 @@
+{
+  "Author": {
+    "columns": {
+      "ID": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ID",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Bid": {
+    "columns": {
+      "ID": "integer",
+      "adjustedBy": "integer",
+      "hasBid_Inv": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "adjustedBy",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体对象属性adjustedBy完全匹配，domain/range评分高，且候选表User是属性终点类Reviewer的父类"
+      }
+    ]
+  },
+  "Conference": {
+    "columns": {
+      "ID": "integer",
+      "siteURL": "integer",
+      "acceptsHardcopySubmissions": "integer",
+      "logoURL": "integer",
+      "date": "date",
+      "name": "character varying(6)",
+      "reviewsPerPaper": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "Document": {
+    "columns": {
+      "ID": "integer",
+      "writtenBy": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "writtenBy",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "Paper": {
+    "columns": {
+      "ID": "integer",
+      "paperID": "integer",
+      "rejectedBy": "integer",
+      "readByMeta-Reviewer": "integer",
+      "hasAuthor": "integer",
+      "title": "character varying(113)",
+      "hasDecision": "integer",
+      "acceptedBy": "integer",
+      "TYPE": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "ID",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "hasAuthor",
+        "ref_table": "Author",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Reviewer",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Reviewer",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "rejectedBy",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP rejectedBy的endpoint_class为Administrator，且列名与OP名一致，domain/range支持"
+      },
+      {
+        "column": "readByMeta-Reviewer",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP readByMeta-Reviewer的endpoint_class为Meta-Reviewer，列名匹配，domain/range支持"
+      },
+      {
+        "column": "acceptedBy",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP acceptedBy的endpoint_class为Administrator，列名匹配，domain/range支持"
+      }
+    ]
+  },
+  "Person": {
+    "columns": {
+      "ID": "integer",
+      "name": "character varying(22)",
+      "email": "character varying(41)",
+      "assignedByReviewer": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "assignedByReviewer",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "medium",
+        "reason": "列名与对象属性 assignedByReviewer 匹配，其 range 为 Reviewer，目标表 User 可能包含 Reviewer 子类。"
+      }
+    ]
+  },
+  "Preference": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "ProgramCommittee": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "ProgramCommitteeChair": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "ProgramCommitteeMember",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ID",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "ProgramCommitteeMember": {
+    "columns": {
+      "ID": "integer",
+      "maxPapers": "integer",
+      "addedBy": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "addedBy",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体ObjectProperty 'addedBy'完全匹配，domain/range评分高（domain=1.0, range=0.85），语义分数0.95，支持作为外键。"
+      }
+    ]
+  },
+  "Rejection": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "SubjectArea": {
+    "columns": {
+      "ID": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "User": {
+    "columns": {
+      "ID": "integer",
+      "acceptPaper": "integer",
+      "TYPE": "integer"
+    },
+    "primary_key": [
+      "ID"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "assignReviewer": {
+    "columns": {
+      "Administrator": "integer",
+      "Reviewer": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Reviewer"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体ObjectProperty assignReviewer的domain为Administrator，且列名与角色高度匹配，semantic_score=0.95"
+      }
+    ]
+  },
+  "co-writePaper": {
+    "columns": {
+      "Co-author": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "Co-author",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Co-author",
+        "ref_table": "Author",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "Paper",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "detailsEnteredBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，且类型一致，语义上表示关联的会议"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名Administrator与本体OP detailsEnteredBy的range类Administrator完全匹配，且源表名与OP名一致，语义得分0.95"
+      }
+    ]
+  },
+  "enableVirtualMeeting": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，语义明确，表示会议的唯一标识。"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体类Administrator一致，且OP 'enableVirtualMeeting'的domain和'virtualMeetingEnabledBy'的range均指向该类，目标表User.ID符合语义"
+      }
+    ]
+  },
+  "endReview": {
+    "columns": {
+      "ProgramCommitteeChair": "integer",
+      "Review": "integer"
+    },
+    "primary_key": [
+      "ProgramCommitteeChair",
+      "Review"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ProgramCommitteeChair",
+        "ref_table": "ProgramCommitteeChair",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全一致，语义上表示结束审稿的操作由程序委员会主席执行，是典型的外键引用"
+      }
+    ]
+  },
+  "enterReviewCriteria": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全一致，类型匹配，语义明确，表示该会议记录关联的会议ID。"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与本体的Administrator类完全匹配，且本体OP enterReviewCriteria(domain)和reviewCriteriaEnteredBy(range)均将Administrator作为端点，语义分数0.95"
+      }
+    ]
+  },
+  "finalizePaperAssignment": {
+    "columns": {
+      "Administrator": "integer",
+      "Conference": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "Conference"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与Conference表完全一致，name_score为1.0，典型的外键引用"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP finalizePaperAssignment的domain和paperAssignmentFinalizedBy的range均指向Administrator类，列名与类名完全匹配，表名与OP名一致，语义得分0.95"
+      }
+    ]
+  },
+  "hardcopyMailingManifestsP": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与候选目标表名完全一致，语义匹配度高，应为外键引用 Conference 表的主键。"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP paperAssignmentFinalizedBy的range和printHardcopyMailingManifests的domain均为Administrator类，列名匹配"
+      }
+    ]
+  },
+  "hasConferenceMember": {
+    "columns": {
+      "Conference": "integer",
+      "ConferenceMember": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "ConferenceMember"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ConferenceMember",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "hasConflictOfInterest": {
+    "columns": {
+      "Person": "integer",
+      "Document": "integer"
+    },
+    "primary_key": [
+      "Person",
+      "Document"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Person",
+        "ref_table": "Person",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名'Person'语义指向人员实体，且Person表是主要人员表，name_score为1.0，利益冲突表需要记录冲突所涉及的人员。"
+      },
+      {
+        "column": "Document",
+        "ref_table": "Document",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名'Document'语义指向文档实体，且Document表是主要文档表，name_score为1.0，利益冲突表需要记录冲突所涉及的文档。"
+      }
+    ]
+  },
+  "hasProgramCommitteeMember": {
+    "columns": {
+      "ProgramCommittee": "integer",
+      "ProgramCommitteeMember": "integer"
+    },
+    "primary_key": [
+      "ProgramCommittee",
+      "ProgramCommitteeMember"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ProgramCommittee",
+        "ref_table": "ProgramCommittee",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      },
+      {
+        "column": "ProgramCommitteeMember",
+        "ref_table": "ProgramCommitteeMember",
+        "ref_col": "ID",
+        "source": "IND",
+        "ind_score": 1.0,
+        "confidence": null,
+        "reason": null
+      }
+    ]
+  },
+  "hasSubjectArea": {
+    "columns": {
+      "Paper": "integer",
+      "SubjectArea": "integer"
+    },
+    "primary_key": [
+      "Paper",
+      "SubjectArea"
+    ],
+    "foreign_keys": [
+      {
+        "column": "SubjectArea",
+        "ref_table": "SubjectArea",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，语义明确，直接引用 SubjectArea 主键。"
+      }
+    ]
+  },
+  "markConflictOfInterest": {
+    "columns": {
+      "ConferenceMember": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "ConferenceMember",
+      "Paper"
+    ],
+    "foreign_keys": []
+  },
+  "paperAssignmentToolsRunBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，且语义上会议标识引用会议表主键。"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP paperAssignmentToolsRunBy的range为Administrator，且runPaperAssignmentTools的domain为Administrator；列名与endpoint_class一致，表名与OP名完全匹配。"
+      }
+    ]
+  },
+  "reviewerBiddingStartedBy": {
+    "columns": {
+      "Conference": "integer",
+      "Administrator": "integer"
+    },
+    "primary_key": [
+      "Conference",
+      "Administrator"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Conference",
+        "ref_table": "Conference",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全匹配，且语义上 reviewerBiddingStartedBy 关联的会议应为 Conference 表的主键。"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名Administrator与本体OP reviewerBiddingStartedBy的range类Administrator及startReviewerBidding的domain类一致，语义得分0.95"
+      }
+    ]
+  },
+  "setMaxPapers": {
+    "columns": {
+      "Administrator": "integer",
+      "ProgramCommitteeMember": "integer"
+    },
+    "primary_key": [
+      "Administrator",
+      "ProgramCommitteeMember"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ProgramCommitteeMember",
+        "ref_table": "ProgramCommitteeMember",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名与目标表名完全一致，明显是外键引用"
+      },
+      {
+        "column": "Administrator",
+        "ref_table": "User",
+        "ref_col": "ID",
+        "source": "LLM_ONTOLOGY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "本体OP setMaxPapers的domain为Administrator类，列名与类名匹配，目标表User是用户表，语义分数0.95支持该引用。"
+      }
+    ]
+  },
+  "submitPaper": {
+    "columns": {
+      "Author": "integer",
+      "Paper": "integer"
+    },
+    "primary_key": [
+      "Author",
+      "Paper"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Author",
+        "ref_table": "Author",
+        "ref_col": "ID",
+        "source": "LLM_EMPTY",
+        "ind_score": null,
+        "confidence": "high",
+        "reason": "列名Author与目标表Author语义完全匹配，表示提交论文的作者身份"
+      }
+    ]
+  }
+}

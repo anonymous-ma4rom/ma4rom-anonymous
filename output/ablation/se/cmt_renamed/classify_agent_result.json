@@ -1,0 +1,638 @@
+{
+  "acceptances": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "decisions",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向decisions表，无其他属性列。"
+  },
+  "administrator_conference": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系，无额外属性列。"
+  },
+  "administrators": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      },
+      {
+        "column": "accept_paper",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，但存在额外属性列accept_paper，且accept_paper也是外键，不符合SH或SR条件。"
+  },
+  "associated_chairs": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向chairmans表，无其他属性列。"
+  },
+  "author_not_reviewers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向authors表，无其他属性列。"
+  },
+  "authors": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，同时指向conf_members和users表，无其他属性列。"
+  },
+  "bids": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "adjusted",
+        "references_table": "reviewers",
+        "references_column": "id"
+      },
+      {
+        "column": "bid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id不是外键，且存在额外属性列bid和adjusted，不符合SH或SR条件。"
+  },
+  "chairmans": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向conf_members表，无其他属性列。"
+  },
+  "co_author_paper": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "cid",
+        "references_table": "co_authors",
+        "references_column": "id"
+      },
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且为二元关系，无额外属性列。"
+  },
+  "co_authors": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "authors",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向authors表，无其他属性列。"
+  },
+  "conf_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 是外键，指向 persons 表，满足 SH 条件"
+  },
+  "conference_administrator": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且无额外属性，满足二元关系 SR 条件"
+  },
+  "conference_chairs": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 是外键，指向 chairmans 表，满足 SH 条件"
+  },
+  "conference_members": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "conference",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "conference_member",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且无额外属性，满足二元关系 SR 条件"
+  },
+  "conferences": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主实体表，包含多个属性列且主键非外键，满足 SE 条件"
+  },
+  "decisions": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅含主键列，无外键，可作为主实体表，满足 SE 条件"
+  },
+  "details_entered": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且无额外属性，满足二元关系 SR 条件"
+  },
+  "documents": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅含主键列，无外键，可作为主实体表，满足 SE 条件"
+  },
+  "enable_virtual_meeting": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，且无额外属性，满足二元关系 SR 条件"
+  },
+  "external_reviewers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键 id 是外键，指向 persons 表，满足 SH 条件"
+  },
+  "finalize_paper_assignment": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "hardcopy_mailing_manifests_p": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "mark_conflict_interests": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "conference_member",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "column": "paper",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "meta_reviewers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向reviewers，符合SH结构。"
+  },
+  "meta_reviews": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "reviews",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向reviews，符合SH结构。"
+  },
+  "paper_abstracts": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向papers，符合SH结构。"
+  },
+  "paper_assignment_tools_run": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "cid",
+        "references_table": "conferences",
+        "references_column": "id"
+      },
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "paper_author": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "paper_full_versions": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "papers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键，指向papers，符合SH结构。"
+  },
+  "paper_reviewer": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为FK，且为二元关系，无额外属性列。"
+  },
+  "paper_subject_area": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "column": "sid",
+        "references_table": "subject_areas",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，主键由两外键复合构成，无额外属性列，是二元关系表。"
+  },
+  "papers": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "accepted",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "author",
+        "references_table": "authors",
+        "references_column": "id"
+      },
+      {
+        "column": "decision",
+        "references_table": "decisions",
+        "references_column": "id"
+      },
+      {
+        "column": "read_by_meta_reviewer",
+        "references_table": "meta_reviewers",
+        "references_column": "id"
+      },
+      {
+        "column": "rejected",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键独立，表中包含属性列和多个外键，是主实体表。"
+  },
+  "pc_members": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "column": "added",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id即为指向conf_members的外键，并带有其他属性列，属于子表。"
+  },
+  "person_document": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "did",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "pid",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，主键由两外键复合构成，无额外属性列，是二元关系表。"
+  },
+  "persons": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键独立，拥有属性列且无外键，是主实体表。"
+  },
+  "preferences": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有主键列且无外键，是主实体表。"
+  },
+  "program_committee_chair_review": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "program_committee_chairs",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "reviews",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，主键由两外键复合构成，无额外属性列，是二元关系表。"
+  },
+  "program_committee_chairs": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "chairmans",
+        "references_column": "id"
+      },
+      {
+        "column": "id",
+        "references_table": "pc_members",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键独立，仅含id列（同时作为多个外键但非单一父表主键），不是SR或SH，属于主实体表。"
+  },
+  "program_committee_members": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "program_committee",
+        "references_table": "program_committees",
+        "references_column": "id"
+      },
+      {
+        "column": "program_committee_member",
+        "references_table": "pc_members",
+        "references_column": "id"
+      }
+    ],
+    "reason": "所有列均为外键，主键由两外键复合构成，无额外属性列，是二元关系表。"
+  },
+  "program_committees": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "主键独立，拥有属性列且无外键，是主实体表。"
+  },
+  "read_by_reviewer": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "pid",
+        "references_table": "papers",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "两列均为外键，复合主键等于这两列，无额外属性列，符合二元关系表定义。"
+  },
+  "rejections": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "decisions",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是唯一列且为外键，指向父表decisions，属于子表。"
+  },
+  "reviewer_administrator": {
+    "type": "SR",
+    "inferred_fks": [
+      {
+        "column": "aid",
+        "references_table": "administrators",
+        "references_column": "id"
+      },
+      {
+        "column": "rid",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "两列均为外键，复合主键等于这两列，无额外属性列，符合二元关系表定义。"
+  },
+  "reviewers": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "conf_members",
+        "references_column": "id"
+      },
+      {
+        "column": "id",
+        "references_table": "users",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id同时作为两个外键（指向conf_members和users），属于子表（多继承）。"
+  },
+  "reviews": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "documents",
+        "references_column": "id"
+      },
+      {
+        "column": "written",
+        "references_table": "reviewers",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是外键指向documents，且带有额外属性列（comment等），属于子表。"
+  },
+  "set_max_papers": {
+    "type": "SE",
+    "inferred_fks": [
+      {
+        "column": "administrator",
+        "references_table": "administrators",
+        "references_column": "id"
+      }
+    ],
+    "reason": "复合主键包含非外键列program_committee_member，且未满足所有列为FK的SR条件，故为主实体或带属性关系表。"
+  },
+  "subject_areas": {
+    "type": "SE",
+    "inferred_fks": [],
+    "reason": "仅有主键列id，无外键，属于主实体表。"
+  },
+  "users": {
+    "type": "SH",
+    "inferred_fks": [
+      {
+        "column": "id",
+        "references_table": "persons",
+        "references_column": "id"
+      }
+    ],
+    "reason": "主键id是唯一列且为外键，指向父表persons，属于子表。"
+  }
+}

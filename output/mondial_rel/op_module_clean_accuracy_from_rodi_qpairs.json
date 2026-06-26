@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "database": "mondial_rel",
+    "gold_source": "RODI qpair path-1 single-join subset",
+    "gold_total": 0,
+    "current_correct": 0,
+    "current_accuracy": null,
+    "current_coverage": null,
+    "prediction_json": "output/mondial_rel/op_module_clean_endpoint_llm_full.json",
+    "new_correct": 0,
+    "new_accuracy": null,
+    "op_module_correct": 0,
+    "op_module_accuracy": null,
+    "new_answered": 0,
+    "new_coverage": null,
+    "safe_rerank_correct": 0,
+    "safe_rerank_accuracy": null,
+    "delta_accuracy": null,
+    "safe_rerank_delta_accuracy": null
+  },
+  "details": []
+}

@@ -1,0 +1,107 @@
+[PrefixDeclaration]
+rr:		http://www.w3.org/ns/r2rml#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+xsd:		http://www.w3.org/2001/XMLSchema#
+sigkddmixed:	http://sigkdd#
+owl:		http://www.w3.org/2002/07/owl#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-1804130320
+target		<http://example.com/main_offices/{id}> a sigkddmixed:Main_office ; sigkddmixed:hasStreet {street}^^xsd:string ; sigkddmixed:hasPostalCode {postal_code}^^xsd:int ; <http://www.w3.org/2003/01/geo/wgs84_pos#lat> {lat}^^xsd:float ; <http://www.w3.org/2003/01/geo/wgs84_pos#long> {long}^^xsd:float . 
+source		SELECT "id" , "lat" , "long" , "street" , "postal_code" , "type" FROM "main_offices"
+
+mappingId	mapping-891334654
+target		<http://example.com/persons/{id}> a sigkddmixed:Listener . 
+source		SELECT "id" FROM "persons" WHERE "listener" = true
+
+mappingId	mapping--900463435
+target		<http://example.com/best_research_paper_awards/{id}> a sigkddmixed:Best_Research_Paper_Award . 
+source		SELECT "id" , "type" FROM "best_research_paper_awards"
+
+mappingId	mapping--1220102203
+target		<http://example.com/organizing_committees/{id}> a sigkddmixed:Organizing_Committee ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{cid}> , <http://example.com/conferences/{committee}> . 
+source		SELECT "id" , "cid" , "committee" FROM "organizing_committees"
+
+mappingId	mapping-894490740
+target		<http://example.com/registration_fees/{id}> a sigkddmixed:Registration_fee ; sigkddmixed:Price {price}^^xsd:int ; sigkddmixed:Currency {currency}^^xsd:string . 
+source		SELECT "id" , "currency" , "price" , "type" FROM "registration_fees"
+
+mappingId	mapping-1212587204
+target		<http://example.com/persons/{id}> a sigkddmixed:Organizator . 
+source		SELECT "id" FROM "persons" WHERE "organizator" = true
+
+mappingId	mapping-1202951501
+target		<http://example.com/persons/{id}> a sigkddmixed:Speaker . 
+source		SELECT "id" FROM "persons" WHERE "type" = 2
+
+mappingId	mapping--2036273274
+target		<http://example.com/best_paper_awards_committs/{id}> a sigkddmixed:Best_Paper_Awards_Committee ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{cid}> ; sigkddmixed:award <http://example.com/best_research_paper_awards/{award}> . 
+source		SELECT "id" , "award" , "committee" , "cid" FROM "best_paper_awards_committs"
+
+mappingId	mapping-2002197645
+target		<http://example.com/documents/{id}> a sigkddmixed:Review . 
+source		SELECT "id" FROM "documents" WHERE "type" = 3
+
+mappingId	mapping-1509029821
+target		<http://example.com/persons/{id}> a sigkddmixed:Person ; sigkddmixed:Nation {nation}^^xsd:string ; sigkddmixed:Name_of_sponsor {name_sponsor}^^xsd:string ; sigkddmixed:Name {name}^^xsd:string . 
+source		SELECT "id" , "nation" , "name" , "name_sponsor" , "organizator" , "program_chair" , "listener" , "author_paper_student" , "program_committee_member" , "type" FROM "persons"
+
+mappingId	mapping--2090889551
+target		<http://example.com/documents/{id}> a sigkddmixed:Review ; sigkddmixed:hasID {internal_id}^^xsd:int ; sigkddmixed:isReviewOf <http://example.com/documents/{review}> , <http://example.com/documents/{ref}> ; sigkddmixed:hasText {text}^^xsd:string . 
+source		SELECT "id" , "ref" , "review" , "internal_id" , "text" FROM "reviews"
+
+mappingId	mapping-209410653
+target		<http://example.com/conferences/{id}> a sigkddmixed:Conference ; sigkddmixed:City_of_conference {city_conference}^^xsd:string ; sigkddmixed:Name_of_conference {name_conference}^^xsd:string ; sigkddmixed:Start_of_conference {start_conference}^^xsd:dateTime ; sigkddmixed:holded_by <http://example.com/acm_sigkdds/{holded}> ; sigkddmixed:End_of_conference {end_conference}^^xsd:dateTime . 
+source		SELECT "id" , "holded" , "start_conference" , "city_conference" , "name_conference" , "end_conference" FROM "conferences"
+
+mappingId	mapping--350617992
+target		<http://example.com/deadline_abstract_submiss/{id}> a sigkddmixed:Deadline_Abstract_Submission ; sigkddmixed:Date {date}^^xsd:dateTime ; sigkddmixed:designed_by <http://example.com/acm_sigkdds/{designed}> . 
+source		SELECT "id" , "designed" , "date" , "type" FROM "deadline_abstract_submiss"
+
+mappingId	mapping-1549935278
+target		<http://example.com/sponzor_fees/{id}> a sigkddmixed:Sponzor_fee ; sigkddmixed:Currency {currency}^^xsd:string ; sigkddmixed:Price {price}^^xsd:int . 
+source		SELECT "id" , "currency" , "price" FROM "sponzor_fees"
+
+mappingId	mapping-2038543595
+target		<http://example.com/persons/{person}> sigkddmixed:E-mail {value}^^xsd:string . 
+source		SELECT "person" , "value" FROM "e_mails"
+
+mappingId	mapping-1061615374
+target		<http://example.com/acm_sigkdds/{id}> a sigkddmixed:ACM_SIGKDD . 
+source		SELECT "id" FROM "acm_sigkdds"
+
+mappingId	mapping-1048596570
+target		<http://example.com/persons/{id}> a sigkddmixed:Program_Chair . 
+source		SELECT "id" FROM "persons" WHERE "program_chair" = true
+
+mappingId	mapping-1303160956
+target		<http://example.com/program_committees/{id}> a sigkddmixed:Program_Committee ; rdfs:label {label}^^xsd:string ; sigkddmixed:isCommitteeOf <http://example.com/conferences/{committee}> , <http://example.com/conferences/{cid}> ; sigkddmixed:Name {label}^^xsd:string . 
+source		SELECT "id" , "label" , "committee" , "cid" FROM "program_committees"
+
+mappingId	mapping-1568430584
+target		<http://example.com/documents/{id}> a sigkddmixed:Abstract . 
+source		SELECT "id" FROM "documents" WHERE "type" = 2
+
+mappingId	mapping-1981040713
+target		<http://example.com/persons/{id}> a sigkddmixed:Organizator . 
+source		SELECT "id" FROM "persons" WHERE "type" = 0
+
+mappingId	mapping-552672031
+target		<http://example.com/documents/{id}> a sigkddmixed:Paper . 
+source		SELECT "id" FROM "documents" WHERE "type" = 1
+
+mappingId	mapping--1763912899
+target		<http://example.com/persons/{id}> a sigkddmixed:Program_Committee_member . 
+source		SELECT "id" FROM "persons" WHERE "program_committee_member" = true
+
+mappingId	mapping-968963819
+target		<http://example.com/persons/{id}> a sigkddmixed:Author_of_paper_student . 
+source		SELECT "id" FROM "persons" WHERE "author_paper_student" = true
+
+mappingId	mapping-1940362422
+target		<http://example.com/documents/{id}> a sigkddmixed:Document ; sigkddmixed:hasTitle {title}^^xsd:string . 
+source		SELECT "id" , "title" , "type" FROM "documents"
+]]
+
