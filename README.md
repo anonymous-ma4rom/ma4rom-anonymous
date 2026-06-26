@@ -20,9 +20,11 @@
 
 # Overview
 
-**MA4ROM** is a multi-agent framework for relational-to-ontology (R2O) mapping generation. Given a relational database schema, sampled relational values, and a target ontology, MA4ROM produces executable R2RML mappings and evaluates them with the RODI query-based benchmark protocol.
+**MA4ROM** is a multi-agent framework for relational-to-ontology (R2O) mapping generation. Given a relational database and a target ontology, MA4ROM generates class mappings, datatype property mappings, object property mappings, and executable R2RML mapping documents.
 
-The framework is designed for difficult mapping cases where simple name matching is insufficient, including adjusted naming, restructured hierarchies, denormalized tables, missing foreign keys, geodata, and large domain-specific schemas such as NPD. The released artifact contains the MA4ROM implementation, packaged RODI-derived datasets, generated mapping outputs, and the evaluation scripts needed to reproduce the reported F1 scores.
+MA4ROM targets three challenges studied in the paper. First, semantic loss in column names makes datatype property mapping difficult. Second, enumerated values may correspond to ontology subclasses that are not explicit in the database schema. Third, missing foreign keys (FK) and semantic loss in relationship table names make object property mapping difficult.
+
+To address these challenges, MA4ROM coordinates four specialized agents for automated R2O mapping generation. First, the agents collaboratively generate class, datatype property, and object property mappings. Second, MA4ROM applies a context retrieval based class and datatype property mapping algorithm to handle semantic loss in column names and enumerated value subclass mapping. Third, MA4ROM applies ontology inference and schema context based object property mapping with IND-based FK discovery to handle missing FKs and semantic loss in relationship table names.
 
 <p align="center">
   <img 
