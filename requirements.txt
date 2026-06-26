@@ -1,0 +1,22 @@
+# Core MA4ROM dependencies
+openai>=1.0.0
+langgraph>=0.2.0
+psycopg2-binary>=2.9.0
+rdflib>=7.0.0
+
+# Evaluation utilities
+requests>=2.31.0
+psutil>=5.9.0
+tqdm>=4.66.0
+PyYAML>=6.0.0
+PyMySQL>=1.1.0
+scikit-learn>=1.3.0
+typing_extensions>=4.8.0
+
+# Auxiliary experiment scripts
+pandas>=2.0.0
+
+# Optional: the scripts under ma4rom/experiments/valentine_* require
+# the Valentine schema-matching package. Install it following the
+# upstream Valentine project instructions if those auxiliary experiments
+# are needed; the main MA4ROM pipeline and RODI evaluation do not require it.

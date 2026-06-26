@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Local runtime artifacts
+*.log
+.env
+.env.*
+
+# Editor metadata
+.vscode/
+.idea/

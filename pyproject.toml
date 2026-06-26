@@ -1,0 +1,20 @@
+[project]
+name = "ma4rom-anonymous"
+version = "0.1.0"
+description = "Anonymous review artifact for MA4ROM"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "langgraph>=0.2.0",
+    "psycopg2-binary>=2.9.0",
+    "rdflib>=7.0.0",
+    "requests>=2.31.0",
+    "psutil>=5.9.0",
+    "tqdm>=4.66.0",
+    "PyYAML>=6.0.0",
+    "PyMySQL>=1.1.0",
+    "scikit-learn>=1.3.0",
+    "typing_extensions>=4.8.0",
+    "pandas>=2.0.0",
+]
