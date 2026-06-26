@@ -1,8 +1,7 @@
 <div align="center">
   <h1>MA4ROM</h1>
   <p><strong>Multi-Agent Framework for Relational-to-Ontology Mapping Generation</strong></p>
-  <p><em>Anonymous artifact for double-blind review</em></p>
-
+  
   <p>
     <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white">
     <img alt="PostgreSQL" src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white">
