@@ -34,16 +34,16 @@ def _env_bool(name: str, default: bool) -> bool:
 # oil & gas：
 #   npd_atomic_tests
 
-DEFAULT_DATABASE = "cmt_structured"  # 超参数实验统一默认跑 cmt_structured
+DEFAULT_DATABASE = "cmt_structured"  # 默认单场景示例数据库
 CURRENT_DATABASE = os.environ.get("MAMG_CURRENT_DATABASE", DEFAULT_DATABASE)  # 批量实验时可由环境变量临时覆盖
 
 # 统一入口总开关。可用 MAMG_IS_ABLATION=true 临时开启，无需改源码。
 isAblation = _env_bool("MAMG_IS_ABLATION", False)
 
 # 超参数实验总开关。
-# True: main.py 进入超参数串行实验入口；
-# False: 直接跑单次标准流程。
-isHyper = _env_bool("MAMG_IS_HYPER", True) and not isAblation
+# 默认关闭，保证 `python ma4rom/main.py` 运行单次标准流程；
+# 如需复现实验中的超参数扫描，可显式设置 MAMG_IS_HYPER=true。
+isHyper = _env_bool("MAMG_IS_HYPER", False) and not isAblation
 
 # HyperSelect 用字符串控制当前进行哪组实验：
 #   "dp_weight"                  -> DP 候选打分权重
@@ -76,11 +76,11 @@ if isHyper and not HyperLevel:
 #  PostgreSQL 连接配置
 
 DB_CONFIG = {
-    "host":     "localhost",
-    "port":     5432,
+    "host":     os.environ.get("PGHOST", "localhost"),
+    "port":     int(os.environ.get("PGPORT", "5432")),
     "database": CURRENT_DATABASE,       # 与上方 CURRENT_DATABASE 保持同步
-    "user":     "postgres",
-    "password": "postgres",
+    "user":     os.environ.get("PGUSER", "postgres"),
+    "password": os.environ.get("PGPASSWORD", "postgres"),
 }
 
 # PostgreSQLschema名
@@ -101,7 +101,7 @@ DB_SCHEMA_BY_DATABASE = {
 }
 DB_SCHEMA_NAME = os.environ.get(
     "MAMG_DB_SCHEMA",
-    DB_SCHEMA_BY_DATABASE.get(CURRENT_DATABASE, CURRENT_DATABASE),
+    DB_SCHEMA_BY_DATABASE.get(CURRENT_DATABASE, "public"),
 )
 
 LLM_API_KEY  = "YOUR_API_KEY"  # LLM API Key
