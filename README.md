@@ -20,29 +20,44 @@
 
 # Overview
 
-**MA4ROM** is a multi-agent framework for virtual knowledge graph mapping generation. Given a relational database schema, sampled relational values, and a target ontology, MA4ROM produces executable R2RML mappings and evaluates them with the RODI query-based benchmark protocol.
+**MA4ROM** is a multi-agent framework for relational-to-ontology (R2O) mapping generation. Given a relational database schema, sampled relational values, and a target ontology, MA4ROM produces executable R2RML mappings and evaluates them with the RODI query-based benchmark protocol.
 
 The framework is designed for difficult mapping cases where simple name matching is insufficient, including adjusted naming, restructured hierarchies, denormalized tables, missing foreign keys, geodata, and large domain-specific schemas such as NPD. The released artifact contains the MA4ROM implementation, packaged RODI-derived datasets, generated mapping outputs, and the evaluation scripts needed to reproduce the reported F1 scores.
 
-<!-- TODO: Add MA4ROM architecture figure here. -->
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/bd4d361f-d8f6-4c28-92c3-b88bb72acaff" 
+    width="1000"
+    alt="MAMGFramework"
+  />
+</p>
 
-MA4ROM follows a staged multi-agent workflow:
+MA4ROM follows a staged four-agent workflow:
 
-1. **Mapping Pattern Recognition Agent** identifies schema/ontology mapping patterns such as semantic-equivalent classes, subclass hierarchies, and relationship structures.
-2. **Class and Datatype Property Mapping Agent** ranks ontology candidates using lexical similarity, ontology-domain compatibility, and confidence estimation.
-3. **Context Enhancement Agent** uses real table values for low-confidence class and datatype-property mappings.
-4. **Foreign-Key Completion and Object Property Mapping Agent** handles missing or sparse foreign keys with IND discovery and ontology-aware object-property selection.
-5. **R2RML Mapping Generation Agent** writes executable mapping files for downstream virtual knowledge graph evaluation.
+1. **Mapping Pattern Recognition Agent** identifies mapping patterns in the source schema by combining rule-based structural analysis with LLM-based semantic classification.
+2. **Class and Datatype Property Mapping Agent** generates class and datatype property mappings. It ranks ontology candidates, estimates confidence, and applies context enhancement with instance values and schema information for low-confidence mappings and enumerated value subclass mappings.
+3. **Object Property Mapping Agent** maps FK columns and relationship tables to ontology object properties. It handles missing FKs with IND discovery and applies logic rules with ontology inference and schema context for object property candidate generation and selection.
+4. **R2RML Mapping Generation Agent** translates the generated class, datatype property, and object property mappings into executable R2RML mapping documents.
 
 ---
 
 # Key Contributions
 
-- **Multi-agent mapping generation.** MA4ROM decomposes relational-to-ontology mapping into coordinated agents for pattern recognition, class/datatype-property mapping, object-property mapping, context enhancement, and final R2RML generation.
-- **Robust handling of weak relational semantics.** The framework explicitly addresses missing FKs, sparse FK metadata, denormalized schemas, naming shifts, and ontology hierarchy restructuring.
-- **Confidence-aware context enhancement.** High-confidence datatype-property mappings can proceed directly, while low-confidence cases are enhanced using real table values to reduce unnecessary LLM calls.
-- **Ontology-aware FK and object-property recovery.** MA4ROM combines inclusion-dependency discovery, schema evidence, domain/range constraints, and object-property candidate ranking for FK-missing scenarios.
-- **Reproducible RODI artifact.** This repository includes packaged `dump.sql` files, query pairs, generated mapping outputs, and evaluation utilities adapted from the RODI/LLM4VKG evaluation pipeline.
+- **A multi-agent framework for R2O mapping generation.** MA4ROM coordinates four specialized agents for mapping pattern recognition, class and datatype property mapping, object property mapping, and R2RML mapping generation.
+- **A context retrieval algorithm for class and datatype property mapping.** The algorithm combines ontology candidate ranking, confidence estimation, and context enhancement with instance values and schema information to resolve semantic loss in column names and map enumerated values to ontology subclasses.
+- **An ontology inference and schema context based object property mapping method.** MA4ROM uses IND discovery for missing FKs and logic rules over domain/range constraints and mapped table classes to generate object property candidates for FK columns and relationship tables.
+
+---
+
+# Experiment Results
+
+The table below reports the main F1-score results on the RODI benchmark and the RODI-noFKs robustness setting. We include LLM4VKG as the baseline and report MA4ROM under the default setting. `RODI-noFKs` denotes the setting where all physical FKs are removed before running MA4ROM.
+
+| Method | Rename | Restr. | Mixed | NoFK | Denorm. | Geo. | NPD | Avg. |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| LLM4VKG | 0.7746 | 0.4797 | 0.7451 | 0.4615 | 0.5600 | 0.2526 | 0.3805 | 0.5220 |
+| MA4ROM | 0.9367 | 0.8693 | 0.9649 | 0.8462 | 0.7734 | 0.3446 | 0.3765 | 0.7109 |
+| MA4ROM RODI-noFKs | 0.8851 | 0.8825 | 0.8959 | -- | 0.5600 | 0.2885 | 0.3617 | 0.6456 |
 
 ---
 
@@ -74,7 +89,11 @@ MA4ROM follows a staged multi-agent workflow:
 
 # Datasets
 
-The artifact packages RODI-derived scenarios under `dataset/`. Each scenario contains the target ontology, a PostgreSQL dump, and the query pairs used by the evaluator:
+The artifact uses scenarios derived from the RODI benchmark. RODI provides relational databases, target ontologies, and query pairs for evaluating relational-to-ontology mapping generation. For the full benchmark design and original datasets, please refer to the official RODI repository: https://github.com/chrpin/rodi
+
+## RODI
+
+The packaged RODI scenarios are placed under `dataset/`. Each scenario contains the target ontology, a PostgreSQL dump, and the query pairs used by the evaluator:
 
 ```text
 dataset/<scenario>/
@@ -83,49 +102,23 @@ dataset/<scenario>/
 └── queries/
 ```
 
-Some scenarios also include the original `ontology.owl` when available. The packaged query pairs are used by `run_my_eval.py` to compute F1 scores from generated mappings.
+The included scenarios cover the main RODI settings used in our experiments.
 
-## Packaged Scenarios
+| Scenario | Description |
+|---|---|
+| Rename | Schema names are renamed, making lexical matching harder. |
+| Restructured | The relational schema structure is changed while preserving the target ontology. |
+| Mixed | Multiple schema changes are combined in the same setting. |
+| NoFK | Foreign keys are unavailable or incomplete in the original RODI setting. |
+| Denormalized | Tables are merged or denormalized, making class and relation recovery harder. |
+| Mondial | A real-world geographic database scenario. |
+| NPD | A real-world petroleum-domain database scenario. |
 
-| Scenario family | Included variants | Query pairs per variant |
-|---|---|---:|
-| CMT | `cmt_renamed`, `cmt_structured`, `cmt_denormalized` and `_-100` variants | 29 |
-| Conference | `conference_naive`, `conference_renamed`, `conference_structured`, `conference_nofks` and available `_-100` variants | 39 |
-| SIGKDD | `sigkdd_naive`, `sigkdd_renamed`, `sigkdd_structured`, `sigkdd_mixed` and `_-100` variants | 29 |
-| Mondial | `mondial_rel`, `mondial_rel_-100` | 50 |
-| NPD | `npd_atomic_tests`, `npd_atomic_tests_-100` | 439 |
+## RODI-noFKs
 
-Validate the packaged datasets with:
-
-```bash
-python setup_dataset.py --check
-```
-
-List all available scenarios with:
-
-```bash
-python setup_dataset.py --list
-```
-
-Load one scenario into PostgreSQL:
-
-```bash
-python setup_dataset.py --load cmt_structured --drop-existing
-```
-
-Load all packaged scenarios:
-
-```bash
-python setup_dataset.py --load all --drop-existing
-```
-
-The loader uses `PGHOST`, `PGPORT`, `PGUSER`, and `PGPASSWORD` if they are set. Otherwise, it defaults to `localhost:5432` and `postgres/postgres`. It creates one PostgreSQL database per scenario and detects the schema name declared inside each `dump.sql` file.
-
----
+We additionally provide a `RODI-noFKs` setting to evaluate robustness under missing FK constraints. In this setting, all physical FKs are removed from the database schemas, while the database contents, target ontologies, and query pairs remain unchanged. This setting tests whether MA4ROM can recover relation information through IND-based FK discovery.
 
 # Installation and Setup
-
-<!-- TODO: Add setup walkthrough screenshot or short demo GIF here. -->
 
 ## Prerequisites
 
@@ -137,6 +130,14 @@ The loader uses `PGHOST`, `PGPORT`, `PGUSER`, and `PGPASSWORD` if they are set. 
 | Git | Any recent version | Cloning the artifact repository |
 
 The evaluation scripts use the bundled Ontop runtime under `resources/ontop/`.
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/4d220fd3-eb8b-4a83-a124-00e155c5f703" 
+    width="500"
+    alt="image"
+  />
+</p>
 
 ## Step 1: Clone the Repository
 
@@ -154,18 +155,38 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Step 3: Validate and Load the Dataset
+## Step 3: Validate and Load Datasets
 
-First check that all packaged files are present:
+First check that all packaged dataset files are present:
 
 ```bash
 python setup_dataset.py --check
 ```
 
-Then load the target scenario into PostgreSQL:
+List all available scenarios:
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/7e8836ca-baad-4292-8546-c0996f26b851" 
+    width="500"
+    alt="image"
+  />
+</p>
+
+```bash
+python setup_dataset.py --list
+```
+
+Load one scenario into PostgreSQL:
 
 ```bash
 python setup_dataset.py --load cmt_structured --drop-existing
+```
+
+Load all packaged scenarios:
+
+```bash
+python setup_dataset.py --load all --drop-existing
 ```
 
 For non-default PostgreSQL credentials, either export environment variables:
@@ -184,11 +205,34 @@ or pass command-line options:
 python setup_dataset.py --load cmt_structured --host localhost --port 5432 --user postgres --password postgres --drop-existing
 ```
 
+The loader uses `PGHOST`, `PGPORT`, `PGUSER`, and `PGPASSWORD` if they are set. Otherwise, it defaults to `localhost:5432` and `postgres/postgres`.
+
 After loading, the script prints the exact `MAMG_CURRENT_DATABASE` and, when needed, `MAMG_DB_SCHEMA` command for running MA4ROM.
 
 ## Step 4: Configure MA4ROM
 
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/a904067b-ceba-468b-8128-9c814c0f41b6" 
+    width="420"
+    alt="image"
+  />
+  <img 
+    src="https://github.com/user-attachments/assets/020deeb0-6dbf-4cf6-a15b-f50e3e81dbc6" 
+    width="420"
+    alt="image"
+  />
+</p>
+
 Open `ma4rom/config.py` and set the LLM configuration if you want to rerun the mapping-generation pipeline:
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/9e01c1d1-e21f-4ed4-937b-aee8b4b05d41" 
+    width="500"
+    alt="image"
+  />
+</p>
 
 ```python
 LLM_API_KEY = "YOUR_API_KEY"
@@ -197,6 +241,14 @@ LLM_MODEL = "deepseek-v4-flash"
 ```
 
 The PostgreSQL connection defaults to:
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/68e6b934-4932-47e9-ab55-774f3b020318" 
+    width="500"
+    alt="image"
+  />
+</p>
 
 ```python
 DB_CONFIG = {
@@ -213,6 +265,14 @@ If your local PostgreSQL username or password differs, edit `DB_CONFIG` accordin
 ## Step 5: Run MA4ROM
 
 Run a single scenario from the repository root:
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/530ef757-bce0-4eab-a1b3-eeaf300bb185" 
+    width="500"
+    alt="image"
+  />
+</p>
 
 ```bash
 MAMG_CURRENT_DATABASE=cmt_structured python ma4rom/main.py
@@ -233,8 +293,6 @@ ontology.properties
 metrics/intermediate JSON files
 ```
 
----
-
 # Evaluation
 
 This repository includes generated outputs and evaluation scripts so reviewers can inspect existing results or recompute F1 scores.
@@ -246,6 +304,14 @@ python run_my_eval.py evaluate_results/default/cmt_structured_test
 ```
 
 ## Evaluate All Results in a Folder
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/54a5dce4-0c21-4c51-b097-472fd1b07348" 
+    width="500"
+    alt="image"
+  />
+</p>
 
 ```bash
 python run_my_eval.py evaluate_results/default --batch --skip-done
@@ -299,23 +365,11 @@ The main paper settings are encoded in `ma4rom/config.py`. The most important hy
 
 ---
 
-# Reproducibility Checklist
+# Example Use Case
 
-- [x] Source code for MA4ROM pipeline
-- [x] Packaged RODI-derived `dump.sql` files
-- [x] Packaged query pairs under `dataset/<scenario>/queries/`
-- [x] Dataset validation and PostgreSQL setup script
-- [x] Evaluation scripts and Ontop resources
-- [x] Generated mapping outputs and F1 result files
-- [x] Anonymous metadata for double-blind review
-
----
-
-# Notes for Double-Blind Review
-
-This repository is prepared for anonymous review. Author names, affiliations, personal paths, and identifying metadata have been removed. Full author information and citation metadata will be added after the review process.
-
----
+<p align="center">
+  <img width="500" alt="MAMGSampleNew" src="https://github.com/user-attachments/assets/7883cc53-7ef4-4671-b741-ed416e213af6" />
+</p>
 
 # Citation
 
