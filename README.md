@@ -27,8 +27,9 @@ To address these challenges, MA4ROM coordinates four specialized agents for auto
 
 <p align="center">
   <img 
-    src="https://github.com/user-attachments/assets/bd4d361f-d8f6-4c28-92c3-b88bb72acaff" 
+    src="https://github.com/user-attachments/assets/553991b5-d94f-4136-ab6c-c7b8c1348171" 
     width="1000"
+
     alt="MAMGFramework"
   />
 </p>
